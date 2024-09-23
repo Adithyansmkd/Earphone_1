@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Sidebar Toggle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--primary-color);
+        }
+
+        :root {
+            --primary-color: #fff;
+            --secondary-color: #0D1117;
+        }
+
+        .dark-theme {
+            --primary-color: #0D1117;
+            --secondary-color: #fff;
+        }
+
+        .navbar {
+            background-color: #0D1117;
+            
+        }
+
+        .navbar-nav .nav-link,
+        .dropdown-item {
+            color: #F5F5F5;
+        }
+
+        .navbar-toggler {
+            border-color: #fff;
+        }
+
+        .navbar-toggler-icon {
+            color: #fff;
+        }
+
+        .marquee {
+            background-color: #070916;
+            color: #fff;
+            padding: 2px;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu {
+            background-color: #0D1117;
+            overflow: hidden;
+        }
+
+        .dropdown-menu li {
+            padding: 5px 35px;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: #182a3d;
+            color: #fff;
+        }
+
+        .dropdown-menu li .dropdown-item:hover {
+            background-color: #182a3d;
+            color: #fff;
+        }
+
+
+        .nav-item {
+            padding: 5px 15px;
+        }
+        #heart{
+            animation: heart 1s linear infinite;
+        }
+        @keyframes heart {
+            0%{
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.18);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 55px;
+                left: 0;
+                width: 250px;
+                height: calc(100vh - 56px);
+                background-color: #0D1117;
+                z-index: 1000;
+                display: block;
+                overflow-y: auto;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-nav .nav-link {
+                padding: 15px 20px;
+                color: #F5F5F5;
+            }
+
+            .navbar-nav .nav-item {
+                border-bottom: 1px solid #111b25;
+            }
+        }
+
+        #companyname {
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .navbar-brand-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 50px;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                text-align: left;
+            }
+        }
+
+        .navbar-brand-right a {
+            color: #fff;
+            padding: 2px 23px;
+        }
+
+        .navbar-brand-right a i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 570px) {
+            .navbar-brand-right a {
+                color: #fff;
+                padding: 0px 7px;
+            }
+
+            .navbar-brand-right a i {
+                font-size: 1rem;
+            }
+
+            #companyname {
+                font-size: 1.1rem;
+            }
+        }
+
+        .content-placeholder {
+            background-color: #ffffff;
+            width: 100%;
+            height: 72vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-inner img {
+            object-fit: fill;
+            height: 72vh;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-inner img:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #000;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #0b260b;
+            border-radius: 50%;
+            color: #ffffff;
+        }
+
+        @media (max-width: 576px) {
+            .content-placeholder {
+                width: 100%;
+                height: 45vh;
+            }
+
+            .carousel-inner img {
+                height: 45vh;
+            }
+        }
+
+        .page-features {
+            margin: 20px 0;
+
+        }
+
+        .feature-sub {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .feature-sub img {
+
+            width: 40%;
+        }
+
+        .feature-sub h3 {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-sub h3 span {
+            font-size: 1.11rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 580px) {
+            .page-features {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .feature-sub {
+                flex: 0 0 50%;
+                max-width: 50%;
+
+            }
+
+            .feature-sub h3 {
+                font-size: 1rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+
+        #switch {
+            width: 60px;
+            height: 25px;
+            border: 1px solid rgba(50, 48, 48, 0.799);
+
+            position: absolute;
+            z-index: 1000;
+            background-color: #e7e2e2;
+            border-radius: 50px;
+        }
+
+        #switch::after {
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #191919;
+            left: 5px;
+            top: 2px;
+            transition: 500ms ease;
+        }
+
+        #toggle:checked+#switch::after {
+            left: 55%;
+        }
+
+
+        .timeout-main-box {
+            height: 25vh;
+           
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timeout-sub {
+            width: 100%;
+            border-radius: 15px;
+            background: url(images/timout-red.webp);
+            background-position: center;
+            height: 20vh;
+            display: flex;
+            margin-top: 2%;
+            justify-content: center;
+            align-items: center;
+        }
+        .timeout-sub2 {
+            width: 100%;
+            border-radius: 15px;
+            background: url(images/timeout-green.jpg);
+            background-position: center;
+            height: 20vh;
+            display: flex;
+            justify-content: center;
+            margin-top: 4%;
+            align-items: center;
+        }
+
+        .timebox {
+            color: #fff;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+
+        .timebox div {
+            flex-basis: 120px;
+        }
+
+        .timebox div p {
+            font-size: 4rem;
+            font-weight: 900;
+        }
+
+        .timebox div h2 {
+            font-size: 1.4rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #timemove {
+            margin-left: 30%;
+        }
+
+        .info-time {
+            position: absolute;
+            left: 4%;
+            width: 92%;
+            top: 0%;
+        }
+
+        .info-time h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .info-time p,
+        a {
+            font-size: 1.1rem;
+            color:var(--secondary-color);
+            text-decoration: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        /* Media queries to adjust font sizes on smaller screens */
+        @media (max-width: 768px) {
+            .timeout-main-box{
+                height: 20vh;
+            }
+            .timeout-sub {
+                height: 13vh;
+                margin-top: 5%;
+
+            }
+            .timeout-sub2 {
+                height: 12vh;
+                
+
+            }
+
+            .timebox div p {
+                font-size: 1rem;
+            }
+
+            .timebox div h2 {
+                font-size: 0.9rem;
+            }
+
+            .info-time h3 {
+                font-size: 1.2rem;
+            }
+
+            .info-time p,
+            a {
+                font-size: 1rem;
+            }
+
+            .which-sale {
+                font-size: 0.8rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+
+        .second-page-main{
+            width: 90%;
+            margin-top: 8%;
+            height: 50vh;
+        }
+        .second-page-main .tables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.second-page-main .divs1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+   
+
+    text-align: center;
+   
+    transition: all 0.3s ease;
+}
+
+.second-page-main .divs1-1 {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-page-main .divs1-1 i {
+    font-size: 3.3rem;
+    color: #b31a1a;
+    transition: all 0.3s ease;
+}
+
+.second-page-main .divs1-2 {
+    flex-basis: 70%;
+    display: grid;
+    place-items: center;
+}
+
+.second-page-main .divs1-2 h1 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.second-page-main .divs1-2 button {
+    position: relative;
+    padding: 6px 15px;
+    border-radius: 30px;
+    background: transparent;
+    color: var(--secondary-color);
+    border: 1px solid rgb(34, 34, 34);
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.8s ease, background 0.8s ease, transform 0.8s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.second-page-main .divs1-2 button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background: rgb(36, 34, 34);
+    transition: width 0.8s ease, left 0.8s ease;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.second-page-main .divs1-2 button:hover::before {
+    width: 200%;
+    left: 50%;
+}
+
+.second-page-main .divs1-2 button:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.second-page-main .divs1-2 button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    z-index: -2;
+}
+
+.second-page-main .divs1:hover {
+    background: linear-gradient(to left, #FF0000, #fe6161);
+    color: white;
+    border-radius: 6px;
+}
+
+.second-page-main .divs1:hover i {
+    color: white;
+}
+
+.second-page-main .divs1:hover h1 {
+    color: white;
+}
+
+.second-page-main .divs1:hover button {
+    color: white;
+    border: 1px solid white;
+}
+
+/* Fixes for overflow and mobile responsiveness */
+.container-fluid {
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.tables {
+    margin-top: 20px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 576px) {
+    .second-page-main{
+        margin-top: 18%;
+
+    }
+    .second-page-main .divs1 {
+        flex-direction: column;
+        
+    }
+
+    .second-page-main .divs1-1 i {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .second-page-main .divs1-2 h1 {
+        font-size: 1.1rem;
+        font-size: 1rem;
+      
+    }
+    .second-page-main .divs1-2{
+        margin-top: 5%;
+    }
+    .second-page-main .divs1-2 button {
+        padding: 4px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .second-page-main .divs1-1 i {
+        font-size: 2.5rem;
+    }
+
+    .second-page-main .divs1-2 h1 {
+        font-size: 1.2rem;
+    }
+
+    .second-page-main .divs1-2 button {
+        padding: 5px 9px;
+        font-size: 1rem;
+    }
+}
+
+.categories-page {
+    height: auto; /* Allow height to adjust based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.categories-page h1 {
+    font-size: 3.5rem;
+    color: #555449;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* categories */
+.categories-page .catagory-main-div {
+    margin-top: 4%;
+    width: 90%; /* Reduced width for better centering */
+    max-width: 1200px; /* Prevent it from being too wide on large screens */
+}
+
+.catagory-main-div .row {
+    gap: 15px;
+    margin-top: 2%;
+    justify-content: center; /* Ensures rows are centered */
+}
+
+/* Categories columns */
+.categories-page .cat-col {
+    height: 22vh; /* Adjust height as needed */
+    display: flex;
+    text-align: left;
+    align-items: end;
+    justify-content: start;
+    position: relative; /* For better image control */
+}
+
+/* Hover effect */
+.categories-page .cat-col:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+/* Background images for categories */
+#col-img1 {
+    background: url(images/cat-earphone.webp);
+    background-size: cover;
+    background-position: center;
+}
+#col-img2 {
+    background: url(images/earbuds.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#col-img3 {
+    background: url(images/head.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+#col-img4 {
+    background: url(images/sound.webp);
+    background-size: cover;
+    background-position: center;
+}
+#col-img5 {
+    background: url(images/smart.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+#col-img6 {
+    background: url(images/ghead.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Styling for the category text */
+.categories-page .cat-col a {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    color: #ffffff;
+    font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .categories-page h1 {
+        margin-top: 7%;
+        font-size: 1.8rem; /* Reduce heading size */
+    }
+
+    .categories-page .catagory-main-div {
+        width: 90%;
+         /* Full width on small screens */
+      /* Remove left margin */
+    }
+
+    .catagory-main-div .row {
+        flex-direction: column; /* Stack items vertically */
+      
+    }
+
+    .categories-page .cat-col {
+        height: 18vh; /* Let the height adjust based on content */
+        display: flex;
+    text-align: left;
+    
+    align-items: end;
+    justify-content: start;
+    position: relative; 
+        
+    }
+
+    /* Styling for the category text */
+    .categories-page .cat-col a {
+        font-size: 1rem;
+        margin-left: 10px; /* Reduce font size */
+        /* Center the text on small screens */
+    }
+}
+
+
+
+/* third page */
+.third-page {
+    display: flex;
+    margin-top: 4%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Splash Image */
+.third-page-sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Adjust for flex */
+    position: relative;
+}
+
+.image-splash {
+    width: 70%;
+    height: 50vh;
+    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
+    background-size: cover;
+    mask-position: -210px;
+    mask-repeat: no-repeat;
+}
+
+.third-page-sub i {
+    color: #111d10;
+    position: absolute;
+    margin-top: 20%;
+    animation: glass 3s infinite;
+}
+
+/* Text Box Section */
+.third-page-sub2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Adjust for flex */
+    flex-direction: column;
+    height: auto;
+}
+
+.text-box-arrival {
+    text-align: center;
+    width: 65%;
+}
+
+.text-box-arrival h2 {
+    font-size: 4.5rem;   
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    background-image: url(https://files.123freevectors.com/wp-content/original/131774-red-and-yellow-polygon-triangle-pattern-background.jpg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+}
+.text-box-arrival h2:hover{
+    background-image: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: all 4s linear;
+    background-position: left;
+    scroll-behavior: smooth;
+}
+
+.text-box-arrival p {
+    font-size: 1.1rem;
+    margin-top: 3%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: var(--secondary-color);
+}
+
+.text-box-arrival button {
+    padding: 5px 30px;
+    margin-top: 25px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 10px;
+}
+.new-arrival h1{
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #555449;    
+
+}
+/* Popup */
+.popup-arrival {
+    z-index: 30;
+    position: absolute;
+    display: none;
+    align-items: center;
+    margin-left: 10%;
+    flex-direction: column;
+    background: var(--primary-color);
+    height: 60vh;
+    width: 60%;
+    border-radius: 10px;
+    border: 2px solid #4b4955;
+}
+#slide1:checked ~ .images img{
+    transform: translateX(0);
+
+ }
+ #slide2:checked ~ .images img{
+    transform: translateX(-100%);
+
+ }
+ #slide3:checked ~ .images img{
+    transform: translateX(-200%);
+
+ }
+ .arrival-image-box input{
+    display: none;
+ }
+.popup-arrival p {
+    margin-top: 2%;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 4px;
+}
+
+.popup-arrival h6 {
+    position: absolute;
+    color: red;
+    top: 10px;
+    left: 10px;
+    font-size: 1.4rem;
+}
+
+.arrival-image-box {
+    margin-top: 2%;
+    width: 40%;
+    height: 40vh;
+    position: relative;
+    background-color: #4b4955;
+}
+
+.arrival-image-box .images {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.arrival-image-box .images img {
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    transition: all 1s linear;
+}
+
+.arrival-image-box input {
+    display: none;
+}
+
+.img-box-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 7vh;
+    gap: 20px;
+    width: 100%;
+}
+
+.img-box-label label {
+    background-color:var(--secondary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    padding: 4px 10px;
+}
+
+/* Mobile View: Stacked layout (block) */
+@media (max-width: 768px) {
+    .third-page {
+        flex-direction: column;
+        margin-top: 10%; /* Stack content on top of each other */
+    }
+    
+    .third-page-sub, .third-page-sub2 {
+        width: 100%; /* Full width for mobile */
+    }
+
+    .image-splash {
+    width: 70%;
+    height: 40vh;
+    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
+    background-size: cover;
+    mask-position: -440px;
+    border-radius: 34% 0 0 10%;
+    mask-repeat: no-repeat;
+}
+
+    /* Adjust popup size on mobile */
+    .popup-arrival {
+        width: 80%;
+        margin: 0;
+        height: 47vh;
+    }
+
+    .popup-arrival p {
+        font-size: 1rem;
+        text-align: center;
+        letter-spacing: 0px;
+    }
+
+    .arrival-image-box {
+        width: 80%;
+        height: 30vh;
+    }
+
+    .arrival-image-box .images img {
+        height: 30vh;
+        width: 100%;
+    }
+    .text-box-arrival{
+        margin-top: 8%;
+    }
+    .text-box-arrival h2{
+        font-size: 2.5rem;
+    }
+    .text-box-arrival p{
+        font-size: 0.9rem;
+    }
+    .third-page-sub i {
+    color: var(--secondary-color);
+    position: absolute;
+    margin-top: 26%;
+    animation: glass 3s infinite;
+}
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="marquee">
+        <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
+            one free on select items!</marquee>
+    </div>
+
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Navbar Toggle for mobile view -->
+            <button style="padding: 1px; border: none; margin-left: 8px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand"
+                style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" id="companyname"
+                href="#">CompanyName</a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <li><a class="dropdown-item" href="#">Earphone</a></li>
+                            <li><a class="dropdown-item" href="#">Speaker</a></li>
+                            <li><a class="dropdown-item" href="#">Powerbank</a></li>
+                            <li><a class="dropdown-item" href="#">Earbuds</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <input style="visibility: hidden;" type="checkbox" id="toggle">
+                        <label id="switch" for="toggle"></label>
+
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right-side icons -->
+            <div class="navbar-brand-right">
+                <a href=""><i id="heart" style="color: #ff4d4f; " class="fa-solid fa-heart"></i></a>
+                <a href=""><i  class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-solid fa-user"></i></a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Slider Container -->
+    <div class="content-placeholder">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-indicators">
+                <button style="background-color: #fff;" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button style="background-color: #fff;" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button style="background-color: #fff;" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/slidebar-buds.webp"
+                        class="d-block w-100" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://business.webcreativemantra.com/wp-content/uploads/2023/01/wireless-neckband.jpg"
+                        class="d-block w-100" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/slide-bar.webp"
+                        class="d-block w-100" alt="Slide 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+
+    <div class="container mt-3">
+        <div class="row page-features">
+            <div class="col-md-3 feature-sub">
+                <img src="images/replace-logo.svg" alt="">
+                <h3><span>7 day </span>Replacement</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/free-delivery.svg" alt="">
+                <h3><span>Free </span>Delivery</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/year.svg" alt="">
+                <h3><span>1 year </span>Warranty</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/gst.svg" alt="">
+                <h3><span>GST </span>Billing</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container timeout-main-box">
+        <div class="info-time row">
+            <div class="col-6">
+                <h3>Deals now</h3>
+            </div>
+            <!-- <div class="col-6 text-right">
+                <p><a href="#">View all&nbsp;<i class="fa-solid fa-circle-chevron-right"></i></a></p>
+            </div> -->
+        </div>
+        <div class="timeout-sub  row justify-content-center align-items-center">
+
+            <div class="timebox d-flex justify-content-around align-items-center col-12 col-md-10 col-lg-8">
+                <h4 class="which-sale" style="text-align: left; ">SUMMER SALE ENDS IN :</h4>
+                <div>
+                    <p id="days">00</p>
+                    <h2>Days</h2>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <h2>Hour</h2>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <h2>Min</h2>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <h2>Sec</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- second timeout -->
+    <div class="container timeout-main-box">
+        <div class="info-time row mt-3">
+            <div class="col-6">
+                <h3 style="text-wrap: nowrap;">Prime Deals now</h3>
+            </div>
+            <!-- <div class="col-6 text-right">
+                <p><a href="#">View all&nbsp;<i class="fa-solid fa-circle-chevron-right"></i></a></p>
+            </div> -->
+        </div>
+        <div class="timeout-sub2 mt-5  row justify-content-center align-items-center">
+
+            <div class="timebox d-flex justify-content-around align-items-center col-12 col-md-10 col-lg-8">
+                <h4 class="which-sale" style="text-align: left; ">WEEKEND SALE  ENDS IN :</h4>
+                <div>
+                    <p id="days2">00</p>
+                    <h2>Days</h2>
+                </div>
+                <div>
+                    <p id="hours2">00</p>
+                    <h2>Hour</h2>
+                </div>
+                <div>
+                    <p id="minutes2">00</p>
+                    <h2>Min</h2>
+                </div>
+                <div>
+                    <p id="seconds2">00</p>
+                    <h2>Sec</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid second-page-main">
+        <div class="row tables">
+            <div class="col-12 col-md-6 mb-3">
+                <div class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>Premium Audio Products</h1>
+                        <a href=""><button>Check Products</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div id="bck-set" class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>We are here to answer your Questions</h1>
+                        <a href=""><button>Request A Call Back</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-user-lock"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>Secure Shopping Experience</h1>
+                        <a href=""><button>Learn more</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div id="bck-set" class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>User-Friendly Shopping Experience</h1>
+                        <a href=""><button>Reviews</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- category -->
+    <div class="categories-page mt-5">
+        <h1>Shop by Categories</h1>
+        <div class="catagory-main-div container">
+            <div class="row">
+                <div id="col-img1" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">EARPHONES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+                <div id="col-img2" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">TWS EARBUDS &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div id="col-img3" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">HEADPHONES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+                <div id="col-img4" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">SOUNDBARS &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div id="col-img5" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">SMART WATCHES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+                <div id="col-img6" class="col-12 col-md-5 cat-col">
+                    <h2><a href="">GAMING HEADPHONES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="new-arrival mt-4">
+        <h1>New Arrival</h1>
+    </div>
+  
+    <div class="container-fluid  third-page">
+        <div class="row">
+            <div class="col-12 col-md-6 third-page-sub">
+                <img class="image-splash" src="images/splash-imag.jpeg" alt="">
+                <h1 onclick="openpopup()"><i class="fa-solid fa-magnifying-glass-plus"></i></h1>
+            </div>
+            <div class="col-12 col-md-6 third-page-sub2">
+                <div class="text-box-arrival">
+                    <h2>AquaTune Earbuds 3 Pro</h2>
+                    <p>AquaTune Earbuds. These earbuds are designed to provide an exceptional audio experience, combining
+                        cutting-edge technology with a sleek, water-resistant design. Long Battery Life: Enjoy up to 12 hours
+                        of continuous playback on a single charge, with a compact charging case providing an additional 24
+                        hours of battery life.
+                    </p>
+                    <a href=""><button>View</button></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Popup Section -->
+        <div id="popup" class="popup-arrival">
+            <h6 onclick="closepopup()"><span><i class="fa-solid fa-circle-xmark"></i></span></h6>
+            <p>AquaTune Earbuds 3 Pro</p>
+          
+            <div class="arrival-image-box">
+                <div class="radios">
+                    <input type="radio" id="slide1" name="slide1">
+                    <input type="radio" id="slide2" name="slide1">
+                    <input type="radio" id="slide3" name="slide1">
+    
+                    <div class="images">
+                        <img src="images/img1-popup.jpeg" id="img1" alt="">
+                        <img src="images/popup-img2.jpeg" id="img2" alt="">
+                        <img src="images/popup-img3.jpeg" id="img3" alt="">
+                    </div>
+                </div>
+                <div class="img-box-label">
+                    <label for="slide1">1</label>
+                    <label for="slide2">2</label>
+                    <label for="slide3">3</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <script>
+        function openpopup() {
+            document.getElementById('popup').style.display = "flex";
+        }
+    
+        function closepopup() {
+            document.getElementById('popup').style.display = "none";
+        }
+    </script>
+    
+    
+
+
+    <script>
+        var toggle = document.getElementById('toggle')
+        toggle.onclick = function () {
+            document.body.classList.toggle('dark-theme')
+        }
+
+    </script>
+    <script>
+        var countDownDate1 = new Date("oct 1, 2024 21:01:00").getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate1 - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+
+
+
+        function openpopup() {
+            document.getElementById('popup').style.display = "flex";
+        }
+        function closepopup() {
+            document.getElementById('popup').style.display = "none"
+        }
+    </script>
+
+      <script>
+        var countDownDate = new Date("oct 15, 2024 21:01:00").getTime();
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days2 = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours2 = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes2 = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds2 = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days2").innerHTML = days2;
+            document.getElementById("hours2").innerHTML = hours2;
+            document.getElementById("minutes2").innerHTML = minutes2;
+            document.getElementById("seconds2").innerHTML = seconds2;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+
+
+
+        function openpopup() {
+            document.getElementById('popup').style.display = "flex";
+        }
+        function closepopup() {
+            document.getElementById('popup').style.display = "none"
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
