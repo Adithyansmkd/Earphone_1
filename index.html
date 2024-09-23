@@ -32,12 +32,16 @@
 
         .navbar {
             background-color: #0D1117;
+            position: fixed;
+            width: 100%;
+            z-index: 1200;
+           
             
         }
 
         .navbar-nav .nav-link,
         .dropdown-item {
-            color: #F5F5F5;
+            color: #f1f1f1;
         }
 
         .navbar-toggler {
@@ -52,9 +56,17 @@
             background-color: #070916;
             color: #fff;
             padding: 2px;
+            height: 11vh;
+            display: flex;
+            justify-content: center;
+            align-items: end;
             font-size: 0.9rem;
         }
+        .marquee marquee{
+            font-size: 0.8rem;
+            color: #575555;
 
+        }
         .dropdown-menu {
             background-color: #0D1117;
             overflow: hidden;
@@ -96,7 +108,7 @@
         @media (max-width: 991.98px) {
             .navbar-collapse {
                 position: absolute;
-                top: 55px;
+                top: 54px;
                 left: 0;
                 width: 250px;
                 height: calc(100vh - 56px);
@@ -948,10 +960,7 @@
 
 <body>
 
-    <div class="marquee">
-        <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
-            one free on select items!</marquee>
-    </div>
+ 
 
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -1011,6 +1020,10 @@
             </div>
         </div>
     </nav>
+    <div class="marquee">
+        <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
+            one free on select items!</marquee>
+    </div>
 
     <!-- Image Slider Container -->
     <div class="content-placeholder">
