@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earphone</title>
+    <title>Responsive Navbar with Sidebar Toggle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
     <style>
         * {
             margin: 0;
@@ -35,14 +34,15 @@
             background-color: #0D1117;
             position: fixed;
             width: 100%;
-            z-index: 1200;
-           
+            
+            z-index: 1000;
+            
             
         }
 
         .navbar-nav .nav-link,
         .dropdown-item {
-            color: #f1f1f1;
+            color: #F5F5F5;
         }
 
         .navbar-toggler {
@@ -56,22 +56,21 @@
         .marquee {
             background-color: #070916;
             color: #fff;
-            padding: 2px;
-            height: 11vh;
+           height: 10vh;
             display: flex;
             justify-content: center;
             align-items: end;
+            text-align: center;
             font-size: 0.9rem;
         }
         .marquee marquee{
+            text-align: center;
             font-size: 0.8rem;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #a1a0a0;
-
         }
         .dropdown-menu {
             background-color: #0D1117;
             overflow: hidden;
+            z-index: 1200;
         }
 
         .dropdown-menu li {
@@ -110,7 +109,7 @@
         @media (max-width: 991.98px) {
             .navbar-collapse {
                 position: absolute;
-                top: 54px;
+                top: 55px;
                 left: 0;
                 width: 250px;
                 height: calc(100vh - 56px);
@@ -245,7 +244,7 @@
 
         .feature-sub h3 span {
             font-size: 1.11rem;
-            font-weight: 900;
+            font-weight: 800;
         }
 
         @media (max-width: 580px) {
@@ -416,7 +415,7 @@
 
         .second-page-main{
             width: 90%;
-            margin-top: 8%;
+            margin-top: 5%;
             height: 50vh;
         }
         .second-page-main .tables {
@@ -426,7 +425,14 @@
     align-items: center;
     height: 40vh;
 }
-
+.feature-div{
+    text-align: center;
+    
+}
+.feature-div h1{
+    color: #4b4955;
+    font-family: fantasy;
+}
 .second-page-main .divs1 {
     display: flex;
     align-items: center;
@@ -449,7 +455,7 @@
 
 .second-page-main .divs1-1 i {
     font-size: 3.3rem;
-    color: #e51a1a;
+    color: #b31a1a;
     transition: all 0.3s ease;
 }
 
@@ -603,7 +609,7 @@
     font-size: 3.5rem;
     color: #555449;
     font-weight: 600;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: fantasy;
 }
 
 /* categories */
@@ -681,7 +687,7 @@
 @media (max-width: 768px) {
     .categories-page h1 {
         margin-top: 7%;
-        font-size: 1.8rem; /* Reduce heading size */
+        font-size: 1.5rem; /* Reduce heading size */
     }
 
     .categories-page .catagory-main-div {
@@ -738,7 +744,7 @@
 .image-splash {
     width: 70%;
     height: 50vh;
-    mask-image: url(images/mask.webp);
+    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
     background-size: cover;
     mask-position: -210px;
     mask-repeat: no-repeat;
@@ -763,7 +769,7 @@
 
 .text-box-arrival {
     text-align: center;
-    width: 65%;
+    width: 75%;
 }
 
 .text-box-arrival h2 {
@@ -771,14 +777,14 @@
     font-weight: 800;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 2px;
-    background-image: url(images/text-red.jpg);
+    background-image: url(https://files.123freevectors.com/wp-content/original/131774-red-and-yellow-polygon-triangle-pattern-background.jpg);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     background-position: center;
 }
 .text-box-arrival h2:hover{
-    background-image: url(images/text-green.webp);
+    background-image: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
     -webkit-background-clip: text;
     background-clip: text;
     transition: all 4s linear;
@@ -805,7 +811,7 @@
     text-align: center;
     font-size: 3.5rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #94927c;    
+    color: #555449;    
 
 }
 /* Popup */
@@ -906,13 +912,11 @@
     .third-page-sub, .third-page-sub2 {
         width: 100%; /* Full width for mobile */
     }
-.new-arrival h1{
-    font-size: 2rem;
-}
+
     .image-splash {
     width: 70%;
-    height: 35vh;
-    mask-image: url(images/mask.webp);
+    height: 33vh;
+    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
     background-size: cover;
     mask-position: -440px;
     border-radius: 34% 0 0 10%;
@@ -954,90 +958,485 @@
     color: var(--secondary-color);
     position: absolute;
     margin-top: 26%;
-    animation: glass 3s infinite;
+    animation: glass 2s infinite;
+
+}
+@keyframes glass {
+    0%{
+        transform:rotate(0) ;
+        
+    }
+    50%{
+        transform: rotate(-10deg);
+        
+    }
+    70%{
+        
+        transform: scale(1.1);
+        color: rgb(20, 166, 105);
+    }
+    100%{
+        
+        transform: scale(1.2);
+        color: rgb(20, 166, 105);
+    }
+    
+}
+.new-arrival h1{
+    font-size: 1.5rem;
+    font-family: fantasy;
 }
 }
 
 
-/* General Card Styles */
+#top-pick{
+    margin-top: 6%;
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: fantasy;
+    color: #555449
 
-/* General Card Styles */
-.custom-card {
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  perspective: 1000px; /* For 3D effect */
 }
-
-.custom-card img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  height: 30vh; /* Set image height */
-  object-fit: cover; /* Maintain aspect ratio */
+/* Base styles for material cards */
+@import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
+.fa-spin-fast {
+  -webkit-animation: fa-spin-fast 0.2s infinite linear;
+  animation: fa-spin-fast 0.2s infinite linear;
 }
-
-/* Horizontal Scrolling on Mobile */
-.row.flex-nowrap {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 20px; /* Prevent clipping */
-}
-
-.row.flex-nowrap::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
-}
-
-/* Card Animation Styles */
-.card-animate {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* Hover Effect */
-.custom-card:hover {
-  transform: translateY(-20px) scale(1.1); /* Elevate hovered card */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  z-index: 2; /* Bring hovered card to front */
-}
-
-/* Previous Card (when hovering on the next card) */
-.custom-card:hover ~ .custom-card {
-  transform: translateY(10px) scale(0.95); /* Lower previous cards */
-  opacity: 0.8; /* Slightly transparent */
-}
-
-/* Next Card (when hovering on the previous card) */
-.custom-card:hover ~ .custom-card {
-  transform: translateY(10px) scale(0.95); /* Lower next cards */
-  opacity: 0.8; /* Slightly transparent */
-}
-
-/* Active Card Image Animation */
-.custom-card:hover img {
-  transform: scale(1.05); /* Slight zoom on image */
-  transition: transform 0.4s ease-in-out;
-}
-
-/* Media Queries for Responsiveness */
-@media (min-width: 768px) {
-  .row.flex-nowrap {
-    overflow: visible !important; /* Enable normal overflow on desktop */
+@-webkit-keyframes fa-spin-fast {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
-
-  /* Ensure proper scaling for desktop */
-  .custom-card {
-    transform: none; /* Reset transform for desktop */
-    opacity: 1; /* Fully visible on desktop */
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
-
-@media (max-width: 767px) {
-  .col-10 {
-    flex: 0 0 80%;
-    max-width: 80%;
+@keyframes fa-spin-fast {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+.material-card {
+  position: relative;
+
+  padding-bottom: calc(100% - 16px);
+  margin-bottom: 6.6em;
+}
+.material-card h2 {
+  position: absolute;
+  top: calc(100% - 16px);
+  left: 0;
+  width: 100%;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 1.4em;
+  line-height: 1.6em;
+  margin: 0;
+  z-index: 10;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card h2 span {
+  display: block;
+}
+.material-card h2 strong {
+  font-weight: 400;
+  display: block;
+  font-size: 0.8em;
+}
+.material-card h2:before,
+.material-card h2:after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: -16px;
+  width: 0;
+  border: 8px solid;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card h2:after {
+  top: auto;
+  bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active {
+    padding-bottom: 0;
+    height: auto;
+  }
+}
+.material-card.mc-active h2 {
+  top: 0;
+  padding: 10px 16px 10px 90px;
+}
+.material-card.mc-active h2:before {
+  top: 0;
+}
+.material-card.mc-active h2:after {
+  bottom: -16px;
+}
+.material-card .mc-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 16px;
+  left: 16px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card .mc-btn-action {
+  position: absolute;
+  right: 23px;
+  top: 15px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card.mc-active .mc-btn-action {
+  top: 62px;
+}
+.material-card .mc-description {
+  position: absolute;
+  top: 100%;
+  right: 30px;
+  left: 30px;
+  bottom: 54px;
+  overflow: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 1.2s;
+  -moz-transition: all 1.2s;
+  -ms-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  transition: all 1.2s;
+}
+.material-card .mc-footer {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card .mc-footer h4 {
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  -webkit-transition: all 1.4s;
+  -moz-transition: all 1.4s;
+  -ms-transition: all 1.4s;
+  -o-transition: all 1.4s;
+  transition: all 1.4s;
+}
+.material-card .mc-footer a {
+  display: block;
+  float: left;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #fff;
+  line-height: 40px;
+  text-decoration: none;
+  top: 200px;
+}
+.material-card .mc-footer a:nth-child(1) {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.material-card .mc-footer a:nth-child(2) {
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  transition: all 0.6s;
+}
+.material-card .mc-footer a:nth-child(3) {
+  -webkit-transition: all 0.7s;
+  -moz-transition: all 0.7s;
+  -ms-transition: all 0.7s;
+  -o-transition: all 0.7s;
+  transition: all 0.7s;
+}
+.material-card .mc-footer a:nth-child(4) {
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.material-card .mc-footer a:nth-child(5) {
+  -webkit-transition: all 0.9s;
+  -moz-transition: all 0.9s;
+  -ms-transition: all 0.9s;
+  -o-transition: all 0.9s;
+  transition: all 0.9s;
+}
+.material-card .img-container {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.material-card.mc-active .img-container {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  left: 0;
+  object-fit: fill;
+  top: 12px;
+  width: 60px;
+  height: 60px;
+  z-index: 20;
+}
+.material-card .img-container img{
+    height: 100%;
+    object-fit: fill;
+}
+.material-card.mc-active .mc-content {
+  padding-top: 6em;
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active .mc-content {
+    position: relative;
+    margin-right: 16px;
+  }
+  
+
+}
+.material-card.mc-active .mc-description {
+  top: 50px;
+  padding-top: 5.6em;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+@media screen and (max-width: 767px) {
+  .material-card.mc-active .mc-description {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    padding: 50px 30px 70px 30px;
+    bottom: 0;
+  }
+}
+@media (max-width:750px){
+    
+#top-pick{
+    margin-top: 12%;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: fantasy;
+    color: #555449
+
+}
+}
+.material-card.mc-active .mc-footer {
+  overflow: visible;
+  position: absolute;
+  top: calc(100% - 16px);
+  left: 16px;
+  right: 0;
+  height: 82px;
+  padding-top: 15px;
+  padding-left: 25px;
+}
+.material-card.mc-active .mc-footer a {
+  top: 0;
+}
+.material-card.mc-active .mc-footer h4 {
+  top: -32px;
+}
+.material-card.Red h2 {
+  background-color: #F44336;
+}
+.material-card.Red h2:after {
+  border-top-color: #F44336;
+  border-right-color: #F44336;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Red h2:before {
+  border-top-color: transparent;
+  border-right-color: #B71C1C;
+  border-bottom-color: #B71C1C;
+  border-left-color: transparent;
+}
+.material-card.Red.mc-active h2:before {
+  border-top-color: transparent;
+  border-right-color: #F44336;
+  border-bottom-color: #F44336;
+  border-left-color: transparent;
+}
+.material-card.Red.mc-active h2:after {
+  border-top-color: #B71C1C;
+  border-right-color: #B71C1C;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Red .mc-btn-action {
+  background-color: #F44336;
+}
+.material-card.Red .mc-btn-action:hover {
+  background-color: #B71C1C;
+}
+.material-card.Red .mc-footer h4 {
+  color: #B71C1C;
+}
+.material-card.Red .mc-footer a {
+  background-color: #B71C1C;
+}
+.material-card.Red.mc-active .mc-content {
+  background-color: #FFEBEE;
+}
+.material-card.Red.mc-active .mc-footer {
+  background-color: #FFCDD2;
+}
+.material-card.Red.mc-active .mc-btn-action {
+  border-color: #FFEBEE;
+}
+.material-card.Pink h2 {
+  background-color: #B71C1C;
+}
+.material-card.Pink h2:after {
+  border-top-color: #B71C1C;
+  border-right-color: #B71C1C;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Pink h2:before {
+  border-top-color: transparent;
+  border-right-color: #B71C1C;
+  border-bottom-color: #B71C1C;
+  border-left-color: transparent;
+}
+.material-card.Pink.mc-active h2:before {
+  border-top-color: transparent;
+  border-right-color: #B71C1C;
+  border-bottom-color: #B71C1C;
+  border-left-color: transparent;
+}
+.material-card.Pink.mc-active h2:after {
+  border-top-color: #B71C1C;
+  border-right-color: #B71C1C;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Pink .mc-btn-action {
+  background-color: #B71C1C;
+}
+.material-card.Pink .mc-btn-action:hover {
+  background-color: #B71C1C;
+}
+.material-card.Pink .mc-footer h4 {
+  color: #B71C1C;
+}
+.material-card.Pink .mc-footer a {
+  background-color: #B71C1C;
+}
+.material-card.Pink.mc-active .mc-content {
+  background-color: #FFEBEE;
+}
+.material-card.Pink.mc-active .mc-footer {
+  background-color: #FFCDD2;
+}
+.material-card.Pink.mc-active .mc-btn-action {
+  border-color: #FCE4EC;
+}
+.material-card.Purple h2 {
+  background-color: #F44336;
+}
+.material-card.Purple h2:after {
+  border-top-color: #F44336;
+  border-right-color: #F44336;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Purple h2:before {
+  border-top-color: transparent;
+  border-right-color: #F44336;
+  border-bottom-color: #F44336;
+  border-left-color: transparent;
+}
+.material-card.Purple.mc-active h2:before {
+  border-top-color: transparent;
+  border-right-color: #F44336;
+  border-bottom-color: #F44336;
+  border-left-color: transparent;
+}
+.material-card.Purple.mc-active h2:after {
+  border-top-color: #F44336;
+  border-right-color: #F44336;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.material-card.Purple .mc-btn-action {
+  background-color: #F44336;
+}
+.material-card.Purple .mc-btn-action:hover {
+  background-color: #F44336;
+}
+.material-card.Purple .mc-footer h4 {
+  color: #F44336;
+}
+.material-card.Purple .mc-footer a {
+  background-color: #F44336;
+}
+.material-card.Purple.mc-active .mc-content {
+  background-color: #FFEBEE;
+}
+.material-card.Purple.mc-active .mc-footer {
+  background-color: #FFCDD2;
+}
+.material-card.Purple.mc-active .mc-btn-action {
+  border-color: #F3E5F5;
 }
 
 
@@ -1047,7 +1446,6 @@
 
 <body>
 
- 
 
     <!-- Navbar Section -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -1071,7 +1469,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Products
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <ul  class="dropdown-menu" aria-labelledby="productsDropdown">
                             <li><a class="dropdown-item" href="#">Earphone</a></li>
                             <li><a class="dropdown-item" href="#">Speaker</a></li>
                             <li><a class="dropdown-item" href="#">Powerbank</a></li>
@@ -1107,13 +1505,14 @@
             </div>
         </div>
     </nav>
+    
     <div class="marquee">
         <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
             one free on select items!</marquee>
     </div>
 
     <!-- Image Slider Container -->
-    <div class="content-placeholder">
+    <div class="content-placeholder ">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
             <div class="carousel-indicators">
                 <button style="background-color: #fff;" type="button" data-bs-target="#carouselExampleIndicators"
@@ -1240,7 +1639,9 @@
             </div>
         </div>
     </div>
-
+    <div class="feature-div mt-4">
+        <h1>Features</h1>
+    </div>
 
     <div class="container-fluid second-page-main">
         <div class="row tables">
@@ -1333,8 +1734,8 @@
             </div>
             <div class="col-12 col-md-6 third-page-sub2">
                 <div class="text-box-arrival">
-                    <h2>AquaTune Earbuds 3 Pro</h2>
-                    <p>AquaTune Earbuds. These earbuds are designed to provide an exceptional audio experience, combining
+                    <h2>SonicTune Earbuds 3 Pro</h2>
+                    <p>SonicTune Earbuds. These earbuds are designed to provide an exceptional audio experience, combining
                         cutting-edge technology with a sleek, water-resistant design. Long Battery Life: Enjoy up to 12 hours
                         of continuous playback on a single charge, with a compact charging case providing an additional 24
                         hours of battery life.
@@ -1347,7 +1748,7 @@
         <!-- Popup Section -->
         <div id="popup" class="popup-arrival">
             <h6 onclick="closepopup()"><span><i class="fa-solid fa-circle-xmark"></i></span></h6>
-            <p>AquaTune Earbuds 3 Pro</p>
+            <p>SonicTune Earbuds 3 Pro</p>
           
             <div class="arrival-image-box">
                 <div class="radios">
@@ -1371,53 +1772,142 @@
     </div>
 
 
-    <div class="container trend-card mt-5">
-        <h2 class="text-center mb-4">Trending Cards</h2>
-      
-        <div class="row flex-row flex-nowrap flex-md-wrap overflow-auto">
-          <div class="col-10 col-md-3 mb-4 card-animate">
-            <div class="card custom-card">
-              <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Card Title 1</h5>
-                <p class="card-text">This is a card description.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-10 col-md-3 mb-4 card-animate">
-            <div class="card custom-card">
-              <img src="https://th.bing.com/th/id/OIP.TogNcizoI6b-ULuEG7eIQQHaF7?w=216&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Card Title 2</h5>
-                <p class="card-text">This is a card description.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-10 col-md-3 mb-4 card-animate">
-            <div class="card custom-card">
-              <img src="https://th.bing.com/th/id/OIP.Tjjnz599Tk0YkZlOxt1x_gHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Card Title 3</h5>
-                <p class="card-text">This is a card description.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-10 col-md-3 mb-4 card-animate">
-            <div class="card custom-card">
-              <img src="https://th.bing.com/th/id/OIP.Tjjnz599Tk0YkZlOxt1x_gHaHa?w=166&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="card-img-top" alt="Card Image">
-              <div class="card-body">
-                <h5 class="card-title">Card Title 4</h5>
-                <p class="card-text">This is a card description.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Add more cards as needed -->
-        </div>
-      </div>
-  
 
+    <section  class="container  ">
+        <h2 id="top-pick">Top Picks For You </h2>
+        <div class="page-header">
+            <h1><br>
+        </div>
+        <div class="row active-with-click">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <article class="material-card Red">
+                    <h2>
+                        <span>XenoWave GT2</span>
+                        <strong>
+                            <i class="fa-solid fa-fire-flame-curved"></i></i>
+                            Premium
+                        </strong>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="https://i.pinimg.com/736x/28/56/f7/2856f75f16cfc2780a841e58e3b55596.jpg">
+                        </div>
+                        <div class="mc-description">
+                            SonicWave delivers futuristic, precision audio for immersive gaming. Noise-canceling microphone for clear communication,Comfortable memory foam ear cushions                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Wishlist/Add to cart
+                        </h4>
+                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
+                    
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <article class="material-card Pink">
+                    <h2>
+                        <span>SonicBuds</span>
+                        <strong>
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                            Popular
+                        </strong>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="https://th.bing.com/th/id/R.b17921e35c501aaa19771742706e9f98?rik=WAym3uy1JV783g&riu=http%3a%2f%2fsc04.alicdn.com%2fkf%2fHf8387fc7dffd475a8ed07f0a6b2063c9U%2f244031312%2fHf8387fc7dffd475a8ed07f0a6b2063c9U.jpg&ehk=mWQJmZ4pAQ7ijyTmM1YrgNQZy6OHJBw0r0E9DgSL9KM%3d&risl=&pid=ImgRaw&r=0">
+                        </div>
+                        <div class="mc-description">
+                            SonicBuds offer premium sound in a compact wireless form. Experience deep bass, crystal-clear audio,Bluetooth 5.2 for stable, low-latency connection,Ergonomic fit with multiple ear tips,IPX7 waterproof rating for outdoor use.USB-C fast charging                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Wishlist/Add to cart
+                        </h4>
+                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <article class="material-card Purple">
+                    <h2>
+                        <span>SonicWave</span>
+                        <strong>
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                            Trending
+                        </strong>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="images/card-sound.jpeg">
+                        </div>
+                        <div class="mc-description">
+                            Experience rich, immersive audio with SonicWave.2.1 Channel Surround Sound.Bluetooth connectivity for wireless streaming.HDMI ARC and optical inputs.Dolby Atmos support for 3D sound                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Wishlist/Add to cart
+                        </h4>
+                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
+                    </div>
+                </article>
+            </div>
+            
+           
+          
+        </div>
+    </section>
+    
+    <a href="https://github.com/marlenesco/material-cards" class="github-corner" aria-label="View source on Github" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#f44336; color:#ECEFF1; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     
 
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>$(function() {
+    $('.material-card > .mc-btn-action').click(function () {
+        var card = $(this).parent('.material-card');
+        var icon = $(this).children('i');
+        icon.addClass('fa-spin-fast');
+
+        if (card.hasClass('mc-active')) {
+            card.removeClass('mc-active');
+
+            window.setTimeout(function() {
+                icon
+                    .removeClass('fa-arrow-left')
+                    .removeClass('fa-spin-fast')
+                    .addClass('fa-bars');
+
+            }, 800);
+        } else {
+            card.addClass('mc-active');
+
+            window.setTimeout(function() {
+                icon
+                    .removeClass('fa-bars')
+                    .removeClass('fa-spin-fast')
+                    .addClass('fa-arrow-left');
+
+            }, 800);
+        }
+    });
+});</script>
 
 
     <script>
@@ -1507,7 +1997,7 @@
     </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
