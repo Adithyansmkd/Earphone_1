@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
     <style>
         * {
             margin: 0;
@@ -34,10 +36,10 @@
             background-color: #0D1117;
             position: fixed;
             width: 100%;
-            
+
             z-index: 1000;
-            
-            
+
+
         }
 
         .navbar-nav .nav-link,
@@ -56,17 +58,19 @@
         .marquee {
             background-color: #070916;
             color: #fff;
-           height: 10vh;
+            height: 10vh;
             display: flex;
             justify-content: center;
             align-items: end;
             text-align: center;
             font-size: 0.9rem;
         }
-        .marquee marquee{
+
+        .marquee marquee {
             text-align: center;
             font-size: 0.8rem;
         }
+
         .dropdown-menu {
             background-color: #0D1117;
             overflow: hidden;
@@ -92,20 +96,25 @@
         .nav-item {
             padding: 5px 15px;
         }
-        #heart{
+
+        #heart {
             animation: heart 1s linear infinite;
         }
+
         @keyframes heart {
-            0%{
+            0% {
                 transform: scale(1);
             }
-            50%{
+
+            50% {
                 transform: scale(1.18);
             }
-            100%{
+
+            100% {
                 transform: scale(1);
             }
         }
+
         @media (max-width: 991.98px) {
             .navbar-collapse {
                 position: absolute;
@@ -266,36 +275,67 @@
         }
 
         #switch {
-            width: 60px;
-            height: 25px;
-            border: 1px solid rgba(50, 48, 48, 0.799);
-
-            position: absolute;
-            z-index: 1000;
-            background-color: #e7e2e2;
-            border-radius: 50px;
+            position: relative;
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.8s;
         }
 
-        #switch::after {
+        #switch:before {
+            content: '☀️';
+            /* Sun icon */
             position: absolute;
-            content: '';
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #191919;
             left: 5px;
-            top: 2px;
-            transition: 500ms ease;
+            top: 2.5px;
+            font-size: 18px;
         }
 
-        #toggle:checked+#switch::after {
-            left: 55%;
+        #switch:after {
+            content: '🌙';
+            /* Moon icon */
+            position: absolute;
+            right: 5px;
+            top: 2.3px;
+            font-size: 18px;
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        #switch::after,
+        #switch::before {
+            transition: all 0.5s;
+        }
+
+        #switch:before {
+            opacity: 1;
+        }
+
+        #switch:after {
+            opacity: 0;
+        }
+
+        #toggle:checked+#switch {
+            background-color: #333;
+        }
+
+        #toggle:checked+#switch:before {
+            opacity: 0;
+        }
+
+        #toggle:checked+#switch:after {
+            opacity: 1;
         }
 
 
         .timeout-main-box {
             height: 25vh;
-           
+
             position: relative;
             width: 100%;
             display: flex;
@@ -314,6 +354,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .timeout-sub2 {
             width: 100%;
             border-radius: 15px;
@@ -369,24 +410,26 @@
         .info-time p,
         a {
             font-size: 1.1rem;
-            color:var(--secondary-color);
+            color: var(--secondary-color);
             text-decoration: none;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         /* Media queries to adjust font sizes on smaller screens */
         @media (max-width: 768px) {
-            .timeout-main-box{
+            .timeout-main-box {
                 height: 20vh;
             }
+
             .timeout-sub {
                 height: 13vh;
                 margin-top: 5%;
 
             }
+
             .timeout-sub2 {
                 height: 12vh;
-                
+
 
             }
 
@@ -413,1034 +456,1213 @@
             }
         }
 
-        .second-page-main{
+        .second-page-main {
             width: 90%;
             margin-top: 5%;
             height: 50vh;
         }
+
         .second-page-main .tables {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-}
-.feature-div{
-    text-align: center;
-    
-}
-.feature-div h1{
-    color: #4b4955;
-    font-family: fantasy;
-}
-.second-page-main .divs1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 20vh;
-   
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+        }
 
-    text-align: center;
-   
-    transition: all 0.3s ease;
-}
+        .feature-div {
+            text-align: center;
 
-.second-page-main .divs1-1 {
-    flex-basis: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        }
 
-.second-page-main .divs1-1 i {
-    font-size: 3.3rem;
-    color: #b31a1a;
-    transition: all 0.3s ease;
-}
+        .feature-div h1 {
+            color: #a5a1b9;
+            font-family: fantasy;
+        }
 
-.second-page-main .divs1-2 {
-    flex-basis: 70%;
-    display: grid;
-    place-items: center;
-}
+        .second-page-main .divs1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20vh;
 
-.second-page-main .divs1-2 h1 {
-    font-size: 1.3rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
 
-.second-page-main .divs1-2 button {
-    position: relative;
-    padding: 6px 15px;
-    border-radius: 30px;
-    background: transparent;
-    color: var(--secondary-color);
-    border: 1px solid rgb(34, 34, 34);
-    font-size: 16px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: color 0.8s ease, background 0.8s ease, transform 0.8s ease;
-    overflow: hidden;
-    z-index: 1;
-}
+            text-align: center;
 
-.second-page-main .divs1-2 button::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 100%;
-    background: rgb(36, 34, 34);
-    transition: width 0.8s ease, left 0.8s ease;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-}
+            transition: all 0.3s ease;
+        }
 
-.second-page-main .divs1-2 button:hover::before {
-    width: 200%;
-    left: 50%;
-}
+        .second-page-main .divs1-1 {
+            flex-basis: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.second-page-main .divs1-2 button:hover {
-    color: white;
-    transform: scale(1.05);
-}
+        .second-page-main .divs1-1 i {
+            font-size: 3.3rem;
+            color: #b31a1a;
+            transition: all 0.3s ease;
+        }
 
-.second-page-main .divs1-2 button::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    border: 2px solid transparent;
-    z-index: -2;
-}
+        .second-page-main .divs1-2 {
+            flex-basis: 70%;
+            display: grid;
+            place-items: center;
+        }
 
-.second-page-main .divs1:hover {
-    background: linear-gradient(to left, #FF0000, #fe6161);
-    color: white;
-    border-radius: 6px;
-}
+        .second-page-main .divs1-2 h1 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
 
-.second-page-main .divs1:hover i {
-    color: white;
-}
+        .second-page-main .divs1-2 button {
+            position: relative;
+            padding: 6px 15px;
+            border-radius: 30px;
+            background: transparent;
+            color: var(--secondary-color);
+            border: 1px solid rgb(34, 34, 34);
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.8s ease, background 0.8s ease, transform 0.8s ease;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-.second-page-main .divs1:hover h1 {
-    color: white;
-}
+        .second-page-main .divs1-2 button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            background: rgb(36, 34, 34);
+            transition: width 0.8s ease, left 0.8s ease;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
 
-.second-page-main .divs1:hover button {
-    color: white;
-    border: 1px solid white;
-}
+        .second-page-main .divs1-2 button:hover::before {
+            width: 200%;
+            left: 50%;
+        }
 
-/* Fixes for overflow and mobile responsiveness */
-.container-fluid {
-    padding: 0;
-    overflow-x: hidden;
-}
+        .second-page-main .divs1-2 button:hover {
+            color: white;
+            transform: scale(1.05);
+        }
 
-.tables {
-    margin-top: 20px;
-}
+        .second-page-main .divs1-2 button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: 2px solid transparent;
+            z-index: -2;
+        }
 
-/* Mobile-specific adjustments */
-@media (max-width: 576px) {
-    .second-page-main{
-        margin-top: 18%;
+        .second-page-main .divs1:hover {
+            background: linear-gradient(to left, #FF0000, #fe6161);
+            color: white;
+            border-radius: 6px;
+        }
 
-    }
-    .second-page-main .divs1 {
-        flex-direction: column;
+        .second-page-main .divs1:hover i {
+            color: white;
+        }
+
+        .second-page-main .divs1:hover h1 {
+            color: white;
+        }
+
+        .second-page-main .divs1:hover button {
+            color: white;
+            border: 1px solid white;
+        }
+
+        /* Fixes for overflow and mobile responsiveness */
+        .container-fluid {
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .tables {
+            margin-top: 20px;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 576px) {
+            .second-page-main {
+                margin-top: 18%;
+
+            }
+
+            .second-page-main .divs1 {
+                flex-direction: column;
+
+            }
+
+            .second-page-main .divs1-1 i {
+                font-size: 2rem;
+                margin: 0;
+            }
+
+            .second-page-main .divs1-2 h1 {
+                font-size: 1.1rem;
+                font-size: 1rem;
+
+            }
+
+            .second-page-main .divs1-2 {
+                margin-top: 5%;
+            }
+
+            .second-page-main .divs1-2 button {
+                padding: 4px 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 768px) {
+            .second-page-main .divs1-1 i {
+                font-size: 2.5rem;
+            }
+
+            .second-page-main .divs1-2 h1 {
+                font-size: 1.2rem;
+            }
+
+            .second-page-main .divs1-2 button {
+                padding: 5px 9px;
+                font-size: 1rem;
+            }
+        }
+
+        .categories-page {
+            height: auto;
+            /* Allow height to adjust based on content */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .categories-page h1 {
+            font-size: 3.5rem;
+            color: #a5a1b9;
+            font-weight: 600;
+            font-family: fantasy;
+        }
+
+        /* categories */
+        .categories-page .catagory-main-div {
+            margin-top: 4%;
+            width: 90%;
+            /* Reduced width for better centering */
+            max-width: 1200px;
+            /* Prevent it from being too wide on large screens */
+        }
+
+        .catagory-main-div .row {
+            gap: 15px;
+            margin-top: 2%;
+            justify-content: center;
+            /* Ensures rows are centered */
+        }
+
+        /* Categories columns */
+        .categories-page .cat-col {
+            height: 22vh;
+            /* Adjust height as needed */
+            display: flex;
+            text-align: left;
+            align-items: end;
+            justify-content: start;
+            position: relative;
+            /* For better image control */
+        }
+
+        /* Hover effect */
+        .categories-page .cat-col:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+
+        /* Background images for categories */
+        #col-img1 {
+            background: url(images/cat-earphone.webp);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #col-img2 {
+            background: url(images/earbuds.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #col-img3 {
+            background: url(images/head.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #col-img4 {
+            background: url(images/sound.webp);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #col-img5 {
+            background: url(images/smart.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #col-img6 {
+            background: url(images/ghead.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Styling for the category text */
+        .categories-page .cat-col a {
+            font-size: 1.5rem;
+            margin-left: 20px;
+            color: #ffffff;
+            font-weight: 900;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .categories-page h1 {
+                margin-top: 7%;
+                font-size: 1.5rem;
+                /* Reduce heading size */
+            }
+
+            .categories-page .catagory-main-div {
+                width: 90%;
+                /* Full width on small screens */
+                /* Remove left margin */
+            }
+
+            .catagory-main-div .row {
+                flex-direction: column;
+                /* Stack items vertically */
+
+            }
+
+            .categories-page .cat-col {
+                height: 18vh;
+                /* Let the height adjust based on content */
+                display: flex;
+                text-align: left;
+
+                align-items: end;
+                justify-content: start;
+                position: relative;
+
+            }
+
+            /* Styling for the category text */
+            .categories-page .cat-col a {
+                font-size: 1rem;
+                margin-left: 10px;
+                /* Reduce font size */
+                /* Center the text on small screens */
+            }
+        }
+
+
+
+        /* third page */
+        .third-page {
+            display: flex;
+            margin-top: 4%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Splash Image */
+        .third-page-sub {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            /* Adjust for flex */
+            position: relative;
+        }
+
+        .image-splash {
+            width: 70%;
+            height: 50vh;
+            mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
+            background-size: cover;
+            mask-position: -210px;
+            mask-repeat: no-repeat;
+        }
+
+        .third-page-sub i {
+            color: #111d10;
+            position: absolute;
+            margin-top: 20%;
+            animation: glass 3s infinite;
+        }
+
+        /* Text Box Section */
+        .third-page-sub2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            /* Adjust for flex */
+            flex-direction: column;
+            height: auto;
+        }
+
+        .text-box-arrival {
+            text-align: center;
+            width: 75%;
+        }
+
+        .text-box-arrival h2 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 2px;
+            background-image: url(https://files.123freevectors.com/wp-content/original/131774-red-and-yellow-polygon-triangle-pattern-background.jpg);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-position: center;
+        }
+
+        .text-box-arrival h2:hover {
+            background-image: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: all 4s linear;
+            background-position: left;
+            scroll-behavior: smooth;
+        }
+
+        .text-box-arrival p {
+            font-size: 1.1rem;
+            margin-top: 3%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: var(--secondary-color);
+        }
+
+        .text-box-arrival button {
+            padding: 5px 30px;
+            margin-top: 25px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 10px;
+        }
+
+        .new-arrival h1 {
+            text-align: center;
+            font-size: 3.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #a5a1b9;
+
+        }
+
+        /* Popup */
+        .popup-arrival {
+            z-index: 30;
+            position: absolute;
+            display: none;
+            align-items: center;
+            margin-left: 10%;
+            flex-direction: column;
+            background: var(--primary-color);
+            height: 60vh;
+            width: 60%;
+            border-radius: 10px;
+            border: 2px solid #4b4955;
+        }
+
+        #slide1:checked~.images img {
+            transform: translateX(0);
+
+        }
+
+        #slide2:checked~.images img {
+            transform: translateX(-100%);
+
+        }
+
+        #slide3:checked~.images img {
+            transform: translateX(-200%);
+
+        }
+
+        .arrival-image-box input {
+            display: none;
+        }
+
+        .popup-arrival p {
+            margin-top: 2%;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            letter-spacing: 4px;
+        }
+
+        .popup-arrival h6 {
+            position: absolute;
+            color: red;
+            top: 10px;
+            left: 10px;
+            font-size: 1.4rem;
+        }
+
+        .arrival-image-box {
+            margin-top: 2%;
+            width: 40%;
+            height: 40vh;
+            position: relative;
+            background-color: #4b4955;
+        }
+
+        .arrival-image-box .images {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .arrival-image-box .images img {
+            width: 100%;
+            height: 40vh;
+            background-size: cover;
+            transition: all 1s linear;
+        }
+
+        .arrival-image-box input {
+            display: none;
+        }
+
+        .img-box-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 7vh;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .img-box-label label {
+            background-color: var(--secondary-color);
+            border-radius: 50px;
+            color: var(--primary-color);
+            padding: 4px 10px;
+        }
+
+        /* Mobile View: Stacked layout (block) */
+        @media (max-width: 768px) {
+            .third-page {
+                flex-direction: column;
+                margin-top: 10%;
+                /* Stack content on top of each other */
+            }
+
+            .third-page-sub,
+            .third-page-sub2 {
+                width: 100%;
+                /* Full width for mobile */
+            }
+
+            .image-splash {
+                width: 70%;
+                height: 33vh;
+                mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
+                background-size: cover;
+                mask-position: -440px;
+                border-radius: 34% 0 0 10%;
+                mask-repeat: no-repeat;
+            }
+
+            /* Adjust popup size on mobile */
+            .popup-arrival {
+                width: 80%;
+                margin: 0;
+                height: 47vh;
+            }
+
+            .popup-arrival p {
+                font-size: 1rem;
+                text-align: center;
+                letter-spacing: 0px;
+            }
+
+            .arrival-image-box {
+                width: 80%;
+                height: 30vh;
+            }
+
+            .arrival-image-box .images img {
+                height: 30vh;
+                width: 100%;
+            }
+
+            .text-box-arrival {
+                margin-top: 8%;
+            }
+
+            .text-box-arrival h2 {
+                font-size: 2.5rem;
+            }
+
+            .text-box-arrival p {
+                font-size: 0.9rem;
+            }
+
+            .third-page-sub i {
+                color: var(--secondary-color);
+                position: absolute;
+                margin-top: 26%;
+                animation: glass 2s infinite;
+
+            }
+
+            @keyframes glass {
+                0% {
+                    transform: rotate(0);
+
+                }
+
+                50% {
+                    transform: rotate(-10deg);
+
+                }
+
+                70% {
+
+                    transform: scale(1.1);
+                    color: rgb(20, 166, 105);
+                }
+
+                100% {
+
+                    transform: scale(1.2);
+                    color: rgb(20, 166, 105);
+                }
+
+            }
+
+            .new-arrival h1 {
+                font-size: 1.5rem;
+                font-family: fantasy;
+            }
+        }
+
+
+        #top-pick {
+            margin-top: 6%;
+            text-align: center;
+            font-size: 2.8rem;
+            font-family: fantasy;
+            color: #555449
+        }
+
+        /* Base styles for material cards */
+        @import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
+
+        .fa-spin-fast {
+            -webkit-animation: fa-spin-fast 0.2s infinite linear;
+            animation: fa-spin-fast 0.2s infinite linear;
+        }
+
+        @-webkit-keyframes fa-spin-fast {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(359deg);
+                transform: rotate(359deg);
+            }
+        }
+
+        @keyframes fa-spin-fast {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(359deg);
+                transform: rotate(359deg);
+            }
+        }
+
+        .material-card {
+            position: relative;
+
+            padding-bottom: calc(100% - 16px);
+            margin-bottom: 6.6em;
+        }
+
+        .material-card h2 {
+            position: absolute;
+            top: calc(100% - 16px);
+            left: 0;
+            width: 100%;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 1.4em;
+            line-height: 1.6em;
+            margin: 0;
+            z-index: 10;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card h2 span {
+            display: block;
+        }
+
+        .material-card h2 strong {
+            font-weight: 400;
+            display: block;
+            font-size: 0.8em;
+        }
+
+        .material-card h2:before,
+        .material-card h2:after {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: -16px;
+            width: 0;
+            border: 8px solid;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card h2:after {
+            top: auto;
+            bottom: 0;
+        }
+
+        @media screen and (max-width: 767px) {
+            .material-card.mc-active {
+                padding-bottom: 0;
+                height: auto;
+            }
+        }
+
+        .material-card.mc-active h2 {
+            top: 0;
+            padding: 10px 16px 10px 90px;
+        }
+
+        .material-card.mc-active h2:before {
+            top: 0;
+        }
+
+        .material-card.mc-active h2:after {
+            bottom: -16px;
+        }
+
+        .material-card .mc-content {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 16px;
+            left: 16px;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card .mc-btn-action {
+            position: absolute;
+            right: 23px;
+            top: 15px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 3px solid;
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            z-index: 20;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card.mc-active .mc-btn-action {
+            top: 62px;
+        }
+
+        .material-card .mc-description {
+            position: absolute;
+            top: 100%;
+            right: 30px;
+            left: 30px;
+            bottom: 54px;
+            overflow: hidden;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-transition: all 1.2s;
+            -moz-transition: all 1.2s;
+            -ms-transition: all 1.2s;
+            -o-transition: all 1.2s;
+            transition: all 1.2s;
+        }
+
+        .material-card .mc-footer {
+            height: 0;
+            overflow: hidden;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card .mc-footer h4 {
+            position: absolute;
+            top: 200px;
+            left: 30px;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 700;
+            -webkit-transition: all 1.4s;
+            -moz-transition: all 1.4s;
+            -ms-transition: all 1.4s;
+            -o-transition: all 1.4s;
+            transition: all 1.4s;
+        }
+
+        .material-card .mc-footer a {
+            display: block;
+            float: left;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin-left: 5px;
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: #fff;
+            line-height: 40px;
+            text-decoration: none;
+            top: 200px;
+        }
+
+        .material-card .mc-footer a:nth-child(1) {
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        .material-card .mc-footer a:nth-child(2) {
+            -webkit-transition: all 0.6s;
+            -moz-transition: all 0.6s;
+            -ms-transition: all 0.6s;
+            -o-transition: all 0.6s;
+            transition: all 0.6s;
+        }
+
+        .material-card .mc-footer a:nth-child(3) {
+            -webkit-transition: all 0.7s;
+            -moz-transition: all 0.7s;
+            -ms-transition: all 0.7s;
+            -o-transition: all 0.7s;
+            transition: all 0.7s;
+        }
+
+        .material-card .mc-footer a:nth-child(4) {
+            -webkit-transition: all 0.8s;
+            -moz-transition: all 0.8s;
+            -ms-transition: all 0.8s;
+            -o-transition: all 0.8s;
+            transition: all 0.8s;
+        }
+
+        .material-card .mc-footer a:nth-child(5) {
+            -webkit-transition: all 0.9s;
+            -moz-transition: all 0.9s;
+            -ms-transition: all 0.9s;
+            -o-transition: all 0.9s;
+            transition: all 0.9s;
+        }
+
+        .material-card .img-container {
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -ms-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .material-card.mc-active .img-container {
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            left: 0;
+            object-fit: fill;
+            top: 12px;
+            width: 60px;
+            height: 60px;
+            z-index: 20;
+        }
+
+        .material-card .img-container img {
+            height: 100%;
+            object-fit: fill;
+        }
+
+        .material-card.mc-active .mc-content {
+            padding-top: 6em;
+        }
+
+        @media screen and (max-width: 767px) {
+            .material-card.mc-active .mc-content {
+                position: relative;
+                margin-right: 16px;
+            }
+
+
+        }
+
+        .material-card.mc-active .mc-description {
+            top: 50px;
+            padding-top: 5.6em;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        @media screen and (max-width: 767px) {
+            .material-card.mc-active .mc-description {
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                padding: 50px 30px 70px 30px;
+                bottom: 0;
+            }
+        }
+
+        @media (max-width:750px) {
+
+            #top-pick {
+                margin-top: 12%;
+                text-align: center;
+                font-size: 1.6rem;
+                font-family: fantasy;
+                color: #555449
+            }
+        }
+
+        .material-card.mc-active .mc-footer {
+            overflow: visible;
+            position: absolute;
+            top: calc(100% - 16px);
+            left: 16px;
+            right: 0;
+            height: 82px;
+            padding-top: 15px;
+            padding-left: 25px;
+        }
+
+        .material-card.mc-active .mc-footer a {
+            top: 0;
+        }
+
+        .material-card.mc-active .mc-footer h4 {
+            top: -32px;
+        }
+
+        .material-card.Red h2 {
+            background-color: #F44336;
+        }
+
+        .material-card.Red h2:after {
+            border-top-color: #F44336;
+            border-right-color: #F44336;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Red h2:before {
+            border-top-color: transparent;
+            border-right-color: #B71C1C;
+            border-bottom-color: #B71C1C;
+            border-left-color: transparent;
+        }
+
+        .material-card.Red.mc-active h2:before {
+            border-top-color: transparent;
+            border-right-color: #F44336;
+            border-bottom-color: #F44336;
+            border-left-color: transparent;
+        }
+
+        .material-card.Red.mc-active h2:after {
+            border-top-color: #B71C1C;
+            border-right-color: #B71C1C;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Red .mc-btn-action {
+            background-color: #F44336;
+        }
+
+        .material-card.Red .mc-btn-action:hover {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Red .mc-footer h4 {
+            color: #B71C1C;
+        }
+
+        .material-card.Red .mc-footer a {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Red.mc-active .mc-content {
+            background-color: #FFEBEE;
+        }
+
+        .material-card.Red.mc-active .mc-footer {
+            background-color: #FFCDD2;
+        }
+
+        .material-card.Red.mc-active .mc-btn-action {
+            border-color: #FFEBEE;
+        }
+
+        .material-card.Pink h2 {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Pink h2:after {
+            border-top-color: #B71C1C;
+            border-right-color: #B71C1C;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Pink h2:before {
+            border-top-color: transparent;
+            border-right-color: #B71C1C;
+            border-bottom-color: #B71C1C;
+            border-left-color: transparent;
+        }
+
+        .material-card.Pink.mc-active h2:before {
+            border-top-color: transparent;
+            border-right-color: #B71C1C;
+            border-bottom-color: #B71C1C;
+            border-left-color: transparent;
+        }
+
+        .material-card.Pink.mc-active h2:after {
+            border-top-color: #B71C1C;
+            border-right-color: #B71C1C;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Pink .mc-btn-action {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Pink .mc-btn-action:hover {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Pink .mc-footer h4 {
+            color: #B71C1C;
+        }
+
+        .material-card.Pink .mc-footer a {
+            background-color: #B71C1C;
+        }
+
+        .material-card.Pink.mc-active .mc-content {
+            background-color: #FFEBEE;
+        }
+
+        .material-card.Pink.mc-active .mc-footer {
+            background-color: #FFCDD2;
+        }
+
+        .material-card.Pink.mc-active .mc-btn-action {
+            border-color: #FCE4EC;
+        }
+
+        .material-card.Purple h2 {
+            background-color: #F44336;
+        }
+
+        .material-card.Purple h2:after {
+            border-top-color: #F44336;
+            border-right-color: #F44336;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Purple h2:before {
+            border-top-color: transparent;
+            border-right-color: #F44336;
+            border-bottom-color: #F44336;
+            border-left-color: transparent;
+        }
+
+        .material-card.Purple.mc-active h2:before {
+            border-top-color: transparent;
+            border-right-color: #F44336;
+            border-bottom-color: #F44336;
+            border-left-color: transparent;
+        }
+
+        .material-card.Purple.mc-active h2:after {
+            border-top-color: #F44336;
+            border-right-color: #F44336;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .material-card.Purple .mc-btn-action {
+            background-color: #F44336;
+        }
+
+        .material-card.Purple .mc-btn-action:hover {
+            background-color: #F44336;
+        }
+
+        .material-card.Purple .mc-footer h4 {
+            color: #F44336;
+        }
+
+        .material-card.Purple .mc-footer a {
+            background-color: #F44336;
+        }
+
+        .material-card.Purple.mc-active .mc-content {
+            background-color: #FFEBEE;
+        }
+
+        .material-card.Purple.mc-active .mc-footer {
+            background-color: #FFCDD2;
+        }
+
+        .material-card.Purple.mc-active .mc-btn-action {
+            border-color: #F3E5F5;
+        }
+
+
+
+
+
+        .product-row {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .product-card {
+            flex: 0 0 auto;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+        .product-card .card{
+            border: 0.5px solid #a5a1b9;
+            background-color: var(--primary-color);
+        }
+
+        .card .card-body h5 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
         
-    }
+        .rating i {
+            color: #ffc107;
+            /* Gold color for stars */
+        }
 
-    .second-page-main .divs1-1 i {
-        font-size: 2rem;
-        margin: 0;
-    }
+        @media (min-width: 992px) {
+            .product-row {
+                flex-wrap: wrap;
+            }
 
-    .second-page-main .divs1-2 h1 {
-        font-size: 1.1rem;
-        font-size: 1rem;
-      
-    }
-    .second-page-main .divs1-2{
-        margin-top: 5%;
-    }
-    .second-page-main .divs1-2 button {
-        padding: 4px 8px;
-        font-size: 0.9rem;
-    }
-}
+            .product-card {
+                flex: 0 0 25%;
+                /* 4 cards per row for large screens */
+            }
+        }
 
-@media (min-width: 576px) and (max-width: 768px) {
-    .second-page-main .divs1-1 i {
-        font-size: 2.5rem;
-    }
+        @media (max-width: 576px) {
+            .product-row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 1rem;
+            }
 
-    .second-page-main .divs1-2 h1 {
-        font-size: 1.2rem;
-    }
+            .product-card {
+                flex: 0 0 auto;
+                width: 310px;
+                /* Set width for mobile horizontal scroll */
+            }
+        }
+        .card .card-body{
+            background-color: var(--primary-color);
+        }
 
-    .second-page-main .divs1-2 button {
-        padding: 5px 9px;
-        font-size: 1rem;
-    }
-}
-
-.categories-page {
-    height: auto; /* Allow height to adjust based on content */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.categories-page h1 {
-    font-size: 3.5rem;
-    color: #555449;
-    font-weight: 600;
-    font-family: fantasy;
-}
-
-/* categories */
-.categories-page .catagory-main-div {
-    margin-top: 4%;
-    width: 90%; /* Reduced width for better centering */
-    max-width: 1200px; /* Prevent it from being too wide on large screens */
-}
-
-.catagory-main-div .row {
-    gap: 15px;
-    margin-top: 2%;
-    justify-content: center; /* Ensures rows are centered */
-}
-
-/* Categories columns */
-.categories-page .cat-col {
-    height: 22vh; /* Adjust height as needed */
-    display: flex;
-    text-align: left;
-    align-items: end;
-    justify-content: start;
-    position: relative; /* For better image control */
-}
-
-/* Hover effect */
-.categories-page .cat-col:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease;
-}
-
-/* Background images for categories */
-#col-img1 {
-    background: url(images/cat-earphone.webp);
-    background-size: cover;
-    background-position: center;
-}
-#col-img2 {
-    background: url(images/earbuds.jpg);
-    background-size: cover;
-    background-position: center;
-}
-#col-img3 {
-    background: url(images/head.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-#col-img4 {
-    background: url(images/sound.webp);
-    background-size: cover;
-    background-position: center;
-}
-#col-img5 {
-    background: url(images/smart.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-#col-img6 {
-    background: url(images/ghead.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-
-/* Styling for the category text */
-.categories-page .cat-col a {
-    font-size: 1.5rem;
-    margin-left: 20px;
-    color: #ffffff;
-    font-weight: 900;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    letter-spacing: 2px;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .categories-page h1 {
-        margin-top: 7%;
-        font-size: 1.5rem; /* Reduce heading size */
-    }
-
-    .categories-page .catagory-main-div {
-        width: 90%;
-         /* Full width on small screens */
-      /* Remove left margin */
-    }
-
-    .catagory-main-div .row {
-        flex-direction: column; /* Stack items vertically */
-      
-    }
-
-    .categories-page .cat-col {
-        height: 18vh; /* Let the height adjust based on content */
-        display: flex;
-    text-align: left;
-    
-    align-items: end;
-    justify-content: start;
-    position: relative; 
-        
-    }
-
-    /* Styling for the category text */
-    .categories-page .cat-col a {
-        font-size: 1rem;
-        margin-left: 10px; /* Reduce font size */
-        /* Center the text on small screens */
-    }
-}
-
-
-
-/* third page */
-.third-page {
-    display: flex;
-    margin-top: 4%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* Splash Image */
-.third-page-sub {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%; /* Adjust for flex */
-    position: relative;
-}
-
-.image-splash {
-    width: 70%;
-    height: 50vh;
-    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
-    background-size: cover;
-    mask-position: -210px;
-    mask-repeat: no-repeat;
-}
-
-.third-page-sub i {
-    color: #111d10;
-    position: absolute;
-    margin-top: 20%;
-    animation: glass 3s infinite;
-}
-
-/* Text Box Section */
-.third-page-sub2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%; /* Adjust for flex */
-    flex-direction: column;
-    height: auto;
-}
-
-.text-box-arrival {
-    text-align: center;
-    width: 75%;
-}
-
-.text-box-arrival h2 {
-    font-size: 4.5rem;   
-    font-weight: 800;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 2px;
-    background-image: url(https://files.123freevectors.com/wp-content/original/131774-red-and-yellow-polygon-triangle-pattern-background.jpg);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-position: center;
-}
-.text-box-arrival h2:hover{
-    background-image: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: all 4s linear;
-    background-position: left;
-    scroll-behavior: smooth;
-}
-
-.text-box-arrival p {
-    font-size: 1.1rem;
-    margin-top: 3%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: var(--secondary-color);
-}
-
-.text-box-arrival button {
-    padding: 5px 30px;
-    margin-top: 25px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    font-weight: 600;
-    border-radius: 10px;
-}
-.new-arrival h1{
-    text-align: center;
-    font-size: 3.5rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #555449;    
-
-}
-/* Popup */
-.popup-arrival {
-    z-index: 30;
-    position: absolute;
-    display: none;
-    align-items: center;
-    margin-left: 10%;
-    flex-direction: column;
-    background: var(--primary-color);
-    height: 60vh;
-    width: 60%;
-    border-radius: 10px;
-    border: 2px solid #4b4955;
-}
-#slide1:checked ~ .images img{
-    transform: translateX(0);
-
- }
- #slide2:checked ~ .images img{
-    transform: translateX(-100%);
-
- }
- #slide3:checked ~ .images img{
-    transform: translateX(-200%);
-
- }
- .arrival-image-box input{
-    display: none;
- }
-.popup-arrival p {
-    margin-top: 2%;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--secondary-color);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    letter-spacing: 4px;
-}
-
-.popup-arrival h6 {
-    position: absolute;
-    color: red;
-    top: 10px;
-    left: 10px;
-    font-size: 1.4rem;
-}
-
-.arrival-image-box {
-    margin-top: 2%;
-    width: 40%;
-    height: 40vh;
-    position: relative;
-    background-color: #4b4955;
-}
-
-.arrival-image-box .images {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-}
-
-.arrival-image-box .images img {
-    width: 100%;
-    height: 40vh;
-    background-size: cover;
-    transition: all 1s linear;
-}
-
-.arrival-image-box input {
-    display: none;
-}
-
-.img-box-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 7vh;
-    gap: 20px;
-    width: 100%;
-}
-
-.img-box-label label {
-    background-color:var(--secondary-color);
-    border-radius: 50px;
-    color: var(--primary-color);
-    padding: 4px 10px;
-}
-
-/* Mobile View: Stacked layout (block) */
-@media (max-width: 768px) {
-    .third-page {
-        flex-direction: column;
-        margin-top: 10%; /* Stack content on top of each other */
-    }
-    
-    .third-page-sub, .third-page-sub2 {
-        width: 100%; /* Full width for mobile */
-    }
-
-    .image-splash {
-    width: 70%;
-    height: 33vh;
-    mask-image: url(https://cdn.pixabay.com/photo/2017/03/30/20/22/black-2189644_960_720.png);
-    background-size: cover;
-    mask-position: -440px;
-    border-radius: 34% 0 0 10%;
-    mask-repeat: no-repeat;
-}
-
-    /* Adjust popup size on mobile */
-    .popup-arrival {
-        width: 80%;
-        margin: 0;
-        height: 47vh;
-    }
-
-    .popup-arrival p {
-        font-size: 1rem;
-        text-align: center;
-        letter-spacing: 0px;
-    }
-
-    .arrival-image-box {
-        width: 80%;
-        height: 30vh;
-    }
-
-    .arrival-image-box .images img {
-        height: 30vh;
-        width: 100%;
-    }
-    .text-box-arrival{
-        margin-top: 8%;
-    }
-    .text-box-arrival h2{
-        font-size: 2.5rem;
-    }
-    .text-box-arrival p{
-        font-size: 0.9rem;
-    }
-    .third-page-sub i {
-    color: var(--secondary-color);
-    position: absolute;
-    margin-top: 26%;
-    animation: glass 2s infinite;
-
-}
-@keyframes glass {
-    0%{
-        transform:rotate(0) ;
-        
-    }
-    50%{
-        transform: rotate(-10deg);
-        
-    }
-    70%{
-        
-        transform: scale(1.1);
-        color: rgb(20, 166, 105);
-    }
-    100%{
-        
-        transform: scale(1.2);
-        color: rgb(20, 166, 105);
-    }
-    
-}
-.new-arrival h1{
-    font-size: 1.5rem;
-    font-family: fantasy;
-}
-}
-
-
-#top-pick{
-    margin-top: 6%;
-    text-align: center;
-    font-size: 2.8rem;
-    font-family: fantasy;
-    color: #555449
-
-}
-/* Base styles for material cards */
-@import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
-.fa-spin-fast {
-  -webkit-animation: fa-spin-fast 0.2s infinite linear;
-  animation: fa-spin-fast 0.2s infinite linear;
-}
-@-webkit-keyframes fa-spin-fast {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-@keyframes fa-spin-fast {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-.material-card {
-  position: relative;
-
-  padding-bottom: calc(100% - 16px);
-  margin-bottom: 6.6em;
-}
-.material-card h2 {
-  position: absolute;
-  top: calc(100% - 16px);
-  left: 0;
-  width: 100%;
-  padding: 10px 16px;
-  color: #fff;
-  font-size: 1.4em;
-  line-height: 1.6em;
-  margin: 0;
-  z-index: 10;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card h2 span {
-  display: block;
-}
-.material-card h2 strong {
-  font-weight: 400;
-  display: block;
-  font-size: 0.8em;
-}
-.material-card h2:before,
-.material-card h2:after {
-  content: ' ';
-  position: absolute;
-  left: 0;
-  top: -16px;
-  width: 0;
-  border: 8px solid;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card h2:after {
-  top: auto;
-  bottom: 0;
-}
-@media screen and (max-width: 767px) {
-  .material-card.mc-active {
-    padding-bottom: 0;
-    height: auto;
-  }
-}
-.material-card.mc-active h2 {
-  top: 0;
-  padding: 10px 16px 10px 90px;
-}
-.material-card.mc-active h2:before {
-  top: 0;
-}
-.material-card.mc-active h2:after {
-  bottom: -16px;
-}
-.material-card .mc-content {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 16px;
-  left: 16px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card .mc-btn-action {
-  position: absolute;
-  right: 23px;
-  top: 15px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  border: 3px solid;
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-  z-index: 20;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card.mc-active .mc-btn-action {
-  top: 62px;
-}
-.material-card .mc-description {
-  position: absolute;
-  top: 100%;
-  right: 30px;
-  left: 30px;
-  bottom: 54px;
-  overflow: hidden;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -webkit-transition: all 1.2s;
-  -moz-transition: all 1.2s;
-  -ms-transition: all 1.2s;
-  -o-transition: all 1.2s;
-  transition: all 1.2s;
-}
-.material-card .mc-footer {
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card .mc-footer h4 {
-  position: absolute;
-  top: 200px;
-  left: 30px;
-  padding: 0;
-  margin: 0;
-  font-size: 12px;
-  font-weight: 700;
-  -webkit-transition: all 1.4s;
-  -moz-transition: all 1.4s;
-  -ms-transition: all 1.4s;
-  -o-transition: all 1.4s;
-  transition: all 1.4s;
-}
-.material-card .mc-footer a {
-  display: block;
-  float: left;
-  position: relative;
-  width: 40px;
-  height: 40px;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  font-size: 28px;
-  color: #fff;
-  line-height: 40px;
-  text-decoration: none;
-  top: 200px;
-}
-.material-card .mc-footer a:nth-child(1) {
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-.material-card .mc-footer a:nth-child(2) {
-  -webkit-transition: all 0.6s;
-  -moz-transition: all 0.6s;
-  -ms-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  transition: all 0.6s;
-}
-.material-card .mc-footer a:nth-child(3) {
-  -webkit-transition: all 0.7s;
-  -moz-transition: all 0.7s;
-  -ms-transition: all 0.7s;
-  -o-transition: all 0.7s;
-  transition: all 0.7s;
-}
-.material-card .mc-footer a:nth-child(4) {
-  -webkit-transition: all 0.8s;
-  -moz-transition: all 0.8s;
-  -ms-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  transition: all 0.8s;
-}
-.material-card .mc-footer a:nth-child(5) {
-  -webkit-transition: all 0.9s;
-  -moz-transition: all 0.9s;
-  -ms-transition: all 0.9s;
-  -o-transition: all 0.9s;
-  transition: all 0.9s;
-}
-.material-card .img-container {
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.material-card.mc-active .img-container {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  left: 0;
-  object-fit: fill;
-  top: 12px;
-  width: 60px;
-  height: 60px;
-  z-index: 20;
-}
-.material-card .img-container img{
-    height: 100%;
-    object-fit: fill;
-}
-.material-card.mc-active .mc-content {
-  padding-top: 6em;
-}
-@media screen and (max-width: 767px) {
-  .material-card.mc-active .mc-content {
-    position: relative;
-    margin-right: 16px;
-  }
-  
-
-}
-.material-card.mc-active .mc-description {
-  top: 50px;
-  padding-top: 5.6em;
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-@media screen and (max-width: 767px) {
-  .material-card.mc-active .mc-description {
-    position: relative;
-    top: auto;
-    right: auto;
-    left: auto;
-    padding: 50px 30px 70px 30px;
-    bottom: 0;
-  }
-}
-@media (max-width:750px){
-    
-#top-pick{
-    margin-top: 12%;
-    text-align: center;
-    font-size: 1.6rem;
-    font-family: fantasy;
-    color: #555449
-
-}
-}
-.material-card.mc-active .mc-footer {
-  overflow: visible;
-  position: absolute;
-  top: calc(100% - 16px);
-  left: 16px;
-  right: 0;
-  height: 82px;
-  padding-top: 15px;
-  padding-left: 25px;
-}
-.material-card.mc-active .mc-footer a {
-  top: 0;
-}
-.material-card.mc-active .mc-footer h4 {
-  top: -32px;
-}
-.material-card.Red h2 {
-  background-color: #F44336;
-}
-.material-card.Red h2:after {
-  border-top-color: #F44336;
-  border-right-color: #F44336;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Red h2:before {
-  border-top-color: transparent;
-  border-right-color: #B71C1C;
-  border-bottom-color: #B71C1C;
-  border-left-color: transparent;
-}
-.material-card.Red.mc-active h2:before {
-  border-top-color: transparent;
-  border-right-color: #F44336;
-  border-bottom-color: #F44336;
-  border-left-color: transparent;
-}
-.material-card.Red.mc-active h2:after {
-  border-top-color: #B71C1C;
-  border-right-color: #B71C1C;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Red .mc-btn-action {
-  background-color: #F44336;
-}
-.material-card.Red .mc-btn-action:hover {
-  background-color: #B71C1C;
-}
-.material-card.Red .mc-footer h4 {
-  color: #B71C1C;
-}
-.material-card.Red .mc-footer a {
-  background-color: #B71C1C;
-}
-.material-card.Red.mc-active .mc-content {
-  background-color: #FFEBEE;
-}
-.material-card.Red.mc-active .mc-footer {
-  background-color: #FFCDD2;
-}
-.material-card.Red.mc-active .mc-btn-action {
-  border-color: #FFEBEE;
-}
-.material-card.Pink h2 {
-  background-color: #B71C1C;
-}
-.material-card.Pink h2:after {
-  border-top-color: #B71C1C;
-  border-right-color: #B71C1C;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Pink h2:before {
-  border-top-color: transparent;
-  border-right-color: #B71C1C;
-  border-bottom-color: #B71C1C;
-  border-left-color: transparent;
-}
-.material-card.Pink.mc-active h2:before {
-  border-top-color: transparent;
-  border-right-color: #B71C1C;
-  border-bottom-color: #B71C1C;
-  border-left-color: transparent;
-}
-.material-card.Pink.mc-active h2:after {
-  border-top-color: #B71C1C;
-  border-right-color: #B71C1C;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Pink .mc-btn-action {
-  background-color: #B71C1C;
-}
-.material-card.Pink .mc-btn-action:hover {
-  background-color: #B71C1C;
-}
-.material-card.Pink .mc-footer h4 {
-  color: #B71C1C;
-}
-.material-card.Pink .mc-footer a {
-  background-color: #B71C1C;
-}
-.material-card.Pink.mc-active .mc-content {
-  background-color: #FFEBEE;
-}
-.material-card.Pink.mc-active .mc-footer {
-  background-color: #FFCDD2;
-}
-.material-card.Pink.mc-active .mc-btn-action {
-  border-color: #FCE4EC;
-}
-.material-card.Purple h2 {
-  background-color: #F44336;
-}
-.material-card.Purple h2:after {
-  border-top-color: #F44336;
-  border-right-color: #F44336;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Purple h2:before {
-  border-top-color: transparent;
-  border-right-color: #F44336;
-  border-bottom-color: #F44336;
-  border-left-color: transparent;
-}
-.material-card.Purple.mc-active h2:before {
-  border-top-color: transparent;
-  border-right-color: #F44336;
-  border-bottom-color: #F44336;
-  border-left-color: transparent;
-}
-.material-card.Purple.mc-active h2:after {
-  border-top-color: #F44336;
-  border-right-color: #F44336;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-}
-.material-card.Purple .mc-btn-action {
-  background-color: #F44336;
-}
-.material-card.Purple .mc-btn-action:hover {
-  background-color: #F44336;
-}
-.material-card.Purple .mc-footer h4 {
-  color: #F44336;
-}
-.material-card.Purple .mc-footer a {
-  background-color: #F44336;
-}
-.material-card.Purple.mc-active .mc-content {
-  background-color: #FFEBEE;
-}
-.material-card.Purple.mc-active .mc-footer {
-  background-color: #FFCDD2;
-}
-.material-card.Purple.mc-active .mc-btn-action {
-  border-color: #F3E5F5;
-}
-
-
-
+        .card img {
+            height: 33vh;
+        }
     </style>
 </head>
 
@@ -1451,8 +1673,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <!-- Navbar Toggle for mobile view -->
-            <button style="padding: 1px; border: none; margin-left: 8px;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            <button style="padding: 1px; border: none; margin-left: 8px;" class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -1469,7 +1691,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Products
                         </a>
-                        <ul  class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
                             <li><a class="dropdown-item" href="#">Earphone</a></li>
                             <li><a class="dropdown-item" href="#">Speaker</a></li>
                             <li><a class="dropdown-item" href="#">Powerbank</a></li>
@@ -1499,13 +1721,13 @@
             <!-- Right-side icons -->
             <div class="navbar-brand-right">
                 <a href=""><i id="heart" style="color: #ff4d4f; " class="fa-solid fa-heart"></i></a>
-                <a href=""><i  class="fa-solid fa-cart-shopping"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href=""><i class="fa-solid fa-user"></i></a>
 
             </div>
         </div>
     </nav>
-    
+
     <div class="marquee">
         <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
             one free on select items!</marquee>
@@ -1524,16 +1746,14 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/slidebar-buds.webp"
-                        class="d-block w-100" alt="Slide 1">
+                    <img src="images/slidebar-buds.webp" class="d-block w-100" alt="Slide 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://business.webcreativemantra.com/wp-content/uploads/2023/01/wireless-neckband.jpg"
+                    <img src="https://barkas.id/wp-content/uploads/2022/06/Headset-Gaming-TWS-Bluetooth-BT5.1-Waterproof-Low-Latency.jpg"
                         class="d-block w-100" alt="Slide 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/slide-bar.webp"
-                        class="d-block w-100" alt="Slide 3">
+                    <img src="images/slide-bar.webp" class="d-block w-100" alt="Slide 3">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -1576,7 +1796,7 @@
     <div class="container timeout-main-box">
         <div class="info-time row">
             <div class="col-6">
-                <h3>Deals now</h3>
+                <h3 style="text-wrap: nowrap;">Deals now</h3>
             </div>
             <!-- <div class="col-6 text-right">
                 <p><a href="#">View all&nbsp;<i class="fa-solid fa-circle-chevron-right"></i></a></p>
@@ -1619,7 +1839,7 @@
         <div class="timeout-sub2 mt-5  row justify-content-center align-items-center">
 
             <div class="timebox d-flex justify-content-around align-items-center col-12 col-md-10 col-lg-8">
-                <h4 class="which-sale" style="text-align: left; ">WEEKEND SALE  ENDS IN :</h4>
+                <h4 class="which-sale" style="text-align: left; ">WEEKEND SALE ENDS IN :</h4>
                 <div>
                     <p id="days2">00</p>
                     <h2>Days</h2>
@@ -1691,7 +1911,7 @@
             </div>
         </div>
     </div>
-  
+
     <!-- category -->
     <div class="categories-page mt-5">
         <h1>Shop by Categories</h1>
@@ -1721,11 +1941,11 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
     <div class="new-arrival mt-4">
         <h1>New Arrival</h1>
     </div>
-  
+
     <div class="container-fluid  third-page">
         <div class="row">
             <div class="col-12 col-md-6 third-page-sub">
@@ -1735,27 +1955,30 @@
             <div class="col-12 col-md-6 third-page-sub2">
                 <div class="text-box-arrival">
                     <h2>SonicTune Earbuds 3 Pro</h2>
-                    <p>SonicTune Earbuds. These earbuds are designed to provide an exceptional audio experience, combining
-                        cutting-edge technology with a sleek, water-resistant design. Long Battery Life: Enjoy up to 12 hours
-                        of continuous playback on a single charge, with a compact charging case providing an additional 24
+                    <p>SonicTune Earbuds. These earbuds are designed to provide an exceptional audio experience,
+                        combining
+                        cutting-edge technology with a sleek, water-resistant design. Long Battery Life: Enjoy up to 12
+                        hours
+                        of continuous playback on a single charge, with a compact charging case providing an additional
+                        24
                         hours of battery life.
                     </p>
                     <a href=""><button>View</button></a>
                 </div>
             </div>
         </div>
-    
+
         <!-- Popup Section -->
         <div id="popup" class="popup-arrival">
             <h6 onclick="closepopup()"><span><i class="fa-solid fa-circle-xmark"></i></span></h6>
             <p>SonicTune Earbuds 3 Pro</p>
-          
+
             <div class="arrival-image-box">
                 <div class="radios">
                     <input type="radio" id="slide1" name="slide1">
                     <input type="radio" id="slide2" name="slide1">
                     <input type="radio" id="slide3" name="slide1">
-    
+
                     <div class="images">
                         <img src="images/img1-popup.jpeg" id="img1" alt="">
                         <img src="images/popup-img2.jpeg" id="img2" alt="">
@@ -1773,8 +1996,9 @@
 
 
 
-    <section  class="container  ">
-        <h2 id="top-pick">Top Picks For You </h2>
+    <section class="container  ">
+        <h2 id="top-pick" style="color: #a5a1b9; text-align: left;">Top Picks For You &nbsp;<i style="color: red;"
+                class="fa-solid fa-fire-flame-curved"></i> </h2>
         <div class="page-header">
             <h1><br>
         </div>
@@ -1782,7 +2006,7 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <article class="material-card Red">
                     <h2>
-                        <span>XenoWave GT2</span>
+                        <span>SonicWave GT2</span>
                         <strong>
                             <i class="fa-solid fa-fire-flame-curved"></i></i>
                             Premium
@@ -1790,10 +2014,12 @@
                     </h2>
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="img-responsive" src="https://i.pinimg.com/736x/28/56/f7/2856f75f16cfc2780a841e58e3b55596.jpg">
+                            <img class="img-responsive"
+                                src="https://i.pinimg.com/736x/28/56/f7/2856f75f16cfc2780a841e58e3b55596.jpg">
                         </div>
                         <div class="mc-description">
-                            SonicWave delivers futuristic, precision audio for immersive gaming. Noise-canceling microphone for clear communication,Comfortable memory foam ear cushions                        </div>
+                            SonicWave delivers futuristic, precision audio for immersive gaming. Noise-canceling
+                            microphone for clear communication,Comfortable memory foam ear cushions </div>
                     </div>
                     <a class="mc-btn-action">
                         <i class="fa fa-bars"></i>
@@ -1802,10 +2028,12 @@
                         <h4>
                             Wishlist/Add to cart
                         </h4>
-                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
-                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
-                    
+                        <a style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a
+                            style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY
+                            NOW</a>
+
                     </div>
                 </article>
             </div>
@@ -1820,10 +2048,13 @@
                     </h2>
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="img-responsive" src="https://th.bing.com/th/id/R.b17921e35c501aaa19771742706e9f98?rik=WAym3uy1JV783g&riu=http%3a%2f%2fsc04.alicdn.com%2fkf%2fHf8387fc7dffd475a8ed07f0a6b2063c9U%2f244031312%2fHf8387fc7dffd475a8ed07f0a6b2063c9U.jpg&ehk=mWQJmZ4pAQ7ijyTmM1YrgNQZy6OHJBw0r0E9DgSL9KM%3d&risl=&pid=ImgRaw&r=0">
+                            <img class="img-responsive"
+                                src="https://th.bing.com/th/id/R.b17921e35c501aaa19771742706e9f98?rik=WAym3uy1JV783g&riu=http%3a%2f%2fsc04.alicdn.com%2fkf%2fHf8387fc7dffd475a8ed07f0a6b2063c9U%2f244031312%2fHf8387fc7dffd475a8ed07f0a6b2063c9U.jpg&ehk=mWQJmZ4pAQ7ijyTmM1YrgNQZy6OHJBw0r0E9DgSL9KM%3d&risl=&pid=ImgRaw&r=0">
                         </div>
                         <div class="mc-description">
-                            SonicBuds offer premium sound in a compact wireless form. Experience deep bass, crystal-clear audio,Bluetooth 5.2 for stable, low-latency connection,Ergonomic fit with multiple ear tips,IPX7 waterproof rating for outdoor use.USB-C fast charging                        </div>
+                            SonicBuds offer premium sound in a compact wireless form. Experience deep bass,
+                            crystal-clear audio,Bluetooth 5.2 for stable, low-latency connection,Ergonomic fit with
+                            multiple ear tips,IPX7 waterproof rating for outdoor use.USB-C fast charging </div>
                     </div>
                     <a class="mc-btn-action">
                         <i class="fa fa-bars"></i>
@@ -1832,9 +2063,11 @@
                         <h4>
                             Wishlist/Add to cart
                         </h4>
-                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
-                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
+                        <a style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a
+                            style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY
+                            NOW</a>
                     </div>
                 </article>
             </div>
@@ -1852,7 +2085,9 @@
                             <img class="img-responsive" src="images/card-sound.jpeg">
                         </div>
                         <div class="mc-description">
-                            Experience rich, immersive audio with SonicWave.2.1 Channel Surround Sound.Bluetooth connectivity for wireless streaming.HDMI ARC and optical inputs.Dolby Atmos support for 3D sound                        </div>
+                            Experience rich, immersive audio with SonicWave.2.1 Channel Surround Sound.Bluetooth
+                            connectivity for wireless streaming.HDMI ARC and optical inputs.Dolby Atmos support for 3D
+                            sound </div>
                     </div>
                     <a class="mc-btn-action">
                         <i class="fa fa-bars"></i>
@@ -1861,66 +2096,187 @@
                         <h4>
                             Wishlist/Add to cart
                         </h4>
-                        <a  style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
-                        <a  style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <a  style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY NOW</a>
+                        <a style="text-align: center;"><i class="fa-solid fa-heart"></i></a>
+                        <a style="text-align: center;"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a
+                            style="text-align: center; font-size: 0.9rem; text-wrap: nowrap; width: 90px; background-color: rgb(27, 119, 27); border-radius: 5px; left: 5px;">BUY
+                            NOW</a>
                     </div>
                 </article>
             </div>
-            
-           
-          
+
+
+
         </div>
     </section>
-    
-    <a href="https://github.com/marlenesco/material-cards" class="github-corner" aria-label="View source on Github" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#f44336; color:#ECEFF1; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-    
 
-  
+    <div class="container mt-4">
+        <h2 class="mb-4" style="color: #a5a1b9; font-family: fantasy;">Grand Sale &nbsp;<i style="color: red;"
+                class="fa-solid fa-crown"></i></h2>
+        <div class="row product-row">
+            <!-- Card 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="https://www.pngarts.com/files/8/Earbuds-Wireless-Transparent-Image.png"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicPulse X1</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹2199</span>
+                            <span class="text-muted text-decoration-line-through">₹3400</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="https://ae01.alicdn.com/kf/HTB1VVVTeBjTBKNjSZFDq6zVgVXaZ/CHICLITS-M14-Sport-Super-Bass-Stereo-Earphone-3-5mm-Jack-Headset-Hands-Free-Earplugs-with-Mic.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicBeats 121</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹899</span>
+                            <span class="text-muted text-decoration-line-through">₹1459</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="https://ae01.alicdn.com/kf/S475e1a6715bf4bb5a900f4d423b64bc3e/Power-Bank-Case-Practical-with-Digital-Display-Long-Service-Life-Simple-Operation-6x18650-Battery-Charger-Case.jpg"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Sonic VoltXtreme </h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹1299</span>
+                            <span class="text-muted text-decoration-line-through">₹1950</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="https://th.bing.com/th/id/R.97caee55a8b2a30ea32ec4d51c7f7902?rik=QDrRj5o9fZokwg&riu=http%3a%2f%2fwww.eksa.net%2fcdn%2fshop%2fproducts%2fStarEnginePro_7819399e-aac0-4101-96ab-83903d1728fb.jpg%3fv%3d1681452071&ehk=cv9et%2b3wqPhguwfKaviNyouppsSie2QPHfmYfYDdLb4%3d&risl=&pid=ImgRaw&r=0"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">ZenWave Studio Pro</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹3749</span>
+                            <span id="under"    class=" text-muted text-decoration-line-through">₹5250</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Repeat similar product cards for more items -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="comming-soon mt-5">
+        <h1 style="text-align: center;">Update Soon </h1>
+    </div>
+
+
+
+
+
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>$(function() {
-    $('.material-card > .mc-btn-action').click(function () {
-        var card = $(this).parent('.material-card');
-        var icon = $(this).children('i');
-        icon.addClass('fa-spin-fast');
+    <script>$(function () {
+            $('.material-card > .mc-btn-action').click(function () {
+                var card = $(this).parent('.material-card');
+                var icon = $(this).children('i');
+                icon.addClass('fa-spin-fast');
 
-        if (card.hasClass('mc-active')) {
-            card.removeClass('mc-active');
+                if (card.hasClass('mc-active')) {
+                    card.removeClass('mc-active');
 
-            window.setTimeout(function() {
-                icon
-                    .removeClass('fa-arrow-left')
-                    .removeClass('fa-spin-fast')
-                    .addClass('fa-bars');
+                    window.setTimeout(function () {
+                        icon
+                            .removeClass('fa-arrow-left')
+                            .removeClass('fa-spin-fast')
+                            .addClass('fa-bars');
 
-            }, 800);
-        } else {
-            card.addClass('mc-active');
+                    }, 800);
+                } else {
+                    card.addClass('mc-active');
 
-            window.setTimeout(function() {
-                icon
-                    .removeClass('fa-bars')
-                    .removeClass('fa-spin-fast')
-                    .addClass('fa-arrow-left');
+                    window.setTimeout(function () {
+                        icon
+                            .removeClass('fa-bars')
+                            .removeClass('fa-spin-fast')
+                            .addClass('fa-arrow-left');
 
-            }, 800);
-        }
-    });
-});</script>
+                    }, 800);
+                }
+            });
+        });</script>
 
 
     <script>
         function openpopup() {
             document.getElementById('popup').style.display = "flex";
         }
-    
+
         function closepopup() {
             document.getElementById('popup').style.display = "none";
         }
     </script>
-    
-    
+
+
 
 
     <script>
@@ -1963,7 +2319,7 @@
         }
     </script>
 
-      <script>
+    <script>
         var countDownDate = new Date("oct 15, 2024 21:01:00").getTime();
         var x = setInterval(function () {
             var now = new Date().getTime();
