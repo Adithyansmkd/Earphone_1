@@ -1623,7 +1623,7 @@
 .product-row {
     display: flex;
     overflow-x: auto;
-    gap: 1rem;
+    gap: 10px;
     padding: 20px 0;
     scroll-snap-type: x mandatory;
     flex-wrap: nowrap;
@@ -1637,6 +1637,7 @@
     transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     filter: blur(3px);
     opacity: 0.8;
+    background-color: var(--primary-color);
     transform: scale(0.95);
     border-radius: 15px; /* Keep the card rounded */
     overflow: hidden;
@@ -1648,7 +1649,7 @@
 .product-card img {
     max-width: 100%;
     height: auto;
-    border-bottom: 2px solid #ddd; /* Add border between image and text */
+    border-bottom: 1px solid #939090; /* Add border between image and text */
     margin-bottom: 10px;
 }
 
@@ -1658,16 +1659,19 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--secondary-color);
 }
 .product-card img{
     height: 33vh;
 }
-
+.product-card .card{
+    background-color: var(--primary-color);
+    border: 1px solid #7575755c;
+}
 .product-card p {
     font-family: 'Arial', sans-serif;
     font-size: 14px;
-    color: #666;
+    color: var(--secondary-color)
 }
 
 /* Styling for the first card (always visible) */
@@ -1830,7 +1834,7 @@
                     <img src="images/slidebar-buds.webp" class="d-block w-100" alt="Slide 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://barkas.id/wp-content/uploads/2022/06/Headset-Gaming-TWS-Bluetooth-BT5.1-Waterproof-Low-Latency.jpg"
+                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6cde0652-48ae-48b9-b934-2728ba99e3f1.__CR0,0,970,600_PT0_SX970_V1___.jpg"
                         class="d-block w-100" alt="Slide 2">
                 </div>
                 <div class="carousel-item">
@@ -2213,7 +2217,7 @@
                             <span class="text-danger fw-bold">₹2199</span>
                             <span class="text-muted text-decoration-line-through">₹3400</span>
                         </p>
-                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="tws1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
                         <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
@@ -2291,7 +2295,107 @@
                     </div>
                 </div>
             </div>
-
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="images/bluettoth-card.png"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicMini 2x</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹3749</span>
+                            <span id="under"    class=" text-muted text-decoration-line-through">₹5200</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="images/boofer.png"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicExtrem 3</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹4749</span>
+                            <span id="under"    class=" text-muted text-decoration-line-through">₹6750</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div class="card">
+                    <img src="images/neckband.png"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicNeck Pro</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹1449</span>
+                            <span id="under"    class=" text-muted text-decoration-line-through">₹2250</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 product-card">
+                <div style="height: 44vh; text-align: center; display: flex; justify-content: center; align-items: center;" class="card">
+                    <!-- <img src="images/neckband.png"
+                        class="card-img-top" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">SonicNeck Pro</h5>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="price">
+                            <span class="text-danger fw-bold">₹1449</span>
+                            <span id="under"    class=" text-muted text-decoration-line-through">₹2250</span>
+                        </p>
+                        <a href="#" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-primary btn-sm">Buy Now</a>
+                        <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                            class="btn btn-secondary btn-sm">Add to Cart</a> -->
+                            <h4>Update Soon</h4>
+                          
+                    </div>
+                </div>
+            </div>
 
             <!-- Repeat similar product cards for more items -->
 
