@@ -23,7 +23,11 @@
             justify-content: space-between;
             /* Align items on the left and right */
             padding: 10px 20px;
+            background-color: #0D1117;
+            width: 100%;
+            z-index: 1000;
             /* Add some padding */
+            position: fixed;
         }
 
         .navbar-brand {
@@ -152,7 +156,7 @@
     @media (max-width:756px) {
         .product-image img {
       width: 98%;
-      height: 24vh;
+      height: 23vh;
     }
     .product-title{
         font-size: 1rem;
@@ -187,22 +191,141 @@
     .sub-tag span{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
+    #logo{
+      width: 120px;
+      height: 4.5vh;
+    }
+
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+
+    }
+    
+
+    .content-wrapper h2 {
+      color: #333;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .content-wrapper p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .decoration {
+      height: 4px;
+      width: 50px;
+      background-color: #cf0700;
+      margin: 10px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper h2 {
+        font-size: 1.5rem;
+      }
+
+      .content-wrapper p {
+        font-size: 1rem;
+      }
+    } 
+
+
+
+    .footer {
+      background: #0D1117;
+      color: #fff;
+      text-align: left;
+      padding: 50px 0;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: relative;
+    }
+    .footer p{
+      color: #c5c4c89f;
+    }
+    .footer .logo img {
+      width: 100px;
+      height: auto;
+    }
+    .footer .animated-text {
+      display: inline-block;
+      animation: text-animation 3s ease infinite;
+    }
+  
+    .footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #ffc107;
+      text-decoration: underline;
+    }
+    .footer .contact-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .footer .contact-info p {
+      margin: 5px 0;
+     
+    }
+    .footer .social-links a {
+      margin: 0 10px;
+      font-size: 18px;
+    }
+    @media (max-width: 768px) {
+      .footer .row {
+        text-align: center;
+      }
+      .footer .logo, .footer .footer-column {
+        margin-bottom: 20px;
+      }
+      #logofooter{
+      width: 80%;
+      
+  }
+    }
+    .footer .row .col-6{
+      text-align: left;
+    }
+  #logofooter{
+width: 140px;
+    height: 6vh;
+  }
     </style>
 
 </head>
 
 <body>
-    <nav class="navbar">
-        <a class="navbar-brand" href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+    <nav  class="navbar">
+        <a class="navbar-brand" href="index.html"><i style="color: #fff;" class="fa-solid fa-arrow-left"></i></a>
+        <img id="logo" src="images/logo-brand.png"  alt="">
         <div>
 
             <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
-            <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span>
+            <span class="navbar-text"><i style="color: rgb(249, 247, 246);" class="fa-solid fa-cart-shopping"></i></span>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div style="height: 7vh; width: 100%; background-color: #f7f6f5 ; display: flex; align-items: center; justify-content: center;" class="dummy">
+      <span><i class="fa-solid fa-rotate-right"></i></span>
+    </div>
+    <div class="container-fluid ">
         <img class="d-block w-100 h-100"
-            src="https://gadgetnmusic.com/wp-content/uploads/2022/11/614tGI0cNbL._AC_SL1500_.jpg"
+            src="images/cat-tws-curo.jpg"
             alt="">
 
     </div>
@@ -215,20 +338,20 @@
         <span>Newly Updated <i style="color: red; font-size: 1.2rem;" class="fa-brands fa-gripfire"></i></span>
     </div>
     <div class="container mt-4">
-        <div class="row g-2">
+        <div class="row g-3">
           <!-- Card 1 -->
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://www.poojaratele.com/media/catalog/product/cache/28b568fbf82d79c53c9eab7361be58d0/8/1/81ixi5m4efl._sl1500_.jpg" alt="Product Image">
+                <img src="images/cat-tws1.jpg" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>4.8</span> 
+                  <span>(340 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicTune 4</h5>
                 <div class="product-price">
                   ₹1,289 
                   <span class="product-old-price">₹2,990</span>
@@ -236,7 +359,7 @@
                 </div>
                 <div class="features">
                
-                  <span>BEAST™ Mode</span>
+                  <span>QGA™ Mode</span>
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
               </div>
@@ -249,23 +372,23 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://www.bigw.com.au/medias/sys_master/images/images/h31/he8/47797124169758.jpg" alt="Product Image">
+                <img src="images/cat-tws2.jpg" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>4.0</span> 
+                  <span>(290 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicPulse 3d</h5>
                 <div class="product-price">
                   ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  <span class="product-old-price">₹2,890</span>
+                  <span class="product-discount">59% OFF</span>
                 </div>
                 <div class="features">
                  
-                  <span>BEAST™ Mode</span>
+                  <span>Anc Mode</span>
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
               </div>
@@ -275,23 +398,23 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://tejarra-media.s3.amazonaws.com/89894/conversions/hp145-o-medium.jpg" alt="Product Image">
+                <img src="images/cat-tws-white.webp" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>4.3</span> 
+                  <span>(20 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicRose 5</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹2,265 
+                  <span class="product-old-price">₹3,990</span>
+                  <span class="product-discount">67% OFF</span>
                 </div>
                 <div class="features">
                   
-                  <span>BEAST™ Mode</span>
+                  <span>Enc Mode</span>
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
               </div>
@@ -302,19 +425,19 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://images.priceoye.pk/joyroom-true-wireless-earbuds-jr-tl6-pakistan-priceoye-p4953.jpg" alt="Product Image">
+                <img src="images/cat-tws-3.jpg" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>4.1</span> 
+                  <span>(211 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicMax 1</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹2,549 
+                  <span class="product-old-price">₹3,390</span>
+                  <span class="product-discount">37% OFF</span>
                 </div>
                 <div class="features">
                   <span>10 mm Drivers</span>
@@ -327,23 +450,23 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://i.pinimg.com/originals/14/d5/1b/14d51b5887e3c900d6565f5a64d2ed68.png" alt="Product Image">
+                <img src="images/cat-tws-4.png" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
+                  <span>3.0</span> 
                   <span>(29 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicCris 6s</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹1,189 
+                  <span class="product-old-price">₹2,890</span>
+                  <span class="product-discount">51% OFF</span>
                 </div>
                 <div class="features">
 
-                  <span>BEAST™ Mode</span>
+                  <span>Anc Mode</span>
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
               </div>
@@ -354,22 +477,22 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://i.pinimg.com/originals/6f/52/da/6f52da8925ce00b936848f32961e19f8.jpg" alt="Product Image">
+                <img src="images/cat-tws-5.jpg" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>4.2</span> 
+                  <span>(10 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicTune+</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹1,489 
+                  <span class="product-old-price">₹1,990</span>
+                  <span class="product-discount">17% OFF</span>
                 </div>
                 <div class="features">
-                  <span>10 mm Drivers</span>
+                  <span>12 mm Drivers</span>
  
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
@@ -379,22 +502,22 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://www.staples-3p.com/s7/is/image/Staples/sp140996004_sc7?wid=512&hei=512" alt="Product Image">
+                <img src="images/cat-tws-6.avif" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
-                  <span>(29 reviews)</span>
+                  <span>3.9</span> 
+                  <span>(220 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicPrime 4T</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹1,689 
+                  <span class="product-old-price">₹3,390</span>
+                  <span class="product-discount">45% OFF</span>
                 </div>
                 <div class="features">
-                  <span>10 mm Drivers</span>
+                  <span>Enc  mode</span>
 
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
@@ -404,23 +527,23 @@
           <div class="col-6 col-sm-6 col-md-6 col-lg-3">
             <div class="product-card">
               <div class="product-image">
-                <img src="https://ae01.alicdn.com/kf/HTB1sw9sseSSBuNjy0Flq6zBpVXa8/AirPods-Case-Silicone-Protective-Cover-and-Skin-Shock-Proof-for-Apple-Airpods-Charging-Case-Midnight-Blue.jpg" alt="Product Image">
+                <img src="images/cat-tws-7.jpg" alt="Product Image">
               </div>
               <div class="product-info">
                 <div class="rating">
                   <span class="star">⭐</span> 
-                  <span>5.0</span> 
+                  <span>4.0</span> 
                   <span>(29 reviews)</span>
                 </div>
-                <h5 class="product-title">boAt Airdopes 183</h5>
+                <h5 class="product-title">SonicZen</h5>
                 <div class="product-price">
-                  ₹1,289 
-                  <span class="product-old-price">₹2,990</span>
-                  <span class="product-discount">57% OFF</span>
+                  ₹3,289 
+                  <span class="product-old-price">₹6,990</span>
+                  <span class="product-discount">50% OFF</span>
                 </div>
                 <div class="features">
 
-                  <span>BEAST™ Mode</span>
+                  <span>QGA™ Mode</span>
                 </div>
                 <button class="add-to-cart-btn mt-3">Add To Cart</button>
               </div>
@@ -431,10 +554,93 @@
       
         </div>
       </div>
-      
+
+
+      <div class="container py-5">
+        <div class="row">
+          <!-- First Column: Image -->
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+            <img src="images/cat-tws-feature1.jpeg" alt="Responsive Image" class="img-fluid">
+          </div>
+          
+          <!-- Second Column: Heading, Text, and Decoration -->
+          <div class="col-lg-6 col-md-12">
+            <div class="content-wrapper">
+              <h2>Feel the Beats with QGA</h2>
+              <div class="decoration"></div>
+  <p>Experience the next level of sound quality and comfort with our latest premium earbuds. Designed for audiophiles and casual listeners alike, these earbuds deliver crystal-clear audio and superior functionality in any environment. Whether you’re commuting, working out, or relaxing, our earbuds ensure an unparalleled audio experience. <br> <br>Our innovative QGA (Quantum Gradient Audio) technology enhances sound quality to provide an immersive listening experience. QGA technology dynamically adjusts audio frequencies to ensure perfect balance between bass, mids, and highs, resulting in richer sound quality across all types of music and audio content.</p>            </div>
+          </div>
+        </div>
+        <div class="row mt-3 g-4">
+          <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+            <img src="images/cat-tws-feature2.jpeg"  alt="Responsive Image" class="img-fluid">
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="content-wrapper">
+              <h2>Experience Unmatched Comfort </h2>
+              <div class="decoration"></div>
+<p>Our earbuds are meticulously designed to offer maximum comfort while delivering premium sound quality. Whether you're listening to music, taking calls, or enjoying podcasts, the ultra-comfortable fit ensures that you can wear them all day without any discomfort. <br> <br>Soft Silicone Ear Tips: The included soft silicone ear tips come in multiple sizes, ensuring a perfect seal for every ear shape. </p>            </div>
+          </div>
+        </div>
+      </div>
+
+    
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-6 col-lg-3 col-md-4 logo">
+              <img id="logofooter"   src="images/logo-brand.png"  alt="Logo"><br><br><br>
+              <h5>Follow Us</h5>
+              <div class="social-links">
+                <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
     
 
-    <!-- Bootstrap JS and dependencies -->
+            <div class="col-6 col-lg-3 col-md-4 footer-column">
+              <h5 class="animated-text">Shop</h5>
+              <p>Tws Earbuds</p>
+              <p>Soundbars </p>
+              <p>Gaming Headphone</p>
+              <p>Bluetooth SoundSystem</p>
+              <p>Wired Earphones</p>
+            </div>
+            <div class="col-6 col-lg-3 col-md-4 footer-column">
+              <h5 class="animated-text">HELP</h5>
+              <p>Cancel & return</p>
+              <p>Warrenty Guidlines</p>
+              <p>privacy Policy</p>
+              <p>Track order</p>
+              <p>Terms And Condition</p>
+            </div>
+            <div class="col-6 col-lg-3 col-md-4 footer-column">
+              <h5 class="animated-text">Articles</h5>
+              <p>About Earbuds</p>
+              <p>Our story</p>
+              <p>About Deals</p>
+             
+            </div>
+    
+
+            <div class="col-lg-4 col-md-4 footer-column">
+             
+            </div>
+          </div>
+    
+      
+          <div class="contact-info ">
+            <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
+            <p><strong>Phone:</strong> +91 7994 0154</p>
+            <p><strong>Email:</strong> sonicsounds.in</p>
+            <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
+          </div>
+        </div>
+      </footer>
+     
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

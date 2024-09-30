@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic Tws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        nav h4 i {
+            font-size: 1.5rem;
+            margin-left: 4%;
+            margin-top: 2%;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            /* Align items on the left and right */
+            padding: 10px 20px;
+            background-color: #0D1117;
+            width: 100%;
+            z-index: 1000;
+            /* Add some padding */
+            position: fixed;
+        }
+
+        .navbar-brand {
+            color: #000;
+            /* Brand text color */
+        }
+
+        .navbar-text {
+            color: #000;
+            /* Action text color */
+            margin-left: 20px;
+            /* Space between items */
+        }
+
+        .navbar-text:hover {
+            color: #007bff;
+            /* Hover color */
+        }
+
+        .container-fluid {
+            height: 80vh;
+            width: 100%;
+            background-color: #ffffee;
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        @media (max-width:756px) {
+            .container-fluid {
+                width: 100%;
+                height: 50vh;
+
+            }
+        }
+
+        .text-container {
+            text-align: center;
+            width: 80%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .text-container h2 {
+            font-family: fantasy;
+            color: #4b4955;
+        }
+
+
+
+        .product-card {
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 0px;
+        }
+
+        .product-image img {
+            width: 98%;
+            height: 33vh;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .product-discount {
+            color: green;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            width: 100%;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating .star {
+            color: gold;
+        }
+
+        .features {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .features span {
+            background-color: #830000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width:756px) {
+            .product-image img {
+                width: 98%;
+                height: 23vh;
+            }
+
+            .product-title {
+                font-size: 1rem;
+            }
+
+            .rating {
+                display: none;
+                font-size: 0.7rem;
+                text-wrap: nowrap;
+            }
+
+            .product-price {
+                font-size: 1rem;
+            }
+
+            .product-old-price {
+                font-size: 0.9rem;
+            }
+
+            .product-discount {
+                display: none;
+            }
+
+            .features span {
+                padding: 4px 5px;
+            }
+
+            .add-to-cart-btn {
+                padding: 4px 1px;
+                border-radius: 4px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .sub-tag {
+            width: 90%;
+            font-size: 1rem;
+        }
+
+        .sub-tag span {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #logo {
+            width: 120px;
+            height: 4.5vh;
+        }
+
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+
+        }
+
+
+        .content-wrapper h2 {
+            color: #333;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .content-wrapper p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .decoration {
+            height: 4px;
+            width: 50px;
+            background-color: #cf0700;
+            margin: 10px 0;
+        }
+
+       #feature img {
+            width: 98%;
+            height: 45VH;
+            border-radius: 10px;
+
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper h2 {
+                font-size: 1.5rem;
+            }
+
+            .content-wrapper p {
+                font-size: 1rem;
+            }
+        }
+
+
+
+        .footer {
+            background: #0D1117;
+            color: #fff;
+            text-align: left;
+            padding: 50px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: relative;
+        }
+
+        .footer p {
+            color: #c5c4c89f;
+        }
+
+        .footer .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .footer .animated-text {
+            display: inline-block;
+            animation: text-animation 3s ease infinite;
+        }
+
+        .footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffc107;
+            text-decoration: underline;
+        }
+
+        .footer .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer .contact-info p {
+            margin: 5px 0;
+
+        }
+
+        .footer .social-links a {
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .footer .row {
+                text-align: center;
+            }
+
+            .footer .logo,
+            .footer .footer-column {
+                margin-bottom: 20px;
+            }
+
+            #logofooter {
+                width: 80%;
+
+            }
+        }
+
+        .footer .row .col-6 {
+            text-align: left;
+        }
+
+        #logofooter {
+            width: 140px;
+            height: 6vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html"><i style="color: #fff;" class="fa-solid fa-arrow-left"></i></a>
+        <img id="logo" src="images/logo-brand.png" alt="">
+        <div>
+
+            <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
+            <span class="navbar-text"><i style="color: rgb(249, 247, 246);"
+                    class="fa-solid fa-cart-shopping"></i></span>
+        </div>
+    </nav>
+    <div style="height: 7vh; width: 100%; background-color: #f7f6f5 ; display: flex; align-items: center; justify-content: center;"
+        class="dummy">
+        <span><i class="fa-solid fa-rotate-right"></i></span>
+    </div>
+    <div class="container-fluid ">
+        <img class="d-block w-100 h-100" src="images/cat-head-cur.jpg" alt="">
+
+    </div>
+    <!-- <div class="container text-container my-5">
+    <h2>TWS EarBuds</h2>
+    <p>Explore Sonic's earbuds for amazing music experiences! Our affordable and stylish earbuds offer premium sound quality. With Sonic, enjoy music like never before.</p>    
+    
+    </div> -->
+    <div class="container mt-4 sub-tag">
+        <span>Deals &nbsp;<i style="color: red; font-size: 1.2rem;" class="fa-brands fa-gripfire"></i></span>
+    </div>
+    <div class="container mt-4">
+        <div class="row g-3">
+            <!-- Card 1 -->
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head1.jpeg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.8</span>
+                            <span>(340 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SonicBass 7</h5>
+                        <div class="product-price">
+                            ₹1,789
+                            <span class="product-old-price">₹2,990</span>
+                            <span class="product-discount">45% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>QGA™ Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat the same structure for more cards (Card 2, Card 3, Card 4, etc.) -->
+
+            <!-- Card 2 -->
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head2sub.jpeg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.0</span>
+                            <span>(290 reviews)</span>
+                        </div>
+                        <h5 class="product-title">Sonic 3d</h5>
+                        <div class="product-price">
+                            ₹3,189
+                            <span class="product-old-price">₹6,890</span>
+                            <span class="product-discount">59% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>Anc Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head3.png" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.3</span>
+                            <span>(20 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SoniMega 5t</h5>
+                        <div class="product-price">
+                            ₹2,265
+                            <span class="product-old-price">₹3,990</span>
+                            <span class="product-discount">67% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>Enc Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head4.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.1</span>
+                            <span>(211 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SonicMax 8</h5>
+                        <div class="product-price">
+                            ₹2,549
+                            <span class="product-old-price">₹3,390</span>
+                            <span class="product-discount">37% OFF</span>
+                        </div>
+                        <div class="features">
+                            <span>30 mm Drivers</span>
+
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head6.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>3.0</span>
+                            <span>(29 reviews)</span>
+                        </div>
+                        <h5 class="product-title">Sonic 6s</h5>
+                        <div class="product-price">
+                            ₹1,889
+                            <span class="product-old-price">₹2,890</span>
+                            <span class="product-discount">41% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>Anc Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head7.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.2</span>
+                            <span>(10 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SonicX 7+</h5>
+                        <div class="product-price">
+                            ₹2,489
+                            <span class="product-old-price">₹3,990</span>
+                            <span class="product-discount">27% OFF</span>
+                        </div>
+                        <div class="features">
+                            <span>42 mm Drivers</span>
+
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head9.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>3.9</span>
+                            <span>(220 reviews)</span>
+                        </div>
+                        <h5 class="product-title">Sonic 4T</h5>
+                        <div class="product-price">
+                            ₹1,689
+                            <span class="product-old-price">₹3,390</span>
+                            <span class="product-discount">45% OFF</span>
+                        </div>
+                        <div class="features">
+                            <span>Enc mode</span>
+
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head10.jpeg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.0</span>
+                            <span>(29 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SonicBoosted5</h5>
+                        <div class="product-price">
+                            ₹3,289
+                            <span class="product-old-price">₹6,990</span>
+                            <span class="product-discount">50% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>QGA™ Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head11.jpg" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.3</span>
+                            <span>(200 reviews)</span>
+                        </div>
+                        <h5 class="product-title">Sonic 6R</h5>
+                        <div class="product-price">
+                            ₹2,289
+                            <span class="product-old-price">₹3,990</span>
+                            <span class="product-discount">50% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>40mm Drivers</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cat-head12.webp" alt="Product Image">
+                    </div>
+                    <div class="product-info">
+                        <div class="rating">
+                            <span class="star">⭐</span>
+                            <span>4.0</span>
+                            <span>(29 reviews)</span>
+                        </div>
+                        <h5 class="product-title">SonicImmortal</h5>
+                        <div class="product-price">
+                            ₹3,289
+                            <span class="product-old-price">₹6,990</span>
+                            <span class="product-discount">46% OFF</span>
+                        </div>
+                        <div class="features">
+
+                            <span>QGA™ Mode</span>
+                            <span>45mm™ Mode</span>
+                        </div>
+                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards as needed, following the same structure -->
+
+        </div>
+    </div>
+
+
+    <div id="feature" class="container py-5">
+        <div class="row">
+            <!-- First Column: Image -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <img src="images/cat-head-feature3.jpg" alt="Responsive Image" class="img-fluid">
+            </div>
+
+            <!-- Second Column: Heading, Text, and Decoration -->
+            <div class="col-lg-6 col-md-12">
+                <div class="content-wrapper">
+                    <h2> Beats with QGA 40mm</h2>
+                    <div class="decoration"></div>
+                    <p>Headphones consist of key components like drivers, which convert electrical signals into sound,
+                        and diaphragms, thin membranes that vibrate to produce audio. Other parts include ear cushions
+                        for comfort, headbands for support, cables or Bluetooth for connectivity, and a housing that
+                        protects internal components while enhancing sound quality.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 g-4">
+            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <img src="images/cat-head-feature2.jpg" alt="Responsive Image" class="img-fluid">
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="content-wrapper">
+                    <h2>Experience  Comfort </h2>
+                    <div class="decoration"></div>
+                    <p>Active Noise Cancellation (ANC) technology reduces external noise for immersive sound. Drivers
+                        convert electrical signals into audio, while diaphragms vibrate to produce sound. The ear
+                        cushions provide comfort during extended use, and the adjustable headband ensures a snug fit.
+                        Connectivity options include Bluetooth for wireless listening and cables for wired audio.
+                        Built-in microphones enable hands-free calls, and touch controls on some models offer easy
+                        access to playback and volume settings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-6 col-lg-3 col-md-4 logo">
+                    <img id="logofooter" src="images/logo-brand.png" alt="Logo"><br><br><br>
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">Shop</h5>
+                    <p>Tws Earbuds</p>
+                    <p>Soundbars </p>
+                    <p>Gaming Headphone</p>
+                    <p>Bluetooth SoundSystem</p>
+                    <p>Wired Earphones</p>
+                </div>
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">HELP</h5>
+                    <p>Cancel & return</p>
+                    <p>Warrenty Guidlines</p>
+                    <p>privacy Policy</p>
+                    <p>Track order</p>
+                    <p>Terms And Condition</p>
+                </div>
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">Articles</h5>
+                    <p>About Earbuds</p>
+                    <p>Our story</p>
+                    <p>About Deals</p>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 footer-column">
+
+                </div>
+            </div>
+
+
+            <div class="contact-info ">
+                <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
+                <p><strong>Phone:</strong> +91 7994 0154</p>
+                <p><strong>Email:</strong> sonicsounds.in</p>
+                <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
