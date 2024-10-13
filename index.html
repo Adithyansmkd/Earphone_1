@@ -16,7 +16,7 @@
             margin: 0;
             box-sizing: border-box;
             padding: 0;
-           
+
         }
 
         body {
@@ -25,13 +25,13 @@
         }
 
         :root {
-            --primary-color: #fff;
+            --primary-color: #fcf7f7;
             --secondary-color: #0D1117;
         }
 
         .dark-theme {
             --primary-color: #0D1117;
-            --secondary-color: #fff;
+            --secondary-color: #fcf7f7;
         }
 
         .navbar {
@@ -42,7 +42,8 @@
             z-index: 1000;
 
         }
-        .navbar-brand  img{
+
+        .navbar-brand img {
             width: 100%;
             height: 5vh;
         }
@@ -61,9 +62,9 @@
         }
 
         .marquee {
-            background-color: #070916;
+            background-color: #0f131a;
             color: #fff;
-            height: 10.5vh;
+            height: 11vh;
             display: flex;
             justify-content: center;
             align-items: end;
@@ -74,6 +75,7 @@
         .marquee marquee {
             text-align: center;
             font-size: 0.8rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         .dropdown-menu {
@@ -100,6 +102,9 @@
 
         .nav-item {
             padding: 5px 15px;
+        }
+        .nav-item:hover a {
+            color: rgb(197, 62, 62);
         }
 
         #heart {
@@ -192,6 +197,10 @@
 
             #companyname {
                 font-size: 1.1rem;
+            }
+
+            .marquee {
+                height: 10.2vh;
             }
         }
 
@@ -494,7 +503,7 @@
 
 
             text-align: center;
-          
+
             transition: all 0.3s ease;
         }
 
@@ -738,7 +747,7 @@
             background-size: cover;
             background-position: center;
         }
-       
+
         /* Styling for the category text */
         .categories-page .cat-col a {
             font-size: 1.15rem;
@@ -750,7 +759,8 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             letter-spacing: 2px;
         }
-        .categories-page .cat-col a i{
+
+        .categories-page .cat-col a i {
             background-color: #000000bc;
             padding: 4px;
             border-radius: 0 4px 4px 0;
@@ -793,7 +803,7 @@
                 font-size: 0.85rem;
                 letter-spacing: 0px;
                 margin-left: 0;
-            
+
                 /* Reduce font size */
                 /* Center the text on small screens */
             }
@@ -866,22 +876,24 @@
             animation: textanimate 5s linear infinite;
         }
 
-        @keyframes textanimate  {   
-            0%{
+        @keyframes textanimate {
+            0% {
                 background-position: left;
             }
-            30%{
+
+            30% {
                 background: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
                 -webkit-background-clip: text;
                 background-clip: text;
                 background-position: left;
 
             }
-            100%{
+
+            100% {
                 background: url(https://thumbs.dreamstime.com/b/geometric-mosaic-pattern-blue-triangle-texture-abstract-vector-background-illustration-37412797.jpg);
                 -webkit-background-clip: text;
-            background-clip: text;
-            background-position: right;
+                background-clip: text;
+                background-position: right;
 
             }
         }
@@ -1633,219 +1645,232 @@
         .material-card.Purple.mc-active .mc-btn-action {
             border-color: #F3E5F5;
         }
-/* General product row styling */
-.product-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
-    flex-wrap: nowrap;
-}
 
-/* Product card styling */
-.product-card {
-    flex: 0 0 auto;
-    width: 300px; /* Adjust width as needed */
-    scroll-snap-align: center;
-    transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-    filter: blur(3px);
-    opacity: 0.8;
-    background-color: var(--primary-color);
-    transform: scale(0.95);
-    border-radius: 15px; /* Keep the card rounded */
-    overflow: hidden;
+        /* General product row styling */
+        .product-row {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            flex-wrap: nowrap;
+        }
 
-    text-align: center; /* Centering the content inside */
-}
+        /* Product card styling */
+        .product-card {
+            flex: 0 0 auto;
+            width: 300px;
+            /* Adjust width as needed */
+            scroll-snap-align: center;
+            transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+            filter: blur(3px);
+            opacity: 0.8;
+            background-color: var(--primary-color);
+            transform: scale(0.95);
+            border-radius: 15px;
+            /* Keep the card rounded */
+            overflow: hidden;
 
-/* Card image styling */
-.product-card img {
-    max-width: 100%;
-    height: auto;
-    border-bottom: 1px solid #939090; /* Add border between image and text */
-    margin-bottom: 10px;
-}
+            text-align: center;
+            /* Centering the content inside */
+        }
 
-/* Card title and text styling */
-.product-card h5 {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--secondary-color);
-}
-.product-card img{
-    height: 33vh;
-}
-.product-card .card{
-    background-color: var(--primary-color);
-    border: 1px solid #7575755c;
-}
-.product-card p {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-    color: var(--secondary-color)
-}
+        /* Card image styling */
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #939090;
+            /* Add border between image and text */
+            margin-bottom: 10px;
+        }
 
-/* Styling for the first card (always visible) */
-.product-card:first-child {
-    filter: blur(0);
-    transform: scale(1.05);
-    opacity: 1;
-}
+        /* Card title and text styling */
+        .product-card h5 {
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
 
-/* Hover effect for desktop view */
-.product-card:hover {
-    filter: blur(0);
-    transform: scale(1.05);
-    opacity: 1;
-}
+        .product-card img {
+            height: 33vh;
+        }
 
-/* When a card is in view after scrolling */
-.product-card.in-view {
-    filter: blur(0);
-    transform: scale(1.05);
-    opacity: 1;
-}
+        .product-card .card {
+            background-color: var(--primary-color);
+            border: 1px solid #7575755c;
+        }
 
-/* Rating stars inside the card */
-.product-card .rating i {
-    color: #ffc107; /* Gold color for stars */
-}
+        .product-card p {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: var(--secondary-color)
+        }
 
-/* Responsive grid for larger screens */
-@media (min-width: 992px) {
-    .product-row {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        /* Styling for the first card (always visible) */
+        .product-card:first-child {
+            filter: blur(0);
+            transform: scale(1.05);
+            opacity: 1;
+        }
 
-    .product-card {
-        flex: 0 0 22%; /* 4 cards per row */
-        margin-bottom: 20px;
-    }
-}
+        /* Hover effect for desktop view */
+        .product-card:hover {
+            filter: blur(0);
+            transform: scale(1.05);
+            opacity: 1;
+        }
 
-/* Mobile styles (scrollable row) */
-@media (max-width: 576px) {
-    .product-row {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-    }
+        /* When a card is in view after scrolling */
+        .product-card.in-view {
+            filter: blur(0);
+            transform: scale(1.05);
+            opacity: 1;
+        }
 
-    .product-card {
-        flex: 0 0 auto;
-        width: 290px; /* Adjust for mobile view */
-    }
+        /* Rating stars inside the card */
+        .product-card .rating i {
+            color: #ffc107;
+            /* Gold color for stars */
+        }
 
-    .product-card:first-child {
-        filter: blur(0);
-        transform: scale(1.05);
-    }
-}
+        /* Responsive grid for larger screens */
+        @media (min-width: 992px) {
+            .product-row {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-/* Additional hover and focus effects */
-.product-card:focus {
-    outline: none;
-    transform: scale(1.05);
-}
+            .product-card {
+                flex: 0 0 22%;
+                /* 4 cards per row */
+                margin-bottom: 20px;
+            }
+        }
 
-/* Card hover scaling for larger screens */
-@media (min-width: 992px) {
-    .product-card:hover {
-        transform: scale(1.1);
-        filter: blur(0);
-        opacity: 1;
-    }
-}
+        /* Mobile styles (scrollable row) */
+        @media (max-width: 576px) {
+            .product-row {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
 
-#logo{
-    margin-left: 5%;
-    width: 100%;
-    height: 6vh;
-}
-@media (max-width: 692px) {
+            .product-card {
+                flex: 0 0 auto;
+                width: 290px;
+                /* Adjust for mobile view */
+            }
 
-#logo{
-  width: 120px;
-  height: 4.5vh;
-}
-}
+            .product-card:first-child {
+                filter: blur(0);
+                transform: scale(1.05);
+            }
+        }
 
+        /* Additional hover and focus effects */
+        .product-card:focus {
+            outline: none;
+            transform: scale(1.05);
+        }
 
+        /* Card hover scaling for larger screens */
+        @media (min-width: 992px) {
+            .product-card:hover {
+                transform: scale(1.1);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
 
+        #logo {
+            margin-left: 5%;
+            width: 100%;
+            height: 6vh;
+        }
 
+        @media (max-width: 692px) {
 
-
-
-.testimonials {
-    background-color: var(--primary-color);
-}
-
- .testimonials .icon {
-    color: #B71C1C;
-    font-size: 2rem;
-}
-
-.testimonials   h2 {
-    font-weight: bold;
-    font-size: 2rem;
-    color: var(--secondary-color);
-}
-
-.card {
-    border: 1px solid #e3e3e331;
-    border-radius: 10px;
-    background-color: var(--primary-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 30px;
-    position: relative;
-}
-
-.quote-icon {
-    font-size: 1.7rem;
-    color: var(--secondary-color);
-    font-style: italic;
-}
-
-.testimonials  .card h6 {
-    font-size: 1.1rem;
-    color: #B71C1C;
-    margin-top: 15px;
-}
-  
-.testimonials  .card p {
-    color: var(--secondary-color);
-    font-size: 1rem;
-}
-
-@media (max-width: 767px) {
-    .quote-icon {
-        font-size: 1.5rem;
-    }
-
-    .testimonials  .card   h6 {
-        font-size: 1rem;
-    }
-
- .testimonials  .card p {
-        font-size: 0.9rem;
-    }
-}
+            #logo {
+                width: 120px;
+                height: 4.5vh;
+            }
+        }
 
 
 
-.signup-section {
-            background-color: #E53935; /* Bright orange background */
+
+
+
+
+        .testimonials {
+            background-color: var(--primary-color);
+        }
+
+        .testimonials .icon {
+            color: #B71C1C;
+            font-size: 2rem;
+        }
+
+        .testimonials h2 {
+            font-weight: bold;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .card {
+            border: 1px solid #e3e3e331;
+            border-radius: 10px;
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            padding: 30px;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 1.7rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .testimonials .card h6 {
+            font-size: 1.1rem;
+            color: #B71C1C;
+            margin-top: 15px;
+        }
+
+        .testimonials .card p {
+            color: var(--secondary-color);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 767px) {
+            .quote-icon {
+                font-size: 1.5rem;
+            }
+
+            .testimonials .card h6 {
+                font-size: 1rem;
+            }
+
+            .testimonials .card p {
+                font-size: 0.9rem;
+            }
+        }
+
+
+
+        .signup-section {
+            background-color: #E53935;
+            /* Bright orange background */
             color: white;
             padding: 50px 20px;
             text-align: left;
@@ -1883,72 +1908,84 @@
             cursor: pointer;
         }
 
-.footer {
-      background: #0D1117;
-      color: #fff;
-      text-align: left;
-      padding: 50px 0;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      position: relative;
-    }
-    .footer p{
-      color: #c5c4c89f;
-    }
-    .footer .logo img {
-      width: 100px;
-      height: auto;
-    }
-    .footer .animated-text {
-      display: inline-block;
-      animation: text-animation 3s ease infinite;
-    }
-  
-    .footer a {
-      color: #f8f9fa;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      color: #ffc107;
-      text-decoration: underline;
-    }
-    .footer .contact-info {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .footer .contact-info p {
-      margin: 5px 0;
-     
-    }
-    .footer .social-links a {
-      margin: 0 10px;
-      font-size: 18px;
-    }
-    @media (max-width: 768px) {
-      .footer .row {
-        text-align: center;
-      }
-      .footer .logo, .footer .footer-column {
-        margin-bottom: 20px;
-      }
-      #logofooter{
-      width: 80%;
-      
-  }
-    }
-    .footer .row .col-6{
-      text-align: left;
-    }
-  #logofooter{
-width: 140px;
-    height: 6vh;
-  }
+        .footer {
+            background: #0D1117;
+            color: #fff;
+            text-align: left;
+            padding: 50px 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position: relative;
+        }
 
-   </style>
+        .footer p {
+            color: #c5c4c89f;
+        }
+
+        .footer .logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        .footer .animated-text {
+            display: inline-block;
+            animation: text-animation 3s ease infinite;
+        }
+
+        .footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #ffc107;
+            text-decoration: underline;
+        }
+
+        .footer .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer .contact-info p {
+            margin: 5px 0;
+
+        }
+
+        .footer .social-links a {
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .footer .row {
+                text-align: center;
+            }
+
+            .footer .logo,
+            .footer .footer-column {
+                margin-bottom: 20px;
+            }
+
+            #logofooter {
+                width: 80%;
+
+            }
+        }
+
+        .footer .row .col-6 {
+            text-align: left;
+        }
+
+        #logofooter {
+            width: 140px;
+            height: 6vh;
+        }
+    </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <!-- Navbar Toggle for mobile view -->
             <button style="padding: 1px; border: none; margin-left: 8px;" class="navbar-toggler" type="button"
@@ -1981,7 +2018,7 @@ width: 140px;
                         <a class="nav-link" href="#reviews">Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="#signup">Help</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Service</a>
@@ -2007,11 +2044,14 @@ width: 140px;
         </div>
     </nav>
     <!-- Navbar Section -->
-  
+
 
     <div class="marquee">
-        <marquee>Offer 1: 20% off on all products! | Offer 2: Free shipping on orders over $50! | Offer 3: Buy one, get
-            one free on select items!</marquee>
+        <marquee>🎧 Huge Sale on Headphones, Speakers & Soundbars! Get up to 50% off on premium headphones and audio
+            gear. 🎶 Exclusive offer: Buy one, get 20% off on the second item! 🔊 Free shipping on all orders over $50!
+            🛒 Check out our latest arrivals for the best sound quality at unbeatable prices! 🎵 Limited-time deals on
+            wireless earbuds, noise-canceling headphones, and home audio systems. 🎧 Don’t miss out—shop now and elevate
+            your listening experience with the best brands in the industry!</marquee>
     </div>
 
     <!-- Image Slider Container -->
@@ -2030,7 +2070,7 @@ width: 140px;
                     <img src="images/slidebar-buds.webp" class="d-block w-100" alt="Slide 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/6cde0652-48ae-48b9-b934-2728ba99e3f1.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+                    <img src="https://www.havit.hk/wp-content/uploads/2020/06/HV-H2239d-PPT_02-2.jpg"
                         class="d-block w-100" alt="Slide 2">
                 </div>
                 <div class="carousel-item">
@@ -2164,7 +2204,7 @@ width: 140px;
                     </div>
                     <div class="divs1-2">
                         <h1>We are here to answer your Questions</h1>
-                        <a href=""><button>Request A Call Back</button></a>
+                        <a href="#signup"><button>Send Request </button></a>
                     </div>
                 </div>
             </div>
@@ -2195,19 +2235,24 @@ width: 140px;
 
     <!-- category -->
     <div id="shop" class="categories-page mt-5">
-        <h1>Shop by Categories <br> <span style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 1rem;" >Click And explore</span></h1>
+        <h1>Shop by Categories <br> <span
+                style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 1rem;">Click
+                And explore</span></h1>
         <div class="catagory-main-div container">
             <div class="row">
                 <div id="col-img1" class="col-12 col-md-5 cat-col">
-                    <h2><a href="cat-W-earphone.html">EARPHONES & NECKBANDS &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                    <h2><a href="cat-W-earphone.html">EARPHONES & NECKBANDS &nbsp;<i
+                                class="fa-solid fa-angles-right"></i></a></h2>
                 </div>
                 <div id="col-img2" class="col-12 col-md-5 cat-col">
-                    <h2><a href="cat-tws-earbuds.html">TWS EARBUDS &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                    <h2><a href="cat-tws-earbuds.html">TWS EARBUDS &nbsp;<i class="fa-solid fa-angles-right"></i></a>
+                    </h2>
                 </div>
             </div>
             <div class="row">
                 <div id="col-img3" class="col-12 col-md-5 cat-col">
-                    <h2><a href="cat-headphone.html">GAMING HEADPHONE &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                    <h2><a href="cat-headphone.html">GAMING HEADPHONE &nbsp;<i class="fa-solid fa-angles-right"></i></a>
+                    </h2>
                 </div>
                 <div id="col-img4" class="col-12 col-md-5 cat-col">
                     <h2><a href="cat-sound.html">SOUNDBARS &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
@@ -2215,10 +2260,12 @@ width: 140px;
             </div>
             <div class="row">
                 <div id="col-img5" class="col-12 col-md-5 cat-col">
-                    <h2><a href="cat-smartwatch.html">SMART WATCHES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                    <h2><a href="cat-smartwatch.html">SMART WATCHES &nbsp;<i class="fa-solid fa-angles-right"></i></a>
+                    </h2>
                 </div>
                 <div id="col-img6" class="col-12 col-md-5 cat-col">
-                    <h2><a href="cat-powerbank.html"> POWRBANKS &  HEADPHONES &nbsp;<i class="fa-solid fa-angles-right"></i></a></h2>
+                    <h2><a href="cat-powerbank.html"> POWRBANKS & HEADPHONES &nbsp;<i
+                                class="fa-solid fa-angles-right"></i></a></h2>
                 </div>
             </div>
         </div>
@@ -2295,8 +2342,7 @@ width: 140px;
                     </h2>
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="img-responsive"
-                                src="images/card1-headnew.jpg">
+                            <img class="img-responsive" src="images/card1-headnew.jpg">
                         </div>
                         <div class="mc-description">
                             SonicWave delivers futuristic, precision audio for immersive gaming. Noise-canceling
@@ -2329,8 +2375,7 @@ width: 140px;
                     </h2>
                     <div class="mc-content">
                         <div class="img-container">
-                            <img class="img-responsive"
-                                src="images/card1-earbuds.webp">
+                            <img class="img-responsive" src="images/card1-earbuds.webp">
                         </div>
                         <div class="mc-description">
                             SonicBuds offer premium sound in a compact wireless form. Experience deep bass,
@@ -2391,15 +2436,14 @@ width: 140px;
         </div>
     </section>
 
-    <div  class="container mt-4">
+    <div class="container mt-4">
         <h2 class="mb-4" style="color: #a5a1b9; font-family: fantasy;">Grand Sale &nbsp;<i style="color: red;"
                 class="fa-solid fa-crown"></i></h2>
         <div class="row product-row">
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/card-tws-2.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/card-tws-2.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">SonicPulse X1</h5>
                         <div class="rating">
@@ -2413,17 +2457,18 @@ width: 140px;
                             <span class="text-danger fw-bold">₹2199</span>
                             <span class="text-muted text-decoration-line-through">₹3400</span>
                         </p>
-                        <a href="tws1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="tws1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="tws1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="tws1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/card-earphone-2.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/card-earphone-2.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">SonicBeats 121</h5>
                         <div class="rating">
@@ -2437,9 +2482,11 @@ width: 140px;
                             <span class="text-danger fw-bold">₹899</span>
                             <span class="text-muted text-decoration-line-through">₹1459</span>
                         </p>
-                        <a href="earphone1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="earphone1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="earphone1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="earphone1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
@@ -2460,17 +2507,18 @@ width: 140px;
                             <span class="text-danger fw-bold">₹1299</span>
                             <span class="text-muted text-decoration-line-through">₹1950</span>
                         </p>
-                        <a href="powerbank1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="powerbank1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="powerbank1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="powerbank1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/gaming-hedphone.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/gaming-hedphone.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">ZenWave Studio Pro</h5>
                         <div class="rating">
@@ -2482,44 +2530,46 @@ width: 140px;
                         </div>
                         <p class="price">
                             <span class="text-danger fw-bold">₹3749</span>
-                            <span id="under"    class=" text-muted text-decoration-line-through">₹5250</span>
+                            <span id="under" class=" text-muted text-decoration-line-through">₹5250</span>
                         </p>
-                        <a href="gaming-headphone1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="gaming-headphone1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="gaming-headphone1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="gaming-headphone1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/bluettoth-card.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/bluettoth-card.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">SonicMini 2x</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            
+
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
                             <span class="text-danger fw-bold">₹2749</span>
-                            <span id="under"    class=" text-muted text-decoration-line-through">₹5200</span>
+                            <span id="under" class=" text-muted text-decoration-line-through">₹5200</span>
                         </p>
-                        <a href="mini-speker1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="mini-speker1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="mini-speker1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="mini-speker1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/boofer.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/boofer.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">SonicExtrem 3</h5>
                         <div class="rating">
@@ -2531,42 +2581,46 @@ width: 140px;
                         </div>
                         <p class="price">
                             <span class="text-danger fw-bold">₹4749</span>
-                            <span id="under"    class=" text-muted text-decoration-line-through">₹6750</span>
+                            <span id="under" class=" text-muted text-decoration-line-through">₹6750</span>
                         </p>
-                        <a href="soundbar1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="soundbar1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="soundbar1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="soundbar1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/neckband.png"
-                        class="card-img-top" alt="Product Image">
+                    <img src="images/neckband.png" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">SonicNeck Pro</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            
+
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <p class="price">
                             <span class="text-danger fw-bold">₹1449</span>
-                            <span id="under"    class=" text-muted text-decoration-line-through">₹2250</span>
+                            <span id="under" class=" text-muted text-decoration-line-through">₹2250</span>
                         </p>
-                        <a href="neckband1.html" style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
+                        <a href="neckband1.html"
+                            style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="neckband1.html" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
+                        <a href="neckband1.html"
+                            style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
-                <div style="height: 44vh; text-align: center; display: flex; justify-content: center; align-items: center;" class="card">
+                <div style="height: 44vh; text-align: center; display: flex; justify-content: center; align-items: center;"
+                    class="card">
                     <!-- <img src="images/neckband.png"
                         class="card-img-top" alt="Product Image">
                     <div class="card-body">
@@ -2587,15 +2641,15 @@ width: 140px;
                             class="btn btn-primary btn-sm">Buy Now</a>
                         <a href="#" style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a> -->
-                            <h4>Update Soon</h4>
-                          
-                    </div>
+                    <h4>Update Soon</h4>
+
                 </div>
             </div>
-
-            <!-- Repeat similar product cards for more items -->
-
         </div>
+
+        <!-- Repeat similar product cards for more items -->
+
+    </div>
     </div>
 
     <section id="reviews" class="testimonials py-5">
@@ -2603,8 +2657,8 @@ width: 140px;
             <div class="row">
                 <div class="col-12">
                     <div class="icon mb-3">
-                        <i class="fa-solid fa-hand-holding-heart"></i>                   
-                     </div>
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
                     <h2 class="mb-5">Our Customers </h2>
                 </div>
             </div>
@@ -2613,7 +2667,11 @@ width: 140px;
                     <div class="card mb-4">
                         <div class="card-body">
                             <p class="quote-icon"><i class="fa-solid fa-quote-left quote-icon"></i></p>
-                            <p>Sonic earphones offer top-tier audio quality at an affordable price. The sound is balanced with punchy bass and crisp highs. They're lightweight and fit comfortably for hours, making them perfect for workouts or long listening sessions. The Bluetooth connection is reliable, and battery life easily lasts all day. Overall, a great value for audio enthusiasts</p>
+                            <p>Sonic earphones offer top-tier audio quality at an affordable price. The sound is
+                                balanced with punchy bass and crisp highs. They're lightweight and fit comfortably for
+                                hours, making them perfect for workouts or long listening sessions. The Bluetooth
+                                connection is reliable, and battery life easily lasts all day. Overall, a great value
+                                for audio enthusiasts</p>
                             <h6 class="fw-bold">Navdeep</h6>
                         </div>
                     </div>
@@ -2622,8 +2680,11 @@ width: 140px;
                     <div class="card mb-4">
                         <div class="card-body">
                             <p class="quote-icon"><i class="fa-solid fa-quote-left quote-icon"></i></p>
-<p>Sonic soundbars deliver a theater-like experience in your living room. The audio is rich, with powerful bass and crystal-clear dialogues. Setup was easy, and the sleek design fits well with my home décor. Whether for movies or music, this soundbar brings incredible audio quality to every room. Highly recommended.</p>                           
- <h6 class="fw-bold">Akash</h6>
+                            <p>Sonic soundbars deliver a theater-like experience in your living room. The audio is rich,
+                                with powerful bass and crystal-clear dialogues. Setup was easy, and the sleek design
+                                fits well with my home décor. Whether for movies or music, this soundbar brings
+                                incredible audio quality to every room. Highly recommended.</p>
+                            <h6 class="fw-bold">Akash</h6>
                         </div>
                     </div>
                 </div>
@@ -2631,7 +2692,14 @@ width: 140px;
                     <div class="card mb-4">
                         <div class="card-body">
                             <p class="quote-icon"><i class="fa-solid fa-quote-left quote-icon"></i></p>
-<p>The headphones provide an immersive audio experience with exceptional clarity and deep, rich bass. They are incredibly comfortable for extended wear, and the noise-canceling feature blocks out distractions, making them perfect for travel or work. The wireless connection is seamless, and battery life is impressive, lasting well over 24 hours. From crisp vocals to booming bass, every detail comes through perfectly. The headphones also have a sturdy build, making them feel durable and premium. Definitely worth the investment!</p>                            <h6 class="fw-bold">Vishnu</h6>
+                            <p>The headphones provide an immersive audio experience with exceptional clarity and deep,
+                                rich bass. They are incredibly comfortable for extended wear, and the noise-canceling
+                                feature blocks out distractions, making them perfect for travel or work. The wireless
+                                connection is seamless, and battery life is impressive, lasting well over 24 hours. From
+                                crisp vocals to booming bass, every detail comes through perfectly. The headphones also
+                                have a sturdy build, making them feel durable and premium. Definitely worth the
+                                investment!</p>
+                            <h6 class="fw-bold">Vishnu</h6>
                         </div>
                     </div>
                 </div>
@@ -2639,11 +2707,11 @@ width: 140px;
         </div>
     </section>
 
-    <section class="signup-section">
+    <section id="signup" class="signup-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h2 class="signup-heading">SIGN UP FOR THE <br>SONIC SALES & OFFERS!</h2>
+                    <h2 class="signup-heading">SEND ANY HELP OR <br> REQUEST CALL BACK !</h2>
                     <p><a href="#" class="privacy-link">View more</a></p>
                 </div>
                 <div class="col-lg-6">
@@ -2657,90 +2725,90 @@ width: 140px;
     </section>
     <footer style="border-top: 1px solid gray;" class="footer mt-4">
         <div class="container">
-          <div class="row">
+            <div class="row">
 
-            <div class="col-6 col-lg-3 col-md-4 logo">
-              <img id="logofooter"   src="images/logo-brand.png"  alt="Logo"><br><br><br>
-              <h5>Follow Us</h5>
-              <div class="social-links">
-                <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-    
+                <div class="col-6 col-lg-3 col-md-4 logo">
+                    <img id="logofooter" src="images/logo-brand.png" alt="Logo"><br><br><br>
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
 
-            <div class="col-6 col-lg-3 col-md-4 footer-column">
-              <h5 class="animated-text">Shop</h5>
-              <p>Tws Earbuds</p>
-              <p>Soundbars </p>
-              <p>Gaming Headphone</p>
-              <p>Bluetooth SoundSystem</p>
-              <p>Wired Earphones</p>
-            </div>
-            <div class="col-6 col-lg-3 col-md-4 footer-column">
-              <h5 class="animated-text">HELP</h5>
-              <p>Cancel & return</p>
-              <p>Warrenty Guidlines</p>
-              <p>privacy Policy</p>
-              <p>Track order</p>
-              <p>Terms And Condition</p>
-            </div>
-            <div class="col-6 col-lg-3 col-md-4 footer-column">
-              <h5 class="animated-text">Articles</h5>
-              <p>About Earbuds</p>
-              <p>Our story</p>
-              <p>About Deals</p>
-             
-            </div>
-    
 
-            <div class="col-lg-4 col-md-4 footer-column">
-             
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">Shop</h5>
+                    <p>Tws Earbuds</p>
+                    <p>Soundbars </p>
+                    <p>Gaming Headphone</p>
+                    <p>Bluetooth SoundSystem</p>
+                    <p>Wired Earphones</p>
+                </div>
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">HELP</h5>
+                    <p>Cancel & return</p>
+                    <p>Warrenty Guidlines</p>
+                    <p>privacy Policy</p>
+                    <p>Track order</p>
+                    <p>Terms And Condition</p>
+                </div>
+                <div class="col-6 col-lg-3 col-md-4 footer-column">
+                    <h5 class="animated-text">Articles</h5>
+                    <p>About Earbuds</p>
+                    <p>Our story</p>
+                    <p>About Deals</p>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-4 footer-column">
+
+                </div>
             </div>
-          </div>
-    
-      
-          <div class="contact-info ">
-            <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
-            <p><strong>Phone:</strong> +91 7994 0154</p>
-            <p><strong>Email:</strong> sonicsounds.in</p>
-            <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
-          </div>
+
+
+            <div class="contact-info ">
+                <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
+                <p><strong>Phone:</strong> +91 7994 0154</p>
+                <p><strong>Email:</strong> sonicsounds.in</p>
+                <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
+            </div>
         </div>
-      </footer>
-     
+    </footer>
+
 
 
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const productCards = document.querySelectorAll('.product-card');
+        document.addEventListener('DOMContentLoaded', function () {
+            const productCards = document.querySelectorAll('.product-card');
 
-    function isInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.left >= 0 &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    function checkInView() {
-        productCards.forEach(card => {
-            if (isInViewport(card)) {
-                card.classList.add('in-view');
-            } else {
-                card.classList.remove('in-view');
+            function isInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.left >= 0 &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
             }
+
+            function checkInView() {
+                productCards.forEach(card => {
+                    if (isInViewport(card)) {
+                        card.classList.add('in-view');
+                    } else {
+                        card.classList.remove('in-view');
+                    }
+                });
+            }
+
+            // Initial check when page loads
+            checkInView();
+
+            // Check when scrolling
+            document.querySelector('.product-row').addEventListener('scroll', checkInView);
         });
-    }
-
-    // Initial check when page loads
-    checkInView();
-
-    // Check when scrolling
-    document.querySelector('.product-row').addEventListener('scroll', checkInView);
-});
 
 
     </script>
