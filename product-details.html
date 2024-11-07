@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Checkout</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Container Styles */
+        .container-custom {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Full-width for mobile screens */
+        @media (max-width: 576px) {
+            .container-custom {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+
+        .product-image {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        /* Button styling */
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #0071e3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Order Summary Styling */
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        nav h4 i {
+            font-size: 1.5rem;
+            margin-left: 4%;
+            margin-top: 2%;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            /* Align items on the left and right */
+            padding: 10px 20px;
+            /* Add some padding */
+        }
+
+        .navbar-brand {
+            color: #000;
+            /* Brand text color */
+        }
+
+        .navbar-text {
+            color: #000;
+            /* Action text color */
+            margin-left: 20px;
+            /* Space between items */
+        }
+
+        .navbar-text:hover {
+            color: #007bff;
+            /* Hover color */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+        <div>
+            <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
+            <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span>
+        </div>
+    </nav>
+
+    <div class="container-custom">
+        <div class="row">
+            <!-- Left Column: Product Details, Delivery, Shipping -->
+            <div class="col-md-8">
+                <!-- Product Details Section -->
+                <div class="product-details d-flex align-items-center border-bottom pb-3 mb-4">
+                    <img id="product-image" src="image.jpg" alt="Product Image" class="product-image">
+                    <div>
+                        <h3 id="product-name">Product Name</h3>
+                        <p><span id="product-offer-price">$80</span></p>
+                        <p><span class="text-muted text-decoration-line-through" style="text-decoration: line-through;"
+                                id="product-price">$100</span></p>
+                        <!-- Quantity Dropdown -->
+                        <label for="quantity">Quantity:</label>
+                        <select id="quantity" class="form-control w-25" onchange="updateOrderSummary()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Checkout Section -->
+                <h2>Checkout</h2>
+                <!-- Delivery Options -->
+                <div class="delivery-options mb-4">
+                    <h4>Delivery or Pickup</h4>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="delivery" name="method" checked>
+                        <label class="form-check-label" for="delivery">Delivery</label>
+                        <span id="delivery-date" class="ml-auto d-inline-block text-muted"></span>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="pickup" name="method">
+                        <label class="form-check-label" for="pickup">Pickup</label>
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="shipping-address">
+                    <h4>Shipping Address</h4>
+                    <p>Pamela Bump<br>25 First St.<br>Hoboken</p>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="col-md-4">
+                <div class="order-summary">
+                    <h4>Order Summary</h4>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span id="subtotal-price">$80</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Quantity</span>
+                        <span id="quantity-display">1</span>
+                    </div>
+                    <div class="d-flex justify-content-between font-weight-bold mb-3">
+                        <span>Grand Total</span>
+                        <span id="grand-total">$80</span>
+                    </div>
+                    <button class="checkout-button" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the initial product details from localStorage
+        const imageSrc = localStorage.getItem("productImage");
+        const name = localStorage.getItem("productName");
+        const price = localStorage.getItem("productPrice");
+        const offerPrice = localStorage.getItem("productOfferPrice");
+
+        document.getElementById("product-image").src = imageSrc;
+        document.getElementById("product-name").textContent = name;
+        document.getElementById("product-price").textContent = price;
+        document.getElementById("product-offer-price").textContent = offerPrice;
+
+        // Function to update the Order Summary based on selected quantity
+        function updateOrderSummary() {
+            const quantity = document.getElementById("quantity").value;
+            const offerPrice = parseFloat(document.getElementById("product-offer-price").textContent.replace('$', ''));
+
+            // Update Subtotal and Grand Total
+            const subtotal = offerPrice * quantity;
+            document.getElementById("subtotal-price").textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById("quantity-display").textContent = quantity;
+            const grandTotal = subtotal; // No tax or extra charges
+            document.getElementById("grand-total").textContent = `$${grandTotal.toFixed(2)}`;
+        }
+
+        // Initial call to update the summary with default quantity (1)
+        updateOrderSummary();
+
+        // Function to place the order
+        function placeOrder() {
+            alert("Order placed successfully!");
+        }
+
+        // Random delivery date generator
+        function getRandomDeliveryDate() {
+            const currentDate = new Date();
+            const daysToAdd = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
+
+            const deliveryDate = new Date(currentDate);
+            deliveryDate.setDate(currentDate.getDate() + daysToAdd);
+
+            const options = { weekday: 'short', month: 'short', day: 'numeric' };
+            const deliveryDateFormatted = deliveryDate.toLocaleDateString("en-US", options);
+
+            document.getElementById("delivery-date").textContent = `${deliveryDateFormatted} (Free)`;
+        }
+
+        getRandomDeliveryDate();
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -234,7 +234,7 @@
         <div class="row">
             <!-- Left Column: Product Images -->
             <div class="col-md-5">
-                <img id="mainImage" src="images/card-sound.jpeg" class="product-image" alt="Product Image">
+                <img id="product-image" src="images/card-sound.jpeg" class="product-image" alt="Product Image">
                 <div class="mt-5  d-flex mt-2">
                     <img src="images/card-sound.jpeg" class="thumbnail-image" alt="Thumbnail"
                         onclick="changeImage(this)">
@@ -252,15 +252,15 @@
 
             <!-- Right Column: Product Information -->
             <div class="col-md-7">
-                <h3>SonicBlast 3D (Black)</h3>
+                <h3  id="product-name" > SonicBlast 3D (Black)</h3>
                 <div class="d-flex align-items-center">
 
                 </div>
 
                 <div class="price-section mt-3">
-                    <span class="price">₹6449</span>
-                    <span class="original-price">₹12,350</span>
-                    <span class="discount">51% off</span>
+                    <span  id="product-offer-price" class="price">₹6449</span>
+                    <span  id="product-price" class="original-price">₹12,350</span>
+                    <span  class="discount">51% off</span>
                 </div>
 
                 <!-- Offers -->
@@ -420,7 +420,7 @@
                 <span class="original-price">₹12,350</span>
                 
             </div>
-            <button class="btn btn-danger btn-buy">Buy Now</button>
+            <button class="btn btn-danger btn-buy"  onclick="viewDetails()" onclick="viewDetails()">Buy Now</button>
         </div>
 
         <!-- JavaScript to handle thumbnail click -->
@@ -432,6 +432,24 @@
                 mainImage.src = element.src;
             }
         </script>
+                <script>
+                    function viewDetails() {
+                        // Get the data from the product card
+                        const imageSrc = document.getElementById("product-image").src;
+                        const name = document.getElementById("product-name").textContent;
+                        const price = document.getElementById("product-price").textContent;
+                        const offerPrice = document.getElementById("product-offer-price").textContent;
+            
+                        // Store data in localStorage
+                        localStorage.setItem("productImage", imageSrc);
+                        localStorage.setItem("productName", name);
+                        localStorage.setItem("productPrice", price);
+                        localStorage.setItem("productOfferPrice", offerPrice);
+            
+                        // Redirect to the new page
+                        window.location.href = "product-details.html";
+                    }
+                </script>
 
         <!-- Bootstrap JS and dependencies -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -240,11 +240,11 @@
         <div class="row product-container">
             <!-- Product Image -->
             <div class="col-md-6">
-                <img src="images/card-earphone-2.png" alt="Earphone Image" class="product-image">
+                <img id="product-image" src="images/card-earphone-2.png" alt="Earphone Image" class="product-image">
             </div>
             <!-- Product Details -->
             <div class="col-md-6 product-details">
-                <h2>SonicBeats 121</h2>
+                <h2  id="product-name">SonicBeats 121</h2>
                 <p  style="color: red; font-weight: 800; ">______________</p>
 <p>Durability: Typically more rugged and less prone to damage than wireless counterparts.Universal Compatibility: Can connect to any device with a headphone jack or adapter.Tangle-Free Cords: Flat or braided cables to reduce tangling.</p>
                 <h4>Cinema in Your Ears - Powered by:</h4>
@@ -340,10 +340,28 @@
 
         <!-- Fixed bottom price and cart button -->
         <div class="fixed-bottom-bar">
-            <div class="price">₹899 <span class="text-muted text-decoration-line-through">₹1,459</span></div>
-            <button class="add-to-cart-btn">BUY</button>
+            <div class="price"><span id="product-offer-price">₹899 </span><span id="product-price" class="text-muted text-decoration-line-through">₹1,459</span></div>
+            <button class="add-to-cart-btn"   onclick="viewDetails()">BUY</button>
         </div>
     </div>
+    <script>
+        function viewDetails() {
+            // Get the data from the product card
+            const imageSrc = document.getElementById("product-image").src;
+            const name = document.getElementById("product-name").textContent;
+            const price = document.getElementById("product-price").textContent;
+            const offerPrice = document.getElementById("product-offer-price").textContent;
+
+            // Store data in localStorage
+            localStorage.setItem("productImage", imageSrc);
+            localStorage.setItem("productName", name);
+            localStorage.setItem("productPrice", price);
+            localStorage.setItem("productOfferPrice", offerPrice);
+
+            // Redirect to the new page
+            window.location.href = "product-details.html";
+        }
+    </script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
