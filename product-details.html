@@ -75,45 +75,16 @@
                 width: 35%;
             }
         }
-        nav h4 i {
-            font-size: 1.5rem;
-            margin-left: 4%;
-            margin-top: 2%;
-            color: rgb(0, 0, 0);
-        }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            /* Align items on the left and right */
-            padding: 10px 20px;
-            /* Add some padding */
-        }
-
-        .navbar-brand {
+        .navbar-brand, .navbar-text {
             color: #000;
-            /* Brand text color */
         }
-
-        .navbar-text {
-            color: #000;
-            /* Action text color */
-            margin-left: 20px;
-            /* Space between items */
-        }
-
-        .navbar-text:hover {
-            color: #007bff;
-            /* Hover color */
-        }
-
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a class="navbar-brand" href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
         <div>
-
             <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
             <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span>
         </div>
@@ -148,23 +119,19 @@
                         <input type="radio" class="form-check-input" name="deliveryOption" id="delivery" checked>
                         <label class="form-check-label" for="delivery">Delivery</label>
                         <p class="text-muted">Estimated Delivery: <span id="delivery-date"></span></p>
-
                     </div>
-                    
                 </div>
 
                 <!-- Shipping Address -->
                 <div class="shipping-address">
                     <h4>Shipping Address</h4>
-                    <p><strong>Pamela Bump</strong></p>
-                    <p>25 First St.</p>
-                    <p>Hullport</p>
+                    <p id="user-address"></p>
+                    <button onclick="editAddress()" class="btn btn-secondary">Edit Address</button>
                 </div>
             </div>
 
             <!-- Right Column (Order Summary) -->
             <div class="right-column">
-                <!-- Order Summary -->
                 <div class="order-summary">
                     <h4>Order Summary</h4>
                     <p><strong>Product:</strong> <span id="summary-product-name"></span></p>
@@ -217,26 +184,25 @@
             alert("Order placed successfully!");
         }
 
-        function formatDate(date) {
-            const options = { weekday: 'short', month: 'short', day: 'numeric' };
-            return date.toLocaleDateString(undefined, options);
+        function editAddress() {
+            window.location.href = "address.html";
         }
-// Function to get a random date between 3 and 7 days from today
-function getRandomDeliveryDate() {
-    const today = new Date();
-    const randomDays = Math.floor(Math.random() * 5) + 3; // Random number between 3 and 7
-    today.setDate(today.getDate() + randomDays);
-    
-    const options = { month: 'short', day: 'numeric' };
-    return today.toLocaleDateString('en-US', options);
-}
 
-// Set the delivery date dynamically in the HTML
-document.addEventListener('DOMContentLoaded', function () {
-    const deliveryDateElement = document.querySelector("#delivery-date");
-    deliveryDateElement.textContent = getRandomDeliveryDate();
-});
+        function getRandomDeliveryDate() {
+            const today = new Date();
+            const randomDays = Math.floor(Math.random() * 5) + 3;
+            today.setDate(today.getDate() + randomDays);
+            const options = { month: 'short', day: 'numeric' };
+            return today.toLocaleDateString('en-US', options);
+        }
 
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("delivery-date").textContent = getRandomDeliveryDate();
+            const address = localStorage.getItem("userAddress");
+            if (address) {
+                document.getElementById("user-address").innerHTML = address;
+            }
+        });
     </script>
 </body>
 </html>
