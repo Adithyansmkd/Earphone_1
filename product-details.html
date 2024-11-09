@@ -10,9 +10,10 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body{
-            background-color: #ffefef74;
+        body {
+            background-color: #ffefef86;
         }
+
         .container-custom {
             max-width: 1200px;
             margin: auto;
@@ -22,8 +23,10 @@
 
         .order-summary,
         .checkout-options,
-        .shipping-address,.product-details,.bank-offer {
-            background-color: #fff;
+        .shipping-address,
+        .product-details,
+        .bank-offer {
+            background-color: #ffffffe1;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -49,10 +52,11 @@
         }
 
         .navbar {
-            background: #0D1117;
+            background: #fff;
             display: flex;
             justify-content: space-between;
             padding: 10px 20px;
+            box-shadow: 0px 4px 23px 4px rgba(0, 0, 0, 0.303);
         }
 
         .form-check-label {
@@ -79,18 +83,21 @@
                 margin-top: 4%;
                 line-height: 15px;
             }
-            #product-offer-price{
+
+            #product-offer-price {
                 font-size: 1.12rem;
                 margin-top: 2%;
                 color: green;
                 letter-spacing: 2px;
                 font-weight: 700;
             }
-            .shipping-address h4{
+
+            .shipping-address h4 {
                 font-size: 1.1rem;
                 color: #bc250a;
             }
-            .order-summary h4{
+
+            .order-summary h4 {
                 font-size: 1.1rem;
                 color: #bc250a;
             }
@@ -141,7 +148,7 @@
             left: 0;
             height: 7vh;
             right: 0;
-            background-color: #f8ebeb;
+            background-color: #efeeee;
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -154,37 +161,121 @@
             font-size: 1.2em;
             font-weight: bold;
         }
+
         .offer-badge {
             background-color: rgb(10, 144, 81);
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
         }
-        .bank-offer{
+
+        .bank-offer {
             font-size: 0.9rem;
             color: gray;
             line-height: 20px;
         }
-        .bank-offer ul li{
+
+        .bank-offer ul li {
             list-style: none;
+        }
+
+
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: #ffff;
+            margin-top: 3%;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .step.active {
+            color: black;
+            font-weight: bold;
+        }
+
+        .step.completed {
+            color: #000;
+        }
+
+        .step .circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background-color: #f0f0f0;
+        }
+
+        .step.completed .circle {
+            background-color: #bc250a;
+            color: white;
+        }
+
+        .step.active .circle {
+            background-color: #bc250a;
+            color: white;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #ddd;
+        }
+
+        .line.active {
+            background-color: #bc250a;
         }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="javascript:history.back()"><i style="color: #fff;"
+        <a class="navbar-brand" href="javascript:history.back()"><i style="color: #000000;"
                 class="fa-solid fa-arrow-left"></i></a>
         <div>
             <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
             <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span>
         </div>
     </nav>
-    
+    <div class="container ">
+        <div class="step-indicator">
+            <!-- Step 1 - Address -->
+            <div class="step completed">
+                <div class="circle"><i class="fas fa-check"></i></div>
+                <div>Info</div>
+            </div>
+            <div class="line active"></div>
 
-    <div class="container-custom">
+            <!-- Step 2 - Order Summary -->
+            <div class="step active">
+                <div class="circle">2</div>
+                <div>Order Details</div>
+            </div>
+            <div class="line"></div>
+
+            <!-- Step 3 - Payment -->
+            <div class="step">
+                <div class="circle">3</div>
+                <div>Payment</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-custom ">
         <div class="main-content">
-            <!-- Left Column (Product Details, Delivery Option, and Shipping Address) -->
+
             <div class="left-column">
                 <!-- Product Details -->
                 <div class="product-details d-flex align-items-center border-bottom pb-3 mb-2">
@@ -194,15 +285,20 @@
                         <p><span id="product-offer-price"></span></p>
                         <p><span style="text-decoration: line-through;" class="text-muted text-decoration-line-through"
                                 id="product-price">₹1,950</span></p>
-                               
+                        <p style="line-height: 24px;" class="text-muted">Estimated Delivery: <br> <span
+                                id="delivery-date"></span></p>
+
+
                     </div>
                 </div>
                 <div class="bank-offer mt-1 p-2 border rounded">
                     <div class="mb-3">
                         <span>Available offers:</span>
                         <ul class="list-unstyled">
-                            <li><span class="offer-badge badge bg-success">Bank Offer</span> 5% Cashback on the <b>Sonic</b> products purchase Axis Bank Credit Card & debit card </li>
-                            <li><span class="offer-badge badge bg-success">Bank Offer</span> 10% off up to ₹1,500 on SBI Credit Card Transactions of ₹4,990 and above</li>
+                            <li><span class="offer-badge badge bg-success">Bank Offer</span> 5% Cashback on the
+                                <b>Sonic</b> products purchase Axis Bank Credit Card & debit card </li>
+                            <li><span class="offer-badge badge bg-success">Bank Offer</span> 10% off up to ₹1,500 on SBI
+                                Credit Card Transactions of ₹4,990 and above</li>
                         </ul>
                     </div>
                     <div class="mb-3">
@@ -216,9 +312,9 @@
                         </select>
                     </div>
                 </div>
-                
 
-                
+
+
                 <div class="shipping-address">
                     <h4>Delivery Address:</h4>
                     <p id="user-address"></p>
@@ -236,7 +332,7 @@
                         <span id="summary-product-name"></span>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <strong>Offer Price:</strong>
+                        <strong>Offer Price(1 item):</strong>
                         <span id="summary-offer-price"></span>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -266,7 +362,8 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="deliveryOption" id="delivery" checked>
                         <label class="form-check-label" for="delivery">Delivery</label>
-                        <p class="text-muted">Estimated Delivery: <span id="delivery-date"></span></p>
+                        <p class="text-muted">Fastest Delivery: <br> <span id="">Delivery in 2 days , + ₹50 charge
+                            </span></p>
                     </div>
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="deliveryOption" id="pickup">
@@ -289,6 +386,9 @@
             </div>
         </div>
     </div>
+    <div style="height: 10vh; background-color: #fff; text-align: center;" class="temp-div h-3">
+        <span style="font-family: fantasy;">Safe and secure Sonic Pvt</span>
+    </div>
 
     <!-- Fixed Bottom Bar -->
     <div class="fixed-bottom-bar mb-6">
@@ -296,7 +396,7 @@
             <span id="fixed-total-price">0</span>
         </div>
         <button style="padding: 5px 30px; width: 150px  ; background-color: #bc250a;"
-            class="checkout-button place-order-btn" onclick="placeOrder()">Place Order</button>
+            class="checkout-button place-order-btn" onclick="placeOrder()">Continue</button>
     </div>
 
     <script>
@@ -352,7 +452,7 @@
             if (!address || address.trim() === "") {
                 alert("Please add your address to proceed with the order.");
             } else {
-                window.location.href = "nextpage.html"; // Change "nextpage.html" to your desired destination
+                window.location.href = "payment-gate.html"; // Change "nextpage.html" to your desired destination
             }
         }
 
@@ -364,10 +464,18 @@
 
         function getRandomDeliveryDate() {
             const today = new Date();
-            const randomDays = Math.floor(Math.random() * 5) + 3;
+            const randomDays = Math.floor(Math.random() * 5) + 3; // Random days between 3 and 7
             today.setDate(today.getDate() + randomDays);
+
+            // Get the day of the week
+            const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayOfWeek = weekdays[today.getDay()];
+
+            // Format the date (Day of the week, Month Day)
             const options = { month: 'short', day: 'numeric' };
-            return today.toLocaleDateString('en-US', options);
+            const formattedDate = today.toLocaleDateString('en-US', options);
+
+            return `${dayOfWeek}, ${formattedDate}`;
         }
 
         document.addEventListener('DOMContentLoaded', function () {
