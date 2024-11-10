@@ -2441,9 +2441,9 @@
             <!-- Card 1 -->
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/card-tws-2.png" class="card-img-top" alt="Product Image">
+                    <img src="images/card-tws-2.png" class="card-img-top" alt="Product Image" id="product-image-1">
                     <div class="card-body">
-                        <h5 class="card-title">SonicPulse X1</h5>
+                        <h5 class="card-title" id="product-name-1">SonicPulse X1</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2452,13 +2452,13 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹2199</span>
-                            <span class="text-muted text-decoration-line-through">₹3400</span>
+                            <span class="text-danger fw-bold"  id="product-offer-price-1">₹2199</span>
+                            <span class="text-muted text-decoration-line-through"  id="product-price-1">₹3400</span>
                         </p>
                         <a href="tws1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="tws1.html"
+                        <a href="javascript:void(0);"  onclick="addToCart(1);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2466,9 +2466,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/card-earphone-2.png" class="card-img-top" alt="Product Image">
+                    <img src="images/card-earphone-2.png" class="card-img-top" alt="Product Image" id="product-image-2">
                     <div class="card-body">
-                        <h5 class="card-title">SonicBeats 121</h5>
+                        <h5 class="card-title"  id="product-name-2">SonicBeats 121</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2477,13 +2477,13 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹899</span>
-                            <span class="text-muted text-decoration-line-through">₹1459</span>
+                            <span class="text-danger fw-bold" id="product-offer-price-2">₹899</span>
+                            <span class="text-muted text-decoration-line-through" id="product-price-2">₹1459</span>
                         </p>
                         <a href="earphone1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="earphone1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(2);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2491,9 +2491,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/card-powerbakn-2.png">
+                    <img id="product-image-3" src="images/card-powerbakn-2.png">
                     <div class="card-body">
-                        <h5 class="card-title">Sonic VoltXtreme </h5>
+                        <h5 class="card-title"  id="product-name-3">Sonic VoltXtreme </h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2502,13 +2502,13 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹1299</span>
-                            <span class="text-muted text-decoration-line-through">₹1950</span>
+                            <span class="text-danger fw-bold" id="product-offer-price-3">₹1299</span>
+                            <span class="text-muted text-decoration-line-through" id="product-price-3">₹1950</span>
                         </p>
                         <a href="powerbank1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="powerbank1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(3);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2516,9 +2516,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/gaming-hedphone.png" class="card-img-top" alt="Product Image">
+                    <img src="images/gaming-hedphone.png" class="card-img-top" alt="Product Image" id="product-image-4">
                     <div class="card-body">
-                        <h5 class="card-title">ZenWave Studio Pro</h5>
+                        <h5 class="card-title"  id="product-name-4">ZenWave Studio Pro</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2527,13 +2527,13 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹3749</span>
-                            <span id="under" class=" text-muted text-decoration-line-through">₹5250</span>
+                            <span class="text-danger fw-bold"  id="product-offer-price-4" >₹3749</span>
+                            <span id="under" class=" text-muted text-decoration-line-through" id="product-price-4">₹5250</span>
                         </p>
                         <a href="gaming-headphone1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="gaming-headphone1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(4);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2541,9 +2541,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/bluettoth-card.png" class="card-img-top" alt="Product Image">
+                    <img src="images/bluettoth-card.png" class="card-img-top" alt="Product Image" id="product-image-5">
                     <div class="card-body">
-                        <h5 class="card-title">SonicMini 2x</h5>
+                        <h5 class="card-title"  id="product-name-5" >SonicMini 2x</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2553,13 +2553,13 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹2749</span>
-                            <span id="under" class=" text-muted text-decoration-line-through">₹5200</span>
+                            <span class="text-danger fw-bold" id="product-offer-price-5">₹2749</span>
+                            <span id="under" class=" text-muted text-decoration-line-through" id="product-price-5">₹5200</span>
                         </p>
                         <a href="mini-speker1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="mini-speker1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(5);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2567,9 +2567,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/boofer.png" class="card-img-top" alt="Product Image">
+                    <img src="images/boofer.png" class="card-img-top" alt="Product Image"  id="product-image-6">
                     <div class="card-body">
-                        <h5 class="card-title">SonicExtrem 3</h5>
+                        <h5 class="card-title"  id="product-name-6">SonicExtrem 3</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2578,13 +2578,13 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹4749</span>
-                            <span id="under" class=" text-muted text-decoration-line-through">₹6750</span>
+                            <span class="text-danger fw-bold" id="product-offer-price-6">₹4749</span>
+                            <span id="under" class=" text-muted text-decoration-line-through" id="product-price-6">₹6750</span>
                         </p>
                         <a href="soundbar1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="soundbar1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(6);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2592,9 +2592,9 @@
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 product-card">
                 <div class="card">
-                    <img src="images/neckband.png" class="card-img-top" alt="Product Image">
+                    <img src="images/neckband.png" class="card-img-top" alt="Product Image" id="product-image-7">
                     <div class="card-body">
-                        <h5 class="card-title">SonicNeck Pro</h5>
+                        <h5 class="card-title"  id="product-name-7">SonicNeck Pro</h5>
                         <div class="rating">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -2604,13 +2604,13 @@
                             <i class="fas fa-star-half-alt"></i>
                         </div>
                         <p class="price">
-                            <span class="text-danger fw-bold">₹1449</span>
-                            <span id="under" class=" text-muted text-decoration-line-through">₹2250</span>
+                            <span class="text-danger fw-bold" id="product-offer-price-7">₹1449</span>
+                            <span id="under" class=" text-muted text-decoration-line-through" id="product-price-7">₹2250</span>
                         </p>
                         <a href="neckband1.html"
                             style="background-color: #E53935; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-primary btn-sm">Buy Now</a>
-                        <a href="neckband1.html"
+                        <a href="javascript:void(0);" onclick="addToCart(7);"
                             style="background-color: #FF9800 ; color: #fff; border: none; font-weight: 600;"
                             class="btn btn-secondary btn-sm">Add to Cart</a>
                     </div>
@@ -2775,6 +2775,47 @@
             </div>
         </div>
     </footer>
+
+
+
+
+
+    <script>
+        function addToCart(productId) {
+            // Dynamically fetch data for each product by ID
+            const imageSrc = document.getElementById('product-image-' + productId).src;
+            const name = document.getElementById('product-name-' + productId).textContent;
+            const price = document.getElementById('product-price-' + productId).textContent;
+            const offerPrice = document.getElementById('product-offer-price-' + productId).textContent;
+    
+            // Create product object
+            const product = {
+                imageSrc: imageSrc,
+                name: name,
+                price: price,
+                offerPrice: offerPrice
+            };
+    
+            // Retrieve the cart from localStorage or create an empty array if not found
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+            // Check if the product is already in the cart
+            const isProductInCart = cart.some(item => item.name === product.name);
+    
+            if (isProductInCart) {
+                // If the product is already in the cart, show an alert
+                alert("This product is already in the cart.");
+            } else {
+                // If not, add the product to the cart and store it back to localStorage
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+    
+                // Redirect to the cart page
+                window.location.href = "cart.html";
+            }
+        }
+    </script>
+    
 
 
 

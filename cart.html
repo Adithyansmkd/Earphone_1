@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <button class="btn btn-primary mt-3" onclick="proceedToCheckout()">Proceed to Checkout</button>
+</div>
+
+<script>
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartItemsDiv = document.getElementById("cart-items");
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+            return;
+        }
+
+        cartItemsDiv.innerHTML = "";
+        cart.forEach(item => {
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `
+                <img src="${item.imageSrc}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <h5>${item.name}</h5>
+                    <p>Price: <span class="text-danger">${item.price}</span> <span class="text-muted text-decoration-line-through">${item.offerPrice}</span></p>
+                </div>
+            `;
+            cartItemsDiv.appendChild(cartItem);
+        });
+    }
+
+    window.onload = displayCart;
+
+    function proceedToCheckout() {
+        alert("Proceeding to checkout...");
+    }
+</script>

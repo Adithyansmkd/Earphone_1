@@ -148,13 +148,34 @@
       color: #000000;
       margin: 0;
     }
+
+    .secure {
+            display: flex;
+            align-items: center;
+            background-color: #0D1117;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            color: #fff;
+        }
+        .secure img {
+            width: 100px; 
+            height: 40px;
+            margin-right: 10px;
+        }
+        .secure-text {
+            font-size: 1rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           
+        }
   </style>
 </head>
 
 <body>
   <nav class="navbar">
     <a style="margin-left: 3%;" class="navbar-brand" href="javascript:history.back()"><i style="color: #000000;"
-        class="fa-solid fa-arrow-left"></i></a>
+        class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; payment</a>
     <div>
       <!-- <span  class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
             <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span> -->
@@ -222,6 +243,8 @@
                   <label for="cvv" class="form-label">CVV</label>
                   <input type="password" class="form-control" id="cvv" placeholder="CVV" required>
                 </div>
+                <button onclick="showPaymentAlert('netbanking')" type="button" class="btn btn-danger w-100">Save & Place Order</button>
+
               </div>
             </form>
           </div>
@@ -277,8 +300,6 @@
           data-bs-parent="#paymentOptionsAccordion">
           <div class="accordion-body">
             <p class="payment-subtitle">Pay by any UPI app</p>
-            
-            <!-- Center-aligned, responsive image with specific size -->
             <div class="d-flex justify-content-center">
               <img src="images/qr-code.jpg" alt="UPI App Logo" class="img-fluid mb-3" style="max-width: 150px;">
             </div>
@@ -287,7 +308,7 @@
               <div class="mb-3">
                 <label for="upiId" class="form-label">Enter the last 6 characters of the transaction ID</label>
                 <input type="text" class="form-control" id="upiId" placeholder="example: c73dsff" required>
-                <button type="button" class="btn btn-primary w-100 mt-3">Place Order</button>
+                <button type="button" class="btn bbtn-danger w-100 mt-3">Place Order</button>
               </div>
             </form>
           </div>
@@ -307,7 +328,7 @@
         <div id="collapseCOD" class="accordion-collapse collapse" aria-labelledby="headingCOD"
           data-bs-parent="#paymentOptionsAccordion">
           <div class="accordion-body">
-            <button type="button" class="btn btn-primary w-100">Place Order</button>
+            <button type="button" class="btn btn-danger  w-100">Place Order</button>
           </div>
         </div>
       </div>
@@ -335,7 +356,12 @@
       </div>
     </div>
   </div>
-
+  <div style="background-color: transparent; box-shadow: none;" class="container mt-5">
+    <div class="secure">
+        <img src="images/logo-brand.png" alt="Secure Icon">
+        <p style="color: #d7c9c9; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.9rem;" class="secure-text mb-0">All transactions are securely processed in compliance with RBI regulations, guaranteeing top-notch security and trust for every user</p>
+    </div>
+</div>
   <script>
     function showPaymentAlert(paymentMethod) {
       if (paymentMethod === 'card' || paymentMethod === 'netbanking' || paymentMethod === 'wallets') {
