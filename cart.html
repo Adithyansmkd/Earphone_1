@@ -1,8 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+ 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: #eadddd52;
+      }
+      .cart-item {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .cart-item img {
+        max-width: 100%;
+        max-height: 80px;
+        object-fit: cover;
+      }
+
+      .cart-item-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cart-item h5 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .cart-item .price {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .text-muted {
+        text-decoration-line: line-through;
+      }
+
+      .cart-item .text-danger {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+
+      .cart-item .text-muted {
+        font-size: 1rem;
+      }
+
+      .cart-item .delete-btn {
+        background: none;
+        border: none;
+        color: #dc3545;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0;
+        margin-left: auto;
+      }
+
+      @media (max-width: 576px) {
+        .cart-item {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+        }
+
+        .cart-item img {
+          max-width: 30%;
+          max-height: 80px;
+        }
+
+        .cart-item-details {
+          flex: 1;
+          margin-left: 10px;
+        }
+
+        .cart-item h5 {
+          font-size: 1rem;
+          margin-bottom: 5px;
+        }
+
+        .cart-item .price {
+          font-size: 1.1rem;
+        }
+
+        .cart-item .text-danger {
+          font-size: 1.2rem;
+        }
+      }
+
+      .navbar {
+        background-color: #ffff;
+      }
+
+      .navbar-brand {
+        color: #000;
+      }
+
+      .navbar-text {
+        color: #000;
+        margin-left: 20px;
+      }
+
+      .navbar-text:hover {
+        color: #007bff;
+      }
+
+      .address-section {
+        margin-top: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .address-section h5 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .address-details {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a style="margin-left: 3%;" class="navbar-brand" href="javascript:history.back()"><i style="color: #000000;" class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; Your Cart</a>
+    </nav>
+
 <div class="container mt-4">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <button class="btn btn-primary mt-3" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    <div id="cart-items" class="row">
+        <!-- Cart items will be dynamically added here by JavaScript -->
+    </div>
+
+    <!-- Delivery Address Section -->
+    <div id="address-section" class="address-section">
+        <h5>Delivery Address</h5>
+        <div id="address-details" class="address-details">
+            <!-- Address details will be displayed here -->
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="index.html"><button class="btn btn-danger"  >Add new items</button></a>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
     function displayCart() {
@@ -10,28 +172,72 @@
         const cartItemsDiv = document.getElementById("cart-items");
 
         if (cart.length === 0) {
-            cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+            cartItemsDiv.innerHTML = "<p class='text-center'>Your cart is empty.</p>";
             return;
         }
 
         cartItemsDiv.innerHTML = "";
-        cart.forEach(item => {
+        cart.forEach((item, index) => {
             const cartItem = document.createElement("div");
-            cartItem.classList.add("cart-item");
+            cartItem.classList.add("col-12");
+
             cartItem.innerHTML = `
-                <img src="${item.imageSrc}" alt="${item.name}">
-                <div class="cart-item-details">
-                    <h5>${item.name}</h5>
-                    <p>Price: <span class="text-danger">${item.price}</span> <span class="text-muted text-decoration-line-through">${item.offerPrice}</span></p>
+                <div class="cart-item">
+                    <img src="${item.imageSrc}" alt="${item.name}">
+                    <div class="cart-item-details">
+                        <h5>${item.name}</h5>
+                        <p class="price">
+                            <span class="text-muted">${item.price}</span>
+                            <span class="text-danger">${item.offerPrice}</span>
+                        </p>
+                    </div>
+                    <button class="delete-btn" onclick="removeItem(${index})"><i class="fas fa-trash-alt"></i></button>
                 </div>
             `;
+
             cartItemsDiv.appendChild(cartItem);
         });
+
+        displayAddress();
     }
 
-    window.onload = displayCart;
+    function displayAddress() {
+        const address = JSON.parse(localStorage.getItem("address")) || {};
+
+        const addressSection = document.getElementById("address-section");
+        const addressDetails = document.getElementById("address-details");
+
+        if (Object.keys(address).length === 0) {
+            addressSection.style.display = 'none'; // Hide address section if no address is saved
+            return;
+        }
+
+        addressSection.style.display = 'block'; // Show address section if address is available
+
+        addressDetails.innerHTML = `
+            <p><strong>Name:</strong> ${address.name}</p>
+            <p><strong>Address:</strong> ${address.address}</p>
+            <p><strong>City:</strong> ${address.city}</p>
+            <p><strong>Postal Code:</strong> ${address.postalCode}</p>
+        `;
+    }
+
+    function removeItem(index) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.splice(index, 1);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
 
     function proceedToCheckout() {
         alert("Proceeding to checkout...");
     }
+
+    window.onload = displayCart;
 </script>
+
+</body>
+</html>
