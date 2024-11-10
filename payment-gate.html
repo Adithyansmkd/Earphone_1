@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,293 +8,352 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    body {
+      background-color: #f9eaea9a;
+    }
 
-
-body{
-    background-color: #f9eaea9a;
-}
     .accordion-button:focus {
       box-shadow: none;
     }
+
     .payment-option-title {
       font-weight: bold;
     }
+
     .payment-subtitle {
       color: gray;
     }
+
     .cashback-text {
       color: green;
       font-size: 0.9rem;
     }
+
     /* Modal styles */
     .modal-content {
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
     }
+
     .modal-header {
       border-bottom: none;
     }
+
     .modal-footer {
       border-top: none;
     }
+
     .modal-body {
       text-align: center;
     }
-    
+
     .step-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background-color: #ffff;
-            margin-top: 3%;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      background-color: #ffff;
+      margin-top: 3%;
+    }
 
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #000000;
-            font-size: 14px;
-        }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #000000;
+      font-size: 14px;
+    }
 
-        .step.active {
-            color: black;
-            font-weight: bold;
-        }
+    .step.active {
+      color: black;
+      font-weight: bold;
+    }
 
-        .step.completed {
-            color: #000;
-        }
+    .step.completed {
+      color: #000;
+    }
 
-        .step .circle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            background-color: #f0f0f0;
-        }
+    .step .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      background-color: #f0f0f0;
+    }
 
-        .step.completed .circle {
-            background-color: #bc250a;
-            color: white;
-        }
+    .step.completed .circle {
+      background-color: #bc250a;
+      color: white;
+    }
 
-        .step.active .circle {
-            background-color: #bc250a;
-            color: white;
-        }
+    .step.active .circle {
+      background-color: #bc250a;
+      color: white;
+    }
 
-        .line {
-            flex-grow: 1;
-            height: 2px;
-            background-color: gray;
-        }
+    .line {
+      flex-grow: 1;
+      height: 2px;
+      background-color: gray;
+    }
 
-        .line.active {
-            background-color: #bc250a;
-        }
-        .navbar{
-            background-color: #ffff;
-        }
-        .navbar-brand {
-            color: #000;
-           
-        }
+    .line.active {
+      background-color: #bc250a;
+    }
 
-        .navbar-text {
-            color: #000;
-          
-            margin-left: 20px;
-         
-        }
+    .navbar {
+      background-color: #ffff;
+    }
 
-        .navbar-text:hover {
-            color: #007bff;
-           
-        }
+    .navbar-brand {
+      color: #000;
+
+    }
+
+    .navbar-text {
+      color: #000;
+
+      margin-left: 20px;
+
+    }
+
+    .navbar-text:hover {
+      color: #007bff;
+
+    }
+
+    .payment-container {
+      background-color: #25c95659;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .payment-container span {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    #payment-total-price {
+      font-weight: bold;
+      color: #000000;
+      margin: 0;
+    }
   </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <a style="margin-left: 3%;" class="navbar-brand" href="javascript:history.back()"><i style="color: #000000;"
-                class="fa-solid fa-arrow-left"></i></a>
-        <div>
-            <!-- <span  class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
+  <nav class="navbar">
+    <a style="margin-left: 3%;" class="navbar-brand" href="javascript:history.back()"><i style="color: #000000;"
+        class="fa-solid fa-arrow-left"></i></a>
+    <div>
+      <!-- <span  class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
             <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span> -->
-        </div>
-    </nav>
-    <div class="container ">
-        <div class="step-indicator">
-            <!-- Step 1 - Address -->
-            <div class="step completed">
-                <div class="circle"><i class="fas fa-check"></i></div>
-                <div>Info</div>
-            </div>
-            <div class="line active"></div>
-
-            <!-- Step 2 - Order Summary -->
-            <div class="step active">
-                <div class="circle">2</div>
-                <div>Order Details</div>
-            </div>
-            <div class="line active"></div>
-
-            <!-- Step 3 - Payment -->
-            <div class="step active">
-                <div class="circle">3</div>
-                <div>Payment</div>
-            </div>
-        </div>
     </div>
+  </nav>
+  <div class="container ">
+    <div class="step-indicator">
 
-<div class="container my-5">
-  <div class="accordion" id="paymentOptionsAccordion">
-    <span>Pay Amount:</span>
-    <h4 id="payment-total-price"></h4>
-    
-    <!-- Credit/Debit/ATM Card Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingCard">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCard" aria-expanded="true" aria-controls="collapseCard" onclick="showPaymentAlert('card')">
-          <img src="https://img.icons8.com/ios-filled/24/000000/bank-card-back-side.png" class="me-2" alt="Card Icon">
-          <span class="payment-option-title">Credit / Debit / ATM Card</span>
-        </button>
-      </h2>
-      <div id="collapseCard" class="accordion-collapse collapse " aria-labelledby="headingCard" data-bs-parent="#paymentOptionsAccordion">
-        <div class="accordion-body">
-          <p class="payment-subtitle">Add and secure cards as per RBI guidelines</p>
-          <p class="cashback-text">5% Unlimited Cashback on Flipkart Axis Bank Credit Card</p>
-          <form>
-            <div class="mb-3">
-              <label for="cardNumber" class="form-label">Card Number</label>
-              <input type="text" class="form-control" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="expiryDate" class="form-label">Expiry Date</label>
-                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cvv" class="form-label">CVV</label>
-                <input type="password" class="form-control" id="cvv" placeholder="CVV" required>
-              </div>
-            </div>
-          </form>
-        </div>
+      <div class="step completed">
+        <div class="circle"><i class="fas fa-check"></i></div>
+        <div>Info</div>
+      </div>
+      <div class="line active"></div>
+
+
+      <div class="step active">
+        <div class="circle">2</div>
+        <div>Order Details</div>
+      </div>
+      <div class="line active"></div>
+
+
+      <div class="step active">
+        <div class="circle">3</div>
+        <div>Payment</div>
       </div>
     </div>
+  </div>
 
-    <!-- Net Banking Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingNetBanking">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetBanking" aria-expanded="false" aria-controls="collapseNetBanking" onclick="showPaymentAlert('netbanking')">
-          <img src="https://img.icons8.com/ios-filled/24/000000/bank.png" class="me-2" alt="Net Banking Icon">
-          <span class="payment-option-title">Net Banking</span>
-        </button>
-      </h2>
-      <div id="collapseNetBanking" class="accordion-collapse collapse" aria-labelledby="headingNetBanking" data-bs-parent="#paymentOptionsAccordion">
-        <div class="accordion-body">
-          <p>Select your bank to proceed with Net Banking.</p>
-        </div>
+  <div class="container my-5">
+    <div class="accordion" id="paymentOptionsAccordion">
+
+
+      <div class="payment-container mb-3">
+        <span>Pay Amount:</span>
+        <h4 id="payment-total-price">$0.00</h4>
       </div>
-    </div>
 
-    <!-- Wallets Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingWallets">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWallets" aria-expanded="false" aria-controls="collapseWallets" onclick="showPaymentAlert('wallets')">
-          <img src="https://img.icons8.com/ios-filled/24/000000/wallet.png" class="me-2" alt="Wallet Icon">
-          <span class="payment-option-title">Wallets</span>
-        </button>
-      </h2>
-      <div id="collapseWallets" class="accordion-collapse collapse" aria-labelledby="headingWallets" data-bs-parent="#paymentOptionsAccordion">
-        <div class="accordion-body">
-          <p>Select a wallet to continue with the payment.</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- UPI Section -->
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingUPI">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUPI" aria-expanded="false" aria-controls="collapseUPI">
-            <span class="payment-option-title">UPI</span>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCard">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCard"
+            aria-expanded="true" aria-controls="collapseCard" onclick="showPaymentAlert('card')">
+            <img src="https://img.icons8.com/ios-filled/24/000000/bank-card-back-side.png" class="me-2" alt="Card Icon">
+            <span class="payment-option-title">Credit / Debit / ATM Card</span>
           </button>
         </h2>
-        <div id="collapseUPI" class="accordion-collapse collapse" aria-labelledby="headingUPI" data-bs-parent="#paymentOptionsAccordion">
+        <div id="collapseCard" class="accordion-collapse collapse " aria-labelledby="headingCard"
+          data-bs-parent="#paymentOptionsAccordion">
           <div class="accordion-body">
-            <p class="payment-subtitle">Pay by any UPI app</p>
+            <p class="payment-subtitle">Add and secure cards as per RBI guidelines</p>
+            <p class="cashback-text">15% Unlimited Cashback On Credit Card</p>
             <form>
               <div class="mb-3">
-                <label for="upiId" class="form-label">Enter UPI ID</label>
-                <input type="text" class="form-control" id="upiId" placeholder="example@upi" required>
-                <button type="button" class="btn btn-primary w-100">Place Order</button>
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="expiryDate" class="form-label">Expiry Date</label>
+                  <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cvv" class="form-label">CVV</label>
+                  <input type="password" class="form-control" id="cvv" placeholder="CVV" required>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-    <!-- Cash on Delivery Section -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingCOD">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCOD" aria-expanded="false" aria-controls="collapseCOD">
-          <img src="https://img.icons8.com/ios-filled/24/000000/money.png" class="me-2" alt="Cash Icon">
-          <span class="payment-option-title">Cash on Delivery</span>
-        </button>
-      </h2>
-      <div id="collapseCOD" class="accordion-collapse collapse" aria-labelledby="headingCOD" data-bs-parent="#paymentOptionsAccordion">
-        <div class="accordion-body">
-          <button type="button" class="btn btn-primary w-100">Place Order</button>
+
+
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWallets">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseWallets" aria-expanded="false" aria-controls="collapseWallets"
+            onclick="showPaymentAlert('wallets')">
+            <img src="https://img.icons8.com/ios-filled/24/000000/wallet.png" class="me-2" alt="Wallet Icon">
+            <span class="payment-option-title">Wallets</span>
+          </button>
+        </h2>
+        <div id="collapseWallets" class="accordion-collapse collapse" aria-labelledby="headingWallets"
+          data-bs-parent="#paymentOptionsAccordion">
+          <div class="accordion-body">
+            <p>Select a wallet to continue with the payment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Net Banking Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingNetBanking">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseNetBanking" aria-expanded="false" aria-controls="collapseNetBanking"
+            onclick="showPaymentAlert('netbanking')">
+            <img src="https://img.icons8.com/ios-filled/24/000000/bank.png" class="me-2" alt="Net Banking Icon">
+            <span class="payment-option-title">Net Banking</span>
+          </button>
+        </h2>
+        <div id="collapseNetBanking" class="accordion-collapse collapse" aria-labelledby="headingNetBanking"
+          data-bs-parent="#paymentOptionsAccordion">
+          <div class="accordion-body">
+            <p>Select your bank to proceed with Net Banking.</p>
+          </div>
+        </div>
+      </div>
+      <!-- UPI Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingUPI">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseUPI" aria-expanded="false" aria-controls="collapseUPI">
+            <span class="payment-option-title">UPI</span>
+          </button>
+        </h2>
+        <div id="collapseUPI" class="accordion-collapse collapse" aria-labelledby="headingUPI"
+          data-bs-parent="#paymentOptionsAccordion">
+          <div class="accordion-body">
+            <p class="payment-subtitle">Pay by any UPI app</p>
+            
+            <!-- Center-aligned, responsive image with specific size -->
+            <div class="d-flex justify-content-center">
+              <img src="images/qr-code.jpg" alt="UPI App Logo" class="img-fluid mb-3" style="max-width: 150px;">
+            </div>
+      
+            <form>
+              <div class="mb-3">
+                <label for="upiId" class="form-label">Enter the last 6 characters of the transaction ID</label>
+                <input type="text" class="form-control" id="upiId" placeholder="example: c73dsff" required>
+                <button type="button" class="btn btn-primary w-100 mt-3">Place Order</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Cash on Delivery Section -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCOD">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCOD" aria-expanded="false" aria-controls="collapseCOD">
+            <img src="https://img.icons8.com/ios-filled/24/000000/money.png" class="me-2" alt="Cash Icon">
+            <span class="payment-option-title">Cash on Delivery</span>
+          </button>
+        </h2>
+        <div id="collapseCOD" class="accordion-collapse collapse" aria-labelledby="headingCOD"
+          data-bs-parent="#paymentOptionsAccordion">
+          <div class="accordion-body">
+            <button type="button" class="btn btn-primary w-100">Place Order</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Modal -->
-<div class="modal mt-5 fade" id="paymentAlertModal" tabindex="-1" aria-labelledby="paymentAlertModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paymentAlertModalLabel">Payment Method Unavailable</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img style="width: 90px; height: 90px;" src="images/payment-warning.png" alt="Warning Icon" class="mb-3">
-        <p><strong>Due to system maintenance, Debit/Credit Cards, Net Banking, and Wallet payments are temporarily unavailable. Please use UPI or Cash on Delivery. We apologize for the inconvenience and appreciate your understanding.</strong></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="modal mt-5 fade" id="paymentAlertModal" tabindex="-1" aria-labelledby="paymentAlertModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentAlertModalLabel">Payment Method Unavailable</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img style="width: 90px; height: 90px;" src="images/payment-warning.png" alt="Warning Icon" class="mb-3">
+          <p><strong>Due to system maintenance, Debit/Credit Cards, Net Banking, and Wallet payments are temporarily
+              unavailable. Please use UPI or Cash on Delivery. We apologize for the inconvenience and appreciate your
+              understanding.</strong></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  function showPaymentAlert(paymentMethod) {
-    if (paymentMethod === 'card' || paymentMethod === 'netbanking' || paymentMethod === 'wallets') {
-      const modal = new bootstrap.Modal(document.getElementById('paymentAlertModal'));
-      modal.show();
+  <script>
+    function showPaymentAlert(paymentMethod) {
+      if (paymentMethod === 'card' || paymentMethod === 'netbanking' || paymentMethod === 'wallets') {
+        const modal = new bootstrap.Modal(document.getElementById('paymentAlertModal'));
+        modal.show();
+      }
     }
-  }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const totalPrice = localStorage.getItem("totalPrice");
-    if (totalPrice) {
-      document.getElementById("payment-total-price").textContent = `₹${totalPrice}`;
-    } else {
-      console.error("Total price not found in localStorage.");
-    }
-  });
-</script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const totalPrice = localStorage.getItem("totalPrice");
+      if (totalPrice) {
+        document.getElementById("payment-total-price").textContent = `₹${totalPrice}`;
+      } else {
+        console.error("Total price not found in localStorage.");
+      }
+    });
+  </script>
 
 </body>
+
 </html>
