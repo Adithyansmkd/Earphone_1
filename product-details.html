@@ -244,7 +244,7 @@
                 class="fa-solid fa-arrow-left"></i></a>
         <div>
             <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
-            <span class="navbar-text"><i style="color: rgb(228, 114, 0);" class="fa-solid fa-cart-shopping"></i></span>
+            <span> <a href="cart.html"><i style="color: #e5b113; " class="fa-solid fa-cart-shopping"></i></a></span>
         </div>
     </nav>
     <div class="container ">
@@ -439,21 +439,27 @@
                 document.getElementById("summary-quantity").textContent = quantity;
                 document.getElementById("summary-total-price").textContent = `₹${totalPrice}`;
                 document.getElementById("fixed-total-price").textContent = `₹${totalPrice}`;
+                
             }
         }
 
         // Listen for changes in the quantity selection
         document.getElementById("quantity").addEventListener("change", updateOrderSummary);
 
-        // Place Order function to check if address is provided
         function placeOrder() {
-            const address = localStorage.getItem("userAddress");
-            if (!address || address.trim() === "") {
-                alert("Please add your address to proceed with the order.");
-            } else {
-                window.location.href = "payment-gate.html"; // Change "nextpage.html" to your desired destination
-            }
-        }
+    const address = localStorage.getItem("userAddress");
+    if (!address || address.trim() === "") {
+        alert("Please add your address to proceed with the order.");
+    } else {
+        // Store the fixed total price in localStorage as 'totalPrice' before redirecting
+        const fixedTotalPrice = document.getElementById("fixed-total-price").textContent.replace('₹', '').trim();
+        localStorage.setItem("totalPrice", fixedTotalPrice);
+
+        // Redirect to the payment page
+        window.location.href = "payment-gate.html";
+    }
+}
+
 
 
 

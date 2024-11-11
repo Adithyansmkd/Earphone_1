@@ -371,13 +371,14 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      const totalPrice = localStorage.getItem("totalPrice");
-      if (totalPrice) {
+    const totalPrice = localStorage.getItem("totalPrice");
+    if (totalPrice) {
         document.getElementById("payment-total-price").textContent = `₹${totalPrice}`;
-      } else {
+    } else {
         console.error("Total price not found in localStorage.");
-      }
-    });
+    }
+});
+
   </script>
 
 </body>

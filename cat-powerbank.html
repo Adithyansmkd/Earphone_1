@@ -344,8 +344,8 @@
         <div>
 
             <span class="navbar-text"><i style="color: rgb(212, 36, 36);" class="fa-solid fa-heart"></i></span>
-            <span class="navbar-text"><i style="color: rgb(249, 247, 246);"
-                    class="fa-solid fa-cart-shopping"></i></span>
+            <span> <a href="cart.html"><i style="color: #e5b113; " class="fa-solid fa-cart-shopping"></i></a></span>
+
         </div>
     </nav>
     <div style="height: 6vh; width: 100%; background-color: #f7f6f5 ; display: flex; align-items: center; justify-content: center;"
@@ -399,7 +399,7 @@
                             <span>Type c </span>
                             <span>15000 mah </span>
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);" onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
 
                     </div>
@@ -431,7 +431,7 @@
 
                             <span>20000 Mah</span>
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -458,7 +458,7 @@
 
                             <span>Anc </span>
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -487,7 +487,7 @@
                             <span>10000 mah</span>
 
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -514,7 +514,7 @@
 
                             <span>QGA mode</span>
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -543,7 +543,7 @@
                             <span>QGA Tech</span>
 
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -570,7 +570,7 @@
                             <span>13500 mah</span>
 
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -597,7 +597,7 @@
                             <span>Wireless charge</span>
 
                         </div>
-                        <button class="add-to-cart-btn mt-3">Add To Cart</button>
+                        <a href="javascript:void(0);"  onclick="addToCart(this);"><button class="add-to-cart-btn mt-3">Add To Cart</button></a>
                         <button class="add-to-cart-btn mt-1" style="background-color: #cf0700;" onclick="viewDetails(this)">BUY NOW</button>
                     </div>
                 </div>
@@ -735,6 +735,48 @@
  }
  
      </script>
+
+     
+<script>
+    function addToCart(button) {
+    // Get the closest product card to the clicked button
+    const card = button.closest('.product-card');
+
+    // Retrieve the product details from the elements within this specific card
+    const imageSrc = card.querySelector('.product-image img').src;
+    const name = card.querySelector('#product-name').textContent;
+    const price = card.querySelector('#product-price').textContent;
+    const offerPrice = card.querySelector('#product-offer-price').textContent;
+
+    // Create a product object with the retrieved details
+    const product = {
+        imageSrc: imageSrc,
+        name: name,
+        price: price,
+        offerPrice: offerPrice
+    };
+
+    // Retrieve the existing cart from localStorage or create an empty array if not found
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the product is already in the cart
+    const isProductInCart = cart.some(item => item.name === product.name);
+
+    if (isProductInCart) {
+        // If the product is already in the cart, show an alert
+        alert("This product is already in the cart.");
+    } else {
+        // If not, add the product to the cart and store it back to localStorage
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Redirect to the cart page
+        window.location.href = "cart.html";
+    }
+}
+
+</script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
