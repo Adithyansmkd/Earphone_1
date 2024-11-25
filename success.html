@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Success</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ10MQeD6g1pSZoH4uO4dQ0o/0aF4wZGQ2e4LUtH1Z1mFhZMO5aD1okXxsoN" crossorigin="anonymous">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .success-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 40vh;
+      position: relative;
+    }
+
+    .checkmark {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #4caf50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      animation: pop 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .checkmark::before {
+      content: '✔';
+      color: white;
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .message {
+      font-size: 30px;
+      color: #333;
+      font-weight: bold;
+      margin-top: 20px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .order-details {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: -20px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .order-id {
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .order-item {
+      font-size: 18px;
+      color: #666;
+      margin: 8px 0;
+    }
+
+    .order-item-price {
+      font-size: 20px;
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    .btn-success {
+      margin-top: 2%;
+      font-size: 18px;
+      padding: 10px 25px;
+      color: #fff;
+      border-radius: 8px;
+      background-color: #bc250a;
+      border: none;
+      transition: 0.3s ease-in-out;
+    }
+    @media (max-width:777px) {
+      .btn-success{
+        margin-top: 4%;
+      }
+      
+    }
+
+    .btn-success:hover {
+      background-color: #45a049;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      background-color: #ffcc00;
+      opacity: 0;
+      animation: burst 1.5s ease-out forwards;
+    }
+
+    @keyframes burst {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    /* Falling Confetti */
+    .falling-confetti-piece {
+      position: absolute;
+      width: 8px;
+      height: 12px;
+      background-color: #ff6f61;
+      opacity: 0;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(180deg);
+        opacity: 0;
+      }
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="success-container">
+    <div class="checkmark"></div>
+    <div class="message">Order Successful!</div>
+    <div class="confetti" id="confetti"></div>
+    <div class="confetti" id="falling-confetti"></div>
+  </div>
+
+  <!-- Product details and button container -->
+  <div class="container my-auto">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 order-details">
+        <div class="order-id" id="order-id"></div>
+        <div class="order-item" id="product-name"></div>
+        <div class="order-item-price" id="total-price"></div>
+        <button id="view-orders-btn" class="btn btn-success mt-4">
+          View My Orders
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add functionality to the "Show My Orders" button
+    document.getElementById("view-orders-btn").addEventListener("click", function () {
+        // Redirect to the "My Orders" page
+        window.location.href = "my-orders.html";
+    });
+
+    // Function to generate a random 12-digit alphanumeric order ID
+    function generateOrderID() {
+      let orderID = '';
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      for (let i = 0; i < 12; i++) {
+        orderID += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      return orderID;
+    }
+
+    // Function to display the order details
+    function displayOrderDetails() {
+      const productName = localStorage.getItem("productName");
+      const totalPrice = localStorage.getItem("totalPrice");
+
+      document.getElementById("order-id").textContent = "Order ID: " + generateOrderID();
+      document.getElementById("product-name").textContent = "Product: " + productName;
+      document.getElementById("total-price").textContent = "Total Price: ₹" + totalPrice;
+    }
+
+    // Display the order details on page load
+    document.addEventListener('DOMContentLoaded', function () {
+      displayOrderDetails();
+    });
+
+    // Function to create upward confetti (180-degree spread)
+    function createConfettiPiece() {
+      const confetti = document.getElementById('confetti');
+      const colors = ['#f94144', '#f3722c', '#f8961e', '#43aa8b', '#577590', '#f9c74f'];
+      const piece = document.createElement('div');
+      piece.classList.add('confetti-piece');
+
+      const angle = Math.random() * Math.PI; // Random angle in radians (0 to 180 degrees)
+      const distance = Math.random() * 300 + 50; // Random distance for the burst
+
+      piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.left = '50%';
+      piece.style.top = '50%';
+      piece.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+      piece.style.setProperty('--dy', `-${Math.sin(angle) * distance}px`);
+
+      confetti.appendChild(piece);
+
+      // Remove confetti piece after animation
+      setTimeout(() => {
+        piece.remove();
+      }, 1500);
+    }
+
+    // Function to create falling confetti
+    function createFallingConfetti() {
+      const confetti = document.getElementById('falling-confetti');
+      const colors = ['#00bcd4', '#8e44ad', '#ffeb3b', '#e67e22', '#c0392b'];
+      const piece = document.createElement('div');
+      piece.classList.add('falling-confetti-piece');
+
+      piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.left = Math.random() * 100 + '%';
+
+      confetti.appendChild(piece);
+
+      // Remove confetti piece after animation
+      setTimeout(() => {
+        piece.remove();
+      }, 3000);
+    }
+
+    // Generate upward confetti
+    function burstConfetti() {
+      for (let i = 0; i < 100; i++) {
+        setTimeout(createConfettiPiece, i * 20);
+      }
+    }
+
+    // Generate falling confetti
+    function startFallingConfetti() {
+      setInterval(createFallingConfetti, 100);
+    }
+
+    // Start animations
+    burstConfetti();
+    setTimeout(startFallingConfetti, 1000); // Delay falling confetti to appear after the burst
+  </script>
+</body>
+</html>

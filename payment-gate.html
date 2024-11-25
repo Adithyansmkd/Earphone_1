@@ -307,9 +307,13 @@
             <form>
               <div class="mb-3">
                 <label for="upiId" class="form-label">Enter the last 6 characters of the transaction ID</label>
-                <input type="text" class="form-control" id="upiId" placeholder="example: c73dsff" required>
-                <button type="button" class="btn bbtn-danger w-100 mt-3">Place Order</button>
-              </div>
+                <input type="text" class="form-control" id="upiId" required>
+                <button 
+                type="button" onclick="placeOrder()"
+                class="btn btn-danger w-100 mt-3" 
+                id="place-order-btn">
+                Place Order
+            </button>              </div>
             </form>
           </div>
         </div>
@@ -328,7 +332,12 @@
         <div id="collapseCOD" class="accordion-collapse collapse" aria-labelledby="headingCOD"
           data-bs-parent="#paymentOptionsAccordion">
           <div class="accordion-body">
-            <button type="button" class="btn btn-danger  w-100">Place Order</button>
+            <button 
+            type="button"  onclick="placeOrder()"
+            class="btn btn-danger w-100" 
+            id="place-order-btn">
+            Place Order
+        </button>
           </div>
         </div>
       </div>
@@ -362,24 +371,107 @@
         <p style="color: #d7c9c9; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.9rem;" class="secure-text mb-0">All transactions are securely processed in compliance with RBI regulations, guaranteeing top-notch security and trust for every user</p>
     </div>
 </div>
-  <script>
-    function showPaymentAlert(paymentMethod) {
+<script>
+  // Function to show payment alert (unchanged)
+  function showPaymentAlert(paymentMethod) {
       if (paymentMethod === 'card' || paymentMethod === 'netbanking' || paymentMethod === 'wallets') {
-        const modal = new bootstrap.Modal(document.getElementById('paymentAlertModal'));
-        modal.show();
+          const modal = new bootstrap.Modal(document.getElementById('paymentAlertModal'));
+          modal.show();
       }
-    }
+  }
 
-    document.addEventListener("DOMContentLoaded", function () {
+  // Existing functionality: Display total price
+  document.addEventListener("DOMContentLoaded", function () {
+      const totalPrice = localStorage.getItem("totalPrice");
+      if (totalPrice) {
+          document.getElementById("payment-total-price").textContent = `₹${totalPrice}`;
+      } else {
+          console.error("Total price not found in localStorage.");
+      }
+
+      // NEW: Display product name and image
+      const productName = localStorage.getItem("paymentProductName");
+      const productImage = localStorage.getItem("paymentProductImage");
+
+      if (productName) {
+          document.getElementById("payment-product-name").textContent = productName;
+      } else {
+          console.error("Product name not found in localStorage.");
+      }
+
+      if (productImage) {
+          document.getElementById("payment-product-image").src = productImage;
+      } else {
+          console.error("Product image not found in localStorage.");
+      }
+  });
+</script>
+<script>
+  // Function to handle the Place Order button
+  function placeOrder() {
+    // Retrieve product details
+    const productName = localStorage.getItem("paymentProductName");
+    const productImage = localStorage.getItem("paymentProductImage");
     const totalPrice = localStorage.getItem("totalPrice");
-    if (totalPrice) {
-        document.getElementById("payment-total-price").textContent = `₹${totalPrice}`;
-    } else {
-        console.error("Total price not found in localStorage.");
-    }
-});
 
-  </script>
+    if (!productName || !productImage || !totalPrice) {
+        alert("Product details are missing. Unable to place the order.");
+        return;
+    }
+
+    // Create an order object
+    const order = {
+        name: productName,
+        image: productImage,
+        totalPrice: `₹${totalPrice}`,
+        date: new Date().toLocaleString(), // Add timestamp for order
+    };
+
+    // Retrieve existing orders from localStorage or initialize an empty array
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    // Add the current order to the orders array
+    orders.push(order);
+
+    // Save the updated orders array back to localStorage
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    // Redirect to the success page
+    window.location.href = "success.html";
+}
+
+// Add event listener to the "Place Order" button
+document.getElementById("place-order-btn").addEventListener("click", placeOrder);
+
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // Get references to the input field and the button
+      const upiInput = document.getElementById("upiId");
+      const placeOrderBtn = document.getElementById("place-order-btn");
+
+      // Function to enable/disable the button based on input
+      function toggleButtonState() {
+          // Get the value of the input and trim any extra spaces
+          const inputValue = upiInput.value.trim();
+
+          // Check if the input is exactly 6 characters long and contains both digits and letters
+          const isValid = /^[a-zA-Z0-9]{6}$/.test(inputValue) && /[a-zA-Z]/.test(inputValue) && /\d/.test(inputValue);
+
+          // Enable the button if the input is valid (6 alphanumeric characters with at least one letter and one digit)
+          placeOrderBtn.disabled = !isValid;
+      }
+
+      // Initial call to set the button state
+      toggleButtonState();
+
+      // Event listener to monitor changes in the input field
+      upiInput.addEventListener("input", toggleButtonState);
+  });
+</script>
+
 
 </body>
 

@@ -451,9 +451,15 @@
     if (!address || address.trim() === "") {
         alert("Please add your address to proceed with the order.");
     } else {
-        // Store the fixed total price in localStorage as 'totalPrice' before redirecting
+        // Store the fixed total price, product name, and image in localStorage
         const fixedTotalPrice = document.getElementById("fixed-total-price").textContent.replace('₹', '').trim();
+        const productName = document.getElementById("product-name").textContent;
+        const productImage = document.getElementById("product-image").src;
+
+        // Save to localStorage
         localStorage.setItem("totalPrice", fixedTotalPrice);
+        localStorage.setItem("paymentProductName", productName); // Store product name for payment page
+        localStorage.setItem("paymentProductImage", productImage); // Store product image for payment page
 
         // Redirect to the payment page
         window.location.href = "payment-gate.html";
