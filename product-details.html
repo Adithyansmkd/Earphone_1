@@ -235,6 +235,116 @@
         .line.active {
             background-color: #bc250a;
         }
+      /* General Styles */
+#popupModal {
+    display: none; /* Ensure it's hidden by default */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+#popupModal > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+/* Headline */
+#popupModal h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Paragraph */
+#popupModal p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Buttons */
+#popupModal button {
+    background: #09bc09;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#popupModal button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+#popupModal button:last-child {
+    margin-left: 10px;
+    background: #dc3545;
+}
+
+#popupModal button:last-child:hover {
+    background: #a71d2a;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    #popupModal > div {
+        padding: 15px;
+    }
+
+    #popupModal h3 {
+        font-size: 1.25rem;
+    }
+
+    #popupModal p {
+        font-size: 0.95rem;
+    }
+
+    #popupModal button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+
     </style>
 </head>
 
@@ -388,6 +498,16 @@
     <div style="height: 10vh; background-color: #fff; text-align: center;" class="temp-div h-3">
         <span style="font-family: fantasy;">Safe and secure Sonic Pvt</span>
     </div>
+<!-- Popup Modal -->
+<div id="popupModal" style="display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); text-align: center; width: 300px;">
+        <h3 style="margin-bottom: 15px;">Address Required</h3>
+        <p style="margin-bottom: 20px;">Please add your delivery address to proceed with the order.</p>
+        <button onclick="goToAddressPage()" style="background: #1fac42; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">Add Address</button>
+        <button onclick="closePopup()" style="margin-left: 10px; background: #dc3545; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">Close</button>
+    </div>
+</div>
+
 
     <!-- Fixed Bottom Bar -->
     <div class="fixed-bottom-bar mb-6">
@@ -397,6 +517,8 @@
         <button style="padding: 5px 30px; width: 150px  ; background-color: #bc250a;"
             class="checkout-button place-order-btn" onclick="placeOrder()">Continue</button>
     </div>
+  
+
 
     <script>
         const imageSrc = localStorage.getItem("productImage");
@@ -445,26 +567,37 @@
 
         // Listen for changes in the quantity selection
         document.getElementById("quantity").addEventListener("change", updateOrderSummary);
-
         function placeOrder() {
-    const address = localStorage.getItem("userAddress");
+    const address = localStorage.getItem("userAddress"); // Fetch the address from localStorage
     if (!address || address.trim() === "") {
-        alert("Please add your address to proceed with the order.");
+        // Show the modal popup if address is not filled
+        document.getElementById("popupModal").style.display = "block"; // Show modal
     } else {
-        // Store the fixed total price, product name, and image in localStorage
+        // Proceed to payment page if address is filled
         const fixedTotalPrice = document.getElementById("fixed-total-price").textContent.replace('₹', '').trim();
         const productName = document.getElementById("product-name").textContent;
         const productImage = document.getElementById("product-image").src;
 
-        // Save to localStorage
         localStorage.setItem("totalPrice", fixedTotalPrice);
-        localStorage.setItem("paymentProductName", productName); // Store product name for payment page
-        localStorage.setItem("paymentProductImage", productImage); // Store product image for payment page
+        localStorage.setItem("paymentProductName", productName);
+        localStorage.setItem("paymentProductImage", productImage);
 
-        // Redirect to the payment page
+        // Redirect to payment page
         window.location.href = "payment-gate.html";
     }
 }
+
+// Redirect to address page
+function goToAddressPage() {
+    window.location.href = "address.html"; // Adjust this to the correct path of your address page
+}
+
+// Close popup modal
+function closePopup() {
+    document.getElementById("popupModal").style.display = "none";
+}
+
+
 
 
 

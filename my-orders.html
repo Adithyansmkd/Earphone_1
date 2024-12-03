@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Orders</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for Trash Icon -->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
@@ -48,6 +49,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
@@ -101,14 +103,13 @@
             color: darkred;
         }
 
-        /* Modal custom styles */
+
         .modal-dialog {
             max-width: 400px;
         }
 
-        /* Futuristic modal styles */
         .modal-content {
-            background: linear-gradient(135deg, #8a1c1c, #222020); 
+            background: linear-gradient(135deg, #8a1c1c, #222020);
             border-radius: 5px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             color: white;
@@ -137,7 +138,8 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .btn-secondary, .btn-danger {
+        .btn-secondary,
+        .btn-danger {
             background-color: #e7e7e7;
             color: #000;
             border: none;
@@ -147,7 +149,8 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .btn-secondary:hover, .btn-danger:hover {
+        .btn-secondary:hover,
+        .btn-danger:hover {
             background-color: #3a7bd5;
             color: #fff;
             transform: scale(1.05);
@@ -180,6 +183,7 @@
                 opacity: 0;
                 transform: scale(0.8);
             }
+
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -187,123 +191,130 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
-        <a style="margin-left: 3%;" class="navbar-brand" href="index.html"><i style="color: #000000;" class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; Your Orders</a>
+        <a style="margin-left: 3%;" class="navbar-brand" href="index.html"><i style="color: #000000;"
+                class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp; Your Orders</a>
     </nav>
     <div id="orders-container">
-        <!-- Orders will be dynamically inserted here -->
+
     </div>
 
-    <!-- Bootstrap Modal for Deletion Confirmation -->
+
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
-                    <button  type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="deleteModalLabel">Cancel Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to cancel this order?
+                    <p>Why are you canceling this order?</p>
+                    <select id="cancelReason" class="form-select mb-3">
+                        <option value="" disabled selected>Select a reason</option>
+                        <option value="Ordered by mistake">Ordered by mistake</option>
+                        <option value="Found a cheaper alternative">Found a cheaper alternative</option>
+                        <option value="Order taking too long">Order taking too long</option>
+                        <option value="Changed my mind">Changed my mind</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <textarea id="cancelComment" class="form-control" rows="3"
+                        placeholder="Add additional comments (optional)"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Confirm Cancellation</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      
-    document.addEventListener("DOMContentLoaded", function () {
-        // Retrieve orders from localStorage
-        const orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-        // Remove duplicates by product name (or another unique property)
-        const uniqueOrders = [];
-        const seenNames = new Set();
-
-        orders.forEach(order => {
-            if (!seenNames.has(order.name)) {
-                seenNames.add(order.name);
-                uniqueOrders.push(order);
-            }
-        });
-
-        // Reference to the orders container
-        const ordersContainer = document.getElementById("orders-container");
-
-        if (uniqueOrders.length === 0) {
-            ordersContainer.innerHTML = "<p>No orders have been placed yet.</p>";
-            return;
-        }
-
-        // Loop through unique orders and create order elements
-        uniqueOrders.forEach((order, index) => {
-            const orderDate = new Date(order.date); // Create a Date object from the order date
-            
-            // Generate a random number (3 or 5 days after the order date)
-            const randomDeliveryDays = Math.random() < 0.5 ? 3 : 5; // 50% chance for 3 or 5 days
-            
-            // Calculate the delivery date
-            const deliveryDate = new Date(orderDate);
-            deliveryDate.setDate(orderDate.getDate() + randomDeliveryDays);
-            
-            // Format delivery date as mm/dd/yyyy
-            const deliveryDateString = deliveryDate.toLocaleDateString();
-
-            const orderElement = document.createElement("div");
-            orderElement.classList.add("order-item", "d-flex", "justify-content-between", "align-items-center");
-            orderElement.setAttribute("data-index", index);
-
-            orderElement.innerHTML = `
-                <div class="order-card d-flex align-items-center">
-                    <img src="${order.image}" alt="${order.name}" class="order-image">
-                    <div class="order-details">
-                        <h3 class="order-name">${order.name}</h3>
-                        <p class="order-price">Total Price: ${order.totalPrice}</p>
-                        <p class="order-date">Ordered on: ${order.date}</p>
-                        <p class="delivery-date">Expected: Delivery: 4 to 5 days</p>
-                    </div>
-                    <button class="delete-btn" onclick="removeItem(${index})"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            `;
-            ordersContainer.appendChild(orderElement);
-        });
-    });
-
-    // Modal functionality
-    let orderToDelete = null;
-    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-
-    // Handle delete button click
-    function removeItem(index) {
-        orderToDelete = index; // Store the index of the item to delete
-        deleteModal.show(); // Show the confirmation modal
-    }
-
-    // Confirm deletion
-    document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
-        if (orderToDelete !== null) {
-            // Retrieve orders from localStorage
+        document.addEventListener("DOMContentLoaded", function () {
             const orders = JSON.parse(localStorage.getItem("orders")) || [];
-            // Remove the order at the selected index
-            orders.splice(orderToDelete, 1);
-            // Save the updated list back to localStorage
-            localStorage.setItem("orders", JSON.stringify(orders));
+            const uniqueOrders = [];
+            const seenNames = new Set();
 
-            // Remove the order from the DOM
-            const orderElement = document.querySelector(`.order-item[data-index='${orderToDelete}']`);
-            if (orderElement) {
-                orderElement.remove();
+            orders.forEach(order => {
+                if (!seenNames.has(order.name)) {
+                    seenNames.add(order.name);
+                    uniqueOrders.push(order);
+                }
+            });
+
+            const ordersContainer = document.getElementById("orders-container");
+
+            if (uniqueOrders.length === 0) {
+                ordersContainer.innerHTML = "<p>No orders have been placed yet.</p>";
+                return;
             }
-        }
-        deleteModal.hide(); // Close the modal
-    });
-</script>
 
+            uniqueOrders.forEach((order, index) => {
+                const orderElement = document.createElement("div");
+                orderElement.classList.add("order-item", "d-flex", "justify-content-between", "align-items-center");
+                orderElement.setAttribute("data-index", index);
+
+                orderElement.innerHTML = `
+            <div class="order-card d-flex align-items-center">
+                <img src="${order.image}" alt="${order.name}" class="order-image">
+                <div class="order-details">
+                    <h3 class="order-name">${order.name}</h3>
+                    <p class="order-price">Total Price: ${order.totalPrice}</p>
+                    <p class="order-date">Ordered on: ${order.date}</p>
+                </div>
+                <button class="delete-btn" onclick="removeItem(${index})"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        `;
+                ordersContainer.appendChild(orderElement);
+            });
+        });
+
+        let orderToDelete = null;
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+
+        function removeItem(index) {
+            orderToDelete = index;
+            deleteModal.show();
+        }
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+            const reason = document.getElementById('cancelReason').value;
+            const comment = document.getElementById('cancelComment').value.trim();
+
+
+            if (!reason) {
+                alert("Please select a reason for cancellation.");
+                return;
+            }
+
+            if (!comment) {
+                alert("Please provide additional comments.");
+                return;
+            }
+
+
+            if (orderToDelete !== null) {
+                const orders = JSON.parse(localStorage.getItem("orders")) || [];
+                orders.splice(orderToDelete, 1);
+                localStorage.setItem("orders", JSON.stringify(orders));
+
+
+                const orderElement = document.querySelector(`.order-item[data-index='${orderToDelete}']`);
+                if (orderElement) {
+                    orderElement.remove();
+                }
+
+                console.log("Reason:", reason);
+                console.log("Comments:", comment);
+            }
+
+            deleteModal.hide();
+        });
+
+    </script>
 </body>
+
 </html>
