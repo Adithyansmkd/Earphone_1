@@ -2,31 +2,31 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Hello, world!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Cayla</title>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
   <style>
-    body{
-      background-color:#eaedf0 ;
+    body {
+      background-color: #ffffff;
     }
+
     .navbar {
       background-color: #0D1117;
       position: fixed;
-    
+
       width: 100%;
       z-index: 1000;
     }
@@ -56,18 +56,18 @@
 
     }
 
-   
+
 
     /* imp */
     .dropdown-menu li a:hover {
       background-color: transparent;
-     
+
     }
 
     .nav-item {
       padding: 5px 15px;
     }
-  
+
 
 
 
@@ -100,14 +100,17 @@
         border-bottom: 1px solid #111b25;
       }
     }
-    .nav-item a{
+
+    .nav-item a {
       font-weight: 600;
     }
+
     .nav-item a:hover {
       color: #d8a45d !important;
-      
+
       border-bottom: 1.5px solid #d8a55dbd;
     }
+
     .navbar-nav {
       margin: 0 auto;
       text-align: center;
@@ -135,6 +138,14 @@
       font-size: 1.1rem;
     }
 
+    #logo {
+      background-color: #ffcb05;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+
+    }
+
     @media (max-width: 570px) {
       .navbar-brand-right a {
         color: #ffffff;
@@ -144,13 +155,19 @@
       .navbar-brand-right a i {
         font-size: 1rem;
       }
+
+      #logo {
+
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+
+      }
     }
 
 
-    /* Ensures carousel images take full height and width */
     .carousel-item {
-      height: 70vh;
-      /* Adjust height (50% of the viewport height) */
+      height: 80vh;
     }
 
     @media (max-width:777px) {
@@ -162,15 +179,13 @@
 
     .carousel-item img {
       object-fit: fill;
-      /* Ensures the image covers the entire carousel item */
+
       width: 100%;
       height: 100%;
     }
 
-    /* Adjust carousel captions for better readability */
     .carousel-caption {
       bottom: 20px;
-      /* Keeps the caption at the bottom */
       left: 0;
       right: 0;
 
@@ -178,39 +193,197 @@
       color: white;
     }
 
-    /* Style for the button in each caption */
     .carousel-caption .btn {
       margin-top: 5;
-      background:linear-gradient(245deg ,#67b0da,#0c4cd7)  ;
+      background: linear-gradient(245deg, #67b0da, #0c4cd7);
       color: white;
       border-radius: 10px 0 10px 0;
       border: none;
     }
 
 
+
+
+    .hero-section {
+      background: #ffffff;
+      color: white;
+      padding: 60px 0;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #32b2a5;
+    }
+
+    .hero-section p {
+      color: #fff;
+      font-size: 1.2rem;
+      color: #000;
+    }
+
+    @media (max-width:777px) {
+      .hero-section h1 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #32b2a5;
+      }
+    }
+
+
+
+
+
+
+    .about-section {
+      padding: 50px 20px;
+      height: auto;
+    }
+
+    .about-content h2 {
+      color: #32b2a5;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 2.5rem;
+    }
+
+    .about-content h3 {
+      font-weight: bold;
+      font-size: 1.4rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+      margin-bottom: 15px;
+    }
+
+    .about-content p {
+      margin-top: 15px;
+      line-height: 1.6;
+      font-size: 0.9rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn-view-more {
+      color: #333;
+      font-weight: bold;
+      padding: 6px 20px;
+      font-size: 15px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      background-size: 200% auto;
+      background-position: right center;
+      background-image: linear-gradient(to left, #FFEB3B 50%, #FF9800 50%);
+      transition: background-position 0.4s ease;
+    }
+
+    .btn-view-more:hover {
+      background-position: left center;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 152, 0, 0.8);
+    }
+
+    .btn-view-more:active {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 152, 0, 1);
+    }
+
+    @media (max-width:780px) {
+      .btn-view-more {
+        padding: 3px 5px;
+      }
+
+      .about-content h2 {
+        font-size: 1.9rem;
+      }
+
+      .about-content h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .video-container {
+      position: relative;
+    }
+
+    .video-container::before {
+      content: "";
+      position: absolute;
+      top: -15%;
+      left: 40%;
+      width: 60%;
+      height: 50vh;
+      background: url(https://th.bing.com/th/id/R.eeaa5ccbbe2eba03045839971fb7c0ee?rik=WM0VPogL5g75%2bA&riu=http%3a%2f%2ffarm4.staticflickr.com%2f3044%2f4562047133_bec29723db_o_d.png&ehk=eFA0KqdZo0CzpmQUXZ5OLFVcAtzdUu5azcvfCd0Zynw%3d&risl=&pid=ImgRaw&r=0);
+      background-position: center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    iframe {
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width:780px) {
+      .video-container {
+        margin-top: 25%;
+      }
+
+      .video-container iframe {
+        width: 95%;
+      }
+
+      .video-container::before {
+        margin-top: 5%;
+        left: 42%;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
     .full-width-container {
       width: 100%;
+      background-color: #ffffff;
       padding-left: 0;
       padding-right: 0;
     }
 
-    /* Centers the row inside the container and gives it 85% width */
+    .heading-section {
+            height: 10vh;
+            text-align: center;
+        }
+
+        .heading-section h2 {
+            color: #32b2a5; /* Blue color for the heading */
+            font-size: 2.5rem;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .heading-section h2 {
+                font-size: 1.8rem;
+            }
+        }
     .centered-row {
       width: 85%;
       margin: 0 auto;
-      /* Centers the row horizontally */
+     
     }
 
-    /* General feature section styling */
-    .feature-section {
-      padding: 50px 0;
-
-    }
 
     .feature-item {
       text-align: center;
       padding: 20px;
-      background-color: #ffff;
+      background-color: #e5ebea;
       border-radius: 0%;
       border-right: 2px solid #003a5c6d;
       transition: transform 0.3s ease-in-out;
@@ -218,6 +391,7 @@
 
     .feature-item:hover {
       transform: translateY(-10px);
+      background-color: #f2f2f2;
     }
 
     .feature-item img {
@@ -227,7 +401,7 @@
 
     .feature-item h5 {
       font-size: 1.2rem;
-      color: #003b5c;
+      color: #32b2a5;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       margin-bottom: 10px;
       font-weight: 800;
@@ -241,10 +415,13 @@
     .feature-item .counter {
       font-size: 2rem;
       font-weight: bold;
-      color: #d8a45d;
+      color: #ffcb05;
     }
 
-    /* For mobile responsiveness */
+    .counter i {
+      color: #ffcb05;
+    }
+
     @media (max-width: 768px) {
       .feature-item {
         margin-bottom: 20px;
@@ -252,640 +429,542 @@
 
       .centered-row {
         width: 90%;
-        /* On mobile, take full width */
       }
     }
-/* Initial state of feature items (hidden off the screen) */
-.feature-item {
-  opacity: 0;
-  transform: translateX(20px); /* Default animation to come from the right */
-  transition: opacity 0.6s, transform 0.6s;
-  transition-delay: 0s; /* Default to no delay */
-}
+    .feature-item {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.6s, transform 0.6s;
+      transition-delay: 0s;
+    }
 
-/* Animation class for items that should animate from the left */
-.feature-item.left {
-  transform: translateX(-20px); /* Left side animation */
-}
+    .feature-item.left {
+      transform: translateX(-20px);
+    }
 
-/* Animation class for items that should animate from the right */
-.feature-item.right {
-  transform: translateX(20px); /* Right side animation */
-}
+    .feature-item.right {
+      transform: translateX(20px);
+    }
 
-/* When the element is in view, it will animate to its normal position */
-.feature-item.in-view {
-  opacity: 1;
-  transform: translateX(0); /* Return to original position */
-}
+    .feature-item.in-view {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-/* Add delay for each feature item */
-.feature-item.left.in-view {
-  transition-delay: 0.3s; /* Delay for left-side items */
-}
+    .feature-item.left.in-view {
+      transition-delay: 0.3s;
+    }
 
-.feature-item.right.in-view {
-  transition-delay: 0.6s; /* Delay for right-side items */
-}
+    .feature-item.right.in-view {
+      transition-delay: 0.6s;
+    }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  /* Adjusting some layout styles for mobile */
-  .feature-item {
-    margin-bottom: 20px;
-  }
+    @media (max-width: 768px) {
 
-  .centered-row {
-    width: 90%; /* Full width on mobile */
-  }
-}
-
-
-
-
-    /* Mission and Vision Container */
-    .mission-vision-container {
-        width: 100%;
-        height: auto;
-        padding: 80px 0;
-        background: linear-gradient(135deg, #e1e5e9, #e6e8ea);
-        /* Futuristic gradient */
-        color: rgb(0, 0, 0);
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Futuristic pattern effect */
-      .mission-vision-container:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 300%;
-        height: 300%;
-        background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
-        background-size: 150px 150px;
-        animation: movePattern 4s linear infinite;
-        transform: translateX(-50%);
-      }
-
-      @keyframes movePattern {
-        0% {
-          transform: translateX(-50%) translateY(0);
-        }
-
-        50% {
-          transform: translateX(-50%) translateY(-50px);
-        }
-
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-      }
-
-      /* Text and Image Styling */
-      .mission-vision-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        height: 50vh;
-      }
-
-      /* Image Styling with Cut Effect */
-      .mv-image {
-        flex: 1 1 40%;
-        max-width: 500px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        transform: scale(1);
-        transition: transform 0.6s ease;
-      }
-
-      .mv-image img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        clip-path: polygon(0 0, 90% 0%, 100% 10%, 100% 90%, 10% 100%, 0% 90%);
-        transition: transform 0.6s ease;
-      }
-
-      .mv-image:hover img {
-        transform: scale(1.1);
-      }
-
-      /* Content Styling */
-      .mv-content {
-        flex: 1 1 50%;
-        padding: 30px;
-        text-align: left;
-        animation: fadeIn 2s ease-out;
-      }
-
-      /* Heading Animation */
-      .mv-content h2 {
-        font-size: 3rem;
+      .feature-item {
         margin-bottom: 20px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-        color: #003b5c;
-        text-decoration: underline;
-        animation: slideInLeft 1.2s ease-out;
       }
 
-      /* Paragraph Animation */
-      .mv-content p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        animation: slideInRight 1.2s ease-out;
-        max-height: 200px;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
+      .centered-row {
+        width: 90%;
       }
+    }
 
-      .read-more {
-        color: #00bcd4;
-        cursor: pointer;
-        font-weight: bold;
-        margin-top: 10px;
-      }
 
-      /* Keyframe Animations */
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
+
+    .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.568), 0 -4px 6px rgba(0, 0, 0, 0);
+            /* Shadow on left, right, and bottom, no shadow on top */
+            border-radius: 0px 0px 20px 20px;
+            transition: transform 0.3s ease-in-out;
+            height: 350px;
+            /* Fixed card height */
+            position: relative;
+            background: #e5ebea;
+            
+            /* White background */
         }
 
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInLeft {
-        0% {
-          transform: translateX(-50px);
-          opacity: 0;
-        }
-
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInRight {
-        0% {
-          transform: translateX(50px);
-          opacity: 0;
+        .card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 0px 0px 20px 20px;
+            width: 100%;
+            height: 30px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f5d557;
+            clip-path: polygon(0% 50%, 15% 30%, 30% 50%, 45% 30%, 60% 70%, 75% 30%, 90% 50%, 100% 100%, 0% 100%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .mission-vision-content {
-          flex-direction: column;
-          text-align: center;
-          height: auto;
+        .card:hover {
+            transform: translateY(-5px);
+            /* Lift card slightly on hover */
         }
 
-        .mv-image {
-          max-width: 100%;
-          margin-bottom: 20px;
+        .card img {
+            width: 60px;
+            /* Adjust icon/image size */
+            margin-bottom: 15px;
         }
 
-        .mv-content h2 {
-          font-size: 2rem;
+        .card-title {
+            font-size: 1.35rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #32b2a5;
+            font-weight: 900;
+            /* Adjust title size */
         }
 
-        .mv-content p {
-          font-size: 1rem;
+        .card-text {
+            font-size: 0.85rem;
+            /* Adjust text size */
+            height: 220px;
+            /* Set fixed height for paragraph */
+            overflow-y: auto;
+            color: #2b2929;
+            /* Allow vertical scrolling */
+            padding-right: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* Ensure space for scrollbar */
         }
-      }
-      .counter i{
-        color: #d8a45d;
-      }
 
-
-
-
-    .product-row {
+        .icon-container {
+            position: absolute;
+            z-index: 100;
+            top: -30px;
+            /* Position the icon outside of the card */
+            left: 50%;
+            z-index: 1000;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #32b2a5;
+            /* Red background */
+            border-radius: 50%;
+            /* Circular icon */
             display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            padding: 20px 0;
-            scroll-snap-type: x mandatory;
-            flex-wrap: nowrap;
-            transition: transform 0.5s ease;
+            align-items: center;
+            justify-content: center;
+            /* Shadow for icon */
         }
 
-        .product-card {
-            flex: 0 0 auto;
-            width: 300px; /* Adjust width as needed */
-            scroll-snap-align: center;
-            transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-            filter: blur(3px);
-            opacity: 0.8;        
-            transform: scale(0.95);
-           
-            border-radius: 15px;
-            height: 40vh;
-            overflow: hidden;
+        .icon-container i {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                height: 36vh;
+                /* Adjust height for smaller screens */
+                padding: 20px;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+                /* Smaller title size */
+            }
+
+            .card-text {
+                font-size: 0.7rem;
+                height: 120px;
+                /* Smaller text size */
+            }
+
+            .icon-container {
+                position: absolute;
+                top: -20px;
+                /* Position the icon outside of the card */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 50px;
+                background-color: #32b2a5;
+                /* Red background */
+                border-radius: 50%;
+                /* Circular icon */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                /* Shadow for icon */
+            }
+        }
+
+        .first-p {
+            width: 70%;
             text-align: center;
         }
-        /* .card-body{
-          height: 10vh;
-        } */
-        .product-card img {
-            max-width: 100%;
-            height: 20vh;
-            border-bottom: 1px solid #939090;
+        .why_cayla{
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            letter-spacing: 2px;
+            color: #32b2a5;
+        }
+        .why_p{
+            letter-spacing: 2px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2rem;
+        }
+        @media (max-width:777px) {
+            .why_cayla{
+            font-size:1.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .why_p{
+            letter-spacing: 2px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 0.9rem;
+        }
+        }
+
+
+
+
+
+
+
+        #partner-org h2 {
+            font-size: 2.5rem;
+            color: #106960;
+            letter-spacing: 2px;
+            font-family: fantasy;
+        }
+
+        #partner-org h2 span {
+            font-size: 2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #000;
+            letter-spacing: 0;
+        }
+
+        #partner-org p {
+            font-size: 1rem;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #partner-org p a {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #d1b851;
+        }
+
+        @media (max-width:780px) {
+            #partner-org h2 {
+                font-size: 1.4rem;
+            }
+
+            #partner-org h2 span {
+                font-size: 1.1rem;
+                color: #000;
+            }
+
+            #partner-org p {
+                font-size: 0.82rem;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+
+        .hex-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0px;
+            justify-content: center;
+        }
+
+        .hex {
+            clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+            overflow: hidden;
+            position: relative;
+            width: 190px;
+            height: 170px;
+            background-color: #ddd;
+            animation: scaleEffect 2s infinite ease-in-out;
+        }
+
+        .hex img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            animation: scaleImage 6s infinite ease-in;
+        }
+
+        .hex::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.496) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: shinyEffect 7s infinite ease-in-out;
+            transform: skewX(-25deg);
+        }
+
+        @keyframes scaleImage {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        @keyframes shinyEffect {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @media (max-width: 790px) {
+            .hex {
+                width: 140px;
+                height: 110px;
+            }
+        }
+
+        #video-container,
+        #video-container2 {
+            max-width: 400px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        #toggle-video,
+        #toggle-video2 {
+            background-color: #ffcb05;
+            border: none;
+            color: #000;
+            font-weight: 500;
+        }
+
+
+        .partner-head h1 {
+            font-size: 3rem;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #32b2a5;
+            font-weight: 900;
+            letter-spacing: 1px;
             margin-bottom: 10px;
         }
 
-        .product-card h5 {
-            font-family: 'Arial', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 0px;
-            margin-top: -10%;
-            color: #2f67b5;
-        }
+        @media (max-width: 768px) {
+            .partner-head h1 {
+                font-size: 1.8rem;
+                text-align: center;
 
-      
-        .product-card .card {
-            
-            border: 1px solid #7575755c;
-        }
-
-        .product-card p {
-            font-family: 'Arial', sans-serif;
-            font-size: 14px;
-            color: #000;
-        }
-
-        .product-card:first-child {
-            filter: blur(0);
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        .product-card:hover {
-            filter: blur(0);
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        .product-card.in-view {
-            filter: blur(0);
-            transform: scale(1.05);
-            opacity: 1;
-        }
-
-        @media (min-width: 992px) {
-            .product-row {
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-            }
-
-            .product-card {
-                flex: 0 0 23%; /* Adjust this for desktop view */
-                margin-bottom: 20px;
             }
         }
 
-        @media (max-width: 576px) {
-            .product-row {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-            }
 
-            .product-card {
-                flex: 0 0 auto;
-                width: 290px;
-            }
-
-            .product-card:first-child {
-                filter: blur(0);
-                transform: scale(1.05);
-            }
-        }
-
-        .product-card:focus {
-            outline: none;
-            transform: scale(1.05);
-        }
-
-        @media (min-width: 992px) {
-            .product-card:hover {
-                transform: scale(1.1);
-                filter: blur(0);
-                opacity: 1;
-            }
-        }
-
-     
-
-        .show-more-btn {
-            margin-top: 10px;
-            text-align: center;
-            background-color: #FF9800;
-            color: white;
-            padding: 10px 20px;
-            font-weight: 600;
-            border: none; 
-            cursor: pointer;
-        }
-
-        .show-more-btn:hover {
-            background-color: #e68900;
-        }
-        .product-card button{
-          padding: 4px 10px;
-          font-size: 0.8rem;
-          background-color: #d8a45d;
-          border: none;
-        }
-        .product-card button:hover{
-          background-color: #5d4b11;
-        }
-
-
-           /* Basic Styles for the Gallery Container */
-    .gallery-container {
+    .footer {
+      background-color: #222;
+      color: white;
       padding: 40px 0;
-      margin-top: -40px;
-      overflow-x: auto;
-      display: flex;
-      gap: 20px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      position: relative;
     }
 
-    .gallery-card {
-      position: relative;
-      flex: 0 0 auto;
-      width: 300px;
-      height: 200px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      scroll-snap-align: center;
-      background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    .footer a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    .gallery-card img {
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer h5 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .footer .social-icons a {
+      color: #bbb;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .footer .social-icons a:hover {
+      color: #007bff;
+    }
+
+    .footer .map iframe {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 250px;
+      border: 0;
+      border-radius: 8px;
       transition: transform 0.3s ease;
     }
 
-    .gallery-card:hover img {
-      transform: scale(1.1);
+    .footer .map iframe:hover {
+      transform: scale(1.05);
     }
 
-    .gallery-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-card:hover .gallery-overlay {
-      opacity: 1;
-    }
-
-    /* Futuristic Blue Scrollbar Styles */
-    .gallery-container::-webkit-scrollbar {
-      height: 8px; /* Thicker scrollbar for more visibility */
-    }
-
-    .gallery-container::-webkit-scrollbar-thumb {
-      background: #1c1c1c; /* Blue color for the scrollbar */
-      border-radius: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 10px rgba(52, 152, 219, 0.8); /* Subtle glowing blue effect */
-      transition: all 0.3s ease; /* Smooth transition */
-    }
-
-    .gallery-container::-webkit-scrollbar-thumb:hover {
-      background: #2980b9; /* Slightly darker blue on hover */
-      box-shadow: 0 0 20px rgba(52, 152, 219, 0.147); /* Glowing blue effect on hover */
-    }
-
-    .gallery-container::-webkit-scrollbar-track {
-      background: transparent; /* Invisible track */
-    }
-
-    .gallery-container::-webkit-scrollbar-button {
-      display: none; /* Hide the default buttons */
-    }
-
-    /* Responsiveness */
+    /* Mobile Responsiveness */
     @media (max-width: 768px) {
-      .gallery-card {
-        width: 250px;
+      .footer .col-md-3 {
+        margin-bottom: 30px;
+      }
+
+      .footer .map {
+        text-align: center;
       }
     }
 
 
-/* Gallery wrapper with minimal height */
-.gallery-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100px; /* Reduced height */
-            text-align: center;
-            margin: 10px 0;
-        }
+    .footer {
+      background: #0D1117;
+      color: #fff;
+      text-align: left;
+      padding: 50px 0;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: relative;
+    }
 
-        /* Heading styles */
-        .gallery-heading {
-            font-size: 2.5rem; /* A medium-sized heading */
-            font-weight: 900;
-            text-transform: capitalize;
-            letter-spacing: 3px;
-            
-            color: #2f67b5; /* Light greyish white */
-            animation: fadeInUp 1.5s ease-out; /* Fade in with upward movement */
-        }
+    .footer p {
+      color: #c5c4c89f;
+    }
 
-        /* AOS Animation for fadeInUp */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .footer .logo img {
+      width: 100px;
+      height: auto;
+    }
 
-        /* Hover effect for the heading */
-        .gallery-heading:hover {
-            color: #3498db; /* Blue color on hover */
-            cursor: pointer;
-        }
+    .footer .animated-text {
+      display: inline-block;
+      animation: text-animation 3s ease infinite;
+    }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .gallery-heading {
-                font-size: 2rem; /* Smaller font size for tablets */
-            }
-        }
+    .footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
 
-        @media (max-width: 480px) {
-            .gallery-heading {
-                font-size: 1.8rem; /* Even smaller for mobile */
-            }
-        }
+    .footer a:hover {
+      color: #ffc107;
+      text-decoration: underline;
+    }
 
+    .footer .contact-info {
+      text-align: center;
+      margin-top: 30px;
+    }
 
+    .footer .contact-info p {
+      margin: 5px 0;
 
-        .footer {
-            background-color: #222;
-            color: white;
-            padding: 40px 0;
-        }
-        .footer a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-        .footer h5 {
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .footer .social-icons a {
-            color: #bbb;
-            margin-right: 15px;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
-        .footer .social-icons a:hover {
-            color: #007bff;
-        }
-        .footer .map iframe {
-            width: 100%;
-            height: 250px;
-            border: 0;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-        .footer .map iframe:hover {
-            transform: scale(1.05);
-        }
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .footer .col-md-3 {
-                margin-bottom: 30px;
-            }
-            .footer .map {
-                text-align: center;
-            }
-        }
+    }
+
+    .footer .social-links a {
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .footer .row {
+        text-align: center;
+      }
+
+      .footer .logo,
+      .footer .footer-column {
+        margin-bottom: 20px;
+      }
+
+      #logofooter {
+        width: 80%;
+
+      }
+    }
+
+    .footer .row .col-6 {
+      text-align: left;
+    }
+
+    #logofooter {
+      width: 70px;
+      height: 6vh;
+    }
+
+    @media (max-width: 767px) {
+      .phone-email p {
+        font-size: 0.8rem;
+        /* Smaller font size for mobile */
+      }
+
+      .social-media a {
+        font-size: 1.5rem;
+        /* Larger icons for mobile */
+      }
+    }
 
 
-        .footer {
-            background: #0D1117;
-            color: #fff;
-            text-align: left;
-            padding: 50px 0;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            position: relative;
-        }
 
-        .footer p {
-            color: #c5c4c89f;
-        }
 
-        .footer .logo img {
-            width: 100px;
-            height: auto;
-        }
 
-        .footer .animated-text {
-            display: inline-block;
-            animation: text-animation 3s ease infinite;
-        }
 
-        .footer a {
-            color: #f8f9fa;
-            text-decoration: none;
-        }
 
-        .footer a:hover {
-            color: #ffc107;
-            text-decoration: underline;
-        }
 
-        .footer .contact-info {
-            text-align: center;
-            margin-top: 30px;
-        }
 
-        .footer .contact-info p {
-            margin: 5px 0;
 
-        }
 
-        .footer .social-links a {
-            margin: 0 10px;
-            font-size: 18px;
-        }
 
-        @media (max-width: 768px) {
-            .footer .row {
-                text-align: center;
-            }
 
-            .footer .logo,
-            .footer .footer-column {
-                margin-bottom: 20px;
-            }
 
-            #logofooter {
-                width: 80%;
-
-            }
-        }
-
-        .footer .row .col-6 {
-            text-align: left;
-        }
-
-        #logofooter {
-            width: 70px;
-            height: 6vh;
-        }
+    /* .fixed-top-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      background-color: #f8f9fa;
+      padding: 10px 0;
+    } */
   </style>
+  <!-- <div class="container-fluid fixed-top-container">
+    <div class="row">
+     
+      <div class="col-12 col-md-6 d-flex align-items-center text-sm">
+        <div class="me-4">
+          <i class="fas fa-phone-alt"></i> <span class="small"><strong>Toll-Free: 1-800-123-4567</strong></span>
+        </div>
+        <div>
+          <i class="fas fa-envelope"></i> <span class="small"><strong>Email: info@example.com</strong></span>
+        </div>
+      </div>
+  
+
+      <div class="col-12 col-md-6 d-flex justify-content-end align-items-center">
+        <a href="https://www.instagram.com" target="_blank" class="text-dark me-3">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="text-dark me-3">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" class="text-dark">
+          <i class="fab fa-youtube fa-lg"></i>
+        </a>
+      </div>
+    </div>
+  </div> -->
+
 
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
@@ -895,10 +974,9 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
-        id="companyname" href="#"><img id="logo"
-          src="https://intensivecarenetwork.com/wp-content/uploads/2014/01/STUDENT_LOGO.png" alt="company logo"> EduMentor
-        </a>
+      <a class="navbar-brand" style="font-family: 'Times New Roman', Times, serif" id="companyname" href="#"><img
+          id="logo" src="images/logo.png" alt="company logo"> Cayla
+      </a>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -928,7 +1006,7 @@
           </li>
         </ul>
       </div>
- 
+
 
       <!-- Right-side icons -->
       <div class="navbar-brand-right">
@@ -936,289 +1014,450 @@
       </div>
     </div>
   </nav>
-  <div style="height: 8h; background-color: transparent;" class="dummy">
-    <p style="color: transparent;">loading</p>
-  </div>
+  <div class="dummy" style="height: 8.5vh; width: 100%;"></div>
   <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
     </div>
-  
+
     <!-- Carousel items -->
     <div class="carousel-inner">
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <!-- Link for Mobile Image -->
         <a href="https://your-link.com/page1">
-          <img src="https://srichaitanya.net/wp-content/uploads/2024/08/IMO-2024_Mobile-Banner-1.png" class="d-block w-100 d-md-none" alt="Mobile Slide 1">
+          <img src="https://srichaitanya.net/wp-content/uploads/2024/08/IMO-2024_Mobile-Banner-1.png"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 1">
         </a>
         <!-- Link for Desktop Image -->
         <a href="https://your-link.com/page1">
-          <img src="https://srichaitanya.net/wp-content/uploads/2024/12/SC_Business-Connect_Web-Banner_02-12-2024.png" class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1">
+          <img src="https://srichaitanya.net/wp-content/uploads/2024/12/SC_Business-Connect_Web-Banner_02-12-2024.png"
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1">
         </a>
       </div>
-  
+
       <!-- Slide 2 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
         <a href="https://your-link.com/page2">
-          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+2" class="d-block w-100 d-md-none" alt="Mobile Slide 2">
+          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+2" class="d-block w-100 d-md-none"
+            alt="Mobile Slide 2">
         </a>
         <!-- Link for Desktop Image -->
         <a href="https://your-link.com/page2">
-          <img src="https://via.placeholder.com/1500x800?text=Desktop+Image+2" class="d-block w-100 d-none d-md-block" alt="Desktop Slide 2">
+          <img src="https://srichaitanyaapp.s3.ap-south-1.amazonaws.com/prod/assets/uploads/banner-home-corporate-9.jpg"
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 2">
         </a>
       </div>
-  
+
       <!-- Slide 3 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
         <a href="https://your-link.com/page3">
-          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+3" class="d-block w-100 d-md-none" alt="Mobile Slide 3">
+          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+3" class="d-block w-100 d-md-none"
+            alt="Mobile Slide 3">
         </a>
         <!-- Link for Desktop Image -->
-        <a href="https://via.placeholder.com/1500x800?text=Desktop+Image+3" class="d-block w-100 d-none d-md-block" alt="Desktop Slide 3">
+        <a href="https://via.placeholder.com/1500x800?text=Desktop+Image+3" class="d-block w-100 d-none d-md-block"
+          alt="Desktop Slide 3">
         </a>
       </div>
     </div>
-  
+
     <!-- Controls (Prev & Next Buttons) -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  
 
 
-    <div class="full-width-container">
-      <!-- Feature Section -->
-      <div style="background-color: #e6e8ea!important;" class="feature-section">
-        <div class="row centered-row">
-          <!-- Feature Item 1 -->
-          <div class="col-12 col-md-3 feature-item">
-            <img
-            src="https://icon-library.com/images/education-icon-free/education-icon-free-1.jpg"
-              alt="Icon 1">
-            <div class="counter" ><span id="counter1">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-            <h5>faculty</h5>
-            <p>This is a short description of the first feature.</p>
-          </div>
 
-          <!-- Feature Item 2 -->
-          <div class="col-12 col-md-3 feature-item">
-            <img src="https://icon-library.com/images/education-icon-png/education-icon-png-13.jpg" alt="Icon 2">
-            <div class="counter" ><span id="counter2">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-            <h5>Books</h5>
-            <p>This is a short description of the second feature.</p>
-          </div>
 
-          <!-- Feature Item 3 -->
-          <div class="col-12 col-md-3 feature-item">
-            <img
-              src="https://cdn3.iconfinder.com/data/icons/student-learning-lesson/257/children-student-learning-007-512.png"
-              alt="Icon 3">
-            <div class="counter" ><span id="counter3">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-            <h5>Friendly teacher</h5>
-            <p>This is a short description of the third feature.</p>
-          </div>
 
-          <!-- Feature Item 4 -->
-          <div class="col-12 col-md-3 feature-item">
-            <img src="https://cdn0.iconfinder.com/data/icons/soldier-military-training/357/solder-training-009-512.png"
-              alt="Icon 4">
-            <div class="counter" ><span id="counter4">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-            <h5>Advanced Classroom</h5>
-            <p>This is a short description of the fourth feature.</p>
-          </div>
-        </div>
-      </div>
+
+  <section class="hero-section text-center">
+    <div class="container">
+      <!-- Applying AOS animation to h1 and p -->
+      <h1 data-aos="fade-up" data-aos-duration="1000">Welcome to Cayla Coaching Institute</h1>
+      <p data-aos="fade-up" data-aos-duration="1500">Unlock your full potential with personalized coaching and training
+        programs.</p>
     </div>
+  </section>
 
-    <!-- Mission and Vision Section -->
-    <div class="mission-vision-container">
-      <div class="container">
-        <!-- Mission Section -->
-        <div class="row">
-          <!-- Image Section for Mission -->
-          <div class="col-12 col-md-6" data-aos="fade-right" data-aos-duration="1000">
-            <div class="mv-image">
-              <img
-                src="https://thumbs.dreamstime.com/b/text-sign-showing-our-mission-conceptual-photo-tasks-schedule-need-to-made-them-right-order-success-hanging-board-commun-124228610.jpg"
-                alt="Mission Image">
-            </div>
-          </div>
 
-          <!-- Text Content Section for Mission -->
-          <div class="col-12 col-md-6" data-aos="fade-left" data-aos-duration="1000">
-            <div class="mv-content">
-              <h2>Our Mission</h2>
-              <p id="mission-text">We are committed to delivering cutting-edge solutions that enhance the experience of
-                our users, improve businesses, and contribute to a smarter, more connected world. Our mission is to
-                continue innovating and staying at the forefront of technological advancements to create better
-                solutions for tomorrow. Our ultimate goal is to provide seamless and sustainable solutions to address
-                both immediate and long-term challenges faced by organizations and individuals.</p>
-              <span class="read-more" id="read-more-mission">Read more...</span>
-            </div>
-          </div>
+  <div class="container about-section">
+    <div class="row align-items-center mt-5">
+        <!-- Text Section with AOS Animation -->
+        <div class="col-lg-6 col-md-12 about-content" data-aos="fade-up" data-aos-duration="1500">
+            <h2>About</h2>
+            <h3>Excellence, Empowerment, Growth, Innovation, Success</h3>
+            <p>
+                At Cayla Coaching Institute, we are committed to delivering exceptional education through expert
+                faculty and innovative teaching methods. Our supportive environment fosters growth, academic
+                excellence, and personal development. With a focus on tailored learning experiences, we empower
+                students to achieve their goals and build a strong foundation for a successful future.
+            </p>
+            <button class="btn btn-view-more">View More</button>
         </div>
 
-        <!-- Vision Section -->
-        <div class="row">
-          <!-- Text Content Section for Vision -->
-          <div class="col-12 col-md-6 order-1 order-md-0" data-aos="fade-right" data-aos-duration="1000">
-            <div class="mv-content">
-              <h2>Our Vision</h2>
-              <p id="vision-text">Our vision is to empower individuals and organizations to realize their full potential
-                through cutting-edge technology and innovative solutions. We aim to create a better world by bridging
-                the digital divide and driving transformative change globally. We believe in harnessing the power of
-                technology to enhance creativity, productivity, and overall growth, both in businesses and communities.
-              </p>
-              <span class="read-more" id="read-more-vision">Read more...</span>
+        <!-- Video Section with AOS Animation -->
+        <div class="col-lg-6 col-md-12 text-center" data-aos="fade-up" data-aos-duration="1500">
+            <div class="video-container">
+                <iframe width="80%" height="315" src="https://www.youtube.com/embed/y0CCk-9Zkd4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
-          </div>
-
-          <!-- Image Section for Vision -->
-          <div class="col-12 col-md-6 order-0 order-md-1" data-aos="fade-left" data-aos-duration="1000">
-            <div class="mv-image">
-              <img
-                src="https://www.projectmanager.com/wp-content/uploads/2018/05/181126_Blog_Feature_Vision_Statement.jpg"
-                alt="Vision Image">
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-
-
-    <div  class="container mt-4 ">
-      <h2 class="mb-4" style="color: #003b5c; font-family: fantasy;">Courses Offered &nbsp;<i style="color: #d8a45d;" class="fa-solid fa-crown"></i></h2>
-      <div class="row product-row" id="product-row">
-          <!-- Card 1 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card">
-              <div class="card">
-                  <img src="https://www.timesofassam.com/wp-content/uploads/2023/05/cbse.jpg" class="card-img-top" alt="Product Image" id="product-image-1">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p>4 year course</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card">
-              <div class="card">
-                  <img src="https://www.mathiit.co.in/public/images/uploads/NEET.jpg" class="card-img-top" alt="Product Image" id="product-image-2">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p> 6 month course</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card">
-              <div class="card">
-                  <img id="product-image-3" src="https://th.bing.com/th/id/R.caafaad55c4c090d32d81b5596ad1bc1?rik=sQDNOiKFdnsFHQ&riu=http%3a%2f%2fwww.sriabhida.com%2fassets%2fimg%2fcourse%2fiit-jee-course.jpg&ehk=IjnUGQW%2b4SVWPXFBtvxCisdfONY3wiVb1jkvGY%2bNCAY%3d&risl=&pid=ImgRaw&r=0">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p>5 year course</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card">
-              <div class="card">
-                  <img src="https://examupdates.in/wp-content/uploads/2017/07/B.Tech-Course-Details.jpg" class="card-img-top" alt="Product Image" id="product-image-4">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p>4 month course</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Initially hidden Cards (after 4th card) -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card" style="display: none;">
-              <div class="card">
-                  <img src="https://idreamcareer.com/wp-content/uploads/2020/09/mbbs-course-india.webp" class="card-img-top" alt="Product Image" id="product-image-5">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p>10 month course</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Add more cards here (6th card onwards) -->
-          <div class="col-lg-3 col-md-4 col-sm-6 product-card" style="display: none;">
-              <div class="card">
-                  <img src="https://www.coursesxpert.com/wp-content/uploads/2019/08/Basic-Computer-Courses.jpg" class="card-img-top" alt="Product Image" id="product-image-7">
-                  <div class="card-body">
-                      <h5 class="card-title" id="product-name-1">name</h5>
-                      <p>hhh</p>
-                      <button class="btn btn-primary  btn-sm-responsive">View Deatils</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- Show more button -->
-      <div class="show-more-btn" id="show-more-btn">Show More</div>
-  </div>
-  <div class="gallery-wrapper" data-aos="fade-up" data-aos-duration="1500">
-    <div class="gallery-heading">Gallery</div>
 </div>
 
-  <div class="container">
-    <!-- Horizontal Scrollable Gallery -->
-    <div class="gallery-container">
-      <!-- Gallery Items -->
-      <div class="gallery-card">
-        <img src="https://via.placeholder.com/300x200" alt="Image 1">
-        <div class="gallery-overlay">Image Title 1</div>
+
+
+
+  <div class="full-width-container">
+    <div class="container heading-section mt-3">
+      <!-- Heading with AOS animation -->
+      <h2 data-aos="fade-up" data-aos-duration="1500">Features</h2>
+  </div>
+    <!-- Feature Section -->
+    <div style="background-color: #ffffff!important;" class="feature-section">
+      <div class="row centered-row">
+        <!-- Feature Item 1 -->
+        <div class="col-12 col-md-3 feature-item">
+          <img src="https://icon-library.com/images/education-icon-free/education-icon-free-1.jpg" alt="Icon 1">
+          <div class="counter"><span id="counter1">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
+          <h5>faculty</h5>
+          <p>This is a short description of the first feature.</p>
+        </div>
+
+        <!-- Feature Item 2 -->
+        <div class="col-12 col-md-3 feature-item">
+          <img src="https://icon-library.com/images/education-icon-png/education-icon-png-13.jpg" alt="Icon 2">
+          <div class="counter"><span id="counter2">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
+          <h5>Books</h5>
+          <p>This is a short description of the second feature.</p>
+        </div>
+
+        <!-- Feature Item 3 -->
+        <div class="col-12 col-md-3 feature-item">
+          <img
+            src="https://cdn3.iconfinder.com/data/icons/student-learning-lesson/257/children-student-learning-007-512.png"
+            alt="Icon 3">
+          <div class="counter"><span id="counter3">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
+          <h5>Friendly teacher</h5>
+          <p>This is a short description of the third feature.</p>
+        </div>
+
+        <!-- Feature Item 4 -->
+        <div class="col-12 col-md-3 feature-item">
+          <img src="https://cdn0.iconfinder.com/data/icons/soldier-military-training/357/solder-training-009-512.png"
+            alt="Icon 4">
+          <div class="counter"><span id="counter4">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
+          <h5>Advanced Classroom</h5>
+          <p>This is a short description of the fourth feature.</p>
+        </div>
       </div>
-      <div class="gallery-card">
-        <img src="https://via.placeholder.com/300x200" alt="Image 2">
-        <div class="gallery-overlay">Image Title 2</div>
-      </div>
-      <div class="gallery-card">
-        <img src="https://via.placeholder.com/300x200" alt="Image 3">
-        <div class="gallery-overlay">Image Title 3</div>
-      </div>
-      <div class="gallery-card">
-        <img src="https://via.placeholder.com/300x200" alt="Image 4">
-        <div class="gallery-overlay">Image Title 4</div>
-      </div>
-      <div class="gallery-card">
-        <img src="https://via.placeholder.com/300x200" alt="Image 5">
-        <div class="gallery-overlay">Image Title 5</div>
-      </div>
-      <!-- Add more gallery items as needed -->
     </div>
   </div>
+
+
+
+
+  <div class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="why_cayla" data-aos="fade-up">Why Cayla?</h2>
+        <p class="why_p" data-aos="fade-up">The Cayla Educational System is distinguished by the following advantages:</p>
+    </div>
+    
+
+    <!-- Row of Cards -->
+    <div class="row g-5 justify-content-center mt-4">
+        <!-- Card 1 -->
+        <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="card text-center p-4">
+                <div style="  top: 0%; 
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                width: 75px;
+                height: 40px;
+                background-color: #fff; 
+                border-radius: 36px 36px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               border: non;
+             " class="icon-container">
+                </div>
+                <div class="icon-container">
+                    <i class="fa fa-chalkboard-teacher text-white"></i>
+                </div>
+                <h5 class="card-title mt-4">Superior Teaching Excellence</h5>
+                <p class="card-text">
+                    At Cayla Training Institute, we take immense pride in our team of world-class educators who are
+                    dedicated to fostering success in every student. Our faculty consists of highly qualified
+                    professionals with years of experience in their respective fields, ensuring that students
+                    receive the best possible education. They not only teach but mentor and inspire, helping
+                    students excel academically and personally.
+                </p>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
+            <div class="card text-center p-4">
+                <div style="  top: 0%; 
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                width: 75px;
+                height: 40px;
+                background-color: #fff; 
+                border-radius: 36px 36px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               border: non;
+             " class="icon-container">
+                </div>
+                <div class="icon-container">
+                    <i class="fa fa-clipboard-check text-white"></i>
+                </div>
+                <h5 class="card-title mt-4">Commitment to Your Success</h5>
+                <p class="card-text">
+                    At Cayla Training Institute, we focus on delivering exceptional results by combining expert
+                    faculty, personalized coaching, and a comprehensive curriculum. Our goal is to ensure every
+                    student is fully prepared for competitive exams like JEE and NEET, helping them achieve academic
+                    excellence and succeed in their careers with confidence.
+                </p>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
+            <div class="card text-center p-4">
+                <div style="  top: 0%; 
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                width: 75px;
+                height: 40px;
+                background-color: #fff; 
+                border-radius: 36px 36px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               border: non;
+             " class="icon-container">
+                </div>
+                <div class="icon-container">
+                    <i class="fa fa-lightbulb text-white"></i>
+                </div>
+                <h5 class="card-title mt-4">Innovative Learning Approach</h5>
+                <p class="card-text">
+                    At Cayla Training Institute, we believe in empowering students with a strong academic
+                    foundation. Our innovative teaching methods focus on developing critical thinking,
+                    problem-solving, and effective study habits, ensuring students are well-prepared to tackle
+                    challenges and achieve success in their academic journeys.
+                </p>
+            </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
+            <div class="card text-center p-4">
+                <div style="  top: 0%; 
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                width: 75px;
+                height: 40px;
+                background-color: #fff; 
+                border-radius: 36px 36px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               border: non;
+             " class="icon-container">
+                </div>
+                <div class="icon-container">
+                    <i class="fa fa-book-open text-white"></i>
+                </div>
+                <h5 class="card-title mt-4">In-Depth Learning Resources</h5>
+                <p class="card-text">
+                    At Cayla Training Institute, we provide in-depth learning resources tailored to each student's
+                    needs. Our comprehensive study material is designed to simplify complex concepts, offering
+                    detailed explanations, practice questions, and useful insights, ensuring a thorough
+                    understanding and mastery of the subject matter.
+                </p>
+            </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
+            <div class="card text-center p-4">
+                <div style="  top: 0%; 
+                left: 50%;
+                transform: translateX(-50%) rotate(180deg);
+                width: 75px;
+                height: 40px;
+                background-color: #fff; 
+                border-radius: 36px 36px 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               border: non;
+             " class="icon-container">
+                </div>
+                <div class="icon-container">
+                    <i class="fa fa-user-graduate text-white"></i>
+                </div>
+                <h5 class="card-title mt-4">Focused Individual Support</h5>
+                <p class="card-text">
+                    We prioritize a tailored learning experience for every student, offering personalized attention
+                    and support. Our experienced educators adapt their teaching methods to meet individual needs,
+                    ensuring that each student receives the guidance necessary to excel and overcome any academic
+                    challenges they may face.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container partner-head">
+  <h1 data-aos="fade-bottom" data-aos-delay="300">Partner Institutes</h1>
+</div>
+<!-- First Container -->
+<div class="container py-5" id="partner-org">
+  <div class="row align-items-center">
+      <!-- Left Side: Heading and Paragraph -->
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+          <h2 data-aos="fade-up" data-aos-delay="100" class="fw-bold">Laurel Matric Higher Secondary School
+              <span> Coimbatore,Tamilnadu</span>
+          </h2>
+          <p class="lead" data-aos="fade-up" data-aos-delay="700">
+              Laurel is named by the qualities of the laurel tree leaves originated from the Olive tree family.
+              The three important qualities are evergreen nature, healing oil tendency and its usage as the leaves
+              used for crowning after victory.<br>Dedicated board & experienced staff members over the years have
+              put their ardent efforts in the upliftment of the school & to bring Laurels to Laurels. The unique
+              thought of laurels is <i>All are teachable</i>, and having its motto <i>Honour in Honesty</i> and
+              ​aim <i>Strive for Excellence</i>.<br>know more about school &nbsp;<a
+                  href="http://www.laurels-school.com/">press here</a>
+          </p>
+          <button id="toggle-video" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="500">Watch
+              Video</button>
+          <div id="video-container" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="600">
+              <iframe src="https://www.youtube.com/embed/Fz802MeYRdE?si=yjmrgTP4vMyasvMl" title="YouTube video"
+                  allowfullscreen>
+              </iframe>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+          <div class="hex-gallery">
+              <div class="hex" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
+                      alt="Gallery Image 1">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="500">
+                  <img src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
+                      alt="Gallery Image 2">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="800">
+                  <img src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
+                      alt="Gallery Image 3">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="1100">
+                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg"
+                      alt="Gallery Image 4">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="1300">
+                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg"
+                      alt="Gallery Image 5">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Second Container -->
+<div class="container py-5" id="partner-org">
+  <div class="row align-items-center">
+      <div class="col-md-6 order-2 order-md-1">
+          <div class="hex-gallery">
+              <div class="hex" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
+                      alt="Gallery Image 1">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="550">
+                  <img src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
+                      alt="Gallery Image 2">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="750">
+                  <img src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
+                      alt="Gallery Image 3">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="850">
+                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg"
+                      alt="Gallery Image 4">
+              </div>
+              <div class="hex" data-aos="zoom-in" data-aos-delay="1150">
+                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg"
+                      alt="Gallery Image 5">
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 order-1 order-md-2">
+          <h2 data-aos="fade-up" data-aos-delay="0" class="fw-bold">Benglen Public School <span>
+                  Coimbatore,Tamilnadu</span></h2>
+          <p class="lead" data-aos="fade-up" data-aos-delay="500">
+              It follows CBSE syllabus. It is run by the Laurel Educational trust and their group school- Laurel
+              MHSS has been acclaimed as one of the best in class schools in Coimbatore with highest values for
+              Discipline and Character moulding of their school wards and also global alumni presence in almost
+              every field of life.
+              <br>The school strives to enable the kids to excel in all the fields of life. Not mere education
+              builds up an individual, but it's the combined aspects such as good mannerism, social awareness,
+              sports, good health, healthy environment and reduced stress in life.
+              <br>know more about school&nbsp;<a href="http://www.benglen.org/">press here</a>
+          </p>
+          <button id="toggle-video2" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="300">Watch
+              Video</button>
+          <div id="video-container2" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="400">
+              <iframe src="https://www.youtube.com/embed/tNcSRVFY2qU?si=ily_nJR3v66ZPREy" title="YouTube video"
+                  allowfullscreen>
+              </iframe>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
 
   <!-- Footer Section -->
 
   <footer style="border-top: 1px solid gray;" class="footer mt-4">
     <div class="container">
       <div class="row">
-  
+
         <!-- Logo Section -->
         <div class="col-12 col-lg-3 col-md-4 logo">
-          <img id="logofooter" src="https://intensivecarenetwork.com/wp-content/uploads/2014/01/STUDENT_LOGO.png" alt="Logo" class="img-fluid">&nbsp;Edumentor<br><br><br>
+          <img id="logofooter" src="https://intensivecarenetwork.com/wp-content/uploads/2014/01/STUDENT_LOGO.png"
+            alt="Logo" class="img-fluid">&nbsp;Edumentor<br><br><br>
           <h5>Follow Us</h5>
           <div class="social-links">
             <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
@@ -1226,7 +1465,7 @@
             <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-  
+
         <!-- About Us Section -->
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">ABOUT US</h5>
@@ -1236,7 +1475,7 @@
           <p>dummy</p>
           <p>dummy</p>
         </div>
-  
+
         <!-- Help Section -->
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">HELP</h5>
@@ -1246,7 +1485,7 @@
           <p>dummy</p>
           <p>Terms And Condition</p>
         </div>
-  
+
         <!-- Articles Section -->
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">Articles</h5>
@@ -1254,13 +1493,13 @@
           <p>Our story</p>
           <p>About dummy</p>
         </div>
-  
+
         <!-- Empty Column (for layout spacing) -->
         <div class="col-lg-4 col-md-4 footer-column">
           <!-- Empty div for layout, you can add more content here if needed -->
         </div>
       </div>
-  
+
       <!-- Map Embed Section (Medium Size, Responsive) -->
       <div class="row mb-4">
         <div class="col-12">
@@ -1271,7 +1510,7 @@
           </iframe>
         </div>
       </div>
-  
+
       <!-- Contact Information -->
       <div class="contact-info">
         <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
@@ -1288,27 +1527,75 @@
 
 
 
-   
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- AOS JS (Animate On Scroll) -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      // Initialize AOS
-      AOS.init({
-          duration: 1500, // Animation duration
-          once: true, // Animation happens only once
-          easing: 'ease-out',
-      });
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS (Animate On Scroll) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+
+
+  <script>
+    AOS.init({
+        duration: 1000,
+        offset: 100,
+    });
+
+
+    const button = document.getElementById('toggle-video');
+    const videoContainer = document.getElementById('video-container');
+
+    button.addEventListener('click', () => {
+        if (videoContainer.style.display === 'none' || videoContainer.style.display === '') {
+            videoContainer.style.display = 'block';
+            button.textContent = 'Close Video';
+        } else {
+            videoContainer.style.display = 'none';
+            button.textContent = 'Watch Video';
+        }
+    });
+</script>
+
+<script>
+    const button2 = document.getElementById('toggle-video2');
+    const videoContainer2 = document.getElementById('video-container2');
+
+    button2.addEventListener('click', () => {
+        if (videoContainer2.style.display === 'none' || videoContainer2.style.display === '') {
+            videoContainer2.style.display = 'block';
+            button2.textContent = 'Close Video';
+        } else {
+            videoContainer2.style.display = 'none';
+            button2.textContent = 'Watch Video';
+        }
+    });
+</script>
+  <script>
+    AOS.init(); // Initialize AOS animations
+</script>
+<script>
+    AOS.init({
+      duration: 1500, 
+      offset: 100, 
+    });
   </script>
-      <script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1500, // Animation duration
+      once: true, // Animation happens only once
+      easing: 'ease-out',
+    });
+  </script>
+  <script>
     AOS.init({
       duration: 1000,  // Animation duration
       once: true,      // Ensure animations happen only once
     });
   </script>
-  
+
   <script>
     // Initialize AOS with `once: false` so animations trigger each time they come into view
     AOS.init({
@@ -1316,7 +1603,7 @@
       duration: 1000, // Set default duration for animations (adjust if needed)
       offset: 200, // Set the offset (distance before the element enters the viewport)
     });
-  
+
     // Function to toggle Read More and Show Full Text
     document.getElementById('read-more-mission').addEventListener('click', function () {
       const missionText = document.getElementById('mission-text');
@@ -1328,7 +1615,7 @@
         this.textContent = 'Read less...';
       }
     });
-  
+
     document.getElementById('read-more-vision').addEventListener('click', function () {
       const visionText = document.getElementById('vision-text');
       if (visionText.style.maxHeight === 'none') {
@@ -1339,151 +1626,121 @@
         this.textContent = 'Read less...';
       }
     });
-  
+
     // Refresh AOS on window resize (if elements are dynamically added or content changes)
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       AOS.refresh();
     });
   </script>
-  
 
 
 
-    <script>
 
-      function animateCounter(id, endValue, duration) {
-        let startValue = 0;
-        let step = Math.ceil(endValue / duration);
-        let counterElement = document.getElementById(id);
+  <script>
 
-        let interval = setInterval(function () {
-          if (startValue < endValue) {
-            startValue += step;
-            counterElement.innerText = startValue;
-          } else {
-            counterElement.innerText = endValue;
-            clearInterval(interval);
-          }
-        }, 1);
-      }
+    function animateCounter(id, endValue, duration) {
+      let startValue = 0;
+      let step = Math.ceil(endValue / duration);
+      let counterElement = document.getElementById(id);
 
-    
-      window.onload = function () {
-        animateCounter('counter1', 100, 1000); 
-        animateCounter('counter2', 200, 1000); 
-        animateCounter('counter3', 300, 1000); 
-        animateCounter('counter4', 400, 1000); 
-      };
-    </script>
-    <script>
-
-// JavaScript to handle the scroll animation
-function handleScrollAnimations() {
-  const featureItems = document.querySelectorAll('.feature-item');
-  
-  // Set the observer options
-  const observerOptions = {
-    root: null, // null means the viewport
-    rootMargin: '0px',
-    threshold: 0.5 // Trigger animation when 50% of the element is in the viewport
-  };
-
-  // Intersection Observer callback function
-  const observerCallback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add 'in-view' class to start the animation
-        entry.target.classList.add('in-view');
-      } else {
-        // Optionally remove the class if the element is out of view
-        entry.target.classList.remove('in-view');
-      }
-    });
-  };
-
-  // Create an IntersectionObserver instance
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  // Observe each feature item and assign classes based on position
-  featureItems.forEach((item, index) => {
-    // Add different animation classes for alternate items
-    if (index % 2 === 0) {
-      // Even index items will animate from the left
-      item.classList.add('left');
-    } else {
-      // Odd index items will animate from the right
-      item.classList.add('right');
+      let interval = setInterval(function () {
+        if (startValue < endValue) {
+          startValue += step;
+          counterElement.innerText = startValue;
+        } else {
+          counterElement.innerText = endValue;
+          clearInterval(interval);
+        }
+      }, 1);
     }
 
-    // Add delay based on index (i.e., stagger the animations)
-    item.style.transitionDelay = `${index * 0.3}s`; // Add a 0.3s delay for each subsequent item
 
-    observer.observe(item);
-  });
-}
+    window.onload = function () {
+      animateCounter('counter1', 100, 1000);
+      animateCounter('counter2', 200, 1000);
+      animateCounter('counter3', 300, 1000);
+      animateCounter('counter4', 400, 1000);
+    };
+  </script>
+  <script>
 
-// Check for screen size and trigger the scroll animation function
-window.addEventListener('DOMContentLoaded', handleScrollAnimations);
-window.addEventListener('resize', () => {
-  // Trigger animation on both screen sizes
-  handleScrollAnimations();
-});
-    </script>
+    // JavaScript to handle the scroll animation
+    function handleScrollAnimations() {
+      const featureItems = document.querySelectorAll('.feature-item');
+
+      // Set the observer options
+      const observerOptions = {
+        root: null, // null means the viewport
+        rootMargin: '0px',
+        threshold: 0.5 // Trigger animation when 50% of the element is in the viewport
+      };
+
+      // Intersection Observer callback function
+      const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add 'in-view' class to start the animation
+            entry.target.classList.add('in-view');
+          } else {
+            // Optionally remove the class if the element is out of view
+            entry.target.classList.remove('in-view');
+          }
+        });
+      };
+
+      // Create an IntersectionObserver instance
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Observe each feature item and assign classes based on position
+      featureItems.forEach((item, index) => {
+        // Add different animation classes for alternate items
+        if (index % 2 === 0) {
+          // Even index items will animate from the left
+          item.classList.add('up');
+        } else {
+          // Odd index items will animate from the right
+          item.classList.add('bottom');
+        }
+
+        // Add delay based on index (i.e., stagger the animations)
+        item.style.transitionDelay = `${index * 0.3}s`; // Add a 0.3s delay for each subsequent item
+
+        observer.observe(item);
+      });
+    }
+
+    // Check for screen size and trigger the scroll animation function
+    window.addEventListener('DOMContentLoaded', handleScrollAnimations);
+    window.addEventListener('resize', () => {
+      // Trigger animation on both screen sizes
+      handleScrollAnimations();
+    });
+  </script>
 
 
-<script>
-  // Show More Button Click Event
-  document.getElementById('show-more-btn').addEventListener('click', function() {
+  <script>
+    // Show More Button Click Event
+    document.getElementById('show-more-btn').addEventListener('click', function () {
       var hiddenCards = document.querySelectorAll('.product-card[style="display: none;"]');
       for (var i = 0; i < hiddenCards.length; i++) {
-          hiddenCards[i].style.display = 'block';
+        hiddenCards[i].style.display = 'block';
       }
       // Hide the Show More button after all cards are visible
       if (document.querySelectorAll('.product-card[style="display: none;"]').length === 0) {
-          this.style.display = 'none';
+        this.style.display = 'none';
       }
-  });
-</script>
-  
-  <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          const productCards = document.querySelectorAll('.product-card');
-
-          function isInViewport(el) {
-              const rect = el.getBoundingClientRect();
-              return (
-                  rect.left >= 0 &&
-                  rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-              );
-          }
-
-          function checkInView() {
-              productCards.forEach(card => {
-                  if (isInViewport(card)) {
-                      card.classList.add('in-view');
-                  } else {
-                      card.classList.remove('in-view');
-                  }
-              });
-          }
-
-          // Initial check when page loads
-          checkInView();
-
-          // Check when scrolling
-          document.querySelector('.product-row').addEventListener('scroll', checkInView);
-      });
-
-
+    });
   </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"></script>
-  </body>
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+</body>
 
 </html>
