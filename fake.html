@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -23,12 +23,113 @@
       background-color: #ffffff;
     }
 
+
+
+
+
+    .header-top {
+      background-color: #0f141b;
+      color: white;
+      position: fixed;
+      z-index: 900;
+      height: 5vh;
+      display: flex;
+      align-items: center;
+
+      justify-content: center;
+      width: 100%;
+    }
+
+    .header-top .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .header-top .container .left p {
+      margin: 0;
+      padding: 0;
+      margin-top: 13px;
+      font-size: 14px;
+      color: white;
+    }
+
+    .social-icons {
+      margin-top: 14px;
+    }
+
+
+    /* Social icons with official brand colors */
+    .social-icons a {
+      margin: 0 15px;
+      font-size: 18px;
+      /* Default icon size */
+      transition: all 0.3s ease;
+    }
+
+    /* Instagram - official color */
+    .social-icons a.instagram {
+      color: #dd3ea0;
+    }
+
+
+
+    /* Hover effect */
+    .social-icons a:hover {
+      opacity: 0.7;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+
+      .header-top .container .left p,
+      .header-top .container .right p {
+        font-size: 12px;
+        /* Smaller font size for mobile */
+      }
+
+      .social-icons a {
+        font-size: 16px;
+        /* Smaller icon size for mobile */
+      }
+
+      .header-top {
+        height: 7vh;
+      }
+    }
+
+    .register-btn {
+      padding: 4px 30px;
+      color: #fff;
+      background-color: transparent;
+      border-radius: 8px;
+      border: 1px solid #ffffff6b;
+    }
+
+    .register-btn:hover {
+      background-color: #32b2a5;
+      color: #000;
+      border: none;
+    }
+
+    /* Media Query */
+    @media (max-width: 768px) {
+      .register-btn {
+        padding: 3px 10px;
+        font-size: 13px;
+        border-radius: 4px;
+      }
+    }
+
     .navbar {
       background-color: #0D1117;
       position: fixed;
-
+      top: 5vh;
       width: 100%;
-      z-index: 1000;
+      z-index: 990;
+      border-top: 2px solid #353535;
+      border-bottom: 2px solid #333;
     }
 
     .navbar-brand img {
@@ -56,6 +157,9 @@
 
     }
 
+    .dropdown-menu li {
+      padding: 6px 20px;
+    }
 
 
     /* imp */
@@ -98,6 +202,10 @@
 
       .navbar-nav .nav-item {
         border-bottom: 1px solid #111b25;
+      }
+
+      .navbar {
+        top: 6vh;
       }
     }
 
@@ -236,6 +344,7 @@
 
 
     .about-section {
+
       padding: 50px 20px;
       height: auto;
     }
@@ -300,6 +409,11 @@
       .about-content h3 {
         font-size: 1.1rem;
       }
+
+      .about-section {
+
+        margin-top: -10%;
+      }
     }
 
     .video-container {
@@ -357,26 +471,28 @@
     }
 
     .heading-section {
-            height: 10vh;
-            text-align: center;
-        }
+      height: 10vh;
+      text-align: center;
+    }
 
-        .heading-section h2 {
-            color: #32b2a5; /* Blue color for the heading */
-            font-size: 2.5rem;
-            font-weight: bold;
-            font-family: 'Arial', sans-serif;
-        }
+    .heading-section h2 {
+      color: #32b2a5;
+      /* Blue color for the heading */
+      font-size: 2.2rem;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+    }
 
-        @media (max-width: 768px) {
-            .heading-section h2 {
-                font-size: 1.8rem;
-            }
-        }
+    @media (max-width: 768px) {
+      .heading-section h2 {
+        font-size: 1.7rem;
+      }
+    }
+
     .centered-row {
       width: 85%;
       margin: 0 auto;
-     
+
     }
 
 
@@ -431,6 +547,7 @@
         width: 90%;
       }
     }
+
     .feature-item {
       opacity: 0;
       transform: translateX(20px);
@@ -473,361 +590,645 @@
 
 
     .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.568), 0 -4px 6px rgba(0, 0, 0, 0);
-            /* Shadow on left, right, and bottom, no shadow on top */
-            border-radius: 0px 0px 20px 20px;
-            transition: transform 0.3s ease-in-out;
-            height: 350px;
-            /* Fixed card height */
-            position: relative;
-            background: #e5ebea;
-            
-            /* White background */
-        }
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.568), 0 -4px 6px rgba(0, 0, 0, 0);
+      /* Shadow on left, right, and bottom, no shadow on top */
+      border-radius: 0px 0px 20px 20px;
+      transition: transform 0.3s ease-in-out;
+      height: 350px;
+      /* Fixed card height */
+      position: relative;
+      background: #e5ebea;
 
-        .card::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            border-radius: 0px 0px 20px 20px;
-            width: 100%;
-            height: 30px;
-            background-size: cover;
-            background-position: center;
-            background-color: #f5d557;
-            clip-path: polygon(0% 50%, 15% 30%, 30% 50%, 45% 30%, 60% 70%, 75% 30%, 90% 50%, 100% 100%, 0% 100%);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            /* Lift card slightly on hover */
-        }
-
-        .card img {
-            width: 60px;
-            /* Adjust icon/image size */
-            margin-bottom: 15px;
-        }
-
-        .card-title {
-            font-size: 1.35rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #32b2a5;
-            font-weight: 900;
-            /* Adjust title size */
-        }
-
-        .card-text {
-            font-size: 0.85rem;
-            /* Adjust text size */
-            height: 220px;
-            /* Set fixed height for paragraph */
-            overflow-y: auto;
-            color: #2b2929;
-            /* Allow vertical scrolling */
-            padding-right: 10px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            /* Ensure space for scrollbar */
-        }
-
-        .icon-container {
-            position: absolute;
-            z-index: 100;
-            top: -30px;
-            /* Position the icon outside of the card */
-            left: 50%;
-            z-index: 1000;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background-color: #32b2a5;
-            /* Red background */
-            border-radius: 50%;
-            /* Circular icon */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Shadow for icon */
-        }
-
-        .icon-container i {
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .card {
-                height: 36vh;
-                /* Adjust height for smaller screens */
-                padding: 20px;
-            }
-
-            .card-title {
-                font-size: 1.1rem;
-                /* Smaller title size */
-            }
-
-            .card-text {
-                font-size: 0.7rem;
-                height: 120px;
-                /* Smaller text size */
-            }
-
-            .icon-container {
-                position: absolute;
-                top: -20px;
-                /* Position the icon outside of the card */
-                left: 50%;
-                transform: translateX(-50%);
-                width: 50px;
-                height: 50px;
-                background-color: #32b2a5;
-                /* Red background */
-                border-radius: 50%;
-                /* Circular icon */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                /* Shadow for icon */
-            }
-        }
-
-        .first-p {
-            width: 70%;
-            text-align: center;
-        }
-        .why_cayla{
-            font-size: 2.5rem;
-            font-weight: 900;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            letter-spacing: 2px;
-            color: #32b2a5;
-        }
-        .why_p{
-            letter-spacing: 2px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 1.2rem;
-        }
-        @media (max-width:777px) {
-            .why_cayla{
-            font-size:1.7rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        .why_p{
-            letter-spacing: 2px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 0.9rem;
-        }
-        }
-
-
-
-
-
-
-
-        #partner-org h2 {
-            font-size: 2.5rem;
-            color: #106960;
-            letter-spacing: 2px;
-            font-family: fantasy;
-        }
-
-        #partner-org h2 span {
-            font-size: 2rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: #000;
-            letter-spacing: 0;
-        }
-
-        #partner-org p {
-            font-size: 1rem;
-            color: #333;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        #partner-org p a {
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: #d1b851;
-        }
-
-        @media (max-width:780px) {
-            #partner-org h2 {
-                font-size: 1.4rem;
-            }
-
-            #partner-org h2 span {
-                font-size: 1.1rem;
-                color: #000;
-            }
-
-            #partner-org p {
-                font-size: 0.82rem;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-        }
-
-        .hex-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0px;
-            justify-content: center;
-        }
-
-        .hex {
-            clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
-            overflow: hidden;
-            position: relative;
-            width: 190px;
-            height: 170px;
-            background-color: #ddd;
-            animation: scaleEffect 2s infinite ease-in-out;
-        }
-
-        .hex img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            animation: scaleImage 6s infinite ease-in;
-        }
-
-        .hex::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.496) 50%, rgba(255, 255, 255, 0) 100%);
-            animation: shinyEffect 7s infinite ease-in-out;
-            transform: skewX(-25deg);
-        }
-
-        @keyframes scaleImage {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-        }
-
-        @keyframes shinyEffect {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        @media (max-width: 790px) {
-            .hex {
-                width: 140px;
-                height: 110px;
-            }
-        }
-
-        #video-container,
-        #video-container2 {
-            max-width: 400px;
-            margin: 0 auto;
-            display: none;
-        }
-
-        #toggle-video,
-        #toggle-video2 {
-            background-color: #ffcb05;
-            border: none;
-            color: #000;
-            font-weight: 500;
-        }
-
-
-        .partner-head h1 {
-            font-size: 3rem;
-            text-align: center;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: #32b2a5;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .partner-head h1 {
-                font-size: 1.8rem;
-                text-align: center;
-
-            }
-        }
-
-
-    .footer {
-      background-color: #222;
-      color: white;
-      padding: 40px 0;
+      /* White background */
     }
 
-    .footer a {
-      color: #bbb;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    .footer h5 {
-      color: #fff;
-      font-size: 18px;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-
-    .footer .social-icons a {
-      color: #bbb;
-      margin-right: 15px;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-
-    .footer .social-icons a:hover {
-      color: #007bff;
-    }
-
-    .footer .map iframe {
+    .card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0px 0px 20px 20px;
       width: 100%;
-      height: 250px;
-      border: 0;
+      height: 30px;
+      background-size: cover;
+      background-position: center;
+      background-color: #f5d557;
+      clip-path: polygon(0% 50%, 15% 30%, 30% 50%, 45% 30%, 60% 70%, 75% 30%, 90% 50%, 100% 100%, 0% 100%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      /* Lift card slightly on hover */
+    }
+
+    .card img {
+      width: 60px;
+      /* Adjust icon/image size */
+      margin-bottom: 15px;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #32b2a5;
+      font-weight: 900;
+      /* Adjust title size */
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      /* Adjust text size */
+      height: 220px;
+      /* Set fixed height for paragraph */
+      overflow-y: auto;
+      color: #2b2929;
+      /* Allow vertical scrolling */
+      padding-right: 10px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      /* Ensure space for scrollbar */
+    }
+
+    .icon-container {
+      position: absolute;
+      z-index: 100;
+      top: -30px;
+      /* Position the icon outside of the card */
+      left: 50%;
+      z-index: 1000;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background-color: #32b2a5;
+      /* Red background */
+      border-radius: 50%;
+      /* Circular icon */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Shadow for icon */
+    }
+
+    .icon-container i {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        height: 36vh;
+        /* Adjust height for smaller screens */
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        /* Smaller title size */
+      }
+
+      .card-text {
+        font-size: 0.7rem;
+        height: 120px;
+        /* Smaller text size */
+      }
+
+      .icon-container {
+        position: absolute;
+        top: -20px;
+        /* Position the icon outside of the card */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: #32b2a5;
+        /* Red background */
+        border-radius: 50%;
+        /* Circular icon */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Shadow for icon */
+      }
+    }
+
+    .first-p {
+      width: 70%;
+      text-align: center;
+    }
+
+    .why_cayla {
+      font-size: 2.2rem;
+      font-weight: 900;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      letter-spacing: 2px;
+      color: #32b2a5;
+    }
+
+    .why_p {
+      letter-spacing: 2px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width:777px) {
+      .why_cayla {
+        font-size: 1.7rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .why_p {
+        letter-spacing: 2px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 0.9rem;
+      }
+    }
+
+
+
+
+
+
+
+    #partner-org h2 {
+      font-size: 2.5rem;
+      color: #106960;
+      letter-spacing: 2px;
+      font-family: fantasy;
+    }
+
+    #partner-org h2 span {
+      font-size: 2rem;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #000;
+      letter-spacing: 0;
+    }
+
+    #partner-org p {
+      font-size: 1rem;
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #partner-org p a {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      color: #d1b851;
+    }
+
+    @media (max-width:780px) {
+      #partner-org h2 {
+        font-size: 1.4rem;
+      }
+
+      #partner-org h2 span {
+        font-size: 1.1rem;
+        color: #000;
+      }
+
+      #partner-org p {
+        font-size: 0.82rem;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+
+    .hex-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0px;
+      justify-content: center;
+    }
+
+    .hex {
+      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+      overflow: hidden;
+      position: relative;
+      width: 190px;
+      height: 170px;
+      background-color: #ddd;
+      animation: scaleEffect 2s infinite ease-in-out;
+    }
+
+    .hex img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      animation: scaleImage 6s infinite ease-in;
+    }
+
+    .hex::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.496) 50%, rgba(255, 255, 255, 0) 100%);
+      animation: shinyEffect 7s infinite ease-in-out;
+      transform: skewX(-25deg);
+    }
+
+    @keyframes scaleImage {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes shinyEffect {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    @media (max-width: 790px) {
+      .hex {
+        width: 140px;
+        height: 110px;
+      }
+    }
+
+    #video-container,
+    #video-container2 {
+      max-width: 400px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    #toggle-video,
+    #toggle-video2 {
+      background-color: #ffcb05;
+      border: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+
+    .partner-head h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #32b2a5;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .partner-head h1 {
+        font-size: 1.7rem;
+        text-align: center;
+
+      }
+    }
+
+
+
+
+
+    .course-card {
+      border: none;
+      border-left: 5px solid #32b2a5;
+      background-color: #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.299);
+      /* Stronger and larger shadow */
+
+      margin-bottom: 20px;
+      padding: 20px;
       border-radius: 8px;
+    }
+
+    .course-card:hover {
+      background-color: rgb(246, 253, 253);
+    }
+
+    .course-title {
+      font-weight: bold;
+      color: #32b2a5;
+      font-size: 1.2rem;
+    }
+
+    .course-duration {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .course-location {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .btn-viewss {
+      border: 1px solid #32b2a5;
+      color: #32b2a5;
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .btn-viewss:hover {
+      background-color: #32b2a5;
+      color: #fff;
+    }
+
+    .course-offer h1 {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 2.2rem;
+      color: #32b2a5;
+      font-weight: 800;
+    }
+
+
+    @media (max-width: 768px) {
+      .course-title {
+        font-size: 1rem;
+      }
+
+      .btn-viewss {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .course-offer h1 {
+        font-size: 1.7rem;
+      }
+    }
+
+    .course-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .course-button-container a {
+      background-color: #f5d557;
+      border: none;
+      color: #000;
+    }
+
+    .course-button-container a:hover {
+      background-color: #32b2a5;
+    }
+
+
+
+
+
+
+
+
+    .managers-container {
+      margin-top: 50px;
+    }
+
+
+    .custom-card {
+      position: relative;
+      border: none;
+      height: 420px;
+      width: 320px !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .custom-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      border-radius: 10px;
+    }
+
+    .inner-container {
+      position: absolute;
+      bottom: -10%;
+      left: 5%;
+      width: 90%;
+      height: 20%;
+      background-color: #07312d;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+
       transition: transform 0.3s ease;
     }
 
-    .footer .map iframe:hover {
-      transform: scale(1.05);
+    .our-team h1 {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 2rem;
+      color: #32b2a5;
+      font-weight: 800;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .footer .col-md-3 {
+    .inner-container h5 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @media (min-width: 768px) {
+      .managers-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .custom-card {
+
         margin-bottom: 30px;
-      }
 
-      .footer .map {
-        text-align: center;
       }
     }
+
+    @media (max-width: 767px) {
+      .managers-container {
+        display: flex;
+        overflow-x: auto;
+        height: auto;
+        padding-bottom: 60px;
+        white-space: nowrap;
+      }
+
+      .custom-card {
+        flex-shrink: 0;
+        width: 280px !important;
+
+        margin-right: 15px;
+        height: 320px;
+      }
+
+      .our-team h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+
+
+
+    .review-head h1 {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 2rem;
+      color: #32b2a5;
+      font-weight: 800;
+    }
+
+    .review-card {
+      background-color: #eff1f1;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      min-width: 280px;
+      /* Minimum width for horizontal scroll */
+    }
+
+    .reviews-container {
+      display: flex;
+      flex-wrap: nowrap;
+      /* Prevent wrapping for horizontal scroll */
+      overflow-x: auto;
+      /* Enable horizontal scroll */
+      padding-bottom: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 cards per row on desktop */
+        gap: 20px;
+        overflow-x: visible;
+        /* Disable horizontal scroll */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .review-head h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+
+
+
+
+
+
+    .call-cayla {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      height: 20vh;
+      /* Set to 20vh */
+      border-radius: 12px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .call-cayla h1 {
+      color: #db0a0a;
+      font-size: 2.2rem;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight: 900;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Toggle container with a sleek design */
+    .toggle-container {
+      width: 50%;
+      /* 60% width for the toggle container */
+      height: 50px;
+      background-color: #fff;
+      border-radius: 25px;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* The round button to toggle */
+    .toggle-button {
+      width: 50px;
+      height: 50px;
+      background-color: #28a745;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      cursor: pointer;
+      transition: left 0.3s ease;
+    }
+
+    /* Icon in the toggle button */
+    .toggle-button i {
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Disabled state of the button */
+    .disabled {
+      cursor: not-allowed;
+    }
+
+    /* Responsive design adjustments */
+    @media (max-width: 768px) {
+      .call-cayla {
+        height: 25vh !important;
+        /* Adjust height for mobile screens */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .call-cayla h1 {
+        font-size: 1.7rem;
+        /* Adjust font size */
+        margin-bottom: 10px;
+      }
+
+      .toggle-container {
+        width: 80%;
+        /* Increase toggle container width */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .call-cayla {
+        height: 12vh;
+        /* Adjust height further for very small screens */
+      }
+
+      .call-cayla h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .toggle-container {
+        width: 90%;
+        /* Increase toggle container width for very small screens */
+      }
+    }
+
+
 
 
     .footer {
@@ -878,6 +1279,17 @@
       font-size: 18px;
     }
 
+   
+    .footer .row .col-6 {
+      text-align: left;
+    }
+
+    #logofooter {
+      width: 70px;
+      height: 7vh;
+      background-color: #ffc107;
+      border-radius: 50%;
+    }
     @media (max-width: 768px) {
       .footer .row {
         text-align: center;
@@ -889,82 +1301,52 @@
       }
 
       #logofooter {
-        width: 80%;
+        width: 60px;
 
       }
     }
 
-    .footer .row .col-6 {
-      text-align: left;
+
+    .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .map-container iframe {
+        width: 70%; /* 70% width on desktop */
+        height: 300px;
     }
+}
 
-    #logofooter {
-      width: 70px;
-      height: 6vh;
+@media (max-width: 767px) {
+    .map-container iframe {
+        width: 100%; /* Full width on mobile */
+        height: 200px; /* Adjust height for mobile */
     }
-
-    @media (max-width: 767px) {
-      .phone-email p {
-        font-size: 0.8rem;
-        /* Smaller font size for mobile */
-      }
-
-      .social-media a {
-        font-size: 1.5rem;
-        /* Larger icons for mobile */
-      }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* .fixed-top-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1030;
-      background-color: #f8f9fa;
-      padding: 10px 0;
-    } */
+}
   </style>
-  <!-- <div class="container-fluid fixed-top-container">
-    <div class="row">
-     
-      <div class="col-12 col-md-6 d-flex align-items-center text-sm">
-        <div class="me-4">
-          <i class="fas fa-phone-alt"></i> <span class="small"><strong>Toll-Free: 1-800-123-4567</strong></span>
-        </div>
-        <div>
-          <i class="fas fa-envelope"></i> <span class="small"><strong>Email: info@example.com</strong></span>
-        </div>
+  <header class="header-top">
+    <div class="container">
+      <!-- Left Div (Phone and Email) -->
+      <div class="left">
+        <p><i class="fa-solid fa-phone-volume fa-shake" style="color: #f20707;"></i> Call Now: 56789567899</p>
       </div>
-  
-
-      <div class="col-12 col-md-6 d-flex justify-content-end align-items-center">
-        <a href="https://www.instagram.com" target="_blank" class="text-dark me-3">
-          <i class="fab fa-instagram fa-lg"></i>
-        </a>
-        <a href="https://www.facebook.com" target="_blank" class="text-dark me-3">
-          <i class="fab fa-facebook fa-lg"></i>
-        </a>
-        <a href="https://www.youtube.com" target="_blank" class="text-dark">
-          <i class="fab fa-youtube fa-lg"></i>
-        </a>
+      <!-- Right Div (Social Media Links) -->
+      <div class="right">
+        <div class="social-icons">
+          <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram instagram"></a>
+          <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook" style="color: #155ad1;"></a>
+          <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube youtube"
+            style="color: #db0a0a;"></a>
+        </div>
       </div>
     </div>
-  </div> -->
+  </header>
+  <div class="dummy" style="height: 6vh; width: 100%;">
 
+  </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
@@ -1010,7 +1392,7 @@
 
       <!-- Right-side icons -->
       <div class="navbar-brand-right">
-        <a href="cart.html"><i style="color: #ecebea;" class="fa-solid fa-user"></i></a>
+        <button class="register-btn">Register</button>
       </div>
     </div>
   </nav>
@@ -1037,7 +1419,7 @@
         </a>
         <!-- Link for Desktop Image -->
         <a href="https://your-link.com/page1">
-          <img src="https://srichaitanya.net/wp-content/uploads/2024/12/SC_Business-Connect_Web-Banner_02-12-2024.png"
+          <img src="https://blog.mtg.in/wp-content/uploads/2019/04/foundation-course-banner-1024x422.jpg"
             class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1">
         </a>
       </div>
@@ -1046,8 +1428,8 @@
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
         <a href="https://your-link.com/page2">
-          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+2" class="d-block w-100 d-md-none"
-            alt="Mobile Slide 2">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/fdba63180262851.Y3JvcCwxMDgwLDg0NCwwLDExNw.jpg"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 2">
         </a>
         <!-- Link for Desktop Image -->
         <a href="https://your-link.com/page2">
@@ -1060,12 +1442,15 @@
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
         <a href="https://your-link.com/page3">
-          <img src="https://via.placeholder.com/600x400?text=Mobile+Image+3" class="d-block w-100 d-md-none"
-            alt="Mobile Slide 3">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2022/1/EU/LH/JG/145226253/iit-jee-tuition-prayagraj-jpg-500x500.jpg"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 3">
         </a>
         <!-- Link for Desktop Image -->
-        <a href="https://via.placeholder.com/1500x800?text=Desktop+Image+3" class="d-block w-100 d-none d-md-block"
-          alt="Desktop Slide 3">
+        <a href="https://your-link.com/page2">
+          <img
+            src="https://motion.ac.in/blog/wp-content/uploads/2022/11/Benefits-of-Joining-Foundation-Courses-For-IIT-JEE-and-NEET-01-01.jpg"
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 3">
         </a>
       </div>
     </div>
@@ -1099,32 +1484,32 @@
 
 
   <div class="container about-section">
-    <div class="row align-items-center mt-5">
-        <!-- Text Section with AOS Animation -->
-        <div class="col-lg-6 col-md-12 about-content" data-aos="fade-up" data-aos-duration="1500">
-            <h2>About</h2>
-            <h3>Excellence, Empowerment, Growth, Innovation, Success</h3>
-            <p>
-                At Cayla Coaching Institute, we are committed to delivering exceptional education through expert
-                faculty and innovative teaching methods. Our supportive environment fosters growth, academic
-                excellence, and personal development. With a focus on tailored learning experiences, we empower
-                students to achieve their goals and build a strong foundation for a successful future.
-            </p>
-            <button class="btn btn-view-more">View More</button>
-        </div>
+    <div class="row align-items-center mt-5 ">
+      <!-- Text Section with AOS Animation -->
+      <div class="col-lg-6 col-md-12 about-content" data-aos="fade-up" data-aos-duration="1500">
+        <h2>About</h2>
+        <h3>Excellence, Empowerment, Growth, Innovation, Success</h3>
+        <p>
+          At Cayla Coaching Institute, we are committed to delivering exceptional education through expert
+          faculty and innovative teaching methods. Our supportive environment fosters growth, academic
+          excellence, and personal development. With a focus on tailored learning experiences, we empower
+          students to achieve their goals and build a strong foundation for a successful future.
+        </p>
+        <button class="btn btn-view-more">View More</button>
+      </div>
 
-        <!-- Video Section with AOS Animation -->
-        <div class="col-lg-6 col-md-12 text-center" data-aos="fade-up" data-aos-duration="1500">
-            <div class="video-container">
-                <iframe width="80%" height="315" src="https://www.youtube.com/embed/y0CCk-9Zkd4"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
+      <!-- Video Section with AOS Animation -->
+      <div class="col-lg-6 col-md-12 text-center" data-aos="fade-up" data-aos-duration="1500">
+        <div class="video-container">
+          <iframe width="80%" height="315" src="https://www.youtube.com/embed/hU3o_mnkHgU?si=3dq9dSEEnp4vzQVA"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
@@ -1133,7 +1518,7 @@
     <div class="container heading-section mt-3">
       <!-- Heading with AOS animation -->
       <h2 data-aos="fade-up" data-aos-duration="1500">Features</h2>
-  </div>
+    </div>
     <!-- Feature Section -->
     <div style="background-color: #ffffff!important;" class="feature-section">
       <div class="row centered-row">
@@ -1180,17 +1565,17 @@
 
   <div class="container my-5">
     <div class="text-center mb-4">
-        <h2 class="why_cayla" data-aos="fade-up">Why Cayla?</h2>
-        <p class="why_p" data-aos="fade-up">The Cayla Educational System is distinguished by the following advantages:</p>
+      <h2 class="why_cayla" data-aos="fade-up">Why Cayla?</h2>
+      <p class="why_p" data-aos="fade-up">The Cayla Educational System is distinguished by the following advantages:</p>
     </div>
-    
+
 
     <!-- Row of Cards -->
     <div class="row g-5 justify-content-center mt-4">
-        <!-- Card 1 -->
-        <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1200">
-            <div class="card text-center p-4">
-                <div style="  top: 0%; 
+      <!-- Card 1 -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1200">
+        <div class="card text-center p-4">
+          <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
                 width: 75px;
@@ -1202,24 +1587,24 @@
                 justify-content: center;
                border: non;
              " class="icon-container">
-                </div>
-                <div class="icon-container">
-                    <i class="fa fa-chalkboard-teacher text-white"></i>
-                </div>
-                <h5 class="card-title mt-4">Superior Teaching Excellence</h5>
-                <p class="card-text">
-                    At Cayla Training Institute, we take immense pride in our team of world-class educators who are
-                    dedicated to fostering success in every student. Our faculty consists of highly qualified
-                    professionals with years of experience in their respective fields, ensuring that students
-                    receive the best possible education. They not only teach but mentor and inspire, helping
-                    students excel academically and personally.
-                </p>
-            </div>
+          </div>
+          <div class="icon-container">
+            <i class="fa fa-chalkboard-teacher text-white"></i>
+          </div>
+          <h5 class="card-title mt-4">Superior Teaching Excellence</h5>
+          <p class="card-text">
+            At Cayla Training Institute, we take immense pride in our team of world-class educators who are
+            dedicated to fostering success in every student. Our faculty consists of highly qualified
+            professionals with years of experience in their respective fields, ensuring that students
+            receive the best possible education. They not only teach but mentor and inspire, helping
+            students excel academically and personally.
+          </p>
         </div>
-        <!-- Card 2 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
-            <div class="card text-center p-4">
-                <div style="  top: 0%; 
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
+        <div class="card text-center p-4">
+          <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
                 width: 75px;
@@ -1231,23 +1616,23 @@
                 justify-content: center;
                border: non;
              " class="icon-container">
-                </div>
-                <div class="icon-container">
-                    <i class="fa fa-clipboard-check text-white"></i>
-                </div>
-                <h5 class="card-title mt-4">Commitment to Your Success</h5>
-                <p class="card-text">
-                    At Cayla Training Institute, we focus on delivering exceptional results by combining expert
-                    faculty, personalized coaching, and a comprehensive curriculum. Our goal is to ensure every
-                    student is fully prepared for competitive exams like JEE and NEET, helping them achieve academic
-                    excellence and succeed in their careers with confidence.
-                </p>
-            </div>
+          </div>
+          <div class="icon-container">
+            <i class="fa fa-clipboard-check text-white"></i>
+          </div>
+          <h5 class="card-title mt-4">Commitment to Your Success</h5>
+          <p class="card-text">
+            At Cayla Training Institute, we focus on delivering exceptional results by combining expert
+            faculty, personalized coaching, and a comprehensive curriculum. Our goal is to ensure every
+            student is fully prepared for competitive exams like JEE and NEET, helping them achieve academic
+            excellence and succeed in their careers with confidence.
+          </p>
         </div>
-        <!-- Card 3 -->
-        <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-            <div class="card text-center p-4">
-                <div style="  top: 0%; 
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
+        <div class="card text-center p-4">
+          <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
                 width: 75px;
@@ -1259,23 +1644,23 @@
                 justify-content: center;
                border: non;
              " class="icon-container">
-                </div>
-                <div class="icon-container">
-                    <i class="fa fa-lightbulb text-white"></i>
-                </div>
-                <h5 class="card-title mt-4">Innovative Learning Approach</h5>
-                <p class="card-text">
-                    At Cayla Training Institute, we believe in empowering students with a strong academic
-                    foundation. Our innovative teaching methods focus on developing critical thinking,
-                    problem-solving, and effective study habits, ensuring students are well-prepared to tackle
-                    challenges and achieve success in their academic journeys.
-                </p>
-            </div>
+          </div>
+          <div class="icon-container">
+            <i class="fa fa-lightbulb text-white"></i>
+          </div>
+          <h5 class="card-title mt-4">Innovative Learning Approach</h5>
+          <p class="card-text">
+            At Cayla Training Institute, we believe in empowering students with a strong academic
+            foundation. Our innovative teaching methods focus on developing critical thinking,
+            problem-solving, and effective study habits, ensuring students are well-prepared to tackle
+            challenges and achieve success in their academic journeys.
+          </p>
         </div>
-        <!-- Card 4 -->
-        <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
-            <div class="card text-center p-4">
-                <div style="  top: 0%; 
+      </div>
+      <!-- Card 4 -->
+      <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
+        <div class="card text-center p-4">
+          <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
                 width: 75px;
@@ -1287,23 +1672,23 @@
                 justify-content: center;
                border: non;
              " class="icon-container">
-                </div>
-                <div class="icon-container">
-                    <i class="fa fa-book-open text-white"></i>
-                </div>
-                <h5 class="card-title mt-4">In-Depth Learning Resources</h5>
-                <p class="card-text">
-                    At Cayla Training Institute, we provide in-depth learning resources tailored to each student's
-                    needs. Our comprehensive study material is designed to simplify complex concepts, offering
-                    detailed explanations, practice questions, and useful insights, ensuring a thorough
-                    understanding and mastery of the subject matter.
-                </p>
-            </div>
+          </div>
+          <div class="icon-container">
+            <i class="fa fa-book-open text-white"></i>
+          </div>
+          <h5 class="card-title mt-4">In-Depth Learning Resources</h5>
+          <p class="card-text">
+            At Cayla Training Institute, we provide in-depth learning resources tailored to each student's
+            needs. Our comprehensive study material is designed to simplify complex concepts, offering
+            detailed explanations, practice questions, and useful insights, ensuring a thorough
+            understanding and mastery of the subject matter.
+          </p>
         </div>
-        <!-- Card 5 -->
-        <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-            <div class="card text-center p-4">
-                <div style="  top: 0%; 
+      </div>
+      <!-- Card 5 -->
+      <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
+        <div class="card text-center p-4">
+          <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
                 width: 75px;
@@ -1315,21 +1700,21 @@
                 justify-content: center;
                border: non;
              " class="icon-container">
-                </div>
-                <div class="icon-container">
-                    <i class="fa fa-user-graduate text-white"></i>
-                </div>
-                <h5 class="card-title mt-4">Focused Individual Support</h5>
-                <p class="card-text">
-                    We prioritize a tailored learning experience for every student, offering personalized attention
-                    and support. Our experienced educators adapt their teaching methods to meet individual needs,
-                    ensuring that each student receives the guidance necessary to excel and overcome any academic
-                    challenges they may face.
-                </p>
-            </div>
+          </div>
+          <div class="icon-container">
+            <i class="fa fa-user-graduate text-white"></i>
+          </div>
+          <h5 class="card-title mt-4">Focused Individual Support</h5>
+          <p class="card-text">
+            We prioritize a tailored learning experience for every student, offering personalized attention
+            and support. Our experienced educators adapt their teaching methods to meet individual needs,
+            ensuring that each student receives the guidance necessary to excel and overcome any academic
+            challenges they may face.
+          </p>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
@@ -1338,114 +1723,314 @@
 
 
 
-<div class="container partner-head">
-  <h1 data-aos="fade-bottom" data-aos-delay="300">Partner Institutes</h1>
-</div>
-<!-- First Container -->
-<div class="container py-5" id="partner-org">
-  <div class="row align-items-center">
+  <div class="course-offer">
+    <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">Course Offered</h1>
+  </div>
+  <div class="container my-5">
+    <div class="row">
+      <!-- Course Card -->
+      <div class="col-lg-12">
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
+          data-aos-delay="200">
+          <div>
+            <div class="course-title">CBSE</div>
+            <div class="course-duration">4 YEARS - UNDERGRADUATE | Class 8</div>
+            <div class="course-location">
+              <span class="badge bg-warning">UAE</span>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-viewss">VIEW DETAILS</button>
+          </div>
+        </div>
+      </div>
+      <!-- Course Card -->
+      <div class="col-lg-12">
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
+          data-aos-delay="400">
+          <div>
+            <div class="course-title">5 Year – M.C.A</div>
+            <div class="course-duration">5 YEARS - INTEGRATED DEGREE | COMPUTER APPLICATIONS</div>
+            <div class="course-location">
+              <span class="badge bg-warning">UAE</span>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-viewss">VIEW DETAILS</button>
+          </div>
+        </div>
+      </div>
+      <!-- Course Card -->
+
+      <!-- Course Card -->
+      <div class="col-lg-12">
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
+          data-aos-delay="600">
+          <div>
+            <div class="course-title">JEE (2 YEAR)</div>
+            <div class="course-duration">5 YEARS - INTEGRATED DEGREE | PHYSICAL SCIENCES, SCIENCES</div>
+            <div class="course-location">
+              <span class="badge bg-warning">UAE</span>
+              <span class="badge bg-warning">Tamilnadu</span>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-viewss">VIEW DETAILS</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-button-container">
+        <a href="#" class="btn btn-primary">More Courses</a>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="container partner-head">
+    <h1 data-aos="fade-top" data-aos-delay="300">Partner Institutes</h1>
+  </div>
+  <!-- First Container -->
+  <div class="container py-5" id="partner-org">
+    <div class="row align-items-center">
       <!-- Left Side: Heading and Paragraph -->
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-          <h2 data-aos="fade-up" data-aos-delay="100" class="fw-bold">Laurel Matric Higher Secondary School
-              <span> Coimbatore,Tamilnadu</span>
-          </h2>
-          <p class="lead" data-aos="fade-up" data-aos-delay="700">
-              Laurel is named by the qualities of the laurel tree leaves originated from the Olive tree family.
-              The three important qualities are evergreen nature, healing oil tendency and its usage as the leaves
-              used for crowning after victory.<br>Dedicated board & experienced staff members over the years have
-              put their ardent efforts in the upliftment of the school & to bring Laurels to Laurels. The unique
-              thought of laurels is <i>All are teachable</i>, and having its motto <i>Honour in Honesty</i> and
-              ​aim <i>Strive for Excellence</i>.<br>know more about school &nbsp;<a
-                  href="http://www.laurels-school.com/">press here</a>
-          </p>
-          <button id="toggle-video" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="500">Watch
-              Video</button>
-          <div id="video-container" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="600">
-              <iframe src="https://www.youtube.com/embed/Fz802MeYRdE?si=yjmrgTP4vMyasvMl" title="YouTube video"
-                  allowfullscreen>
-              </iframe>
-          </div>
+        <h2 data-aos="fade-up" data-aos-delay="100" class="fw-bold">Laurel Matric Higher Secondary School
+          <span> Coimbatore,Tamilnadu</span>
+        </h2>
+        <p class="lead" data-aos="fade-up" data-aos-delay="700">
+          Laurel is named by the qualities of the laurel tree leaves originated from the Olive tree family.
+          The three important qualities are evergreen nature, healing oil tendency and its usage as the leaves
+          used for crowning after victory.<br>Dedicated board & experienced staff members over the years have
+          put their ardent efforts in the upliftment of the school & to bring Laurels to Laurels. The unique
+          thought of laurels is <i>All are teachable</i>, and having its motto <i>Honour in Honesty</i> and
+          ​aim <i>Strive for Excellence</i>.<br>know more about school &nbsp;<a
+            href="http://www.laurels-school.com/">press here</a>
+        </p>
+        <button id="toggle-video" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="500">Watch
+          Video</button>
+        <div id="video-container" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="600">
+          <iframe src="https://www.youtube.com/embed/Fz802MeYRdE?si=yjmrgTP4vMyasvMl" title="YouTube video"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
       <div class="col-md-6">
-          <div class="hex-gallery">
-              <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
-                      alt="Gallery Image 1">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="500">
-                  <img src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
-                      alt="Gallery Image 2">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="800">
-                  <img src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
-                      alt="Gallery Image 3">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="1100">
-                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg"
-                      alt="Gallery Image 4">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="1300">
-                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg"
-                      alt="Gallery Image 5">
-              </div>
+        <div class="hex-gallery">
+          <div class="hex" data-aos="zoom-in" data-aos-delay="200">
+            <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
+              alt="Gallery Image 1">
           </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="500">
+            <img
+              src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
+              alt="Gallery Image 2">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="800">
+            <img
+              src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
+              alt="Gallery Image 3">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="1100">
+            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg" alt="Gallery Image 4">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="1300">
+            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg" alt="Gallery Image 5">
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 
-<!-- Second Container -->
-<div class="container py-5" id="partner-org">
-  <div class="row align-items-center">
+  <!-- Second Container -->
+  <div class="container py-5" id="partner-org">
+    <div class="row align-items-center">
       <div class="col-md-6 order-2 order-md-1">
-          <div class="hex-gallery">
-              <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-                  <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
-                      alt="Gallery Image 1">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="550">
-                  <img src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
-                      alt="Gallery Image 2">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="750">
-                  <img src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
-                      alt="Gallery Image 3">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="850">
-                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg"
-                      alt="Gallery Image 4">
-              </div>
-              <div class="hex" data-aos="zoom-in" data-aos-delay="1150">
-                  <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg"
-                      alt="Gallery Image 5">
-              </div>
+        <div class="hex-gallery">
+          <div class="hex" data-aos="zoom-in" data-aos-delay="200">
+            <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
+              alt="Gallery Image 1">
           </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="550">
+            <img
+              src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
+              alt="Gallery Image 2">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="750">
+            <img
+              src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
+              alt="Gallery Image 3">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="850">
+            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg" alt="Gallery Image 4">
+          </div>
+          <div class="hex" data-aos="zoom-in" data-aos-delay="1150">
+            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg" alt="Gallery Image 5">
+          </div>
+        </div>
       </div>
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 order-1 order-md-2">
-          <h2 data-aos="fade-up" data-aos-delay="0" class="fw-bold">Benglen Public School <span>
-                  Coimbatore,Tamilnadu</span></h2>
-          <p class="lead" data-aos="fade-up" data-aos-delay="500">
-              It follows CBSE syllabus. It is run by the Laurel Educational trust and their group school- Laurel
-              MHSS has been acclaimed as one of the best in class schools in Coimbatore with highest values for
-              Discipline and Character moulding of their school wards and also global alumni presence in almost
-              every field of life.
-              <br>The school strives to enable the kids to excel in all the fields of life. Not mere education
-              builds up an individual, but it's the combined aspects such as good mannerism, social awareness,
-              sports, good health, healthy environment and reduced stress in life.
-              <br>know more about school&nbsp;<a href="http://www.benglen.org/">press here</a>
-          </p>
-          <button id="toggle-video2" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="300">Watch
-              Video</button>
-          <div id="video-container2" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="400">
-              <iframe src="https://www.youtube.com/embed/tNcSRVFY2qU?si=ily_nJR3v66ZPREy" title="YouTube video"
-                  allowfullscreen>
-              </iframe>
-          </div>
+        <h2 data-aos="fade-up" data-aos-delay="0" class="fw-bold">Benglen Public School <span>
+            Coimbatore,Tamilnadu</span></h2>
+        <p class="lead" data-aos="fade-up" data-aos-delay="500">
+          It follows CBSE syllabus. It is run by the Laurel Educational trust and their group school- Laurel
+          MHSS has been acclaimed as one of the best in class schools in Coimbatore with highest values for
+          Discipline and Character moulding of their school wards and also global alumni presence in almost
+          every field of life.
+          <br>The school strives to enable the kids to excel in all the fields of life. Not mere education
+          builds up an individual, but it's the combined aspects such as good mannerism, social awareness,
+          sports, good health, healthy environment and reduced stress in life.
+          <br>know more about school&nbsp;<a href="http://www.benglen.org/">press here</a>
+        </p>
+        <button id="toggle-video2" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="300">Watch
+          Video</button>
+        <div id="video-container2" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="400">
+          <iframe src="https://www.youtube.com/embed/tNcSRVFY2qU?si=ily_nJR3v66ZPREy" title="YouTube video"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 
 
+
+
+
+
+
+  <div class="our-team mt-3">
+    <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">OUR TEAM</h1>
+  </div>
+
+  <div class="container managers-container">
+    <!-- Card 1 -->
+    <div class="custom-card unique-card-1" data-aos="zoom-in" data-aos-delay="250">
+      <a href="index.html"> <img src="images/first.jpg" class="custom-card-img" alt="Card 1">
+        <div class="inner-container">
+          <h5>MR. DIKESH</h5><br>
+
+
+        </div>
+      </a>
+    </div>
+    <!-- Card 2 -->
+    <div class="custom-card unique-card-2" data-aos="zoom-in" data-aos-delay="600">
+      <a href="">
+        <img src="images/second.jpg" class="custom-card-img" alt="Card 2">
+
+        <div class="inner-container">
+          <h5>K KRISHNA DAS</h5>
+        </div>
+      </a>
+    </div>
+    <!-- Card 3 -->
+    <div class="custom-card unique-card-3" data-aos="zoom-in" data-aos-delay="950">
+      <a href=""> <img src="https://th.bing.com/th/id/OIP.5R-Cuj3ScuaC6T3H7LZ1dAHaJQ?w=576&h=720&rs=1&pid=ImgDetMain"
+          class="custom-card-img" alt="Card 3">
+        <div class="inner-container">
+          <h5>MS. PRAVEENA</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="review-head mt-5">
+    <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">Testimonials</h1>
+  </div>
+
+  <div class="container mt-5">
+    <div class="reviews-container">
+      <!-- Review Card 1 -->
+      <div class="review-card">
+        <div class="d-flex align-items-center mb-3">
+          <span class="text-warning me-2">★★★★★</span>
+        </div>
+        <p>This JEE coaching institute exceeded my expectations. The teaching staff is highly experienced, and the study
+          material is well-organized. They focus on building strong foundations and provide regular assessments to track
+          progress. The supportive environment and personalized guidance have significantly boosted my confidence and
+          preparation for the exam..</p>
+
+        <div class="d-flex align-items-center mt-3">
+          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
+          <div>
+            <h6 class="mb-0">adhi</h6>
+            <small>Creative Director</small>
+          </div>
+        </div>
+      </div>
+      <!-- Review Card 2 -->
+      <div class="review-card">
+        <div class="d-flex align-items-center mb-3">
+          <span class="text-warning me-2">★★★★★</span>
+        </div>
+        <p>"The JEE coaching institute has been a game-changer for me. The teachers are highly knowledgeable and always
+          ready to help. The study material is excellent, and the regular mock tests helped me track my progress. Thanks
+          to the institute, I feel much more confident about the JEE exam</p>
+        <div class="d-flex align-items-center mt-3">
+          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
+          <div>
+            <h6 class="mb-0">midhun Smith</h6>
+            <small>Developer</small>
+          </div>
+        </div>
+      </div>
+      <!-- Review Card 3 -->
+      <div class="review-card">
+        <div class="d-flex align-items-center mb-3">
+          <span class="text-warning me-2">★★★★★</span>
+        </div>
+        <p>Joining this JEE coaching institute was one of the best decisions I made. The faculty members are not only
+          experts in their subjects but also extremely supportive. The personalized attention and clear explanations
+          helped me grasp difficult concepts with ease. The regular tests and doubt-solving sessions ensured I stayed on
+          track and prepared thoroughly. Highly recommended!</p>
+        <div class="d-flex align-items-center mt-3">
+          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
+          <div>
+            <h6 class="mb-0">vishnu Davis</h6>
+            <small>Designer</small>
+          </div>
+        </div>
+      </div>
+      <!-- Review Card 4 -->
+      <div class="review-card">
+        <div class="d-flex align-items-center mb-3">
+          <span class="text-warning me-2">★★★★★</span>
+        </div>
+        <p>As a student at Cayla NEET Coaching Institute, I found the teaching exceptional. The faculty is highly
+          supportive, and the study materials are comprehensive. Regular tests helped me track my progress, and the
+          personalized guidance boosted my confidence for NEET</p>
+
+        <div class="d-flex align-items-center mt-3">
+          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
+          <div>
+            <h6 class="mb-0">Abhinav mill</h6>
+            <small>Marketing Head</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container call-cayla mt-5">
+    <h1>Request a Call Back <br> by Dragging the <br> Phone Icon </h1>
+    <div class="toggle-container" id="toggleContainer">
+      <div class="toggle-button" id="toggleButton">
+        <i class="fas fa-phone"></i>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Footer Section -->
@@ -1454,74 +2039,56 @@
     <div class="container">
       <div class="row">
 
-        <!-- Logo Section -->
-        <div class="col-12 col-lg-3 col-md-4 logo">
-          <img id="logofooter" src="https://intensivecarenetwork.com/wp-content/uploads/2014/01/STUDENT_LOGO.png"
-            alt="Logo" class="img-fluid">&nbsp;Edumentor<br><br><br>
+        <div class="col-6 col-lg-3 col-md-4 logo">
+          <img id="logofooter" src="images/logo.png" alt="Logo"><br><br><br>
           <h5>Follow Us</h5>
           <div class="social-links">
-            <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+            <a href="fake.html" class="text-light"><i class="fab fa-facebook-f" style="color: #274ce0;"> </i></a>
+            <a href="#" class="text-light"><i class="fab fa-youtube   " style="color: #f20707;"></i></a>
+            <a href="#" class="text-light"><i class="fab fa-instagram" style="color: #bc237f;"></i></a>
           </div>
         </div>
 
-        <!-- About Us Section -->
-        <div class="col-6 col-lg-3 col-md-4 footer-column">
-          <h5 class="animated-text">ABOUT US</h5>
-          <p>mmmm</p>
-          <p>dummy</p>
-          <p>dummy</p>
-          <p>dummy</p>
-          <p>dummy</p>
-        </div>
 
-        <!-- Help Section -->
         <div class="col-6 col-lg-3 col-md-4 footer-column">
-          <h5 class="animated-text">HELP</h5>
-          <p>dummy</p>
-          <p>dummy</p>
-          <p>Privacy Policy</p>
-          <p>dummy</p>
+          <h5 class="animated-text">ABOUT</h5>
+          <p>TAbout Us</p>
+          <p>Mission </p>
+          <p>Vision </p>
+          <p>other</p>
+          <!-- <p></p> -->
+        </div>
+        <div class="col-6 col-lg-3 col-md-4 footer-column">
+          <h5 class="animated-text">PAGES</h5>
+          <p>Gallery</p>
+          <p>Course offered</p>
+          <p>About Us</p>
+          <p>Our Team</p>
           <p>Terms And Condition</p>
         </div>
-
-        <!-- Articles Section -->
         <div class="col-6 col-lg-3 col-md-4 footer-column">
-          <h5 class="animated-text">Articles</h5>
-          <p>About</p>
-          <p>Our story</p>
-          <p>About dummy</p>
+          <h5 class="animated-text">Partner</h5>
+          <p>Laurel Matric</p>
+          <p>Benglen Public School</p>
+          <p>About more</p>
+
         </div>
 
-        <!-- Empty Column (for layout spacing) -->
-        <div class="col-lg-4 col-md-4 footer-column">
-          <!-- Empty div for layout, you can add more content here if needed -->
-        </div>
       </div>
+      <div class="col-12">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d380813.4947990859!2d74.9703030857318!3d10.850516430020809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f6b9cf33adf%3A0x9973b6fa9f5cbd2!2sKerala!5e0!3m2!1sen!2sin!4v1700650283382" frameborder="0" style="border:0; width:100%; height:300px;" allowfullscreen=""></iframe>        </div>
+    </div>
 
-      <!-- Map Embed Section (Medium Size, Responsive) -->
-      <div class="row mb-4">
-        <div class="col-12">
-          <!-- Updated Map with Medium Size and Responsive Class -->
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.4323400396126!2d-122.08424948469296!3d37.42199977982494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb6cb8992db89%3A0xd5ac24b4518bc5a1!2sGoogleplex!5e0!3m2!1sen!2sus!4v1610557122271!5m2!1sen!2sus"
-            width="90%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Contact Information -->
-      <div class="contact-info">
+      <div class="contact-info ">
         <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
-        <p><strong>Phone:</strong> +91 7994 0154</p>
-        <p><strong>Email:</strong> collge.in</p>
+
+        <a href="tel:+917994015471">Call +91 7994015471</a>
+        <p><strong>Email:</strong>email here</p>
         <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
       </div>
     </div>
   </footer>
-
-
 
 
 
@@ -1538,9 +2105,107 @@
 
 
   <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const toggleContainer = document.getElementById('toggleContainer');
+    let isDragging = false;
+    let startX;
+
+    // Handle mouse down event to start dragging
+    toggleButton.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      toggleButton.classList.remove('disabled'); // Enable dragging
+      e.preventDefault(); // Prevent text selection while dragging
+    });
+
+    // Handle mouse move event to drag the button
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      const containerWidth = toggleContainer.offsetWidth;
+      let newLeft = deltaX;
+
+      // Ensure the button does not move beyond the container
+      if (newLeft < 0) newLeft = 0;
+      if (newLeft > containerWidth - toggleButton.offsetWidth) {
+        newLeft = containerWidth - toggleButton.offsetWidth;
+      }
+
+      toggleButton.style.left = newLeft + 'px';
+
+      // If the button reaches 100% of the container's width, stop the drag and trigger the call
+      if (newLeft >= containerWidth - toggleButton.offsetWidth) {
+        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px'; // Set button to the rightmost position
+        toggleButton.classList.add('disabled'); // Disable further dragging
+        // Trigger the phone call after reaching 100%
+        window.location.href = "tel:+1234567890"; // Replace with the desired phone number
+      }
+    });
+
+    // Handle mouse up event to stop dragging
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        const containerWidth = toggleContainer.offsetWidth;
+        const currentPosition = parseInt(toggleButton.style.left);
+
+        // If the drag is less than 100%, reset the position to 0
+        if (currentPosition < containerWidth - toggleButton.offsetWidth) {
+          toggleButton.style.left = '0px';
+        }
+      }
+    });
+
+    // Handle touch events for mobile devices
+    toggleButton.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      toggleButton.classList.remove('disabled'); // Enable dragging
+      e.preventDefault();
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.touches[0].clientX - startX;
+      const containerWidth = toggleContainer.offsetWidth;
+      let newLeft = deltaX;
+
+      // Ensure the button does not move beyond the container
+      if (newLeft < 0) newLeft = 0;
+      if (newLeft > containerWidth - toggleButton.offsetWidth) {
+        newLeft = containerWidth - toggleButton.offsetWidth;
+      }
+
+      toggleButton.style.left = newLeft + 'px';
+
+      // If the button reaches 100% of the container's width, stop the drag and trigger the call
+      if (newLeft >= containerWidth - toggleButton.offsetWidth) {
+        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px'; // Set button to the rightmost position
+        toggleButton.classList.add('disabled'); // Disable further dragging
+        // Trigger the phone call after reaching 100%
+        window.location.href = "tel:+1234567890"; // Replace with the desired phone number
+      }
+    });
+
+    document.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        const containerWidth = toggleContainer.offsetWidth;
+        const currentPosition = parseInt(toggleButton.style.left);
+
+        // If the drag is less than 100%, reset the position to 0
+        if (currentPosition < containerWidth - toggleButton.offsetWidth) {
+          toggleButton.style.left = '0px';
+        }
+      }
+    });
+  </script>
+
+
+  <script>
     AOS.init({
-        duration: 1000,
-        offset: 100,
+      duration: 1000,
+      offset: 100,
     });
 
 
@@ -1548,37 +2213,37 @@
     const videoContainer = document.getElementById('video-container');
 
     button.addEventListener('click', () => {
-        if (videoContainer.style.display === 'none' || videoContainer.style.display === '') {
-            videoContainer.style.display = 'block';
-            button.textContent = 'Close Video';
-        } else {
-            videoContainer.style.display = 'none';
-            button.textContent = 'Watch Video';
-        }
+      if (videoContainer.style.display === 'none' || videoContainer.style.display === '') {
+        videoContainer.style.display = 'block';
+        button.textContent = 'Close Video';
+      } else {
+        videoContainer.style.display = 'none';
+        button.textContent = 'Watch Video';
+      }
     });
-</script>
+  </script>
 
-<script>
+  <script>
     const button2 = document.getElementById('toggle-video2');
     const videoContainer2 = document.getElementById('video-container2');
 
     button2.addEventListener('click', () => {
-        if (videoContainer2.style.display === 'none' || videoContainer2.style.display === '') {
-            videoContainer2.style.display = 'block';
-            button2.textContent = 'Close Video';
-        } else {
-            videoContainer2.style.display = 'none';
-            button2.textContent = 'Watch Video';
-        }
+      if (videoContainer2.style.display === 'none' || videoContainer2.style.display === '') {
+        videoContainer2.style.display = 'block';
+        button2.textContent = 'Close Video';
+      } else {
+        videoContainer2.style.display = 'none';
+        button2.textContent = 'Watch Video';
+      }
     });
-</script>
+  </script>
   <script>
     AOS.init(); // Initialize AOS animations
-</script>
-<script>
+  </script>
+  <script>
     AOS.init({
-      duration: 1500, 
-      offset: 100, 
+      duration: 1500,
+      offset: 100,
     });
   </script>
   <script>
@@ -1732,7 +2397,7 @@
     });
   </script>
 
- 
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
