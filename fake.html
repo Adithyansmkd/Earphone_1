@@ -1,12 +1,13 @@
-<!doctype html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +15,19 @@
     integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Cayla</title>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="images/logo.ico" type="image/x-icon">
+
+  <!-- Favicon for high-resolution displays -->
+  <link rel="icon" href="{% static 'images/title_logo.png' %}" sizes="32x32" type="image/png">
+  <link rel="icon" href="{% static 'images/title_logo.png' %}" sizes="48x48" type="image/png">
+
+  <!-- Apple touch icon (for iPhones, iPads) -->
+  <link rel="apple-touch-icon" href="{% static 'images/title_logo.png' %}">
+
+  <!-- For Android devices -->
+  <link rel="icon" href="" sizes="192x192" type="image/png">
+
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -22,10 +35,85 @@
     body {
       background-color: #ffffff;
     }
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+ 
+    .whatsapp-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
 
+    /* Chat Now Message */
+    .whatsapp-message {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background-color: white;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
 
+    .whatsapp-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
+    .whatsapp-message .close-btn {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: #999;
+      font-size: 16px;
+    }
 
+    .whatsapp-message .close-btn:hover {
+      color: #333;
+    }
+
+    /* Media Query for Responsiveness */
+    @media (max-width: 768px) {
+      .whatsapp-message {
+        bottom: 80px;
+        right: 10px;
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+      .whatsapp-icon {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 10px;
+      }
+      .whatsapp-icon i {
+        font-size: 1.5rem;
+      }
+    }
 
     .header-top {
       /* background-color: #0f141b; */
@@ -34,10 +122,9 @@
 
       position: fixed;
       z-index: 900;
-      height: 5vh;
+      height: 5.3vh;
       display: flex;
       align-items: center;
-
       justify-content: center;
       width: 100%;
     }
@@ -52,15 +139,10 @@
     .header-top .container .left p {
       margin: 0;
       padding: 0;
-      margin-top: 13px;
       font-size: 14px;
       font-family: fantasy;
       letter-spacing: 1px;
       color: #000;
-    }
-
-    .social-icons {
-      margin-top: 14px;
     }
 
 
@@ -76,8 +158,6 @@
     .social-icons a.instagram {
       color: #dd3ea0;
     }
-
-
 
     /* Hover effect */
     .social-icons a:hover {
@@ -95,24 +175,20 @@
 
       .social-icons a {
         font-size: 16px;
+        margin: 0 4px;
         /* Smaller icon size for mobile */
       }
 
       .header-top {
         height: 7vh;
       }
-    }
 
-    
-
-    /* Media Query */
-    @media (max-width: 768px) {
-      .register-btn {
-        padding: 3px 10px;
-        font-size: 13px;
-        border-radius: 4px;
+      .email_p_hide {
+        display: none;
       }
     }
+
+  
 
     .navbar {
       /* background-color: #0D1117; */
@@ -125,8 +201,17 @@
       border-bottom: 2px solid #1c9589;
     }
 
+    /* Name */
+    .navbar-brand span {
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
     .navbar-brand img {
       width: 30%;
+      margin-top: -10%;
       height: 5vh;
     }
 
@@ -148,7 +233,6 @@
       overflow: hidden;
       z-index: 1200;
       border: none;
-
     }
 
     .dropdown-menu li {
@@ -156,19 +240,14 @@
       border-bottom: 1px solid #000;
     }
 
-
     /* imp */
     .dropdown-menu li a:hover {
       background-color: transparent;
-
     }
 
     .nav-item {
       padding: 5px 15px;
-
     }
-
-
 
 
     @media (max-width: 991.98px) {
@@ -195,26 +274,27 @@
         color: #000;
       }
 
-
       .navbar-nav .nav-item {
         border-bottom: 1px solid #111b25;
       }
 
       .navbar {
-        top: 6vh;
+        top: 5vh;
       }
+
     }
-    @media (max-width:1000px) {
-      .navbar{
+
+    @media (max-width: 1000px) {
+      .navbar {
         top: 4vh;
       }
     }
+
     .nav-item a {
       font-weight: 600;
     }
 
     .nav-item a:hover {
-     
       border-bottom: 1.5px solid #000;
     }
 
@@ -229,12 +309,6 @@
       color: #000 !important;
     }
 
-    .navbar-brand span {
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      font-weight: 900;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
 
     .navbar-brand-right {
       display: flex;
@@ -243,14 +317,40 @@
       width: 50px;
     }
 
+    .register-btn {
+      padding: 4px 30px;
+      color: #000;
+      background-color: transparent;
+      border-radius: 8px;
+      border: 1.5px solid #000;
+      font-weight: 600;
+    }
+      /* Media Query */
+      @media (max-width: 768px) {
+      .register-btn {
+        padding: 3px 10px;
+        font-size: 13px;
+        border-radius: 4px;
+      }
+    }
+
+    @media(max-width:1050px) {
+      .register-btn {
+        padding: 4px 18px;
+      }
+    }
+
     @media (max-width: 991.98px) {
       .navbar-nav {
         text-align: left;
-
       }
 
       .navbar-brand span {
-        font-size: 2rem;
+        font-size: 2.1rem;
+      }
+
+      .register-btn {
+        padding: 4px 15px;
       }
     }
 
@@ -262,17 +362,10 @@
     .navbar-brand-right a i {
       font-size: 1.1rem;
     }
-    .register-btn {
-      padding: 4px 30px;
-      color: #000;
-      background-color: transparent;
-      border-radius: 8px;
-      border: 1.5px solid #fff;
-      font-weight: 600;
-    }
+
 
     .register-btn:hover {
-      background-color: #d8a45d
+      background-color: #d8a45d;
     }
 
     #logo {
@@ -280,13 +373,11 @@
       border-radius: 50%;
       width: 50px;
       height: 50px;
-
     }
 
     .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M4 6h22' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 14h18' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 22h14' stroke='black' stroke-width='3'/%3E%3C/svg%3E") !important;
     }
-
 
     @media (max-width: 570px) {
       .navbar-brand-right a {
@@ -299,17 +390,11 @@
       }
 
       #logo {
-
         border-radius: 50%;
         width: 35px;
         height: 35px;
-
       }
     }
-
-
-
-
 
 
 
@@ -317,11 +402,10 @@
       height: 80vh;
     }
 
-    @media (max-width:777px) {
+    @media (max-width: 777px) {
       .carousel-item {
         height: 54vh;
       }
-
     }
 
     .carousel-item img {
@@ -336,16 +420,7 @@
       left: 0;
       right: 0;
 
-
       color: white;
-    }
-
-    .carousel-caption .btn {
-      margin-top: 5;
-      background: linear-gradient(245deg, #67b0da, #0c4cd7);
-      color: white;
-      border-radius: 10px 0 10px 0;
-      border: none;
     }
 
 
@@ -354,7 +429,6 @@
     .hero-section {
       background: #ffffff;
       color: white;
-      
     }
 
     .hero-section h1 {
@@ -364,31 +438,24 @@
     }
 
     .hero-section p {
-
       font-size: 1.2rem;
       color: #000;
     }
 
-    @media (max-width:777px) {
+    @media (max-width: 777px) {
       .hero-section h1 {
         font-size: 1.3rem;
         font-weight: bold;
         color: #32b2a5;
       }
+
       .hero-section p {
-   
-      font-size: 1rem;
-      color: #000;
+        font-size: 1rem;
+        color: #000;
+      }
     }
-    }
-
-
-
-
-
 
     .about-section {
-
       padding: 50px 20px;
       height: auto;
     }
@@ -426,22 +493,22 @@
       overflow: hidden;
       background-size: 200% auto;
       background-position: right center;
-      background-image: linear-gradient(to left, #FFEB3B 50%, #FF9800 50%);
+      background-image: linear-gradient(to left, #ffeb3b 50%, #edd713 50%);
       transition: background-position 0.4s ease;
     }
 
     .btn-view-more:hover {
       background-position: left center;
       transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(255, 152, 0, 0.8);
+      box-shadow: 0 0 20px rgba(255, 211, 17, 0.927);
     }
 
     .btn-view-more:active {
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 152, 0, 1);
+      box-shadow: 0 0 10px rgb(252, 222, 26);
     }
 
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       .btn-view-more {
         padding: 3px 5px;
       }
@@ -455,7 +522,6 @@
       }
 
       .about-section {
-
         margin-top: -10%;
       }
     }
@@ -465,13 +531,13 @@
     }
 
     .video-container::before {
-      content: "";
+      content: '';
       position: absolute;
       top: -15%;
       left: 40%;
       width: 60%;
       height: 50vh;
-      background: url(https://th.bing.com/th/id/R.eeaa5ccbbe2eba03045839971fb7c0ee?rik=WM0VPogL5g75%2bA&riu=http%3a%2f%2ffarm4.staticflickr.com%2f3044%2f4562047133_bec29723db_o_d.png&ehk=eFA0KqdZo0CzpmQUXZ5OLFVcAtzdUu5azcvfCd0Zynw%3d&risl=&pid=ImgRaw&r=0);
+      background: url(" {% static 'images/dot.png' %} ");
       background-position: center;
       background-size: cover;
       z-index: -1;
@@ -482,7 +548,7 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       .video-container {
         margin-top: 25%;
       }
@@ -496,16 +562,6 @@
         left: 42%;
       }
     }
-
-
-
-
-
-
-
-
-
-
 
     .full-width-container {
       width: 100%;
@@ -536,9 +592,7 @@
     .centered-row {
       width: 85%;
       margin: 0 auto;
-
     }
-
 
     .feature-item {
       text-align: center;
@@ -621,7 +675,6 @@
     }
 
     @media (max-width: 768px) {
-
       .feature-item {
         margin-bottom: 20px;
       }
@@ -632,6 +685,14 @@
     }
 
 
+
+
+    #why_cayla_main {
+      background: url(" {% static 'images/why.jpg' %} ");
+
+      background-size: contain;
+      background-repeat: round;
+    }
 
     .card {
       border: none;
@@ -648,7 +709,7 @@
     }
 
     .card::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       left: 0;
@@ -683,35 +744,44 @@
 
     .card-text {
       font-size: 0.85rem;
-      /* Adjust text size */
       height: 220px;
-      /* Set fixed height for paragraph */
       overflow-y: auto;
       color: #2b2929;
-      /* Allow vertical scrolling */
       padding-right: 10px;
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      /* Ensure space for scrollbar */
+    }
+ .card-text::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .card-text::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .card-text::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .card-text {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.237) transparent;
     }
 
     .icon-container {
       position: absolute;
       z-index: 100;
       top: -30px;
-      /* Position the icon outside of the card */
       left: 50%;
-      z-index: 1000;
+      z-index: 800;
       transform: translateX(-50%);
       width: 60px;
       height: 60px;
       background-color: #32b2a5;
-      /* Red background */
       border-radius: 50%;
-      /* Circular icon */
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Shadow for icon */
     }
 
     .icon-container i {
@@ -721,38 +791,30 @@
     @media (max-width: 768px) {
       .card {
         height: 36vh;
-        /* Adjust height for smaller screens */
         padding: 20px;
       }
 
       .card-title {
         font-size: 1.1rem;
-        /* Smaller title size */
       }
 
       .card-text {
         font-size: 0.7rem;
         height: 120px;
-        /* Smaller text size */
       }
 
       .icon-container {
         position: absolute;
         top: -20px;
-        /* Position the icon outside of the card */
         left: 50%;
         transform: translateX(-50%);
         width: 50px;
         height: 50px;
         background-color: #32b2a5;
-        /* Red background */
         border-radius: 50%;
-        /* Circular icon */
         display: flex;
         align-items: center;
         justify-content: center;
-
-        /* Shadow for icon */
       }
     }
 
@@ -775,7 +837,7 @@
       font-size: 1.2rem;
     }
 
-    @media (max-width:777px) {
+    @media (max-width: 777px) {
       .why_cayla {
         font-size: 1.7rem;
         font-weight: 800;
@@ -788,12 +850,6 @@
         font-size: 0.9rem;
       }
     }
-
-
-
-
-
-
 
     #partner-org h2 {
       font-size: 2.5rem;
@@ -820,7 +876,7 @@
       color: #d1b851;
     }
 
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       #partner-org h2 {
         font-size: 1.4rem;
       }
@@ -916,7 +972,6 @@
       font-weight: 500;
     }
 
-
     .partner-head h1 {
       font-size: 2.2rem;
       text-align: center;
@@ -931,20 +986,14 @@
       .partner-head h1 {
         font-size: 1.7rem;
         text-align: center;
-
       }
     }
-
-
-
-
 
     .course-card {
       border: none;
       border-left: 5px solid #32b2a5;
       background-color: #fff;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.299);
-      /* Stronger and larger shadow */
 
       margin-bottom: 20px;
       padding: 20px;
@@ -993,7 +1042,6 @@
       font-weight: 800;
     }
 
-
     @media (max-width: 768px) {
       .course-title {
         font-size: 1rem;
@@ -1029,117 +1077,121 @@
 
 
 
+
+    .custom-card {
+      position: relative;
+      border: none;
+      height: 400px;
+      width: 320px !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .custom-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      border-radius: 10px;
+    }
+
+    .inner-container {
+      position: absolute;
+      bottom: -10%;
+      left: 5%;
+      width: 90%;
+      height: 20%;
+      background-color: #07312d;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .inner-container h5 {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
     .managers-container {
-  margin-top: 50px;
-}
-
-.custom-card {
-  position: relative;
-  border: none;
-  height: 420px;
-  width: 320px !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  border-radius: 10px;
-}
-
-.inner-container {
-  position: absolute;
-  bottom: -10%;
-  left: 5%;
-  width: 90%;
-  height: 20%;
-  background-color: #07312d;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.our-team h1 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 2rem;
-  color: #32b2a5;
-  font-weight: 800;
-}
-
-.inner-container h5 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@media (min-width: 768px) and (max-width: 1200px) {
-  .managers-container {
-    display: flex;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    padding-bottom: 20px;
-    gap: 20px; /* Add space between cards */
-  }
-
-  .custom-card {
-    flex-shrink: 0;
-    width: 320px !important;
-    height: 420px;
-    margin-right: 15px; /* Space between cards */
-  }
-
-  /* Optional: Scrollbar customization */
-  .managers-container::-webkit-scrollbar {
-    height: 8px; /* Adjust height of the scrollbar */
-  }
-
-  .managers-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-  }
-
-  .managers-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-}
-
-@media (min-width: 768px) {
-  .managers-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .custom-card {
-    margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 767px) {
-  .managers-container {
-    display: flex;
-    overflow-x: auto;
-    height: auto;
-    padding-bottom: 60px;
-    white-space: nowrap;
-  }
-
-  .custom-card {
-    flex-shrink: 0;
-    width: 280px !important;
-    margin-right: 15px;
-    height: 320px;
-  }
-
-  .our-team h1 {
-    font-size: 1.6rem;
-  }
-}
+      margin-top: 50px;
+      display: flex;
+      height: 55vh;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+      white-space: nowrap;
+    }
 
 
+    .our-team h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: #32b2a5;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+
+    }
+
+    .managers-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .managers-container::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+
+    .managers-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    @media (max-width:780px) {
+      .custom-card {
+        height: 350px;
+      }
+
+      .managers-container {
+        height: 55vh;
+      }
+
+      .our-team h1 {
+        font-family: 1.6rem;
+      }
+    }
+
+    @media (max-height:730px) {
+      .managers-container {
+        height: 64vh;
+      }
+    }
+
+    @media (max-height:650px) {
+      .managers-container {
+        height: 60vh;
+
+      }
+
+      .custom-card {
+        height: 300px;
+      }
+    }
+
+    @media (max-height:580px) {
+      .managers-container {
+        height: 70vh;
+
+      }
+
+      .custom-card {
+        height: 250px;
+        width: 200px;
+      }
+    }
 
 
 
@@ -1150,48 +1202,48 @@
       font-weight: 800;
     }
 
-    .review-card {
-      background-color: #eff1f1;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      min-width: 280px;
-      /* Minimum width for horizontal scroll */
+
+    .height {
+      height: auto;
     }
 
-    .reviews-container {
-      display: flex;
-      flex-wrap: nowrap;
-      /* Prevent wrapping for horizontal scroll */
-      overflow-x: auto;
-      /* Enable horizontal scroll */
-      padding-bottom: 10px;
+    .card-test {
+
+     background-color: #57dfd162;   
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(51, 51, 51, 0.189)
     }
 
-    @media (min-width: 768px) {
-      .reviews-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* 4 cards per row on desktop */
-        gap: 20px;
-        overflow-x: visible;
-        /* Disable horizontal scroll */
-      }
+    .card-test:hover {
+
+      background-color: #32b2a54e;
+
     }
 
-    @media (max-width: 768px) {
-      .review-head h1 {
-        font-size: 1.6rem;
-      }
+    .ratings i {
+
+      color: orange;
     }
 
+    .testimonial-list {
 
+      list-style: none;
+    }
 
+    .testimonial-list li {
 
+      margin-bottom: 20px;
+    }
 
+    .testimonials-margin {
 
+      margin-top: -19px;
+    } 
 
+   
+
+    /* request call back start */
     .call-cayla {
       display: flex;
       justify-content: space-between;
@@ -1203,6 +1255,8 @@
       position: relative;
       transition: all 0.3s ease;
     }
+
+
 
     .call-cayla h1 {
       color: #db0a0a;
@@ -1297,118 +1351,7 @@
 
 
 
-    .footer {
-      background: #0D1117;
-      color: #fff;
-      text-align: left;
-      padding: 50px 0;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      position: relative;
-    }
-
-    .footer p {
-      color: #c5c4c89f;
-    }
-
-    .footer .logo img {
-      width: 100px;
-      height: auto;
-    }
-
-    .footer .animated-text {
-      display: inline-block;
-      animation: text-animation 3s ease infinite;
-    }
-
-    .footer a {
-      color: #f8f9fa;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: #ffc107;
-      text-decoration: underline;
-    }
-
-    .footer .contact-info {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .footer .contact-info p {
-      margin: 5px 0;
-
-    }
-
-    .footer .social-links a {
-      margin: 0 10px;
-      font-size: 18px;
-    }
-
-
-    .footer .row .col-6 {
-      text-align: left;
-    }
-
-    #logofooter {
-      width: 70px;
-      height: 7vh;
-      background-color: #ffc107;
-      border-radius: 50%;
-    }
-
-    @media (max-width: 768px) {
-      .footer .row {
-        text-align: center;
-      }
-
-      .footer .logo,
-      .footer .footer-column {
-        margin-bottom: 20px;
-      }
-
-      #logofooter {
-        width: 60px;
-
-      }
-    }
-
-
-    .map-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .map-container iframe {
-        width: 70%;
-        /* 70% width on desktop */
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .map-container iframe {
-        width: 100%;
-        /* Full width on mobile */
-        height: 200px;
-        /* Adjust height for mobile */
-      }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    .our-gallery{
+    .our-gallery {
       margin-top: 8% !important;
     }
 
@@ -1418,21 +1361,24 @@
       color: #32b2a5;
       font-weight: 800;
     }
+
     .see-more {
       font-size: 1.2rem;
       font-weight: 500;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      color: #32b2a5;
+      color: #000;
     }
-    @media (max-width:780px){
-      .our-gallery h1{
-        font-size: 1.6rem
+
+    @media (max-width: 780px) {
+      .our-gallery h1 {
+        font-size: 1.6rem;
       }
+
       .see-more {
-      font-size: 1rem;
-    
+        font-size: 1rem;
+      }
     }
-    }
+
     /* Useful Classes */
     .xy-center {
       position: absolute;
@@ -1510,30 +1456,137 @@
     .move-btn.right {
       cursor: e-resize;
     }
+
+
+
+
+
+
+
+
+
+    .footer {
+      background: #0d1117;
+      color: #fff;
+      text-align: left;
+      padding: 50px 0;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: relative;
+    }
+
+    .footer p {
+      color: #c5c4c89f;
+    }
+
+    .footer .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .footer .animated-text {
+      display: inline-block;
+      animation: text-animation 3s ease infinite;
+    }
+
+    .footer a {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+
+    .icon-link:hover {
+      color: red;
+    }
+
+    .footer a:hover {
+      color: #ffc107;
+      text-decoration: underline;
+    }
+
+    .footer .contact-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer .contact-info p {
+      margin: 5px 0;
+    }
+
+    .footer .social-links a {
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .footer .row .col-6 {
+      text-align: left;
+    }
+
+    #logofooter {
+      width: 60px;
+      height: 7h;
+      background-color: #ffc107;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .footer .row {
+        text-align: center;
+      }
+
+      .footer .logo,
+      .footer .footer-column {
+        margin-bottom: 20px;
+      }
+
+      #logofooter {
+        width: 60px;
+      }
+    }
+
+    .map-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    @media (min-width: 768px) {
+      .map-container iframe {
+        width: 70%;
+        /* 70% width on desktop */
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .map-container iframe {
+        width: 100%;
+        /* Full width on mobile */
+        height: 200px;
+        /* Adjust height for mobile */
+      }
+    }
+
   </style>
   <header class="header-top">
     <div class="container">
-      <!-- Left Div (Phone and Email) -->
       <div class="left">
-        <p><i class="fa-solid fa-phone-volume fa-shake" style="color: #f20707;"></i> Call Now: 56789567899</p>
+        <p><a href="tel:+971504050688" style="color: #000;">
+            <i class="fa-solid fa-phone-volume fa-shake" style="color: #f20707;"></i> Call Now: +971504050688
+          </a><span class="email_p_hide">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-envelope"
+              style="color: #f20707;"></i>&nbsp;&nbsp;caylatraininginstitute@gmail.com</span></p>
       </div>
-      <!-- Right Div (Social Media Links) -->
       <div class="right">
         <div class="social-icons">
-          <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram instagram"></a>
-          <a href="https://www.facebook.com" target="_blank" class="fa-brands fa-facebook" style="color: #155ad1;"></a>
-          <a href="https://www.youtube.com" target="_blank" class="fa-brands fa-youtube youtube"
+          <a href="https://www.instagram.com/caylaalain879?igsh=Z2hrZ25ibm5kbXZ6" target="_blank" class="fab fa-instagram instagram"></a>
+          <a href="https://www.facebook.com/profile.php?id=61571049111510" target="_blank" class="fa-brands fa-facebook" style="color: #155ad1;"></a>
+          <a href="https://youtube.com/@caylatrainingcentrealainuae?feature=shared" target="_blank" class="fa-brands fa-youtube youtube"
             style="color: #db0a0a;"></a>
         </div>
       </div>
     </div>
   </header>
-  <div class="dummy" style="height: 6vh; width: 100%;">
-
-  </div>
-  <style>
-
-  </style>
+  <div class="dummy" style="height: 5vh; width: 100%;"></div>
+  <style></style>
 
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
@@ -1541,52 +1594,54 @@
       <div class="merge">
         <button style="padding: 1px; border: none;  margin-left: 8px;" class="navbar-toggler" type="button"
           data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <a class="navbar-brand" style="font-family: 'Times New Roman', Times, serif" id="companyname" href="#"><img
-            id="logo" src="images/logo.png" alt="company logo"><span>&nbsp;Cayla</span>
-        </a>
+            id="logo" src="{% static 'images/logo.png' %}" alt="company logo" /><span>&nbsp;Cayla</span></a>
       </div>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a style="border-bottom: 2px solid black;" class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Courses Offered
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-              <li><a class="dropdown-item" href="#">CBSE</a></li>
-              <li><a class="dropdown-item" href="#">IGCSE</a></li>
-              <li><a class="dropdown-item" href="#">JEE</a></li>
-              <li><a class="dropdown-item" href="#">NEET</a></li>
-              <li><a class="dropdown-item" href="#">AP</a></li>
-            </ul>
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#signup">Faculty</a>
+            <a class="nav-link" href="{% url 'course_list' %}">Courses Offered</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="{% url 'faculty' %}">Faculty</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'gallery:gallery' %}">Gallery</a>
           </li>
         </ul>
       </div>
 
-
       <!-- Right-side icons -->
       <div class="navbar-brand-right">
-        <button class="register-btn">Register</button>
+        <a href="{% url 'course_list' %}" ><button class="register-btn">Register</button></a>
       </div>
     </div>
   </nav>
   <div class="dummy" style="height: 9.4vh; width: 100%;"></div>
-  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+  <div id="whatsapp-message" class="whatsapp-message">
+    <span>Chat Now with an Expert</span>
+    <button class="close-btn" onclick="closeMessage()">&times;</button>
+  </div>
+  
+  <!-- WhatsApp Icon -->
+  <a 
+    href="https://wa.me/971504050688" 
+    target="_blank" 
+    class="whatsapp-icon"
+    aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp fa-2x"></i>
+  </a>
+  
+
+  {% comment %} <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -1602,45 +1657,63 @@
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page1">
-          <img src="images/ban-1_mob.jpg"
-            class="d-block w-100 d-md-none" alt="Mobile Slide 1">
-        </a>
+        <a href="https://your-link.com/page1"><img src="{% static 'images/ban-1_mob.jpg' %}"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 1" /></a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page1">
-          <img src="images/ban-1.jpg" class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1">
-        </a>
+        <a href="https://your-link.com/page1"><img src="{% static 'images/ban-1.jpg' %}"
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1" /></a>
       </div>
 
       <!-- Slide 2 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page2">
-          <img src="images/ban-2_mob.jpg"
-            class="d-block w-100 d-md-none" alt="Mobile Slide 2">
-        </a>
+        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-2_mob.jpg' %}"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 2" /></a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page2">
-          <img src="images/ban-2.jpg"
-            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 2">
-        </a>
+        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-2.jpg' %}"
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 2" /></a>
       </div>
 
       <!-- Slide 3 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page3">
-          <img
-            src="images/ban-3_mob.jpg"
-            class="d-block w-100 d-md-none" alt="Mobile Slide 3">
+        <a href="https://your-link.com/page3"><img src="{% static 'images/ban-3_mob.jpg' %}"
+            class="d-block w-100 d-md-none" alt="Mobile Slide 3" /></a>
+        <!-- Link for Desktop Image -->
+        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-3.jpg' %} "
+            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 3" /></a>
+      </div>
+    </div>
+
+    <!-- Controls (Prev & Next Buttons) -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> {% endcomment %}
+
+
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for item in carousel_items %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <!-- Link for Mobile Image -->
+        <a href="">
+          <img src="{{ item.mobile_image.url }}" class="d-block w-100 d-md-none" alt="Mobile Slide {{ item.id }}" />
         </a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page2">
-          <img
-            src="images/ban-3.jpg "
-            class="d-block w-100 d-none d-md-block" alt="Desktop Slide 3">
+        <a href="">
+          <img src="{{ item.desktop_image.url }}" class="d-block w-100 d-none d-md-block"
+            alt="Desktop Slide {{ item.id }}" />
         </a>
       </div>
+      {% endfor %}
     </div>
 
     <!-- Controls (Prev & Next Buttons) -->
@@ -1657,34 +1730,26 @@
   </div>
 
 
-
-
-
-
   <section class="hero-section text-center mt-5">
     <div class="container">
       <!-- Applying AOS animation to h1 and p -->
       <h1>Welcome to Cayla Coaching Institute</h1>
-      <p >Unlock your full potential with personalized coaching and training
-        programs.</p>
+      <p>Unlock your full potential with personalized coaching and training programs.</p>
     </div>
   </section>
 
-
   <div class="container about-section">
-    <div class="row align-items-center mt-5 ">
+    <div class="row align-items-center mt-5">
       <!-- Text Section with AOS Animation -->
-      <div class="col-lg-6 col-md-12 about-content" data-aos="fade-up" data-aos-duration="1500">
-        <h2>About</h2>
-        <h3>Excellence, Empowerment, Growth, Innovation, Success</h3>
-        <p>
-          At Cayla Coaching Institute, we are committed to delivering exceptional education through expert
-          faculty and innovative teaching methods. Our supportive environment fosters growth, academic
-          excellence, and personal development. With a focus on tailored learning experiences, we empower
-          students to achieve their goals and build a strong foundation for a successful future.
-        </p>
-        <button class="btn btn-view-more">View More</button>
-      </div>
+      <div class="col-lg-6 col-md-12 about-content">
+        <h2 data-aos="fade-right" data-aos-duration="400">About</h2>
+        <h3 data-aos="fade-right" data-aos-duration="600">Excellence, Empowerment, Growth, Innovation, Success</h3>
+        <p data-aos="fade-right" data-aos-duration="800">Welcome to Our family, where we believe in nurturing young
+          minds and shaping bright futures. With a deep passion for care and eduaction, our journey began with a vision
+          to create a safe and inspiring space foe students to grow , learn , and thrive.</p>
+
+<a href="{% url 'about' %}"> <button data-aos="zoom-in" data-aos-duration="500" class="btn btn-view-more">View More</button>
+</a>        </div>
 
       <!-- Video Section with AOS Animation -->
       <div class="col-lg-6 col-md-12 text-center" data-aos="fade-up" data-aos-duration="1500">
@@ -1692,15 +1757,11 @@
           <iframe width="80%" height="315" src="https://www.youtube.com/embed/hU3o_mnkHgU?si=3dq9dSEEnp4vzQVA"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
-
-
-
 
   <div class="full-width-container">
     <div class="container heading-section mt-3">
@@ -1711,58 +1772,56 @@
     <div style="background-color: #ffffff!important;" class="feature-section">
       <div class="row centered-row">
         <!-- Feature Item 1 -->
-        <div class="col-12 col-md-3 feature-item">
-          <img src="https://icon-library.com/images/education-icon-free/education-icon-free-1.jpg" alt="Icon 1">
-          <div class="counter"><span id="counter1">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-          <h5>faculty</h5>
-          <p>This is a short description of the first feature.</p>
+        <div class="col-12 col-md-3 feature-item  ">
+          <img src="{% static 'images/children-student-learning-007-512.webp' %}" alt="Icon 1" />
+          <div class="counter">
+          </div>
+          <h5>Regular Tests</h5>
+          <p>Focused on building smart learning habits.</p>
         </div>
 
         <!-- Feature Item 2 -->
         <div class="col-12 col-md-3 feature-item">
-          <img src="https://icon-library.com/images/education-icon-png/education-icon-png-13.jpg" alt="Icon 2">
-          <div class="counter"><span id="counter2">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-          <h5>Books</h5>
-          <p>This is a short description of the second feature.</p>
+          <img src="{% static 'images/feature-2.png' %}" alt="Icon 2" />
+          <div class="counter">
+          </div>
+          <h5>Tailored Study Plans</h5>
+          <p>Customized plans to meet individual student needs.</p>
         </div>
 
         <!-- Feature Item 3 -->
         <div class="col-12 col-md-3 feature-item">
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/student-learning-lesson/257/children-student-learning-007-512.png"
-            alt="Icon 3">
-          <div class="counter"><span id="counter3">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-          <h5>Friendly teacher</h5>
-          <p>This is a short description of the third feature.</p>
+          <img src="{% static 'images/feature-3.webp'  %}" alt="Icon 3" />
+          <div class="counter">
+          </div>
+          <h5>Daily Progress Reports</h5>
+          <p>Track student performance effectively.</p>
         </div>
 
         <!-- Feature Item 4 -->
         <div class="col-12 col-md-3 feature-item">
-          <img src="https://cdn0.iconfinder.com/data/icons/soldier-military-training/357/solder-training-009-512.png"
-            alt="Icon 4">
-          <div class="counter"><span id="counter4">0</span>&nbsp;<i class="fa-solid fa-circle-plus"></i> </div>
-          <h5>Advanced Classroom</h5>
-          <p>This is a short description of the fourth feature.</p>
+          <img src="{% static 'images/feature-4.webp' %}" alt="Icon 4" />
+          <div class="counter">
+          </div>
+          <h5>Monthly Progress Books</h5>
+          <p>Includes free consultation for detailed feedback.</p>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
-  <div class="container my-5">
+  <div id="why_cayla_main" class="container my-5 w-100">
     <div class="text-center mb-4">
-      <h2 class="why_cayla" data-aos="fade-up">Why Cayla?</h2>
-      <p class="why_p" data-aos="fade-up">The Cayla Educational System is distinguished by the following advantages:</p>
+      <h2 class="why_cayla" data-aos="fade-up" data-aos-delay="50">Why Cayla?</h2>
+      <p data-aos="fade-up" data-aos-delay="300" class="why_p">The Cayla Educational System is distinguished by the
+        following advantages:</p>
     </div>
-
 
     <!-- Row of Cards -->
     <div class="row g-5 justify-content-center mt-4">
       <!-- Card 1 -->
-      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1200">
-        <div class="card text-center p-4">
+      <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-delay="300" class="card text-center p-4">
           <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
@@ -1774,24 +1833,21 @@
                 align-items: center;
                 justify-content: center;
                border: non;
-             " class="icon-container">
-          </div>
+             " class="icon-container"></div>
           <div class="icon-container">
             <i class="fa fa-chalkboard-teacher text-white"></i>
           </div>
           <h5 class="card-title mt-4">Superior Teaching Excellence</h5>
-          <p class="card-text">
-            At Cayla Training Institute, we take immense pride in our team of world-class educators who are
-            dedicated to fostering success in every student. Our faculty consists of highly qualified
-            professionals with years of experience in their respective fields, ensuring that students
-            receive the best possible education. They not only teach but mentor and inspire, helping
-            students excel academically and personally.
-          </p>
+          <p class="card-text">At Cayla Training Institute, we take immense pride in our team of world-class educators
+            who are dedicated to fostering success in every student. Our faculty consists of highly qualified
+            professionals with years of experience in their respective fields, ensuring that students receive the best
+            possible education. They not only teach but mentor and inspire, helping students excel academically and
+            personally.</p>
         </div>
       </div>
       <!-- Card 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-duration="1500">
-        <div class="card text-center p-4">
+      <div class="col-md-4">
+        <div data-aos="fade-right" data-aos-delay="300" class="card text-center p-4">
           <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
@@ -1803,23 +1859,20 @@
                 align-items: center;
                 justify-content: center;
                border: non;
-             " class="icon-container">
-          </div>
+             " class="icon-container"></div>
           <div class="icon-container">
             <i class="fa fa-clipboard-check text-white"></i>
           </div>
           <h5 class="card-title mt-4">Commitment to Your Success</h5>
-          <p class="card-text">
-            At Cayla Training Institute, we focus on delivering exceptional results by combining expert
-            faculty, personalized coaching, and a comprehensive curriculum. Our goal is to ensure every
-            student is fully prepared for competitive exams like JEE and NEET, helping them achieve academic
-            excellence and succeed in their careers with confidence.
-          </p>
+          <p class="card-text">At Cayla Training Institute, we focus on delivering exceptional results by combining
+            expert faculty, personalized coaching, and a comprehensive curriculum. Our goal is to ensure every student
+            is fully prepared for competitive exams like JEE and NEET, helping them achieve academic excellence and
+            succeed in their careers with confidence.</p>
         </div>
       </div>
       <!-- Card 3 -->
-      <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-        <div class="card text-center p-4">
+      <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-delay="300" class="card text-center p-4">
           <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
@@ -1831,23 +1884,20 @@
                 align-items: center;
                 justify-content: center;
                border: non;
-             " class="icon-container">
-          </div>
+             " class="icon-container"></div>
           <div class="icon-container">
             <i class="fa fa-lightbulb text-white"></i>
           </div>
           <h5 class="card-title mt-4">Innovative Learning Approach</h5>
-          <p class="card-text">
-            At Cayla Training Institute, we believe in empowering students with a strong academic
-            foundation. Our innovative teaching methods focus on developing critical thinking,
-            problem-solving, and effective study habits, ensuring students are well-prepared to tackle
-            challenges and achieve success in their academic journeys.
-          </p>
+          <p class="card-text">At Cayla Training Institute, we believe in empowering students with a strong academic
+            foundation. Our innovative teaching methods focus on developing critical thinking, problem-solving, and
+            effective study habits, ensuring students are well-prepared to tackle challenges and achieve success in
+            their academic journeys.</p>
         </div>
       </div>
       <!-- Card 4 -->
-      <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
-        <div class="card text-center p-4">
+      <div class="col-md-4">
+        <div data-aos="fade-right" data-aos-delay="300" class="card text-center p-4">
           <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
@@ -1859,23 +1909,20 @@
                 align-items: center;
                 justify-content: center;
                border: non;
-             " class="icon-container">
-          </div>
+             " class="icon-container"></div>
           <div class="icon-container">
             <i class="fa fa-book-open text-white"></i>
           </div>
           <h5 class="card-title mt-4">In-Depth Learning Resources</h5>
-          <p class="card-text">
-            At Cayla Training Institute, we provide in-depth learning resources tailored to each student's
-            needs. Our comprehensive study material is designed to simplify complex concepts, offering
-            detailed explanations, practice questions, and useful insights, ensuring a thorough
-            understanding and mastery of the subject matter.
-          </p>
+          <p class="card-text">At Cayla Training Institute, we provide in-depth learning resources tailored to each
+            student's needs. Our comprehensive study material is designed to simplify complex concepts, offering
+            detailed explanations, practice questions, and useful insights, ensuring a thorough understanding and
+            mastery of the subject matter.</p>
         </div>
       </div>
       <!-- Card 5 -->
-      <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-        <div class="card text-center p-4">
+      <div class="col-md-4">
+        <div data-aos="zoom-in" data-aos-delay="300" class="card text-center p-4">
           <div style="  top: 0%; 
                 left: 50%;
                 transform: translateX(-50%) rotate(180deg);
@@ -1887,29 +1934,19 @@
                 align-items: center;
                 justify-content: center;
                border: non;
-             " class="icon-container">
-          </div>
+             " class="icon-container"></div>
           <div class="icon-container">
             <i class="fa fa-user-graduate text-white"></i>
           </div>
           <h5 class="card-title mt-4">Focused Individual Support</h5>
-          <p class="card-text">
-            We prioritize a tailored learning experience for every student, offering personalized attention
-            and support. Our experienced educators adapt their teaching methods to meet individual needs,
-            ensuring that each student receives the guidance necessary to excel and overcome any academic
-            challenges they may face.
-          </p>
+          <p class="card-text">We prioritize a tailored learning experience for every student, offering personalized
+            attention and support. Our experienced educators adapt their teaching methods to meet individual needs,
+            ensuring that each student receives the guidance necessary to excel and overcome any academic challenges
+            they may face.</p>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
 
   <div class="course-offer">
     <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">Course Offered</h1>
@@ -1918,67 +1955,63 @@
     <div class="row">
       <!-- Course Card -->
       <div class="col-lg-12">
-        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="fade-right"
           data-aos-delay="200">
           <div>
-            <div class="course-title">CBSE</div>
-            <div class="course-duration">4 YEARS - UNDERGRADUATE | Class 8</div>
+            <div class="course-title">CBSE 8-10 </div>
+            <div class="course-duration">foundation Classes | Solving past papers and Higher order questions</div>
             <div class="course-location">
               <span class="badge bg-warning">UAE</span>
+              <span class="badge bg-warning">India</span>
+
             </div>
           </div>
           <div>
-            <button class="btn btn-viewss">VIEW DETAILS</button>
+            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
       <!-- Course Card -->
       <div class="col-lg-12">
-        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="fade-right"
           data-aos-delay="400">
           <div>
-            <div class="course-title">5 Year – M.C.A</div>
-            <div class="course-duration">5 YEARS - INTEGRATED DEGREE | COMPUTER APPLICATIONS</div>
+            <div class="course-title">NEET </div>
+            <div class="course-duration">Crash Package | Free material</div>
             <div class="course-location">
+              <span class="badge bg-warning">India</span>
+
               <span class="badge bg-warning">UAE</span>
             </div>
           </div>
           <div>
-            <button class="btn btn-viewss">VIEW DETAILS</button>
+            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
-      <!-- Course Card -->
 
-      <!-- Course Card -->
       <div class="col-lg-12">
-        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="zoom-in"
-          data-aos-delay="600">
+        <div class="course-card d-flex flex-wrap justify-content-between align-items-center" data-aos="fade-right"
+          data-aos-delay="100">
           <div>
-            <div class="course-title">JEE (2 YEAR)</div>
-            <div class="course-duration">5 YEARS - INTEGRATED DEGREE | PHYSICAL SCIENCES, SCIENCES</div>
+            <div class="course-title">JEE </div>
+            <div class="course-duration"></div>
             <div class="course-location">
               <span class="badge bg-warning">UAE</span>
-              <span class="badge bg-warning">Tamilnadu</span>
+              <span class="badge bg-warning">India</span>
+              <span class="badge bg-warning"></span>
             </div>
           </div>
           <div>
-            <button class="btn btn-viewss">VIEW DETAILS</button>
+            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
       <div class="course-button-container">
-        <a href="#" class="btn btn-primary">More Courses</a>
+        <a href="{% url 'course_list' %}" class="btn btn-primary">More Courses</a>
       </div>
-
     </div>
-
   </div>
-
-
-
-
-
 
   <div class="container partner-head">
     <h1 data-aos="fade-top" data-aos-delay="300">Partner Institutes</h1>
@@ -1988,48 +2021,42 @@
     <div class="row align-items-center">
       <!-- Left Side: Heading and Paragraph -->
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-        <h2 data-aos="fade-up" data-aos-delay="100" class="fw-bold">Laurel Matric Higher Secondary School
-          <span> Coimbatore,Tamilnadu</span>
+        <h2 data-aos="fade-up" data-aos-delay="100" class="fw-bold">
+          Laurel Matric Higher Secondary School
+          <span>Coimbatore,Tamilnadu</span>
         </h2>
         <p class="lead" data-aos="fade-up" data-aos-delay="700">
-          Laurel is named by the qualities of the laurel tree leaves originated from the Olive tree family.
-          The three important qualities are evergreen nature, healing oil tendency and its usage as the leaves
-          used for crowning after victory.<br>Dedicated board & experienced staff members over the years have
-          put their ardent efforts in the upliftment of the school & to bring Laurels to Laurels. The unique
-          thought of laurels is <i>All are teachable</i>, and having its motto <i>Honour in Honesty</i> and
-          ​aim <i>Strive for Excellence</i>.<br>know more about school &nbsp;<a
-            href="http://www.laurels-school.com/">press here</a>
+          Laurel is named by the qualities of the laurel tree leaves originated from the Olive tree family. The three
+          important qualities are evergreen nature, healing oil tendency and its usage as the leaves used for crowning
+          after victory.<br />Dedicated board & experienced staff members over the years have put their ardent efforts
+          in the upliftment of the school & to bring Laurels to Laurels. The unique thought of laurels is <i>All are
+            teachable</i>, and having its motto <i>Honour in Honesty</i> and ​aim <i>Strive for
+            Excellence</i>.<br />know more about school &nbsp;<a href="http://www.laurels-school.com/">press here</a>
         </p>
         <button id="toggle-video" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="500">Watch
           Video</button>
         <div id="video-container" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="600">
           <iframe src="https://www.youtube.com/embed/Fz802MeYRdE?si=yjmrgTP4vMyasvMl" title="YouTube video"
-            allowfullscreen>
-          </iframe>
+            allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="hex-gallery">
           <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-            <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
-              alt="Gallery Image 1">
+            <img src="{% static 'images/p1_image1.jpg' %}" alt="Gallery Image 1" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="500">
-            <img
-              src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
-              alt="Gallery Image 2">
+            <img src="{% static 'images/p1_img2.jpg' %}" alt="Gallery Image 2" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="800">
-            <img
-              src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
-              alt="Gallery Image 3">
+            <img src="{% static 'images/p1_img3.jpg' %}" alt="Gallery Image 3" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="1100">
-            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg" alt="Gallery Image 4">
+            <img src="{% static 'images/p1_img4.jpg' %}" alt="Gallery Image 4" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="1300">
-            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg" alt="Gallery Image 5">
+            <img src="{% static 'images/p1_img5.jpg' %}" alt="Gallery Image 5" />
           </div>
         </div>
       </div>
@@ -2042,86 +2069,75 @@
       <div class="col-md-6 order-2 order-md-1">
         <div class="hex-gallery">
           <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-            <img src="https://th.bing.com/th/id/OIP.8JZZigxvVpnogdc8IB1AMAHaHa?rs=1&pid=ImgDetMain"
-              alt="Gallery Image 1">
+            <img src="{% static 'images/p2_img1.jpg' %}" alt="Gallery Image 1" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="550">
-            <img
-              src="https://th.bing.com/th/id/R.bfbb10ef8117c6025759a29564f64f43?rik=Y%2bnKXZCeRHoxBQ&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2fpublished%2f2d3582e4-420c-43a7-9fcd-34a3ef53d229.jpg%3f1662446592&ehk=Nh3mOH7Wr4NWHIX%2bEs%2bfepMf53L5AKUdF0wCMcGT1kk%3d&risl=&pid=ImgRaw&r=0"
-              alt="Gallery Image 2">
+            <img src="{% static 'images/p2_img2.jpg' %}" alt="Gallery Image 2" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="750">
-            <img
-              src="https://th.bing.com/th/id/R.7b6440638e171267b19ce14880c1df0f?rik=FB88X7Efvf5%2fHw&riu=http%3a%2f%2fwww.laurels-school.com%2fuploads%2f9%2f5%2f1%2f3%2f9513127%2feditor%2f2018-03-25-photo-00000116.jpg%3f1654176601&ehk=hhllTIbQbFC%2btuEylJSKGHAXBOsvVRVDLENQQKJVjHw%3d&risl=&pid=ImgRaw&r=0"
-              alt="Gallery Image 3">
+            <img src="{% static 'images/p2_img3.jpg' %}" alt="Gallery Image 3" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="850">
-            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/41451_orig.jpg" alt="Gallery Image 4">
+            <img src="{% static 'images/p2_new1.jpg' %}" alt="Gallery Image 4" />
           </div>
-          <div class="hex" data-aos="zoom-in" data-aos-delay="1150">
-            <img src="http://www.laurels-school.com/uploads/9/5/1/3/9513127/5169874_orig.jpg" alt="Gallery Image 5">
+          <div class="hex" data-aos="zoom-in" data-aos-delay="800">
+            <img src="{% static 'images/p2_new2.jpg' %}" alt="Gallery Image 5" />
           </div>
         </div>
       </div>
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 order-1 order-md-2">
-        <h2 data-aos="fade-up" data-aos-delay="0" class="fw-bold">Benglen Public School <span>
-            Coimbatore,Tamilnadu</span></h2>
+        <h2 data-aos="fade-up" data-aos-delay="0" class="fw-bold">Benglen Public School
+          <span>Coimbatore,Tamilnadu</span></h2>
         <p class="lead" data-aos="fade-up" data-aos-delay="500">
-          It follows CBSE syllabus. It is run by the Laurel Educational trust and their group school- Laurel
-          MHSS has been acclaimed as one of the best in class schools in Coimbatore with highest values for
-          Discipline and Character moulding of their school wards and also global alumni presence in almost
-          every field of life.
-          <br>The school strives to enable the kids to excel in all the fields of life. Not mere education
-          builds up an individual, but it's the combined aspects such as good mannerism, social awareness,
-          sports, good health, healthy environment and reduced stress in life.
-          <br>know more about school&nbsp;<a href="http://www.benglen.org/">press here</a>
+          It follows CBSE syllabus. It is run by the Laurel Educational trust and their group school- Laurel MHSS has
+          been acclaimed as one of the best in class schools in Coimbatore with highest values for Discipline and
+          Character moulding of their school wards and also global alumni presence in almost every field of life.
+          <br />The school strives to enable the kids to excel in all the fields of life. Not mere education builds up
+          an individual, but it's the combined aspects such as good mannerism, social awareness, sports, good health,
+          healthy environment and reduced stress in life.
+          <br />know more about school&nbsp;<a href="http://www.benglen.org/">press here</a>
         </p>
         <button id="toggle-video2" class="btn btn-primary mb-4" data-aos="fade-up" data-aos-delay="300">Watch
           Video</button>
         <div id="video-container2" class="ratio ratio-4x3" data-aos="fade-up" data-aos-delay="400">
           <iframe src="https://www.youtube.com/embed/tNcSRVFY2qU?si=ily_nJR3v66ZPREy" title="YouTube video"
-            allowfullscreen>
-          </iframe>
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
-
-
-
   <div class="our-team mt-5">
-    <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">OUR TEAM</h1>
+    <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">Our Team</h1>
   </div>
 
+
   <div class="container managers-container">
+
     <!-- Card 1 -->
     <div class="custom-card unique-card-1" data-aos="zoom-in" data-aos-delay="250">
-      <a href="index.html"> <img src="images/first.jpg" class="custom-card-img" alt="Card 1">
+      <a href="{% url 'faculty' %}">
+        <img src="{% static 'images/first.jpg' %}" class="custom-card-img" alt="Card 1" />
         <div class="inner-container">
-          <h5>MR. DIKESH</h5><br>
-
-
+          <h5>MR. DIKESH</h5><br />
         </div>
       </a>
     </div>
     <!-- Card 2 -->
     <div class="custom-card unique-card-2" data-aos="zoom-in" data-aos-delay="500">
-      <a href="">
-        <img src="images/second.jpg" class="custom-card-img" alt="Card 2">
+      <a href="{% url 'faculty' %}">
+        <img src="{% static 'images/second.jpg' %}" class="custom-card-img" alt="Card 2" />
 
         <div class="inner-container">
-          <h5>K KRISHNA DAS</h5>
+          <h5>MR. K KRISHNA DAS</h5>
         </div>
       </a>
     </div>
     <!-- Card 3 -->
     <div class="custom-card unique-card-3" data-aos="zoom-in" data-aos-delay="800">
-      <a href=""> <img src="https://th.bing.com/th/id/OIP.5R-Cuj3ScuaC6T3H7LZ1dAHaJQ?w=576&h=720&rs=1&pid=ImgDetMain"
-          class="custom-card-img" alt="Card 3">
+      <a href="{% url 'faculty' %}">
+        <img src="{% static 'images/praveena.jpg' %}"
+          class="custom-card-img" alt="Card 3" />
         <div class="inner-container">
           <h5>MS. PRAVEENA</h5>
         </div>
@@ -2129,16 +2145,16 @@
     </div>
   </div>
 
-
   <div class="our-gallery mt-5">
-    <h1 data-aos="fade-up " data-aos-delay="100" class="text-center">Gallery</h1>
-
+    <h1 data-aos="fade-up" data-aos-delay="400" class="text-center">Gallery</h1>
   </div>
 
   <div class="container mt-5">
-<a href=""><h5 class="see-more  text-end" >See more <i class="fa-solid fa-square-caret-right" style="color: #000;"></i> </h5></a>   
- <div style="display: flex; justify-content: center; "    class="feature">
-      <figure  class="featured-item image-holder r-3-2 transition"></figure>
+    <a href="{% url 'gallery:gallery' %}">
+      <h5 class="see-more text-end">See more <i class="fa-solid fa-square-caret-right" style="color: #000;"></i></h5>
+    </a>
+    <div style="display: flex; justify-content: center; " class="feature">
+      <figure class="featured-item image-holder r-3-2 transition"></figure>
     </div>
 
     <div class="gallery-wrapper">
@@ -2180,91 +2196,150 @@
       <button class="move-btn left">&larr;</button>
       <button class="move-btn right">&rarr;</button>
     </div>
-
   </div>
-
-
 
   <div class="review-head mt-5">
     <h1 data-aos="fade-up" data-aos-delay="200" class="text-center">Testimonials</h1>
   </div>
 
-  <div class="container mt-5">
-    <div class="reviews-container">
-      <!-- Review Card 1 -->
-      <div class="review-card">
-        <div class="d-flex align-items-center mb-3">
-          <span class="text-warning me-2">★★★★★</span>
-        </div>
-        <p>This JEE coaching institute exceeded my expectations. The teaching staff is highly experienced, and the study
-          material is well-organized. They focus on building strong foundations and provide regular assessments to track
-          progress. The supportive environment and personalized guidance have significantly boosted my confidence and
-          preparation for the exam..</p>
 
-        <div class="d-flex align-items-center mt-3">
-          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
-          <div>
-            <h6 class="mb-0">adhi</h6>
-            <small>Creative Director</small>
-          </div>
-        </div>
-      </div>
-      <!-- Review Card 2 -->
-      <div class="review-card">
-        <div class="d-flex align-items-center mb-3">
-          <span class="text-warning me-2">★★★★★</span>
-        </div>
-        <p>"The JEE coaching institute has been a game-changer for me. The teachers are highly knowledgeable and always
-          ready to help. The study material is excellent, and the regular mock tests helped me track my progress. Thanks
-          to the institute, I feel much more confident about the JEE exam</p>
-        <div class="d-flex align-items-center mt-3">
-          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
-          <div>
-            <h6 class="mb-0">midhun Smith</h6>
-            <small>Developer</small>
-          </div>
-        </div>
-      </div>
-      <!-- Review Card 3 -->
-      <div class="review-card">
-        <div class="d-flex align-items-center mb-3">
-          <span class="text-warning me-2">★★★★★</span>
-        </div>
-        <p>Joining this JEE coaching institute was one of the best decisions I made. The faculty members are not only
-          experts in their subjects but also extremely supportive. The personalized attention and clear explanations
-          helped me grasp difficult concepts with ease. The regular tests and doubt-solving sessions ensured I stayed on
-          track and prepared thoroughly. Highly recommended!</p>
-        <div class="d-flex align-items-center mt-3">
-          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
-          <div>
-            <h6 class="mb-0">vishnu Davis</h6>
-            <small>Designer</small>
-          </div>
-        </div>
-      </div>
-      <!-- Review Card 4 -->
-      <div class="review-card">
-        <div class="d-flex align-items-center mb-3">
-          <span class="text-warning me-2">★★★★★</span>
-        </div>
-        <p>As a student at Cayla NEET Coaching Institute, I found the teaching exceptional. The faculty is highly
-          supportive, and the study materials are comprehensive. Regular tests helped me track my progress, and the
-          personalized guidance boosted my confidence for NEET</p>
 
-        <div class="d-flex align-items-center mt-3">
-          <img src="https://via.placeholder.com/50" alt="Reviewer" class="rounded-circle me-3">
-          <div>
-            <h6 class="mb-0">Abhinav mill</h6>
-            <small>Marketing Head</small>
+
+
+  <div class="container my-5">
+
+    <div class="accordion d-flex justify-content-center align-items-center height" id="accordionExample">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="p-3">
+            <ul class="testimonial-list">
+              <li>
+
+                <div class="card-test p-3" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne">
+
+                  <div class="d-flex flex-row align-items-center">
+
+                    <img src="https://i.imgur.com/G1pXs7D.jpg" width="50" class="rounded-circle">
+
+                    <div  class="d-flex flex-column ml-2">
+
+                      <span class="font-weight-normal">Adithyan</span>
+                      <span>Student</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="card-test p-3" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                  aria-controls="collapseTwo">
+
+                  <div class="d-flex flex-row align-items-center">
+
+                    <img src="https://i.imgur.com/udGH5tO.jpg" width="50" class="rounded-circle">
+
+                    <div class="d-flex flex-column ml-2">
+
+                      <span class="font-weight-normal">Henna</span>
+                      <span>Student</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="card-test p-3" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                  aria-controls="collapseThree">
+
+                  <div class="d-flex flex-row align-items-center">
+
+                    <img src="https://i.imgur.com/Uz4FjGZ.jpg" width="50" class="rounded-circle">
+
+                    <div class="d-flex flex-column ml-2">
+
+                      <span class="font-weight-normal">Vishnu</span>
+                      <span>Student</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </li>
+
+            </ul>
           </div>
         </div>
+
+        <div class="col-md-6">
+          <div class="p-3 testimonials-margin">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <h4>It was a great experience</h4>
+                <div class="ratings">
+
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+
+
+                </div>
+
+                <p>Cayla Coaching Institution is an excellent choice for CBSE students. The experienced faculty ensures clear understanding of concepts, making learning engaging and effective. Their comprehensive study material and regular tests help track progress and build confidence. The institute focuses on individual attention, ensuring doubts are resolved promptly. It's a great place for students aiming for academic excellence.</p>
+              </div>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <h4>Thanks for this great service</h4>
+                <div class="ratings">
+
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+
+                </div>
+
+                <p>Cayla Coaching Institution is a trusted name for NEET preparation. With experienced faculty, the institute emphasizes simplifying complex topics in Physics, Chemistry, and Biology, ensuring clarity and understanding. Their regular mock tests and performance reviews help students track progress effectively. The study materials are thorough and easy to follow, while the encouraging environment inspires students to stay focused and achieve success in NEET.</p>
+              </div>
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <h4>You all are awesome thanks alot</h4>
+                <div class="ratings">
+
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+
+                </div>
+
+                <p>The coaching institute is highly recommended for JEE preparation, offering a structured approach to mastering Physics, Chemistry, and Mathematics. The experienced faculty ensures in-depth conceptual clarity and focuses on problem-solving techniques essential for competitive exams. Regular mock tests, performance analysis, and personalized guidance help students identify and overcome their weaknesses. The comprehensive study materials are well-organized, making learning and revision more efficient. With a motivating and supportive environment, the institute prepares students to achieve their best in the JEE exam.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
+
   </div>
 
 
   <div class="container call-cayla mt-5">
-    <h1>Request a Call Back <br> by Dragging the <br> Phone Icon </h1>
+    <h1>Request a Call Back <br />by Dragging the <br /> Phone Icon</h1>
     <div class="toggle-container" id="toggleContainer">
       <div class="toggle-button" id="toggleButton">
         <i class="fas fa-phone"></i>
@@ -2272,77 +2347,73 @@
     </div>
   </div>
 
-
   <!-- Footer Section -->
 
   <footer style="border-top: 1px solid gray;" class="footer mt-4">
     <div class="container">
       <div class="row">
-
         <div class="col-6 col-lg-3 col-md-4 logo">
-          <img id="logofooter" src="images/logo.png" alt="Logo"><br><br><br>
+          <img id="logofooter" src="{%  static 'images/logo.png' %}" alt="Logo" /><br /><br /><br />
           <h5>Follow Us</h5>
           <div class="social-links">
-            <a href="fake.html" class="text-light"><i class="fab fa-facebook-f" style="color: #274ce0;"> </i></a>
-            <a href="#" class="text-light"><i class="fab fa-youtube   " style="color: #f20707;"></i></a>
-            <a href="#" class="text-light"><i class="fab fa-instagram" style="color: #bc237f;"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61571049111510" class="text-light"><i class="fab fa-facebook-f" style="color: #274ce0;"></i></a>
+            <a href="https://youtube.com/@caylatrainingcentrealainuae?feature=shared" class="text-light"><i class="fab fa-youtube" style="color: #f20707;"></i></a>
+            <a href="https://www.instagram.com/caylaalain879?igsh=Z2hrZ25ibm5kbXZ6" class="text-light"><i class="fab fa-instagram" style="color: #bc237f;"></i></a>
           </div>
         </div>
 
-
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">ABOUT</h5>
-          <p>TAbout Us</p>
-          <p>Mission </p>
-          <p>Vision </p>
-          <p>other</p>
+          <p><a href="{% url 'about' %}">Mission</a></p>
+          <p><a href="{% url 'about' %}">Vision</a></p>
+          <p><a href="{% url 'about' %}">Others</a></p>
           <!-- <p></p> -->
         </div>
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">PAGES</h5>
-          <p>Gallery</p>
-          <p>Course offered</p>
-          <p>About Us</p>
-          <p>Our Team</p>
-          <p>Terms And Condition</p>
+          <p><a href="{% url 'gallery:gallery' %}">Gallery</a></p>
+          <p><a href="{% url 'course_list' %}">Course Offered</a></p>
+          <p><a href="{% url 'about' %}">About Us</a></p>
+          <p><a href="{% url 'faculty' %}">Faculty</a></p>
         </div>
         <div class="col-6 col-lg-3 col-md-4 footer-column">
           <h5 class="animated-text">Partner</h5>
           <p>Laurel Matric</p>
           <p>Benglen Public School</p>
           <p>About more</p>
-
         </div>
-
       </div>
       <div class="col-12">
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d380813.4947990859!2d74.9703030857318!3d10.850516430020809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080f6b9cf33adf%3A0x9973b6fa9f5cbd2!2sKerala!5e0!3m2!1sen!2sin!4v1700650283382"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.5569595301245!2d55.7791259!3d24.222291500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8ab7a6c742e7f9%3A0x43a20dc48b23df47!2sADCB%20-%20Al%20Murabaa%20Branch!5e0!3m2!1sen!2sin!4v1735286245887!5m2!1sen!2sin"
             frameborder="0" style="border:0; width:100%; height:300px;" allowfullscreen=""></iframe>
         </div>
       </div>
 
-      <div class="contact-info ">
-        <p><strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong></p>
+      <div class="contact-info">
 
-        <a href="tel:+917994015471">Call +91 7994015471</a>
-        <p><strong>Email:</strong>email here</p>
-        <p><strong>Location:</strong> Indian Kerala kollam Sasthamcotta 690520</p>
+
+        <a href="#" id="icon-link">
+          <i class="fa-solid fa-circle-info" id="click-icon" style="font-size: 20px;"></i>
+        </a><span>Contact-us</span> <br>
+        <strong><i style="color: rgb(227, 222, 222);" class="fa-solid fa-phone"></i></strong>
+        <a href="tel:+971504050688">+917994015471</a>
+        <p>
+          <i class="fa-solid fa-envelope" style="color: #ffffff;"></i> <a
+            href="caylatraininginstitute@gmail.com">caylatraininginstitute@gmail.com</a>
+        </p>
+        <p>
+          <strong>Location:</strong> No: 202, M2, NBF Building, Opp. to Al Ain Mall, Al Ain, UAE
+        </p>
       </div>
     </div>
   </footer>
-
-
-
-
-
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- AOS JS (Animate On Scroll) -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -2352,420 +2423,453 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
 
+  <script>
+    // Initialize click count and timer
+    let clickCount = 0;
+    let timeout;
+    let redirectTimeout;
 
+    // Get the icon and the link element
+    const icon = document.getElementById('click-icon');
+    const link = document.getElementById('icon-link');
 
-    <script>
-      var gallery = document.querySelector('.gallery');
-  var galleryItems = document.querySelectorAll('.gallery-item');
-  var numOfItems = gallery.children.length;
-  var itemWidth = 23; // percent: as set in css
-  
-  var featured = document.querySelector('.featured-item');
-  
-  var leftBtn = document.querySelector('.move-btn.left');
-  var rightBtn = document.querySelector('.move-btn.right');
-  var leftInterval;
-  var rightInterval;
-  
-  var scrollRate = 0.2;
-  var left;
-  
-  function selectItem(e) {
-    if (e.target.classList.contains('active')) return;
-    
-    featured.style.backgroundImage = e.target.style.backgroundImage;
-    
-    for (var i = 0; i < galleryItems.length; i++) {
-      if (galleryItems[i].classList.contains('active'))
-        galleryItems[i].classList.remove('active');
+    // Set the target URL for redirection
+    const targetUrl = '/your/redirect/url/';  // Replace with your actual URL
+
+    // Function to reset the click count after 2 seconds of inactivity
+    function resetClickCount() {
+      clickCount = 0;
+      icon.style.color = '';  // Reset icon color
     }
-    
-    e.target.classList.add('active');
-  }
-  
-  function galleryWrapLeft() {
-    var first = gallery.children[0];
-    gallery.removeChild(first);
-    gallery.style.left = -itemWidth + '%';
-    gallery.appendChild(first);
-    gallery.style.left = '0%';
-  }
-  
-  function galleryWrapRight() {
-    var last = gallery.children[gallery.children.length - 1];
-    gallery.removeChild(last);
-    gallery.insertBefore(last, gallery.children[0]);
-    gallery.style.left = '-23%';
-  }
-  
-  function moveLeft() {
-    left = left || 0;
-  
-    leftInterval = setInterval(function() {
-      gallery.style.left = left + '%';
-  
-      if (left > -itemWidth) {
-        left -= scrollRate;
-      } else {
-        left = 0;
-        galleryWrapLeft();
+
+    // Add event listener to the icon link
+    link.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent the default link behavior
+
+      clickCount++;
+
+      // Change the icon color with each click
+      if (clickCount == 1) {
+        icon.style.color = 'white';
+      } else if (clickCount == 2) {
+        icon.style.color = 'white';
+      } else if (clickCount == 3) {
+        icon.style.color = 'white';
+      } else if (clickCount == 4) {
+        icon.style.color = 'white';
+      } else if (clickCount == 5) {
+        icon.style.color = 'white';  // After 5 clicks, change color to red
+        // Set a timeout to redirect after 1 second
+        redirectTimeout = setTimeout(function () {
+          window.location.href = '{% url 'login' %}';
+        }, 1000);
       }
-    }, 1);
-  }
-  
-  function moveRight() {
-    //Make sure there is element to the leftd
-    if (left > -itemWidth && left < 0) {
-      left = left  - itemWidth;
-      
-      var last = gallery.children[gallery.children.length - 1];
-      gallery.removeChild(last);
-      gallery.style.left = left + '%';
-      gallery.insertBefore(last, gallery.children[0]);	
-    }
-    
-    left = left || 0;
-  
-    leftInterval = setInterval(function() {
-      gallery.style.left = left + '%';
-  
-      if (left < 0) {
-        left += scrollRate;
-      } else {
-        left = -itemWidth;
-        galleryWrapRight();
-      }
-    }, 1);
-  }
-  
-  function stopMovement() {
-    clearInterval(leftInterval);
-    clearInterval(rightInterval);
-  }
-  
-  leftBtn.addEventListener('mouseenter', moveLeft);
-  leftBtn.addEventListener('mouseleave', stopMovement);
-  rightBtn.addEventListener('mouseenter', moveRight);
-  rightBtn.addEventListener('mouseleave', stopMovement);
-  
-  
-  //Start this baby up
-  (function init() {
-    var images = [
-      'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
-      'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
-      'https://wallpapercave.com/wp/wp2506800.jpg',
-      'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
-      
-    ];
-    
-    //Set Initial Featured Image
-    featured.style.backgroundImage = 'url(' + images[0] + ')';
-    
-    //Set Images for Gallery and Add Event Listeners
-    for (var i = 0; i < galleryItems.length; i++) {
-      galleryItems[i].style.backgroundImage = 'url(' + images[i] + ')';
-      galleryItems[i].addEventListener('click', selectItem);
-    }
-  })();
-    </script>
-    
 
+      // Reset the timeout whenever the icon is clicked
+      clearTimeout(timeout);
+
+      // Set a new timeout to reset the click count after 2 seconds of inactivity
+      timeout = setTimeout(resetClickCount, 2000);
+    });
+
+    // If the click count exceeds 5 or falls short, do nothing (redirect will not happen)
+    link.addEventListener('click', function () {
+      if (clickCount > 5) {
+        clearTimeout(redirectTimeout);  // Clear the redirect timeout if clicked more than 5 times
+        resetClickCount();  // Reset the click count if clicked more than 5 times
+      }
+    });
+  </script>
 
   <script>
-    const toggleButton = document.getElementById('toggleButton');
-    const toggleContainer = document.getElementById('toggleContainer');
-    let isDragging = false;
-    let startX;
+    var gallery = document.querySelector('.gallery')
+    var galleryItems = document.querySelectorAll('.gallery-item')
+    var numOfItems = gallery.children.length
+    var itemWidth = 23 // percent: as set in css
+
+    var featured = document.querySelector('.featured-item')
+
+    var leftBtn = document.querySelector('.move-btn.left')
+    var rightBtn = document.querySelector('.move-btn.right')
+    var leftInterval
+    var rightInterval
+
+    var scrollRate = 0.2
+    var left
+
+    function selectItem(e) {
+      if (e.target.classList.contains('active')) return
+
+      featured.style.backgroundImage = e.target.style.backgroundImage
+
+      for (var i = 0; i < galleryItems.length; i++) {
+        if (galleryItems[i].classList.contains('active')) galleryItems[i].classList.remove('active')
+      }
+
+      e.target.classList.add('active')
+    }
+
+    function galleryWrapLeft() {
+      var first = gallery.children[0]
+      gallery.removeChild(first)
+      gallery.style.left = -itemWidth + '%'
+      gallery.appendChild(first)
+      gallery.style.left = '0%'
+    }
+
+    function galleryWrapRight() {
+      var last = gallery.children[gallery.children.length - 1]
+      gallery.removeChild(last)
+      gallery.insertBefore(last, gallery.children[0])
+      gallery.style.left = '-23%'
+    }
+
+    function moveLeft() {
+      left = left || 0
+
+      leftInterval = setInterval(function () {
+        gallery.style.left = left + '%'
+
+        if (left > -itemWidth) {
+          left -= scrollRate
+        } else {
+          left = 0
+          galleryWrapLeft()
+        }
+      }, 1)
+    }
+
+    function moveRight() {
+      //Make sure there is element to the leftd
+      if (left > -itemWidth && left < 0) {
+        left = left - itemWidth
+
+        var last = gallery.children[gallery.children.length - 1]
+        gallery.removeChild(last)
+        gallery.style.left = left + '%'
+        gallery.insertBefore(last, gallery.children[0])
+      }
+
+      left = left || 0
+
+      leftInterval = setInterval(function () {
+        gallery.style.left = left + '%'
+
+        if (left < 0) {
+          left += scrollRate
+        } else {
+          left = -itemWidth
+          galleryWrapRight()
+        }
+      }, 1)
+    }
+
+    function stopMovement() {
+      clearInterval(leftInterval)
+      clearInterval(rightInterval)
+    }
+
+    leftBtn.addEventListener('mouseenter', moveLeft)
+    leftBtn.addEventListener('mouseleave', stopMovement)
+    rightBtn.addEventListener('mouseenter', moveRight)
+    rightBtn.addEventListener('mouseleave', stopMovement)
+
+      //Start this baby up
+      ; (function init() {
+        var images = ['https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg', 'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg', 'https://wallpapercave.com/wp/wp2506800.jpg', 'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg']
+
+        //Set Initial Featured Image
+        featured.style.backgroundImage = 'url(' + images[0] + ')'
+
+        //Set Images for Gallery and Add Event Listeners
+        for (var i = 0; i < galleryItems.length; i++) {
+          galleryItems[i].style.backgroundImage = 'url(' + images[i] + ')'
+          galleryItems[i].addEventListener('click', selectItem)
+        }
+      })()
+  </script>
+
+  <script>
+    const toggleButton = document.getElementById('toggleButton')
+    const toggleContainer = document.getElementById('toggleContainer')
+    let isDragging = false
+    let startX
 
     // Handle mouse down event to start dragging
     toggleButton.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      toggleButton.classList.remove('disabled'); // Enable dragging
-      e.preventDefault(); // Prevent text selection while dragging
-    });
+      isDragging = true
+      startX = e.clientX
+      toggleButton.classList.remove('disabled') // Enable dragging
+      e.preventDefault() // Prevent text selection while dragging
+    })
 
     // Handle mouse move event to drag the button
     document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const deltaX = e.clientX - startX;
-      const containerWidth = toggleContainer.offsetWidth;
-      let newLeft = deltaX;
+      if (!isDragging) return
+      const deltaX = e.clientX - startX
+      const containerWidth = toggleContainer.offsetWidth
+      let newLeft = deltaX
 
       // Ensure the button does not move beyond the container
-      if (newLeft < 0) newLeft = 0;
+      if (newLeft < 0) newLeft = 0
       if (newLeft > containerWidth - toggleButton.offsetWidth) {
-        newLeft = containerWidth - toggleButton.offsetWidth;
+        newLeft = containerWidth - toggleButton.offsetWidth
       }
 
-      toggleButton.style.left = newLeft + 'px';
+      toggleButton.style.left = newLeft + 'px'
 
       // If the button reaches 100% of the container's width, stop the drag and trigger the call
       if (newLeft >= containerWidth - toggleButton.offsetWidth) {
-        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px'; // Set button to the rightmost position
-        toggleButton.classList.add('disabled'); // Disable further dragging
+        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px' // Set button to the rightmost position
+        toggleButton.classList.add('disabled') // Disable further dragging
         // Trigger the phone call after reaching 100%
-        window.location.href = "tel:+917994015471"; // Replace with the desired phone number
+        window.location.href = 'tel:+917994015471' // Replace with the desired phone number
       }
-    });
+    })
 
     // Handle mouse up event to stop dragging
     document.addEventListener('mouseup', () => {
       if (isDragging) {
-        isDragging = false;
-        const containerWidth = toggleContainer.offsetWidth;
-        const currentPosition = parseInt(toggleButton.style.left);
+        isDragging = false
+        const containerWidth = toggleContainer.offsetWidth
+        const currentPosition = parseInt(toggleButton.style.left)
 
         // If the drag is less than 100%, reset the position to 0
         if (currentPosition < containerWidth - toggleButton.offsetWidth) {
-          toggleButton.style.left = '0px';
+          toggleButton.style.left = '0px'
         }
       }
-    });
+    })
 
     // Handle touch events for mobile devices
     toggleButton.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      startX = e.touches[0].clientX;
-      toggleButton.classList.remove('disabled'); // Enable dragging
-      e.preventDefault();
-    });
+      isDragging = true
+      startX = e.touches[0].clientX
+      toggleButton.classList.remove('disabled') // Enable dragging
+      e.preventDefault()
+    })
 
     document.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const deltaX = e.touches[0].clientX - startX;
-      const containerWidth = toggleContainer.offsetWidth;
-      let newLeft = deltaX;
+      if (!isDragging) return
+      const deltaX = e.touches[0].clientX - startX
+      const containerWidth = toggleContainer.offsetWidth
+      let newLeft = deltaX
 
       // Ensure the button does not move beyond the container
-      if (newLeft < 0) newLeft = 0;
+      if (newLeft < 0) newLeft = 0
       if (newLeft > containerWidth - toggleButton.offsetWidth) {
-        newLeft = containerWidth - toggleButton.offsetWidth;
+        newLeft = containerWidth - toggleButton.offsetWidth
       }
 
-      toggleButton.style.left = newLeft + 'px';
+      toggleButton.style.left = newLeft + 'px'
 
       // If the button reaches 100% of the container's width, stop the drag and trigger the call
       if (newLeft >= containerWidth - toggleButton.offsetWidth) {
-        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px'; // Set button to the rightmost position
-        toggleButton.classList.add('disabled'); // Disable further dragging
+        toggleButton.style.left = containerWidth - toggleButton.offsetWidth + 'px' // Set button to the rightmost position
+        toggleButton.classList.add('disabled') // Disable further dragging
         // Trigger the phone call after reaching 100%
-        window.location.href = "tel:+1234567890"; // Replace with the desired phone number
+        window.location.href = 'tel:+917994015471' // Replace with the desired phone number
       }
-    });
+    })
 
     document.addEventListener('touchend', () => {
       if (isDragging) {
-        isDragging = false;
-        const containerWidth = toggleContainer.offsetWidth;
-        const currentPosition = parseInt(toggleButton.style.left);
+        isDragging = false
+        const containerWidth = toggleContainer.offsetWidth
+        const currentPosition = parseInt(toggleButton.style.left)
 
         // If the drag is less than 100%, reset the position to 0
         if (currentPosition < containerWidth - toggleButton.offsetWidth) {
-          toggleButton.style.left = '0px';
+          toggleButton.style.left = '0px'
         }
       }
-    });
+    })
   </script>
-
 
   <script>
     AOS.init({
       duration: 1000,
-      offset: 100,
-    });
+      offset: 100
+    })
 
-
-    const button = document.getElementById('toggle-video');
-    const videoContainer = document.getElementById('video-container');
+    const button = document.getElementById('toggle-video')
+    const videoContainer = document.getElementById('video-container')
 
     button.addEventListener('click', () => {
       if (videoContainer.style.display === 'none' || videoContainer.style.display === '') {
-        videoContainer.style.display = 'block';
-        button.textContent = 'Close Video';
+        videoContainer.style.display = 'block'
+        button.textContent = 'Close Video'
       } else {
-        videoContainer.style.display = 'none';
-        button.textContent = 'Watch Video';
+        videoContainer.style.display = 'none'
+        button.textContent = 'Watch Video'
       }
-    });
+    })
   </script>
 
   <script>
-    const button2 = document.getElementById('toggle-video2');
-    const videoContainer2 = document.getElementById('video-container2');
+    const button2 = document.getElementById('toggle-video2')
+    const videoContainer2 = document.getElementById('video-container2')
 
     button2.addEventListener('click', () => {
       if (videoContainer2.style.display === 'none' || videoContainer2.style.display === '') {
-        videoContainer2.style.display = 'block';
-        button2.textContent = 'Close Video';
+        videoContainer2.style.display = 'block'
+        button2.textContent = 'Close Video'
       } else {
-        videoContainer2.style.display = 'none';
-        button2.textContent = 'Watch Video';
+        videoContainer2.style.display = 'none'
+        button2.textContent = 'Watch Video'
       }
-    });
+    })
   </script>
   <script>
-    AOS.init(); // Initialize AOS animations
+    AOS.init() // Initialize AOS animations
   </script>
   <script>
     AOS.init({
       duration: 1500,
-      offset: 100,
-    });
+      offset: 100
+    })
   </script>
   <script>
     // Initialize AOS
     AOS.init({
       duration: 1500, // Animation duration
       once: true, // Animation happens only once
-      easing: 'ease-out',
-    });
+      easing: 'ease-out'
+    })
   </script>
   <script>
     AOS.init({
-      duration: 1000,  // Animation duration
-      once: true,      // Ensure animations happen only once
-    });
+      duration: 1000, // Animation duration
+      once: true // Ensure animations happen only once
+    })
   </script>
+
 
   <script>
     // Initialize AOS with `once: false` so animations trigger each time they come into view
     AOS.init({
       once: false, // Disable animation triggering only once
       duration: 1000, // Set default duration for animations (adjust if needed)
-      offset: 200, // Set the offset (distance before the element enters the viewport)
-    });
+      offset: 200 // Set the offset (distance before the element enters the viewport)
+    })
 
-    // Function to toggle Read More and Show Full Text
-    document.getElementById('read-more-mission').addEventListener('click', function () {
-      const missionText = document.getElementById('mission-text');
-      if (missionText.style.maxHeight === 'none') {
-        missionText.style.maxHeight = '200px';
-        this.textContent = 'Read more...';
-      } else {
-        missionText.style.maxHeight = 'none';
-        this.textContent = 'Read less...';
-      }
-    });
-
-    document.getElementById('read-more-vision').addEventListener('click', function () {
-      const visionText = document.getElementById('vision-text');
-      if (visionText.style.maxHeight === 'none') {
-        visionText.style.maxHeight = '200px';
-        this.textContent = 'Read more...';
-      } else {
-        visionText.style.maxHeight = 'none';
-        this.textContent = 'Read less...';
-      }
-    });
 
     // Refresh AOS on window resize (if elements are dynamically added or content changes)
     window.addEventListener('resize', function () {
-      AOS.refresh();
-    });
+      AOS.refresh()
+    })
   </script>
 
-
-
-
   <script>
-
     function animateCounter(id, endValue, duration) {
-      let startValue = 0;
-      let step = Math.ceil(endValue / duration);
-      let counterElement = document.getElementById(id);
+      let startValue = 0
+      let step = Math.ceil(endValue / duration)
+      let counterElement = document.getElementById(id)
 
       let interval = setInterval(function () {
         if (startValue < endValue) {
-          startValue += step;
-          counterElement.innerText = startValue;
+          startValue += step
+          counterElement.innerText = startValue
         } else {
-          counterElement.innerText = endValue;
-          clearInterval(interval);
+          counterElement.innerText = endValue
+          clearInterval(interval)
         }
-      }, 1);
+      }, 1)
     }
 
-
     window.onload = function () {
-      animateCounter('counter1', 100, 1000);
-      animateCounter('counter2', 200, 1000);
-      animateCounter('counter3', 300, 1000);
-      animateCounter('counter4', 400, 1000);
-    };
+      animateCounter('counter1', 100, 1000)
+      animateCounter('counter2', 200, 1000)
+      animateCounter('counter3', 300, 1000)
+      animateCounter('counter4', 400, 1000)
+    }
   </script>
   <script>
-
     // JavaScript to handle the scroll animation
     function handleScrollAnimations() {
-      const featureItems = document.querySelectorAll('.feature-item');
+      const featureItems = document.querySelectorAll('.feature-item')
 
       // Set the observer options
       const observerOptions = {
         root: null, // null means the viewport
         rootMargin: '0px',
         threshold: 0.5 // Trigger animation when 50% of the element is in the viewport
-      };
+      }
 
       // Intersection Observer callback function
       const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             // Add 'in-view' class to start the animation
-            entry.target.classList.add('in-view');
+            entry.target.classList.add('in-view')
           } else {
             // Optionally remove the class if the element is out of view
-            entry.target.classList.remove('in-view');
+            entry.target.classList.remove('in-view')
           }
-        });
-      };
+        })
+      }
 
       // Create an IntersectionObserver instance
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
+      const observer = new IntersectionObserver(observerCallback, observerOptions)
 
       // Observe each feature item and assign classes based on position
       featureItems.forEach((item, index) => {
         // Add different animation classes for alternate items
         if (index % 2 === 0) {
           // Even index items will animate from the left
-          item.classList.add('up');
+          item.classList.add('up')
         } else {
           // Odd index items will animate from the right
-          item.classList.add('bottom');
+          item.classList.add('bottom')
         }
 
         // Add delay based on index (i.e., stagger the animations)
-        item.style.transitionDelay = `${index * 0.3}s`; // Add a 0.3s delay for each subsequent item
+        item.style.transitionDelay = `${index * 0.3}s` // Add a 0.3s delay for each subsequent item
 
-        observer.observe(item);
-      });
+        observer.observe(item)
+      })
     }
 
     // Check for screen size and trigger the scroll animation function
-    window.addEventListener('DOMContentLoaded', handleScrollAnimations);
+    window.addEventListener('DOMContentLoaded', handleScrollAnimations)
     window.addEventListener('resize', () => {
       // Trigger animation on both screen sizes
-      handleScrollAnimations();
-    });
+      handleScrollAnimations()
+    })
   </script>
-
 
   <script>
     // Show More Button Click Event
     document.getElementById('show-more-btn').addEventListener('click', function () {
-      var hiddenCards = document.querySelectorAll('.product-card[style="display: none;"]');
+      var hiddenCards = document.querySelectorAll('.product-card[style="display: none;"]')
       for (var i = 0; i < hiddenCards.length; i++) {
-        hiddenCards[i].style.display = 'block';
+        hiddenCards[i].style.display = 'block'
       }
       // Hide the Show More button after all cards are visible
       if (document.querySelectorAll('.product-card[style="display: none;"]').length === 0) {
-        this.style.display = 'none';
+        this.style.display = 'none'
       }
-    });
+    })
   </script>
 
 
+  <script>
+  
+    document.addEventListener('DOMContentLoaded', function () {
+      const message = document.getElementById('whatsapp-message');
+      message.classList.add('show'); // Add the "show" class to display the message
+  
+      // Automatically hide the message after 3 seconds
+      setTimeout(() => {
+        closeMessage();
+      }, 6000);
+    });
+    function closeMessage() {
+      const message = document.getElementById('whatsapp-message');
+      message.classList.remove('show'); // Remove the "show" class to hide the message
+    }
+  </script>
+  
 </body>
 
 </html>
