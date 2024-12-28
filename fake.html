@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1604,23 +1604,23 @@
             <a style="border-bottom: 2px solid black;" class="nav-link" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            <a class="nav-link" href="">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'course_list' %}">Courses Offered</a>
+            <a class="nav-link" href="">Courses Offered</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'faculty' %}">Faculty</a>
+            <a class="nav-link" href="">Faculty</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'gallery:gallery' %}">Gallery</a>
+            <a class="nav-link" href="">Gallery</a>
           </li>
         </ul>
       </div>
 
       <!-- Right-side icons -->
       <div class="navbar-brand-right">
-        <a href="{% url 'course_list' %}" ><button class="register-btn">Register</button></a>
+        <a href="" ><button class="register-btn">Register</button></a>
       </div>
     </div>
   </nav>
@@ -1641,7 +1641,7 @@
   </a>
   
 
-  {% comment %} <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+ <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -1657,30 +1657,30 @@
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page1"><img src="{% static 'images/ban-1_mob.jpg' %}"
+        <a href="https://your-link.com/page1"><img src="images/ban-1_mob.jpg"
             class="d-block w-100 d-md-none" alt="Mobile Slide 1" /></a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page1"><img src="{% static 'images/ban-1.jpg' %}"
+        <a href="https://your-link.com/page1"><img src="images/ban-1.jpg"
             class="d-block w-100 d-none d-md-block" alt="Desktop Slide 1" /></a>
       </div>
 
       <!-- Slide 2 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-2_mob.jpg' %}"
+        <a href="https://your-link.com/page2"><img src="images/ban-2_mob.jpg"
             class="d-block w-100 d-md-none" alt="Mobile Slide 2" /></a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-2.jpg' %}"
+        <a href="https://your-link.com/page2"><img src="images/ban-2.jpg"
             class="d-block w-100 d-none d-md-block" alt="Desktop Slide 2" /></a>
       </div>
 
       <!-- Slide 3 -->
       <div class="carousel-item">
         <!-- Link for Mobile Image -->
-        <a href="https://your-link.com/page3"><img src="{% static 'images/ban-3_mob.jpg' %}"
+        <a href="https://your-link.com/page3"><img src="images/ban-3_mob.jpg"
             class="d-block w-100 d-md-none" alt="Mobile Slide 3" /></a>
         <!-- Link for Desktop Image -->
-        <a href="https://your-link.com/page2"><img src="{% static 'images/ban-3.jpg' %} "
+        <a href="https://your-link.com/page2"><img src="images/ban-3.jpg "
             class="d-block w-100 d-none d-md-block" alt="Desktop Slide 3" /></a>
       </div>
     </div>
@@ -1696,38 +1696,10 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div> {% endcomment %}
-
-
-  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      {% for item in carousel_items %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <!-- Link for Mobile Image -->
-        <a href="">
-          <img src="{{ item.mobile_image.url }}" class="d-block w-100 d-md-none" alt="Mobile Slide {{ item.id }}" />
-        </a>
-        <!-- Link for Desktop Image -->
-        <a href="">
-          <img src="{{ item.desktop_image.url }}" class="d-block w-100 d-none d-md-block"
-            alt="Desktop Slide {{ item.id }}" />
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- Controls (Prev & Next Buttons) -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-      data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+
+
+  
 
 
   <section class="hero-section text-center mt-5">
@@ -1748,7 +1720,7 @@
           minds and shaping bright futures. With a deep passion for care and eduaction, our journey began with a vision
           to create a safe and inspiring space foe students to grow , learn , and thrive.</p>
 
-<a href="{% url 'about' %}"> <button data-aos="zoom-in" data-aos-duration="500" class="btn btn-view-more">View More</button>
+<a href=""> <button data-aos="zoom-in" data-aos-duration="500" class="btn btn-view-more">View More</button>
 </a>        </div>
 
       <!-- Video Section with AOS Animation -->
@@ -1773,7 +1745,7 @@
       <div class="row centered-row">
         <!-- Feature Item 1 -->
         <div class="col-12 col-md-3 feature-item  ">
-          <img src="{% static 'images/children-student-learning-007-512.webp' %}" alt="Icon 1" />
+          <img src="" alt="Icon 1" />
           <div class="counter">
           </div>
           <h5>Regular Tests</h5>
@@ -1782,7 +1754,7 @@
 
         <!-- Feature Item 2 -->
         <div class="col-12 col-md-3 feature-item">
-          <img src="{% static 'images/feature-2.png' %}" alt="Icon 2" />
+          <img src="" alt="Icon 2" />
           <div class="counter">
           </div>
           <h5>Tailored Study Plans</h5>
@@ -1791,7 +1763,7 @@
 
         <!-- Feature Item 3 -->
         <div class="col-12 col-md-3 feature-item">
-          <img src="{% static 'images/feature-3.webp'  %}" alt="Icon 3" />
+          <img src="" alt="Icon 3" />
           <div class="counter">
           </div>
           <h5>Daily Progress Reports</h5>
@@ -1800,7 +1772,7 @@
 
         <!-- Feature Item 4 -->
         <div class="col-12 col-md-3 feature-item">
-          <img src="{% static 'images/feature-4.webp' %}" alt="Icon 4" />
+          <img src="" alt="Icon 4" />
           <div class="counter">
           </div>
           <h5>Monthly Progress Books</h5>
@@ -1967,7 +1939,7 @@
             </div>
           </div>
           <div>
-            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
+            <a href=""><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
@@ -1985,7 +1957,7 @@
             </div>
           </div>
           <div>
-            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
+            <a href=""><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
@@ -2003,12 +1975,12 @@
             </div>
           </div>
           <div>
-            <a href="{% url 'course_list' %}"><button class="btn btn-viewss">VIEW DETAILS</button></a>
+            <a href=""><button class="btn btn-viewss">VIEW DETAILS</button></a>
           </div>
         </div>
       </div>
       <div class="course-button-container">
-        <a href="{% url 'course_list' %}" class="btn btn-primary">More Courses</a>
+        <a href="" class="btn btn-primary">More Courses</a>
       </div>
     </div>
   </div>
@@ -2044,19 +2016,19 @@
       <div class="col-md-6">
         <div class="hex-gallery">
           <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{% static 'images/p1_image1.jpg' %}" alt="Gallery Image 1" />
+            <img src="" alt="Gallery Image 1" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="500">
-            <img src="{% static 'images/p1_img2.jpg' %}" alt="Gallery Image 2" />
+            <img src="" alt="Gallery Image 2" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="800">
-            <img src="{% static 'images/p1_img3.jpg' %}" alt="Gallery Image 3" />
+            <img src="" alt="Gallery Image 3" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="1100">
-            <img src="{% static 'images/p1_img4.jpg' %}" alt="Gallery Image 4" />
+            <img src="" alt="Gallery Image 4" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="1300">
-            <img src="{% static 'images/p1_img5.jpg' %}" alt="Gallery Image 5" />
+            <img src="" alt="Gallery Image 5" />
           </div>
         </div>
       </div>
@@ -2069,19 +2041,19 @@
       <div class="col-md-6 order-2 order-md-1">
         <div class="hex-gallery">
           <div class="hex" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{% static 'images/p2_img1.jpg' %}" alt="Gallery Image 1" />
+            <img src="" alt="Gallery Image 1" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="550">
-            <img src="{% static 'images/p2_img2.jpg' %}" alt="Gallery Image 2" />
+            <img src="" alt="Gallery Image 2" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="750">
-            <img src="{% static 'images/p2_img3.jpg' %}" alt="Gallery Image 3" />
+            <img src="" alt="Gallery Image 3" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="850">
-            <img src="{% static 'images/p2_new1.jpg' %}" alt="Gallery Image 4" />
+            <img src="" alt="Gallery Image 4" />
           </div>
           <div class="hex" data-aos="zoom-in" data-aos-delay="800">
-            <img src="{% static 'images/p2_new2.jpg' %}" alt="Gallery Image 5" />
+            <img src="" alt="Gallery Image 5" />
           </div>
         </div>
       </div>
@@ -2116,8 +2088,8 @@
 
     <!-- Card 1 -->
     <div class="custom-card unique-card-1" data-aos="zoom-in" data-aos-delay="250">
-      <a href="{% url 'faculty' %}">
-        <img src="{% static 'images/first.jpg' %}" class="custom-card-img" alt="Card 1" />
+      <a href="">
+        <img src="" class="custom-card-img" alt="Card 1" />
         <div class="inner-container">
           <h5>MR. DIKESH</h5><br />
         </div>
@@ -2125,8 +2097,8 @@
     </div>
     <!-- Card 2 -->
     <div class="custom-card unique-card-2" data-aos="zoom-in" data-aos-delay="500">
-      <a href="{% url 'faculty' %}">
-        <img src="{% static 'images/second.jpg' %}" class="custom-card-img" alt="Card 2" />
+      <a href="">
+        <img src="" class="custom-card-img" alt="Card 2" />
 
         <div class="inner-container">
           <h5>MR. K KRISHNA DAS</h5>
@@ -2135,8 +2107,8 @@
     </div>
     <!-- Card 3 -->
     <div class="custom-card unique-card-3" data-aos="zoom-in" data-aos-delay="800">
-      <a href="{% url 'faculty' %}">
-        <img src="{% static 'images/praveena.jpg' %}"
+      <a href="">
+        <img src=""
           class="custom-card-img" alt="Card 3" />
         <div class="inner-container">
           <h5>MS. PRAVEENA</h5>
@@ -2150,7 +2122,7 @@
   </div>
 
   <div class="container mt-5">
-    <a href="{% url 'gallery:gallery' %}">
+    <a href="">
       <h5 class="see-more text-end">See more <i class="fa-solid fa-square-caret-right" style="color: #000;"></i></h5>
     </a>
     <div style="display: flex; justify-content: center; " class="feature">
