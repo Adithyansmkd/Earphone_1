@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <title>Cayla</title>
+
+</head>
+<body>
+    <style>
+ .contact-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        /* Background image section */
+        .contact-container .background-image {
+            width: 100%;
+            height: 180px;
+            background: url('images/supportssssss.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+            margin-bottom: 0; /* No margin between image and form */
+        }
+
+
+        /* Contact form container */
+        .contact-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Green button styles */
+        .btn-green {
+            background-color: #c7e145;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            color: rgb(0, 0, 0) !important;
+            border-radius: 5px;
+        }
+
+        .btn-green:hover {
+            background-color: #d8dc63;
+        }
+        
+        /* Anchor link styles */
+        .contact-container a {
+            color: #8bc127;
+            text-decoration: none;
+        }
+        .contact-container p{
+            color: #000 ;
+        }
+        .form-label{
+            color: #000 !important;
+        }
+        .text-con{
+            color: #000; 
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.2rem;
+
+               }
+              
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #c7e145aa; 
+    box-shadow: 0 0 5px rgba(199, 225, 69, 0.271);
+    outline: none; /* Remove default outline */
+}
+
+               
+@media (max-width: 768px) {
+            .contact-container {
+                padding: 20px;
+                margin-top: 30px;
+                max-width: 98%;
+            }
+
+            .contact-container .background-image {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 490px) {
+            .contact-container {
+                padding: 18px;
+                max-width: 100%;
+                margin-top: 30px;
+            }
+
+            .contact-container .background-image {
+                height: 120px;
+            }
+            .text-con{
+                font-size: 1rem;
+            }
+        }
+
+
+
+        .navbar-custom {
+            height: 5vh;
+            background-color: #fff; /* Dark background */
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        /* Back button styles */
+        .back-btn {
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for back button */
+        .back-btn:hover {
+            color: #c7e145; /* Green color when hovered */
+        }
+        .navbar-custom a{
+            color: #000;
+            font-size: 0.8rem;
+            
+        }
+
+        .modal-content {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Animation for popup */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Close button styles */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            background-color: red;
+            border: none;
+            padding: 0px 5px;
+            font-size: 1.1rem;
+         
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background-color: #d04f54;
+        }
+
+        /* Modal text styling */
+        .modal-body {
+            font-size: 1rem;
+            text-align: center;
+            text-align: justify;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+        }
+
+        /* Dark overlay background */
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.788);
+            z-index: 999;
+        }
+
+
+    </style>
+
+<nav class="navbar-custom">
+    <a href="home.html"><i class="fa-solid fa-house"></i>&nbsp;Back to home</a>
+</nav>
+
+<div class="container contact-form mt-2">
+    <div class="contact-container">
+        <!-- Background image directly placed inside the form -->
+        <div class="background-image"></div>
+        <div class="background-change">
+        <h3 class="text-con">CONTACT US</h3>
+        <p>Or reach out manually to <a href="mailto:uifresh.net@gmail.com"> mptkarunagappally@ihrd.ac.in</a></p>
+
+        <!-- Spam Protection Question -->
+        <div class="mb-3">
+            <label for="spam-question" class="form-label" id="question-label"></label>
+            <input type="text" class="form-control" id="spam-answer" placeholder="Your answer" required>
+        </div>
+
+        <!-- Contact Form, initially disabled -->
+        <form id="contact-form" disabled>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Your name" required disabled>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Email address" required disabled>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                <input type="tel" class="form-control" placeholder="Phone number" disabled>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"> <i class="fas fa-building"></i></span>
+                <input type="text" class="form-control" placeholder="Department" required disabled>
+            </div>
+            <div class="mb-3 input-group">
+                <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                <input type="text" class="form-control" placeholder="semester" required disabled>
+            </div>
+           
+            <div class="mb-3 input-group">
+                <span class="input-group-text"><i class="fas fa-edit"></i></span>
+                <textarea class="form-control" rows="2" placeholder="Your message" required disabled></textarea>
+            </div>
+            <button type="submit" class="btn btn-green w-100" id="submit-button" disabled>SEND MESSAGE</button>
+        </form>
+    </div>
+    </div>
+
+    <div id="dark-overlay" class="dark-overlay" style="display:none;"></div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade show" id="antiSpamModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- Close icon with red background -->
+                <button type="button" class="close-btn" id="closeBtn" aria-label="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Anti-Spam Protection</h5>
+            </div>
+            <div class="modal-body">
+                <p id="modalText">To prevent spam, please answer the security question correctly. Only the correct answer will enable the input fields to submit your complaint.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="translateBtn">Translate to Malayalam</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show the modal and darken the background on page load
+    window.onload = function () {
+        document.getElementById("dark-overlay").style.display = "block"; // Darken the background
+        var antiSpamModal = document.getElementById("antiSpamModal");
+
+        // Close the modal when clicking the close button
+        document.getElementById("closeBtn").addEventListener("click", function () {
+            antiSpamModal.style.display = "none"; // Hide the modal
+            document.getElementById("dark-overlay").style.display = "none"; // Remove dark overlay
+        });
+
+        // Translate the text into Malayalam when the button is clicked
+        document.getElementById("translateBtn").addEventListener("click", function () {
+            var modalText = document.getElementById("modalText");
+            modalText.innerHTML = "സ്പാം തടയുന്നതിനായി, ദയവായി സുരക്ഷാ ചോദ്യത്തിന് ശരിയായ ഉത്തരം നൽകുക. ശരിയായ ഉത്തരം നൽകിയാൽ മാത്രമേ നിങ്ങൾക്ക് ഫീൽഡ്‌സ് ഉപയോഗിക്കാൻ കഴിയൂ3";
+            document.getElementById("translateBtn").style.display = "none"; // Hide the translate button after translation
+        });
+    }
+</script>
+
+
+<script>
+    function generateRandomQuestion() {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const randomMonth = months[Math.floor(Math.random() * months.length)];
+        const randomDay = Math.floor(Math.random() * 30) + 1; 
+        const question = `What day comes before ${randomMonth} ${randomDay + 1}?`;
+
+        const correctAnswer = randomDay;
+
+        document.getElementById("question-label").innerText = question;
+
+        document.getElementById("spam-answer").addEventListener("input", function () {
+            const userAnswer = parseInt(this.value, 10);
+            if (userAnswer === correctAnswer) {
+                document.getElementById("contact-form").disabled = false;
+                document.getElementById("submit-button").disabled = false;
+                document.querySelectorAll("#contact-form input, #contact-form select, #contact-form textarea").forEach(function (input) {
+                    input.disabled = false;
+                });
+            } else {
+                document.getElementById("contact-form").disabled = true;
+                document.getElementById("submit-button").disabled = true;
+                document.querySelectorAll("#contact-form input, #contact-form select, #contact-form textarea").forEach(function (input) {
+                    input.disabled = true;
+                });
+            }
+        });
+    }
+
+    generateRandomQuestion();
+</script>
+
+<script>
+    // Initialize AOS with every element triggering animation on scroll
+    AOS.init({
+        duration: 1000,  // Animation duration in ms
+        once: false,     // Trigger animations every time the element is in view
+        offset: 200,     // Distance (in px) from the top of the page before starting the animation
+        easing: 'ease',  // Easing function
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS (Animate On Scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
