@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Electrolize&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet">
         <!-- Add FontAwesome CDN link -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-    
+
     <title>MPTC Chatbot</title>
     <style>
         /* General styles */
@@ -35,12 +44,12 @@
             transition: all 0.3s ease-in-out;
         }
 
-       
+
 
         /* Chatbot container */
         .chatbot {
             position: fixed;
-            bottom: 40px;
+            bottom: 70px;
             right: 20px;
             z-index: 10000;
             width: 350px;
@@ -115,6 +124,8 @@
             line-height: 1.5;
             background-color: #212738;
             color: white;
+            font-family: "Poppins", serif;
+            font-size: 0.8rem;
             align-self: flex-end;
             border-bottom-left-radius: 0;
         }
@@ -123,11 +134,13 @@
         .bot-message {
             display: flex;
             align-items: center;
+            font-family: "Electrolize", serif;
             margin-bottom: 15px;
             max-width: 90%;
             background-color: #e9ecef;
             color: #333;
             padding: 12px;
+            font-size: 0.9rem;
             border-radius: 18px;
         }
 
@@ -162,88 +175,91 @@
         }
 
         .send-btn {
-    background-color: #212738;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 18px;
-    transition: background-color 0.3s ease-in-out;
-    width: 40px;
-    height: 40px;
-    outline: none;
-    margin-left: 10px;
-    position: relative;
-    overflow: hidden;
-}
+            background-color: #212738;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+            width: 40px;
+            height: 40px;
+            outline: none;
+            margin-left: 10px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.send-btn i {
-    transition: transform 0.8s ease, opacity 1s ease;
-}
+        .send-btn i {
+            transition: transform 0.8s ease, opacity 1s ease;
+        }
 
-.send-btn:active i {
-    animation: moveIcon 0.7s forwards;
-}
+        .send-btn:active i {
+            animation: moveIcon 0.7s forwards;
+        }
 
-@keyframes moveIcon {
-    0% {
-        transform: translate(0, 0); 
-        opacity: 1;
-    }
-    50% {
-        transform: translate(30px, -30px); 
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(0, 0); 
-        opacity: 1;
-    }
-}
+        @keyframes moveIcon {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(30px, -30px);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
 
 
-      /* Suggestion box */
-.suggestion-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 12px;
-    width: 100%;
-    height: 130px; 
-    overflow-y: auto;
-}
+        /* Suggestion box */
+        .suggestion-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+        }
 
-/* Suggestions */
-.suggestion {
-    padding: 5px 10px;
-    background-color: #ecf0f1;
-    border-radius: 25px;
-    text-align: center;
-    margin-left: 5px;
-    height: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        /* Suggestions */
+        .suggestion {
+            padding: 5px 10px;
+            background-color: #ecf0f1;
+            border-radius: 25px;
+            text-align: center;
+            margin-left: 5px;
+            
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-/* Thin scrollbar */
-.suggestion-box::-webkit-scrollbar {
-    width: 3px; /* Thin scrollbar */
-}
+        /* Thin scrollbar */
+        .suggestion-box::-webkit-scrollbar {
+            width: 3px;
+            /* Thin scrollbar */
+        }
 
-.suggestion-box::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
+        .suggestion-box::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
 
-.suggestion-box::-webkit-scrollbar-thumb {
-    background-color: #f97068;
-    border-radius: 10px;
-}
+        .suggestion-box::-webkit-scrollbar-thumb {
+            background-color: #f97068;
+            border-radius: 10px;
+        }
 
-.suggestion-box::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
+        .suggestion-box::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
 
 
         .suggestion:hover {
@@ -255,15 +271,15 @@
             padding: 4px;
             color: #212738;
             font-size: 1.5rem;
-    border-radius: 50%;
-    border: none;
-    outline: none;
+            border-radius: 50%;
+            border: none;
+            outline: none;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             align-self: flex-end;
         }
 
- 
+
         .arrow-btn.rotate {
             transform: rotate(180deg);
         }
@@ -271,8 +287,8 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .chatbot {
-                width: 280px;
-                height: 380px;
+                width: 88%;
+                height: calc(100% - 40%);
             }
         }
 
@@ -281,12 +297,14 @@
             from {
                 transform: translateY(100%);
             }
+
             to {
                 transform: translateY(0);
             }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Button to open chatbot -->
@@ -318,20 +336,19 @@
     </div>
 
     <script>
+
+
+
+
 let responses = {
     "hi": "Hello! How can I assist you today?",
     "hello": "Hello! How can I assist you today?",
     "hey": "Hello! How can I assist you today?",
     "bye": "Goodbye! Have a great day!",
     "goodbye": "Goodbye! Have a great day!",
-    "good morning": "Good morning! How can I help you today?",
-    "how can I help you?": "I'm here to assist you with any questions about MPTC. Feel free to ask!",
-    "what is your name?": "I'm MPTC's chatbot, here to assist you!",
-    "tell me about mptc": "MPTC stands for Metropolitan Transport Corporation. We provide transportation services.",
-    "what services do you provide?": "We provide transportation services across the city. We ensure safe and punctual travel."
 };
 
-let suggestionsVisible = 6; // Initially show 4 suggestions
+let suggestionsVisible = 6; // Initially show 6 suggestions
 let allSuggestions = [
     'Good Morning',
     'How can I help you?',
@@ -342,10 +359,20 @@ let allSuggestions = [
     'What is your name?',
     'What is your name?',
     'What is your name?  thum mer how me meri path thanku baby meri thum aa',
+    'What is your name?  thum mer how me meri path thanku baby meri thum aa',
+    'What is your name?  thum mer how me meri path thanku baby meri thum aa',
     'What is your name?',
     'What is your name?',
     'What is your name?',
-    
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?',
+    'What is your name?'
 ];
 
 // Function to handle real-time suggestion filtering based on user input
@@ -373,6 +400,7 @@ function displaySuggestions(suggestions) {
         suggestionElement.onclick = function() {
             handleUserMessage(suggestion);  // Directly send the suggestion as the user input
             suggestionBox.style.display = 'none';  // Hide the suggestion box
+            hideWelcomeMessage(); // Hide the welcome message after selecting a suggestion
         };
         suggestionBox.appendChild(suggestionElement);
     });
@@ -464,6 +492,12 @@ document.getElementById('send-btn').onclick = function() {
 
         // Automatically scroll to the bottom of the chat
         chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Clear the input box after sending
+        document.getElementById('user-input').value = '';
+
+        // Close the suggestion box after sending
+        document.getElementById('suggestion-box').style.display = 'none';
     }
 };
 
@@ -485,7 +519,43 @@ let userTyping = false;
 // Open chatbot window
 document.getElementById('chat-link').onclick = function() {
     document.getElementById('chatbot').style.display = 'flex';
-    displaySuggestions(allSuggestions.slice(0, suggestionsVisible)); // Show only first 4 initially
+    displaySuggestions(allSuggestions.slice(0, suggestionsVisible)); // Show only first 6 initially
+
+    // Create the welcome message div
+    let welcomeMessage = document.createElement('div');
+    welcomeMessage.className = 'welcome-message';
+
+    let messageText = "Welcome! How can I assist you today?";
+    let index = 0;
+
+    // Function to simulate typing effect for the welcome message
+    function typeWelcomeMessage() {
+        if (index < messageText.length) {
+            welcomeMessage.textContent += messageText[index];
+            index++;
+            setTimeout(typeWelcomeMessage, 100); // Adjust speed here (100ms between characters)
+        }
+    }
+
+    // Start typing effect for welcome message
+    typeWelcomeMessage();
+
+    // Append the message to the chat box
+    let chatBox = document.getElementById('chat-box');
+    chatBox.appendChild(welcomeMessage);
+
+    // Hide the welcome message once the user interacts
+    document.getElementById('user-input').addEventListener('input', hideWelcomeMessage);
+    document.getElementById('send-btn').addEventListener('click', hideWelcomeMessage);
+    document.getElementById('suggestion-box').addEventListener('click', hideWelcomeMessage);
+
+    function hideWelcomeMessage() {
+        // Remove the welcome message after user interaction
+        welcomeMessage.style.display = 'none';
+        document.getElementById('user-input').removeEventListener('input', hideWelcomeMessage);
+        document.getElementById('send-btn').removeEventListener('click', hideWelcomeMessage);
+        document.getElementById('suggestion-box').removeEventListener('click', hideWelcomeMessage);
+    }
 }
 
 // Close chatbot window
@@ -509,12 +579,12 @@ document.getElementById('arrow-btn').onclick = function() {
     }
 }
 
+    
+
 
     </script>
 
 
-<script>
-    
-</script>
 </body>
+
 </html>
