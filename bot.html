@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"   content="width=device-width, initial-scale=1.0">
+  
 
     <head>
+        <meta name="theme-color" content="#197ee2">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -253,7 +255,7 @@
         }
 
         .suggestion-box::-webkit-scrollbar-thumb {
-            background-color: #f97068;
+            background-color: #70e3e3;
             border-radius: 10px;
         }
 
@@ -360,10 +362,10 @@ let responses = {
     "college provide placement assistance?": " Yes, we have a dedicated placement cell that helps students with internships and job placements.",
     "how to contact admissions?": "You can reach the admissions office via email at mptckoffice@gmail.com or mptkarunagappally.ihrd@gmail.com or call at 0476-2623597 or 9447488348.",
     "what programs are offered": "We offer diploma courses in Mechanical, Electrical, Electronics, and Computer Engineering.full list <a href='https://example.com/courses' target='_blank'>",
-    "who is created the website?":"2025 passout batch, Team Future Scripts.VISHNU S | MIDHUN M | ABHINAV A and  ADITHYAN S",    
-};
+    "who created the website?": "The website was created by the 2025 pass-out batch, Team Future Scripts: Vishnu S | Midhun M | Abhinav A and Adithyan S."
+    };
 
-let suggestionsVisible = 4; // Initially show 6 suggestions
+let suggestionsVisible = 4; 
 let allSuggestions = [
     
     'hello',
@@ -382,114 +384,95 @@ let allSuggestions = [
     
 ];
 
-// Function to handle real-time suggestion filtering based on user input
 document.getElementById('user-input').addEventListener('input', function() {
     let userInput = document.getElementById('user-input').value.trim().toLowerCase();
 
-    // Filter suggestions based on user input
     let filteredSuggestions = allSuggestions.filter(function(suggestion) {
         return suggestion.toLowerCase().includes(userInput);
     });
 
-    // Show filtered suggestions or all suggestions if input is empty
     displaySuggestions(filteredSuggestions.length > 0 ? filteredSuggestions : allSuggestions.slice(0, suggestionsVisible));
 });
 
-// Display suggestions based on filtered input or all suggestions
 function displaySuggestions(suggestions) {
     let suggestionBox = document.getElementById('suggestion-box');
-    suggestionBox.innerHTML = ''; // Clear previous suggestions
+    suggestionBox.innerHTML = ''; 
 
     suggestions.forEach(function(suggestion) {
         let suggestionElement = document.createElement('span');
         suggestionElement.className = 'suggestion';
         suggestionElement.textContent = suggestion;
         suggestionElement.onclick = function() {
-            handleUserMessage(suggestion);  // Directly send the suggestion as the user input
-            suggestionBox.style.display = 'none';  // Hide the suggestion box
-            hideWelcomeMessage(); // Hide the welcome message after selecting a suggestion
+            handleUserMessage(suggestion); 
+            suggestionBox.style.display = 'none';  // Hide  suggestion box
+            hideWelcomeMessage(); 
         };
         suggestionBox.appendChild(suggestionElement);
     });
 
-    // Show the suggestion box
     document.getElementById('suggestion-box').style.display = 'flex';
 }
 
-// Handle user input and automatically send the response for the suggestion
 function handleUserMessage(userInput) {
     let chatBox = document.getElementById('chat-box');
 
-    // Display user message
+    // Display  message
     let userMessage = document.createElement('div');
     userMessage.className = 'user-message';
     userMessage.textContent = 'You: ' + userInput;
     chatBox.appendChild(userMessage);
 
-    // Get the closest match response
     let botResponse = getClosestMatch(userInput);
 
-    // Display bot message
     let botMessage = document.createElement('div');
     botMessage.className = 'bot-message';
 
     let botIconContainer = document.createElement('div');
     botIconContainer.className = 'bot-icon-container';
 
-    // Use FontAwesome icon here (e.g., using 'robot' icon)
     let botIcon = document.createElement('i');
-    botIcon.className = 'fas fa-robot';  // FontAwesome robot icon
-
+    botIcon.className = 'fas fa-robot';  
     botIconContainer.appendChild(botIcon);
     botMessage.prepend(botIconContainer);
 
     chatBox.appendChild(botMessage);
     typeMessage(botResponse, botMessage);
 
-    // Automatically scroll to the bottom of the chat
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Function to get the closest match response using fuzzy matching (based on substring)
 function getClosestMatch(userInput) {
-    // Normalize user input to lowercase
     let normalizedInput = userInput.trim().toLowerCase();
 
-    // Loop through all responses and find the closest match
     for (let key in responses) {
         if (normalizedInput.includes(key)) {
             return responses[key];
         }
     }
-    return "I didn’t quite catch that. Can you rephrase?"; // Default message if no match found
+    return "I didn’t catch that. Could you please provide a better response? Press the up arrow for more suggestions.";
 }
 
-// Function to handle user input and provide responses
 document.getElementById('send-btn').onclick = function() {
     let userInput = document.getElementById('user-input').value;
 
     if (userInput.trim() !== "") {
         let chatBox = document.getElementById('chat-box');
 
-        // Display user message
         let userMessage = document.createElement('div');
         userMessage.className = 'user-message';
         userMessage.textContent = 'You: ' + userInput;
         chatBox.appendChild(userMessage);
 
-        // Get the closest match response
         let botResponse = getClosestMatch(userInput);
 
-        // Display bot message
         let botMessage = document.createElement('div');
         botMessage.className = 'bot-message';
 
         let botIconContainer = document.createElement('div');
         botIconContainer.className = 'bot-icon-container';
 
-        // Use FontAwesome icon here (e.g., using 'robot' icon)
         let botIcon = document.createElement('i');
-        botIcon.className = 'fas fa-robot';  // FontAwesome robot icon
+        botIcon.className = 'fas fa-robot';  
 
         botIconContainer.appendChild(botIcon);
         botMessage.prepend(botIconContainer);
@@ -497,18 +480,14 @@ document.getElementById('send-btn').onclick = function() {
         chatBox.appendChild(botMessage);
         typeMessage(botResponse, botMessage);
 
-        // Automatically scroll to the bottom of the chat
         chatBox.scrollTop = chatBox.scrollHeight;
 
-        // Clear the input box after sending
         document.getElementById('user-input').value = '';
 
-        // Close the suggestion box after sending
         document.getElementById('suggestion-box').style.display = 'none';
     }
 };
 
-// Typing effect for bot response
 function typeMessage(message, element) {
     let i = 0;
     let interval = setInterval(function() {
@@ -519,45 +498,48 @@ function typeMessage(message, element) {
         }
     }, 50);
 }
-
-// Handle suggestions and visibility toggle
 let userTyping = false;
 
-// Open chatbot window
 document.getElementById('chat-link').onclick = function() {
     document.getElementById('chatbot').style.display = 'flex';
-    displaySuggestions(allSuggestions.slice(0, suggestionsVisible)); // Show only first 6 initially
+    displaySuggestions(allSuggestions.slice(0, suggestionsVisible)); 
 
-    // Create the welcome message div
     let welcomeMessage = document.createElement('div');
     welcomeMessage.className = 'welcome-message';
 
-    let messageText = "Welcome! How can I assist you today?";
+    // Get the current hour to determine the greeting
+    let currentHour = new Date().getHours();
+    let greeting = '';
+
+    if (currentHour >= 0 && currentHour < 12) {
+        greeting = 'Good Morning!';
+    } else if (currentHour >= 12 && currentHour < 18) {
+        greeting = 'Good Afternoon!';
+    } else {
+        greeting = 'Good Evening!';
+    }
+
+    let messageText = `${greeting} How can I assist you today?`;
     let index = 0;
 
-    // Function to simulate typing effect for the welcome message
     function typeWelcomeMessage() {
         if (index < messageText.length) {
             welcomeMessage.textContent += messageText[index];
             index++;
-            setTimeout(typeWelcomeMessage, 100); // Adjust speed here (100ms between characters)
+            setTimeout(typeWelcomeMessage, 100); 
         }
     }
 
-    // Start typing effect for welcome message
     typeWelcomeMessage();
 
-    // Append the message to the chat box
     let chatBox = document.getElementById('chat-box');
     chatBox.appendChild(welcomeMessage);
 
-    // Hide the welcome message once the user interacts
     document.getElementById('user-input').addEventListener('input', hideWelcomeMessage);
     document.getElementById('send-btn').addEventListener('click', hideWelcomeMessage);
     document.getElementById('suggestion-box').addEventListener('click', hideWelcomeMessage);
 
     function hideWelcomeMessage() {
-        // Remove the welcome message after user interaction
         welcomeMessage.style.display = 'none';
         document.getElementById('user-input').removeEventListener('input', hideWelcomeMessage);
         document.getElementById('send-btn').removeEventListener('click', hideWelcomeMessage);
@@ -565,24 +547,22 @@ document.getElementById('chat-link').onclick = function() {
     }
 }
 
-// Close chatbot window
+
 document.getElementById('close-btn').onclick = function() {
     document.getElementById('chatbot').style.display = 'none';
 }
 
-// Toggle suggestion visibility (up arrow)
 document.getElementById('arrow-btn').onclick = function() {
     let suggestionBox = document.getElementById('suggestion-box');
     let currentArrow = document.getElementById('arrow-btn');
 
-    // If the suggestion box is hidden, show all suggestions
     if (suggestionBox.style.display === 'none') {
         suggestionBox.style.display = 'flex';
-        displaySuggestions(allSuggestions); // Show all suggestions
-        currentArrow.innerHTML = '<i class="fa-solid fa-circle-chevron-up"></i>'; // Change to down arrow
+        displaySuggestions(allSuggestions); 
+        currentArrow.innerHTML = '<i class="fa-solid fa-circle-chevron-up"></i>'; 
     } else {
-        suggestionBox.style.display = 'none'; // Hide suggestion box
-        currentArrow.innerHTML = '<i class="fa-solid fa-circle-chevron-down"></i>'; // Change to up arrow
+        suggestionBox.style.display = 'none'; 
+        currentArrow.innerHTML = '<i class="fa-solid fa-circle-chevron-down"></i>';
     }
 }
 
