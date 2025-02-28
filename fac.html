@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Cards</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            
+        }
+        
+        .faculty-card {
+            height: 40vh;
+            margin-bottom: 30px;
+            border: none;
+            border-radius: 10px 10px 7px 7px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #0d0d0d;
+            color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .faculty-card .card-img-container {
+            height: 36vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .faculty-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        
+        
+        .faculty-card .card-body-fac {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10vh;
+            padding: 0 15px;
+            text-align: center;
+            background-color: transparent;
+            z-index: 2;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faculty-card:hover .card-body-fac {
+            height: 10vh;
+        }
+        
+        .faculty-card .card-body-fac h5 {
+            margin: 0;
+            font-weight: 400;
+            font-size: 1.04rem;
+            font-family: "Oswald", sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .faculty-card:hover .card-body-fac h5 {
+            transform: translateY(-4px);
+        }
+        .faculty-card-col:nth-child(1) .card-body-fac p {
+          background-color: #f5564e;
+          color: #fff;
+}   
+        
+        .faculty-card .card-body-fac p {
+            margin: 6px auto 10px auto;
+            font-family: "Oswald", sans-serif;
+            font-size: 0.87rem;
+            opacity: 0.7;
+            color: #000;
+            padding: 0.6px 10px;
+            border-radius: 4px;
+            
+            text-transform: uppercase;
+            white-space: nowrap;
+            background-color: #e3e0e0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.3s ease;
+        }
+        
+        .faculty-card:hover .card-body-fac p {
+            opacity: 0.9;
+        }
+        
+        .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 11.8vh;
+            background: linear-gradient(to top, 
+                rgb(0, 0, 0) 0%, 
+                rgba(13, 13, 13, 1) 30%, 
+                rgba(13, 13, 13, 0.9) 50%, 
+                rgba(13, 13, 13, 0.732) 70%, 
+                rgba(13, 13, 13, 0.062) 85%, 
+                rgba(169, 167, 167, 0) 100%);
+            z-index: 1;
+            transition: height 0.3s ease;
+        }
+        
+        .faculty-card:hover .gradient-overlay {
+            height: 14vh;
+        }
+        
+        /* Triangle shape in corner */
+        .triangle-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
+            z-index: 3;
+            transition: all 0.3s ease;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+        
+        .faculty-card:hover .triangle-corner {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, transparent 50%,#f0cbc936 50%);
+        }
+        
+        /* Pulsing dot indicator */
+        .status-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #f97068;
+            z-index: 4;
+            box-shadow: 0 0 0 #f97068;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(223, 118, 77, 0.925);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(50, 205, 50, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(50, 205, 50, 0);
+            }
+        }
+        
+        /* Shine effect on hover */
+        .shine-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .faculty-card:hover .shine-effect {
+            opacity: 1;
+        }
+        
+        @media (max-width: 576px) {
+            .faculty-card-col {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .faculty-card {
+                width: 85%;
+            }
+        }
+        @media (max-width:700px) {
+            .faculty-card .card-body-fac h5{
+                font-size: 0.9rem;
+            }
+            .faculty-card .card-body-fac p{
+                font-size: 0.78rem;
+                padding: 0px 10px;
+            }
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Our Faculty</h2>
+        
+        <div class="row">
+            
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/amrith.jpg" alt="Faculty Member 7">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Mrs. Jayalekshmi V</h5>
+                        <p>HOD</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/deep.jpg" alt="Faculty Member 8">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Dr. Rebecca Thompson</h5>
+                        <p>Lab Assitance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/deep.jpg" alt="Faculty Member 8">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Dr. Rebecca Thompson</h5>
+                        <p>Lab Assitance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/amrith.jpg" alt="Faculty Member 7">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Mrs. Jayalekshmi V</h5>
+                        <p>HOD</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/amrith.jpg" alt="Faculty Member 7">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Mrs. Jayalekshmi V</h5>
+                        <p>HOD</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/deep.jpg" alt="Faculty Member 8">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Dr. Rebecca Thompson</h5>
+                        <p>Lab Assitance</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/deep.jpg" alt="Faculty Member 8">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Dr. Rebecca Thompson</h5>
+                        <p>Lab Assitance</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 faculty-card-col">
+                <div class="faculty-card">
+                    <div class="card-img-container">
+                        <img src="images/deep.jpg" alt="Faculty Member 8">
+                    </div>
+                    <div class="triangle-corner"></div>
+                    <div class="status-indicator"></div>
+                    <div class="gradient-overlay"></div>
+                    <div class="shine-effect"></div>
+                    <div class="card-body-fac">
+                        <h5>Dr. Rebecca Thompson</h5>
+                        <p>Lab Assitance</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 9 -->
+           
+
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
