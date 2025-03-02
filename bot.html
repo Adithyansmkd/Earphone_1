@@ -13,38 +13,38 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #F1F1F1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
 
+            .basket-game{
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+            }
+    
         .game-container {
             text-align: center;
-            width: 50%;
+            width: 40%;
             padding: 20px;
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        h1 {
-            font-size: 36px;
+    .game-container      h1 {
+            font-size: 23px;
             color: #ff6600;
             margin-bottom: 20px;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .scoreboard {
+     .game-container   .scoreboard {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
-            font-size: 20px;
+            font-size: 16px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: #333;
         }
 
@@ -52,39 +52,41 @@
             margin-bottom: 20px;
         }
 
-        canvas {
-            background-color: #87cefa; /* Sky-blue background */
+     .game-container   canvas {
+            background:url(https://res.cloudinary.com/grohealth/image/upload/v1581678662/DCUK/Content/iStock-959080376.jpg) ; 
+            background-size: cover;
+            background-position: center;/* Sky-blue background */
             border: 2px solid #333;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            height: 40vh;
+            height: 35vh;
             width: 100%;
         }
 
-        button {
-            padding: 12px 25px;
+     .game-container   button {
+            padding: 7px 15px;
             background-color: #ff6600;
             color: white;
-            font-size: 18px;
+            font-size: 14px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
-        button:hover {
-            background-color: #e65c00;
+      .game-container  button:hover {
+            background-color: #eb7d34;
             transform: translateY(-3px);
         }
 
-        button:active {
+      .game-container  button:active {
             background-color: #cc5200;
             transform: translateY(1px);
         }
 
-        button:focus {
+     .game-container   button:focus {
             outline: none;
         }
 
@@ -96,12 +98,13 @@
 
         @media (max-width: 768px) {
             .game-container {
-                width: 90%;
+                width: 99%;
             }
         }
     </style>
 </head>
 <body>
+    <div class="basket-game">
     <div class="game-container">
         <h1>Basketball Shooting Game</h1>
         <div class="scoreboard">
@@ -113,6 +116,7 @@
         </div>
         <button id="startGame">Start Game</button>
     </div>
+</div>
 
     <script>
         const canvas = document.getElementById('gameCanvas');
@@ -239,8 +243,8 @@
         function drawCourt() {
             // Court background
             const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            gradient.addColorStop(0, "#F4C542"); // Top color
-            gradient.addColorStop(1, "#E3B52A"); // Bottom color
+            gradient.addColorStop(0, "#C28F5A "); // Top color
+            gradient.addColorStop(1, "#C28F5A "); // Bottom color
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             
