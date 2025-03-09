@@ -1,0 +1,3377 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+    <title>TrashGo</title>
+
+</head>
+
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header-top {
+            /* background-color: #0f141b; */
+            color: white;
+            background-color: #38e54d;
+            top: 0;
+            position: fixed;
+            z-index: 900;
+            height: 5.3vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-top .container .left p {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            letter-spacing: 1px;
+            color: #000;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+
+            .header-top .container .left p,
+            .header-top .container .right p {
+                font-size: 12px;
+                /* Smaller font size for mobile */
+            }
+
+            .social-icons a {
+                font-size: 16px;
+                margin: 0 4px;
+                /* Smaller icon size for mobile */
+            }
+
+            .header-top {
+                height: 7vh;
+            }
+
+            .email_p_hide {
+                display: none;
+            }
+        }
+
+        .navbar {
+            /* background-color: #0D1117; */
+            background-color: #effbef;
+            position: fixed;
+            top: 5.2vh !important;
+            width: 100%;
+            z-index: 990;
+            border-top: 2px solid #f6f7f6;
+            border-bottom: 2px solid #f6f7f6;
+        }
+
+        /* Name */
+        .navbar-brand span {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: #000;
+            font-weight: 900;
+            font-family: "Saira Stencil One", sans-serif;
+        }
+        .navbar-brand span b{
+            color: #38e54d;
+        }
+
+        .navbar-brand img {
+            width: 30%;
+            margin-top: -10%;
+            height: 5vh;
+        }
+
+        .navbar-nav .nav-link,
+        .dropdown-item {
+            color: #0000;
+        }
+
+        .navbar-toggler {
+            border-color: #000;
+        }
+
+        .navbar-toggler-icon {
+            color: #000;
+        }
+
+        .dropdown-menu {
+            background-color: #ecefea;
+            overflow: hidden;
+            z-index: 1200;
+            border: none;
+        }
+
+        .dropdown-menu li {
+            padding: 6px 60px;
+            border-bottom: 1px solid #38e54d    ;
+        }
+
+        /* imp */
+        .dropdown-menu li a:hover {
+            background-color: transparent;
+        }
+
+        .nav-item {
+            padding: 5px 15px;
+        }
+
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 250px;
+                height: calc(100vh - 56px);
+                background-color: #fbfefb;
+                z-index: 1000;
+                display: block;
+                overflow-y: auto;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-nav .nav-link {
+                padding: 15px 20px;
+                color: #000;
+            }
+
+            .navbar-nav .nav-item {
+                border-bottom: 1px solid #111b25;
+            }
+
+            .navbar {
+                top: 5vh;
+            }
+
+        }
+
+        @media (max-width: 1000px) {
+            .navbar {
+                top: 4vh;
+            }
+        }
+
+        .nav-item a {
+            font-weight: 600;
+        }
+
+        .nav-item .nav-link:hover {
+            border-bottom: 1.5px solid #000;
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .navbar-nav .nav-item a {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #000000 !important;
+        }
+
+
+        .navbar-brand-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 50px;
+        }
+
+        .register-btn {
+            padding: 4px 30px;
+            color: #000;
+           
+            background-color: transparent;
+            border-radius: 8px;
+           display: flex;
+            font-weight: 600;
+        }
+        .register-btn img{
+            width: 45px;
+            border: 2.4px solid #30dd2a ;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        /* Media Query */
+        @media (max-width: 768px) {
+            .register-btn {
+                padding: 3px 10px;
+                font-size: 13px;
+                border-radius: 4px;
+            }
+            .register-btn img{
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media(max-width:1050px) {
+            .register-btn {
+                padding: 4px 18px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                text-align: left;
+            }
+
+            .navbar-brand span {
+                font-size: 1.2rem;
+                letter-spacing: 0;
+            }
+
+            .register-btn {
+                padding: 4px 15px;
+            }
+        }
+
+        .navbar-brand-right a {
+            color: #000;
+            padding: 2px 23px;
+        }
+
+        .navbar-brand-right a i {
+            font-size: 1.1rem;
+        }
+
+
+        .register-btn:hover {
+            background-color: #e3e9e4;
+        }
+
+        #logo {
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M4 6h22' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 14h18' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 22h14' stroke='black' stroke-width='3'/%3E%3C/svg%3E") !important;
+        }
+
+        .navbar-toggler-icon.active {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M4 6l22 8' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 14l18 8' stroke='black' stroke-width='3'/%3E%3Cpath d='M4 22l14 8' stroke='black' stroke-width='3'/%3E%3C/svg%3E") !important;
+        }
+
+        @media (max-width: 570px) {
+            .navbar-brand-right a {
+                color: #ffffff;
+                padding: 0px 7px;
+            }
+
+            .navbar-brand-right a i {
+                font-size: 1rem;
+            }
+
+            #logo {
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+
+
+
+
+        .carousel-item {
+      height: 80vh;
+    }
+
+    @media (max-width: 777px) {
+      .carousel-item {
+        height: 54vh;
+      }
+    }
+
+    .carousel-item img {
+      object-fit: fill;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-caption {
+      bottom: 20px;
+      left: 0;
+      right: 0;
+
+      color: white;
+    }
+
+
+
+    :root {
+    --primary-color: #38e54d;
+    --secondary-color: #12af66;
+    --dark-color: #1a2a3a;
+    --light-color: #e0f7fa;
+    --accent-color: #50c9ce;
+}
+
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Unified Counter Style */
+.counter-box {
+    width: 230px;
+    height: 230px;
+    background: rgba(29, 138, 124, 0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Glowing border effect */
+.counter-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    opacity: 0.6;
+    box-shadow: 0 0 15px var(--primary-color);
+    animation: glow 3s infinite alternate;
+}
+
+/* Decorative layer */
+.counter-box::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    opacity: 0.1;
+    top: -50%;
+    left: -50%;
+    animation: rotate 15s linear infinite;
+}
+
+/* Hover effect */
+.counter-box:hover {
+    transform: translateY(-10px);
+    background: rgba(29, 138, 124, 0.25);
+}
+
+/* Content container to ensure readability */
+.counter-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+}
+
+/* Counter type indicator */
+.counter-type {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Counter icon styling */
+.counter-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(80, 201, 206, 0.5));
+}
+
+/* Counter value styling */
+.counter-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(to right, #ffffff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(78, 204, 163, 0.5);
+    font-family: 'Arial', sans-serif;
+    line-height: 1.2;
+}
+
+.counter-subtitle {
+    font-size: 0.9rem;
+    color: #a0e4d7;
+    margin: 5px 0 0;
+}
+
+/* Counter title styling */
+.counter-title {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Progress indicator at bottom */
+.progress-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    transition: width 0.5s ease;
+    border-radius: 0 0 0 20px;
+}
+
+/* Animations */
+@keyframes glow {
+    0% { 
+        box-shadow: 0 0 5px var(--primary-color);
+        opacity: 0.5;
+    }
+    100% { 
+        box-shadow: 0 0 20px var(--primary-color);
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+    0% { transform: scale(0.8); opacity: 0; }
+    20% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* RESPONSIVE STYLES */
+/* Tablets */
+@media (max-width: 991px) {
+    .counter-container {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .counter-box {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+    }
+    
+    .counter-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .counter-value {
+        font-size: 2.4rem;
+    }
+    
+    .counter-title {
+        font-size: 1rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 767px) {
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .counter-box {
+        width: 280px;
+        height: 200px;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+        padding: 0 15px;
+    }
+    
+    body {
+        padding: 1rem 0;
+    }
+}
+
+/* Small mobile phones */
+@media (max-width: 380px) {
+    .counter-box {
+        width: 240px;
+        height: 200px;
+        padding: 15px;
+    }
+    
+    .counter-value {
+        font-size: 2rem;
+    }
+    
+    .counter-icon {
+        font-size: 1.8rem;
+    }
+}
+.counterdiv{
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2a3a 100%);
+    color: var(--light-color);
+}
+
+/* Animation classes for staggered entry */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+
+
+
+.about-section {
+            padding: 80px 0;
+        }
+
+        .about-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #38e54d;
+        }
+
+        .about-content .subtitle {
+            font-size: 1.2rem;
+            color: #1b8a4f;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: #858585;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-placeholder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Decorative shapes */
+        .shape-1 {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #4ecca3, #1d8a7c);
+            border-radius: 50%;
+            top: -30px;
+            right: -30px;
+            z-index: 3;
+            opacity: 0.8;
+        }
+
+        .shape-2 {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #50c9ce, #207d74);
+            bottom: 40px;
+            left: -20px;
+            z-index: 3;
+            transform: rotate(45deg);
+            opacity: 0.7;
+        }
+
+        .shape-3 {
+            position: absolute;
+            width: 150px;
+            height: 30px;
+            background: linear-gradient(90deg, #4ecca3, transparent);
+            bottom: 130px;
+            right: 0;
+            z-index: 3;
+            opacity: 0.6;
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(29, 138, 124, 0.3), rgba(80, 201, 206, 0.3));
+            z-index: 2;
+        }
+        
+        .circular-frame {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            border: 3px solid #4ecca3;
+            border-radius: 50%;
+            top: 15%;
+            left: 15%;
+            z-index: 4;
+            box-shadow: 0 0 20px rgba(78, 204, 163, 0.5);
+        }
+        
+        .tech-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #50c9ce;
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 0 10px #50c9ce;
+        }
+        
+        .tech-dot:nth-child(1) {
+            top: 20%;
+            left: 15%;
+        }
+        
+        .tech-dot:nth-child(2) {
+            top: 70%;
+            left: 20%;
+        }
+        
+        .tech-dot:nth-child(3) {
+            top: 30%;
+            right: 15%;
+        }
+        
+        .tech-dot:nth-child(4) {
+            bottom: 20%;
+            right: 20%;
+        }
+        
+        .tech-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #4ecca3, transparent);
+            z-index: 4;
+        }
+        
+        .tech-line:nth-child(6) {
+            width: 100px;
+            top: 22%;
+            left: 18%;
+            transform: rotate(30deg);
+        }
+        
+        .tech-line:nth-child(7) {
+            width: 80px;
+            bottom: 32%;
+            right: 25%;
+            transform: rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 40px 0;
+            }
+            
+            .image-container {
+                margin-top: 40px;
+                min-height: 300px;
+            }
+            
+            .about-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+
+
+        .first-page {
+    height: auto;
+    z-index: 0;
+    width: 100%;
+    background-color:#fff;
+}
+
+.info {
+    margin-top: 2%;
+
+}
+        
+.info h1 {
+    
+    margin-top: 12%;
+    margin-left: 4%;   font-size: 60px;
+    color:#000;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.info h1 span {
+    font-size: 6.3rem;
+    color: #38e54d;
+}
+@media (max-width:770px) {
+    .info h1{
+        font-size: 2.2rem;
+    }
+    .info h1 span{
+        font-size: 4rem;
+    }
+}
+
+.info p {
+    margin-top: 10px;
+    font-size: 1.3rem;
+    line-height: 30px;
+    margin-left: 4%;
+    color: #000;
+}
+
+.info button a {
+    text-decoration: none;
+    background: none;
+    color: #000;
+}
+
+.info button a:hover {
+    background-color: #354789;
+
+}
+
+.info .request a {
+    color:#fff;
+}
+
+.info button {
+    margin-top: 20px;
+    padding: 6px 5px;
+    background-color: #38e54d;
+    font-size: 1rem;
+    margin-inline: 30px;
+ border: none;
+    color: #fff;
+    border-radius: 8px;
+    position: relative;
+    isolation: isolate;
+    text-decoration: none;
+  
+    margin-left: 6%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*button animation>>>>>>>>>>>>***/
+.info  button::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: black;
+    color: #FFF;
+    border-radius: 8px;
+    inset: 0;
+    scale: 0 1;
+    transition: scale 500ms;
+}
+.info button:hover::after,button:focus-visible::after{
+    scale: 1 1;
+}
+
+.info .btn:hover {
+    background-color: rgb(102, 102, 102);
+    color: #fff;
+}
+
+.info .btn {
+    background-color: transparent;
+    text-decoration: none;
+    border: 2px solid var(--secondary-color);
+    color: #000;
+}
+
+@media (max-width:770px) {
+    .img-box{
+        display: none;
+    }
+    .first-page{
+        height: auto;
+    }
+}
+
+.img-box {
+    width: 45%;
+    height: 80%;
+    position: absolute;
+    right: 40px;
+    z-index: 0;
+    bottom: 0;
+}
+
+.img-box img {
+    height: 100%;
+    position: absolute;
+    left: 62%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: bottom 1s;
+    animation: come 1s ease-out ;
+}
+@keyframes come{
+   0%{
+    left: 25%;
+    transform: scale(0);
+   }
+   
+   100%{
+    left: 25%;
+    transform: scale(1);
+   }
+}
+
+.img-box .main {
+    height: 72vh;
+  
+    margin-left: -40px;
+}
+
+.img-box:hover .back {
+    bottom: 10px;
+    right: 20px;
+
+}
+
+.img-box:hover .main {
+    left: 69%;
+}
+
+
+
+.social-media {
+    margin-top: 8%;
+    margin-left: 5%;
+
+}
+
+.social-media a {
+    text-decoration: none;
+}
+
+.social-media .button{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+   
+    margin: 0 5px;
+overflow: hidden;
+box-shadow: 2px 4px 8px 3px rgba(0, 0, 0, 0.438);
+    background-color: #f0ebeb;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+
+}
+
+.social-media .button .icon{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 40px;
+}
+.social-media .button .icon i{
+    font-size: 20px;
+    line-height: 40px;
+
+}
+.social-media .button:nth-child(1):hover .icon{
+    background-color: #e1306c;
+
+    color: #fff;
+}
+.social-media .button:nth-child(2):hover .icon{
+    background-color: #426782;
+    color: #fff;
+}
+.social-media .button:nth-child(3):hover .icon{
+    background-color: #3ccc4d;
+    color: #fff;
+}
+.social-media .button:nth-child(4):hover .icon{
+    background-color: #000000;
+    color: #fff;
+}
+.social-media #five:hover .icon{
+    background-color: #5372af;
+    color: #fff;
+}
+.social-media #six:hover .icon{
+    background-color: #426782;
+    color: #fff;
+}
+.social-media #seven:hover .icon{
+    background-color: #ef2121;
+    color: #fff;
+}
+.social-media #eight:hover .icon{
+    background-color: #000000;
+    color: #fff;
+}
+.social-media .button span{
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    line-height: 40px;
+    margin-left: 3px;
+
+}
+.social-media .button:hover{
+    width: 130px;
+
+}
+.social-media .button:nth-child(1) span a{
+    color: #e1306c;
+}
+.social-media .button:nth-child(2) span a{
+    color: #426782;
+ 
+}
+.social-media .button:nth-child(3) span a{
+    color: #3ccc4d;
+ 
+}
+.social-media .button:nth-child(4) span a{
+    color: #000000;
+    
+}
+
+.social-media #five:hover span  a{
+    color: #4a9de6;
+ 
+}
+.social-media #six:hover span a{
+    color: #426782;
+ 
+}
+.social-media #seven:hover span a {
+color: #e34343;
+  
+}
+.social-media #eight:hover span a{
+    color: #000000;
+
+}
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truckWrapper {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+}
+/* truck upper body */
+.truckBody {
+  width: 130px;
+  height: fit-content;
+  margin-bottom: 6px;
+  animation: motion 1s linear infinite;
+}
+/* truck suspension animation*/
+@keyframes motion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* truck's tires */
+.truckTires {
+  width: 130px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px 0px 15px;
+  position: absolute;
+  bottom: 0;
+}
+.truckTires svg {
+  width: 24px;
+}
+
+.road {
+  width: 100%;
+  height: 1.5px;
+  background-color: #282828;
+  position: relative;
+  bottom: 0;
+  align-self: flex-end;
+  border-radius: 3px;
+}
+.road::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: #282828;
+  right: -50%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 10px solid white;
+}
+.road::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background-color: #282828;
+  right: -65%;
+  border-radius: 3px;
+  animation: roadAnimation 1.4s linear infinite;
+  border-left: 4px solid white;
+}
+
+.lampPost {
+  position: absolute;
+  bottom: 0;
+  right: -90%;
+  height: 90px;
+  animation: roadAnimation 1.4s linear infinite;
+}
+
+@keyframes roadAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-350px);
+  }
+}
+
+
+#connectionStatus {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: 15px;
+        background-color: #0b0b0b;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Styling for the icons */
+    .statusIcon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+    .statusIcon.success {
+        color: #2ecc71;
+    }
+
+    .statusIcon.error {
+        color: #e74c3c;
+    }
+   
+    .statusMessage {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    #connectionStatus.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .statusIcon {
+        animation: pulse 1s ease-in-out infinite;
+    }
+
+
+    .service-section {
+      padding: 5rem 0;
+    }
+    
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #000000;
+      font-weight: 700;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      letter-spacing: 2px;
+    }
+    .section-heading span{
+        color: #30dd2a;
+    }
+    
+    .service-cards {
+      position: relative;
+    }
+    
+    .service-card {
+      background:#1a2a3a;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+      height: 60vh;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: #37e440;
+    }
+    
+ 
+    
+
+    
+    .card-image-container {
+      height: 200px;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .service-card:hover .card-image {
+      transform: scale(1.1);
+    }
+    
+    .service-icon {
+      position: absolute;
+      right: 20px;
+      top: 170px;
+      width: 60px;
+      height: 60px;
+      background: #28ef2b;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      font-size: 24px;
+      z-index: 1;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-content {
+      padding: 2rem;
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .service-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #38e850;
+    }
+    
+    .service-description {
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 991.98px) {
+      .service-card {
+        margin-bottom: 40px;
+      }
+    }
+    .container-sec{
+        width: 95%;
+        margin: 0  auto;
+    }
+    .we-treat h3{
+        text-align: center;
+        font-size: 2.1rem;
+        color: #000;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 600;
+    }
+    .we-treat h3 span{
+        color: #30dd2a;
+    }
+    @media (max-width:778px) {
+        .service-card{
+            height: auto;
+        }
+        .section-heading{
+            font-size: 1.5rem;
+        }
+    }
+
+
+
+
+
+
+
+
+
+    .image-container-new {
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            background: linear-gradient(145deg, #f2f2f2, #ffffff);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .image-container-new:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #3ae527, #3a7bd5);
+            z-index: 2;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .image-container-new:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .image-container-new:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-wrapper {
+            position: relative;
+            height: 32vh;
+            overflow: hidden;
+        }
+        
+        .image-wrapper:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(128, 226, 36, 0.268);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .image-container-new:hover .image-wrapper:after {
+            opacity: 1;
+        }
+        
+        .image-container-new img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .image-container-new:hover img {
+            transform: scale(1.1);
+        }
+        
+        .image-title {
+            padding: 20px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #333;
+            position: relative;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .image-container-new:hover .image-title {
+            color: #52dd3f;
+            letter-spacing: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .image-container-new {
+                margin-bottom: 30px;
+            }
+            .we-treat h3{
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+
+                
+        .section-titles {
+            text-align: center;
+            font-weight: 800;
+            font-size: 2.1rem;
+            color: #000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .section-titles span{
+            color: #30dd2a !important;
+        }
+        @media (max-width:770px) {
+            .section-titles{
+                font-size: 1.5rem;
+            }
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 25px;
+            border-radius: 8px;
+            height: 30vh;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1;
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #0e0e0e, #0c1a0b);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .feature-card:hover:before {
+            width: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover .icon-container {
+            background: rgb(255, 255, 255);
+            color: #000;
+            transform: rotateY(360deg);
+        }
+        
+        .feature-card:hover h3 {
+            color: white;
+        }
+        
+        .feature-card:hover p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #060606, #53d149);
+            color: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            font-size: 28px;
+            transition: all 0.6s ease;
+            box-shadow: 0 10px 20px rgba(33, 147, 176, 0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .icon-container {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            padding: 60px 0;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #000;
+            letter-spacing: 2px;
+        }
+        .gallery-title span{
+            color: #30dd2a;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(58, 213, 66, 0.2) transparent;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 2px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(79, 213, 58, 0.2);
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            min-width: 350px;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            scroll-snap-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                min-width: 85vw;
+                height: 300px;
+                scroll-snap-align: center;
+            }
+            
+            .gallery-scroll {
+                padding: 20px;
+            }
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.729), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .gallery-item:hover .gallery-item-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #3a7bd5;
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scroll-indicator i {
+            animation: slideRight 1.5s infinite;
+        }
+
+        @keyframes slideRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+
+
+        .testimonial-section {
+            height: 59vh; /* Increased to 60vh as requested */
+            width: 60%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .testimonial-container {
+            width: 80%;
+            height: 90%; /* Take up most of the section height */
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 0 0 20px 0;
+            padding: 0;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: linear-gradient(135deg, #6efb6e, #85e377);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #testimonialCarousel {
+            flex: 1;
+            position: relative;
+            height: 85%; /* Takes most of the remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .carousel-inner {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            height: 100%;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #3cca59, #0d2809);
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 48px;
+            color: rgba(110, 142, 251, 0.1);
+            z-index: 1;
+        }
+        
+        .testimonial-content {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 20px;
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .testimonial-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .testimonial-content::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 10px;
+        }
+        
+        .testimonial-content::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            height: 60px;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                      linear-gradient(90deg, #54e837, #57bf23) border-box;
+            flex-shrink: 0;
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-details {
+            flex: 1;
+        }
+        
+        .client-name {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: #333;
+        }
+        
+        .client-position {
+            color: #0c2a0b;
+            font-size: 14px;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            opacity: 1;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .carousel-control-prev {
+            left: -22px;
+        }
+        
+        .carousel-control-next {
+            right: -22px;
+        }
+        
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: linear-gradient(135deg, #0b2208, #36cc38);
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {   
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6e8efb;
+        }
+        
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            color: white;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: -30px;
+            margin: 0;
+            padding: 0;
+            height: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .carousel-indicators [data-bs-target] {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(110, 251, 126, 0.484);
+            opacity: 1;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 0 5px;
+            flex-shrink: 0;
+        }
+        
+        .carousel-indicators .active {
+            background-color: #38dd38;
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 992px) {
+            .testimonial-container {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 25px;
+            }
+            
+            .testimonial-quote {
+                font-size: 40px;
+            }
+            
+            .carousel-control-prev {
+                left: -15px;
+            }
+            
+            .carousel-control-next {
+                right: -15px;
+            }
+            .testimonial-section {
+                height: auto;
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .testimonial-container {
+                width: 92%;
+            }
+            
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .testimonial-quote {
+                font-size: 36px;
+            }
+            
+            .testimonial-content {
+                font-size: 15px;
+            }
+            
+            .client-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .client-name {
+                font-size: 16px;
+            }
+            
+            .client-position {
+                font-size: 13px;
+            }
+            
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+        }
+
+    </style>
+
+<div id="preloader">
+    <!-- From Uiverse.io by vinodjangid07 --> 
+<div class="loader">
+    <div class="truckWrapper">
+      <div class="truckBody">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 198 93"
+          class="trucksvg"
+        >
+          <path
+            stroke-width="3"
+            stroke="#282828"
+            fill="#F83D3D"
+            d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"
+          ></path>
+          <path
+            stroke-width="3"
+            stroke="#282828"
+            fill="#7D7C7C"
+            d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"
+          ></path>
+          <path
+            stroke-width="2"
+            stroke="#282828"
+            fill="#282828"
+            d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"
+          ></path>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#FFFCAB"
+            rx="1"
+            height="7"
+            width="5"
+            y="63"
+            x="187"
+          ></rect>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#282828"
+            rx="1"
+            height="11"
+            width="4"
+            y="81"
+            x="193"
+          ></rect>
+          <rect
+            stroke-width="3"
+            stroke="#282828"
+            fill="#DFDFDF"
+            rx="2.5"
+            height="90"
+            width="121"
+            y="1.5"
+            x="6.5"
+          ></rect>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#DFDFDF"
+            rx="2"
+            height="4"
+            width="6"
+            y="84"
+            x="1"
+          ></rect>
+        </svg>
+      </div>
+      <div class="truckTires">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 30 30"
+          class="tiresvg"
+        >
+          <circle
+            stroke-width="3"
+            stroke="#282828"
+            fill="#282828"
+            r="13.5"
+            cy="15"
+            cx="15"
+          ></circle>
+          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 30 30"
+          class="tiresvg"
+        >
+          <circle
+            stroke-width="3"
+            stroke="#282828"
+            fill="#282828"
+            r="13.5"
+            cy="15"
+            cx="15"
+          ></circle>
+          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+        </svg>
+      </div>
+      <div class="road"></div>
+  
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 453.459 453.459"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+        id="Capa_1"
+        version="1.1"
+        fill="#000000"
+        class="lampPost"
+      >
+        <path
+          d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
+  c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
+  c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
+  c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914
+  h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75
+  v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795
+  V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z
+  M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017
+  h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  
+</div>
+
+<div id="connectionStatus" class="connectionStatus hidden">
+    <span id="statusIcon" class="statusIcon"></span>
+    <span id="statusMessage" class="statusMessage"></span>
+</div>
+
+<script>
+    function checkInternet() {
+        return navigator.onLine;
+    }
+
+    function showConnectionStatus(isConnected) {
+        const connectionStatus = document.getElementById('connectionStatus');
+        const statusIcon = document.getElementById('statusIcon');
+        const statusMessage = document.getElementById('statusMessage');
+
+        if (isConnected) {
+            statusIcon.classList.add('success');
+            statusIcon.classList.remove('error');
+            statusIcon.textContent = "✔"; 
+            statusMessage.textContent = "Internet connection restored! Please refresh the page";
+
+            // Automatically refresh the page after 3 seconds
+            setTimeout(function () {
+                location.reload();
+            }, 3000);
+        } else {
+            statusIcon.classList.add('error');
+            statusIcon.classList.remove('success');
+            statusIcon.textContent = "❌"; 
+            statusMessage.textContent = "No internet connection!";
+        }
+
+        connectionStatus.classList.add('visible');
+
+        setTimeout(function () {
+            connectionStatus.classList.remove('visible');
+        }, 5000);
+    }
+
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            if (checkInternet()) {
+                document.getElementById('preloader').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                showConnectionStatus(false);
+            }
+            window.addEventListener('online', function () {
+                showConnectionStatus(true);
+            });
+            window.addEventListener('offline', function () {
+                showConnectionStatus(false);
+            });
+        }, 2000);
+    });
+</script>
+  
+    <header class="header-top">
+        <div class="container">
+            <div class="left">
+                <p><a href="tel:+971504050688" style="color: #000;">
+                        <i class="fa-solid fa-phone-volume fa-shake" style="color: #000000;"></i> Call Now:
+                        +971504050688
+                    </a><span class="email_p_hide">&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-envelope"
+                            style="color: #000000;"></i>&nbsp;&nbsp;trashgocollection12@gmail.com</span></p>
+            </div>
+            <div class="right">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/caylaalain879?igsh=Z2hrZ25ibm5kbXZ6" target="_blank"
+                        class="fab fa-instagram instagram"></a>
+                        
+                 <a href="https://www.facebook.com/profile.php?id=61571049111510" target="_blank" class="fa-brands fa-facebook" style="color: #155ad1;"></a>
+              <a href="https://youtube.com/@caylatrainingcentrealainuae?feature=shared" target="_blank" class="fa-brands fa-youtube youtube"
+                style="color: #db0a0a;"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Navbar Toggle for mobile view -->
+            <div class="merge">
+                <button style="padding: 1px; border: none;  margin-left: 8px;" class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand" style="font-family: 'Times New Roman', Times, serif" id="companyname"
+                    href="#"><img id="logo"
+                        src="https://www.pinclipart.com/picdir/big/165-1656157_collection-of-free-disposing-clipart-download-on-proper.png"
+                        alt="" /><span>&nbsp;<b>Trash</b>Go</span></a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="border-bottom: 2px solid black;" class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Service
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <li><a class="dropdown-item" href="#">SHOP</a></li>
+                            <li><a class="dropdown-item" href="#">HOME</a></li>
+                            <li><a class="dropdown-item" href="#">SUBSSS</a></li>
+                            <li><a class="dropdown-item" href="#">KEAS</a></li>
+                            <li><a class="dropdown-item" href="#">MAGAS</a></li>
+                        </ul>
+                    </li>
+               
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wetreat">We Treat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testi">Clients Says</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right-side icons -->
+            <div class="navbar-brand-right">
+                <a class="register-btn" href="">
+              
+                <img src="images/amrith.jpg" alt="profile">
+                
+                
+                 </a>
+            </div>
+        </div>
+    </nav>
+    <div class="dummy" style="height: 10vh;" ></div>
+
+
+    <div id="home" class="first-page">
+       
+        <div class="info">
+            <h1><span>INDIA</span>'s Efficient <br> Waste Management Service</h1>
+            <p>We are offering professsional Waste Management Service <br>in a friendly
+                atmosphere</p>
+            <a href=""><button class="request">Request Service</button></a>
+        </div>
+        <div class="img-box">
+            <img class="back" src="images/waste-man-bck.png" alt="">
+            <img class="main" src="images/last-waste.png" alt="">
+
+        </div>
+        <div class="social-media">
+
+            <div class="button">
+                <div class="icon"><i class="fa-brands fa-instagram"></i>
+                </div>
+                <span><a href="https://www.instagram.com/adhi_mkd07/">instagram</a></span>
+            </div>
+            <div class="button">
+                <div class="icon"><i class="fa-brands fa-facebook"></i>
+                </div>
+                <span><a href="https://www.facebook.com/">facebook</a></span>
+            </div>
+            <div class="button">
+                <div class="icon"><i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <span><a href="">whatsapp</a></span>
+            </div>
+            <div class="button">
+                <div class="icon"><i class="fa-brands fa-threads"></i>
+                </div>
+                <span><a href="https://www.instagram.com/adhi_mkd07/">threads</a></span>
+
+            </div><br><br>
+            
+            <div id="five" class="button">
+                <div class="icon"><i class="fa-brands fa-google"></i>
+                </div>
+                <span><a href="">google</a></span>
+            </div>
+            <div id="six" class="button">
+                <div class="icon"><i class="fa-brands fa-safari"></i>
+                </div>
+                <span><a href="">safari</a></span>
+            </div>
+            <div id="seven" class="button">
+                <div class="icon"><i class="fa-brands fa-google-play"></i>
+                </div>
+                <span><a href="">play store</a></span>
+            </div>
+            <div id="eight" class="button">
+                <div class="icon"><i class="fa-brands fa-apple"></i>
+                </div>
+                <span><a href="">apple</a></span>
+
+            </div>
+
+        </div>
+    </div>
+        
+      
+<div id="about" class="about-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left side: Text content -->
+            <div class="col-lg-6 about-content">
+                <h1>About EcoTrack Solutions</h1>
+                <div class="subtitle">Pioneering Sustainable Waste Management</div>
+                <p>
+                    At EcoTrack Solutions, we're revolutionizing how the world manages waste. 
+                    Founded in 2018, our mission is to transform environmental challenges into 
+                    opportunities for sustainable growth and innovation.
+                </p>
+                <p>
+                    Our cutting-edge technology allows for real-time tracking and optimization 
+                    of waste collection, processing, and recycling. By leveraging AI and IoT solutions, 
+                    we've helped municipalities reduce operational costs by up to 30% while 
+                    significantly decreasing their carbon footprint.
+                </p>
+                <p>
+                    We believe in a future where waste management is not just about disposal, 
+                    but about creating a circular economy where resources are preserved and 
+                    reused efficiently. Join us in our journey toward a cleaner, more sustainable planet.
+                </p>
+            </div>
+            
+            <!-- Right side: Image with futuristic shapes -->
+            <div class="col-lg-6">
+                <div class="image-container">
+                    <!-- Image placeholder -->
+                    <img src="https://th.bing.com/th/id/R.b7e3b3fef88536f675758414bc7d5fc0?rik=8spIHkyjKN60Cg&riu=http%3a%2f%2f180.151.15.18%3a9008%2fsmartcity%2fimg%2fabout-1.png&ehk=PzgpplCmT54oVJ6cSsJn6Z50yBG81N%2brvARO%2bjdY30Q%3d&risl=&pid=ImgRaw&r=0" alt="Waste Management Technology" class="image-placeholder">
+                    
+                    <!-- Overlay and decorative elements -->
+                    <div class="image-overlay"></div>
+                    <div class="shape-1"></div>
+                    <div class="shape-2"></div>
+                    <div class="shape-3"></div>
+                    <div class="circular-frame"></div>
+                    
+                    <!-- Tech dots and connection lines -->
+                    <div class="tech-dot"></div>
+                    <div class="tech-dot"></div>
+                    <div class="tech-dot"></div>
+                    <div class="tech-dot"></div>
+                    <div class="tech-line"></div>
+                    <div class="tech-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid  counterdiv">
+<!-- <h1 class="page-title fade-in">EcoTrack Waste Management</h1> -->
+
+<div class="counter-container">
+    <!-- Waste Recycled Counter -->
+    <div class="counter-box fade-in delay-1">
+        <span class="counter-type">Daily</span>
+        <div class="counter-content">
+            <div class="counter-icon">♻️</div>
+            <h2 class="counter-value" id="counter1">0</h2>
+            <p class="counter-subtitle">Metric Tons</p>
+            <p class="counter-title">Waste Recycled</p>
+        </div>
+        <div class="progress-indicator" id="progress1"></div>
+    </div>
+    
+    <!-- CO2 Reduced Counter -->
+    <div class="counter-box fade-in delay-2">
+        <span class="counter-type">Monthly</span>
+        <div class="counter-content">
+            <div class="counter-icon">🌿</div>
+            <h2 class="counter-value" id="counter2">0</h2>
+            <p class="counter-subtitle">Tons</p>
+            <p class="counter-title">CO₂ Reduced</p>
+        </div>
+        <div class="progress-indicator" id="progress2"></div>
+    </div>
+    
+    <!-- Water Saved Counter -->
+    <div class="counter-box fade-in delay-3">
+        <span class="counter-type">Annual</span>
+        <div class="counter-content">
+            <div class="counter-icon">💧</div>
+            <h2 class="counter-value" id="counter3">0</h2>
+            <p class="counter-subtitle">Gallons</p>
+            <p class="counter-title">Water Saved</p>
+        </div>
+        <div class="progress-indicator" id="progress3"></div>
+    </div>
+    
+    <!-- Energy Generated Counter -->
+    <div class="counter-box fade-in delay-4">
+        <span class="counter-type">Yearly</span>
+        <div class="counter-content">
+            <div class="counter-icon">⚡</div>
+            <h2 class="counter-value" id="counter4">0</h2>
+            <p class="counter-subtitle">Megawatts</p>
+            <p class="counter-title">Energy Produced</p>
+        </div>
+        <div class="progress-indicator" id="progress4"></div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+    <section class="service-section ">
+        <div class="container-sec">
+          <h2 class="section-heading">Our <span>Services</span></h2>
+          
+          <div class="row service-cards">
+            <!-- Card 1 -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="service-card">
+                <div class="card-image-container">
+                  <img src="https://drop.ndtv.com/albums/NEWS/waste-reduction/wastemanagement5simplewaystoreducewasteathome(5).jpg" alt="Waste Disposal" class="card-image">
+                </div>
+                <div class="service-icon">
+                  <i class="fas fa-trash-alt"></i>
+                </div>
+                <div class="card-content">
+                  <h3 class="service-title">Waste Disposal</h3>
+                  <p class="service-description">We have developed strong relationships with disposal facilities, landfills and incinerators. These relationships utilize only fully permitted and licensed facilities to safely manage your waste.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="service-card">
+                <div class="card-image-container">
+                  <img src="https://www.aiplusinfo.com/wp-content/uploads/2022/04/Waste-Management.jpg" alt="Waste Treatment" class="card-image">
+                </div>
+                <div class="service-icon">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="card-content">
+                  <h3 class="service-title">Waste Treatment</h3>
+                  <p class="service-description">We have used biological, chemical, or mechanical methods to remove pollutants from industrial or municipal wastes, change the character and composition of medical waste or reduce its potential for harm.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="service-card">
+                <div class="card-image-container">
+                  <img src="https://www.housesumo.com/wp-content/uploads/2020/12/How-to-Properly-Recycle-Your-Waste-1024x683.jpg" alt="Waste Recycling" class="card-image">
+                </div>
+                <div class="service-icon">
+                  <i class="fas fa-recycle"></i>
+                </div>
+                <div class="card-content">
+                  <h3 class="service-title">Waste Recycling</h3>
+                  <p class="service-description">Recycling is processing common waste materials into new, useful products. It reduces energy consumption, reduces pollution of water and landfills; reducing the need for waste disposal.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="service-card">
+                <div class="card-image-container">
+                  <img src="https://thumbs.dreamstime.com/b/garbage-truck-trash-transporting-colored-recycle-waste-bins-paper-glass-plastic-metal-tipper-waste-recycling-78362675.jpg" alt="Waste Collection & Transportation" class="card-image">
+                </div>
+                <div class="service-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="card-content">
+                  <h3 class="service-title">Waste Collection & Transportation</h3>
+                  <p class="service-description">We utilize a network of qualified, licensed and insured Transportation companies. We thoroughly audit each transporter to ensure they have the proper insurance and permit to transport your waste safely.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+
+
+  
+      <div id="wetreat" class="we-treat">
+        <h3>WE <span>TREAT</span></h3>
+      </div>
+    <div class="container mt-4" >
+        <div class="row g-4" >
+            <!-- First Row -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://media.wired.co.uk/photos/606daac39f060d3b864d6a32/16:9/w_2560%2Cc_limit/gettyimages-163310627.jpg" alt="Plastic Treatment 1">
+                    </div>
+                    <div class="image-title">Plastic Waste</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://www.morecambemetals.co.uk/wp-content/uploads/2020/08/The-steel-wastemetal-pilestainless-steel-rubbishmetal-garbageprepare-for-recycle-and-reused.jpg" alt="Plastic Treatment 2">
+                    </div>
+                    <div class="image-title">Metalic Waste</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://www.scidev.net/global/wp-content/uploads/2019/08/e_waste-scaled.jpg" alt="Plastic Treatment 3">
+                    </div>
+                    <div class="image-title">E-Waste</div>
+                </div>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://news.uga.edu/wp-content/uploads/2022/04/organic_waster-2048x1365.jpg" alt="Plastic Treatment 4">
+                    </div>
+                    <div class="image-title">Food & Organic Waste</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://thewasteconnect.co.uk/wp-content/uploads/2020/09/glass-recycling.jpg" alt="Plastic Treatment 5">
+                    </div>
+                    <div class="image-title">Glass Waste</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="image-container-new">
+                    <div class="image-wrapper">
+                        <img src="https://trainingexpress.org.uk/wp-content/uploads/2023/04/What-is-Healthcare-Waste.jpg" alt="Plastic Treatment 6">
+                    </div>
+                    <div class="image-title">Medical Waste</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <h2 class="section-titles"><span>Why</span> Choose Us</h2>
+        
+        <div class="row g-4 mt-4">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Most Convenient</h3>
+                    <p>Very quickly processes food waste for composting with our advanced technology systems.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>Lowest Price Guaranteed</h3>
+                    <p>Machine available at the lowest price in the market without compromising quality.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Compliance</h3>
+                    <p>Food waste management as per the government rules - the best & safest way.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Cleanliness</h3>
+                    <p>No bad smell, NO mess, no pest problem. Maintain a clean environment always.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Friendly & Honest Service</h3>
+                    <p>We prioritize customer satisfaction with our friendly approach and honest service.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h3>Login Benefits</h3>
+                    <p>Get exclusive benefits and features when you create an account with us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div  id="gallery" class="gallery-container">
+        <h2 class="gallery-title">Our <span>Gallery</span></h2>
+        
+        <div class="gallery-scroll">
+            <div class="gallery-item">
+                <img src="https://www.umweltbundesamt.de/sites/default/files/medien/bilder/Abfall_Recyclinganlage_azthesmudger_Fotolia_10359498_Subscription_L.jpg" alt="Gallery Image 1">
+                <div class="gallery-item-caption">Factory</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://visiontir.com/wp-content/uploads/2020/03/From-Bin-to-Biffa-How-we-recycle-your-waste.jpg" alt="Gallery Image 2">
+                <div class="gallery-item-caption">Sustainability Projects</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://www.gannett-cdn.com/authoring/2019/04/15/NFTU/ghows-LK-8692f2f9-2664-3b44-e053-0100007fb8fb-4d0b59e8.jpeg" alt="Gallery Image 3">
+                <div class="gallery-item-caption">Eco-Friendly Approach</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://www.umweltbundesamt.de/sites/default/files/medien/378/bilder/deponie_airart_fotolia_33491092_m.jpg" alt="Gallery Image 4">
+                <div class="gallery-item-caption">Modern Technology</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://th.bing.com/th/id/OIP.HSC4KBWsr5k3duE-fOcryAHaE8?rs=1&pid=ImgDetMain" alt="Gallery Image 5">
+                <div class="gallery-item-caption">Future Vision</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://giecdn.blob.core.windows.net/fileuploads/image/2021/07/27/glasswasteweb.jpg" alt="Gallery Image 6">
+                <div class="gallery-item-caption">Global Impact</div>
+            </div>
+        </div>
+   
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <section id="testi" class="testimonial-section my-5">
+        <div class="testimonial-container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                The waste management system has completely transformed how we handle food waste at our restaurant. It's efficient, clean, and has reduced our environmental footprint significantly. The process is so quick and the results are amazing!
+                            </div>
+                            <div class="client-info">
+                                <div class="client-image">
+                                    <img src="/api/placeholder/150/150" alt="Client 1">
+                                </div>
+                                <div class="client-details">
+                                    <div class="client-name">Sarah Johnson</div>
+                                    <div class="client-position">Restaurant Owner</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                We implemented this system across our hotel chain and the results have been phenomenal. No more bad odors, pest problems completely eliminated, and we're now fully compliant with government regulations. The team's service has been exceptional throughout.
+                            </div>
+                            <div class="client-info">
+                                <div class="client-image">
+                                    <img src="/api/placeholder/150/150" alt="Client 2">
+                                </div>
+                                <div class="client-details">
+                                    <div class="client-name">Michael Chen</div>
+                                    <div class="client-position">Hotel Manager</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                As a food processing facility, waste management was always our biggest challenge. Since installing this system, we've seen a 70% reduction in waste disposal costs. The machine is incredibly reliable and the support team responds quickly if we ever need assistance.
+                            </div>
+                            <div class="client-info">
+                                <div class="client-image">
+                                    <img src="/api/placeholder/150/150" alt="Client 3">
+                                </div>
+                                <div class="client-details">
+                                    <div class="client-name">Emily Rodriguez</div>
+                                    <div class="client-position">Operations Director</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+<footer class="footer-section">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <h2 class="text-gradient"><i class="fas fa-recycle me-2"></i> TrashGo</h2>
+                        </div>
+                        <p class="footer-desc">Pioneering sustainable waste management solutions for a cleaner, greener future. Join us in our mission to transform waste into resources.</p>
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-widget">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Home</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Services</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Pricing</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-widget">
+                        <h4 class="footer-title">Our Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Residential Pickup</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Commercial Collection</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Recycling Services</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> Hazardous Waste</a></li>
+                            <li><a href="#"><i class="fas fa-angle-right"></i> E-Waste Disposal</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h4 class="footer-title">Contact Info</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div class="contact-text">
+                                    <p>123 Eco Street, Green City</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="contact-text">
+                                    <p><a href="tel:+1234567890">+123 456 7890</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-text">
+                                    <p><a href="mailto:info@ecowaste.com">trashgocollection12@gmail.com</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                                <div class="contact-text">
+                                    <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="copyright">
+                        <p>&copy; 2025 EcoWaste. All Rights Reserved.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-nav">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Animated wave background -->
+    <div class="footer-wave-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+    </div>
+</footer>
+
+<!-- Add this to your CSS section -->
+<style>
+    .footer-section {
+        position: relative;
+        background: #101820;
+        color: #e0e6ed;
+        overflow: hidden;
+        padding-top: 80px;
+    }
+    
+    .footer-top {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .text-gradient {
+        background: linear-gradient(135deg, #4fdb28, #50e030);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        font-weight: 700;
+    }
+    
+    .footer-desc {
+        color: #a9b3c1;
+        margin: 20px 0;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    
+    .social-links {
+        display: flex;
+        padding: 0;
+        list-style: none;
+        margin-bottom: 0;
+    }
+    
+    .social-links li {
+        margin-right: 12px;
+    }
+    
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #fff;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        background: linear-gradient(135deg, #3dde2b, #3cde23);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 112, 243, 0.3);
+    }
+    
+    .footer-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .footer-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(135deg, #30dd2a, #00e5ff);
+        border-radius: 30px;
+    }
+    
+    .footer-links {
+        padding: 0;
+        list-style: none;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+        color: #a9b3c1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .footer-links a i {
+        font-size: 10px;
+        margin-right: 8px;
+        opacity: 0;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+        color: #fff;
+        transform: translateX(5px);
+    }
+    
+    .footer-links a:hover i {
+        opacity: 1;
+        transform: translateX(0);
+        color: #00e5ff;
+    }
+    
+    .footer-contact {
+        padding: 0;
+        list-style: none;
+    }
+    
+    .footer-contact li {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-right: 15px;
+        color: #47ec41;
+        font-size: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-contact li:hover .contact-icon {
+        background: linear-gradient(135deg, #68f03f, #28ef2b);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 112, 243, 0.3);
+        color: #fff;
+    }
+    
+    .contact-text {
+        flex: 1;
+    }
+    
+    .contact-text p {
+        margin: 0;
+        font-size: 14px;
+        color: #a9b3c1;
+    }
+    
+    .contact-text a {
+        color: #a9b3c1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-text a:hover {
+        color: #fff;
+    }
+    
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+        position: relative;
+        z-index: 2;
+        margin-top: 40px;
+    }
+    
+    .copyright p {
+        margin: 0;
+        font-size: 14px;
+        color: #6c757d;
+    }
+    
+    .footer-nav ul {
+        display: flex;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        justify-content: flex-end;
+    }
+    
+    .footer-nav li {
+        margin-left: 20px;
+    }
+    
+    .footer-nav a {
+        color: #6c757d;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-nav a:hover {
+        color: #fff;
+    }
+    
+    .footer-wave-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        line-height: 0;
+        z-index: 1;
+    }
+    
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        height: 60px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%230070f3'/%3E%3C/svg%3E");
+        background-size: 1200px 60px;
+    }
+    
+    .wave1 {
+        animation: wave 15s linear infinite;
+        z-index: 15;
+        opacity: 0.5;
+    }
+    
+    .wave2 {
+        animation: wave 10s linear infinite reverse;
+        bottom: 10px;
+        opacity: 0.3;
+    }
+    
+    @keyframes wave {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .footer-wave-container {
+            height: 40px;
+        }
+        
+        .wave {
+            height: 40px;
+            background-size: 1200px 40px;
+        }
+        
+        .footer-nav ul {
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .copyright p {
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to check if element is in viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Enhanced counter animation with easing and progress bar
+    function animateCounter(counterId, progressId, start, end, duration) {
+        const counter = document.getElementById(counterId);
+        const progressBar = document.getElementById(progressId);
+        let startTime = null;
+        
+        // Apply animation class to counter
+        counter.style.opacity = 0;
+        counter.style.animation = 'countUp 0.8s ease-out forwards';
+        
+        // Easing function for smoother counting
+        function easeOutQuart(t) {
+            return 1 - Math.pow(1 - t, 4);
+        }
+        
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            const currentValue = Math.floor(start + (end - start) * easedProgress);
+            
+            // Update counter value
+            counter.textContent = currentValue.toLocaleString();
+            
+            // Update progress bar
+            progressBar.style.width = (progress * 100) + '%';
+            
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                counter.textContent = end.toLocaleString();
+            }
+        }
+        
+        window.requestAnimationFrame(step);
+    }
+    
+    // Set up intersection observer to trigger animations
+    const counterBoxes = document.querySelectorAll('.counter-box');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start counter animations when visible
+                if (entry.target.contains(document.getElementById('counter1'))) {
+                    animateCounter('counter1', 'progress1', 0, 1275, 2000);
+                } else if (entry.target.contains(document.getElementById('counter2'))) {
+                    animateCounter('counter2', 'progress2', 0, 3460, 2500);
+                } else if (entry.target.contains(document.getElementById('counter3'))) {
+                    animateCounter('counter3', 'progress3', 0, 5820, 3000);
+                } else if (entry.target.contains(document.getElementById('counter4'))) {
+                    animateCounter('counter4', 'progress4', 0, 942, 3500);
+                }
+                
+                // Stop observing after animation starts
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all counter boxes
+    counterBoxes.forEach(box => {
+        observer.observe(box);
+    });
+    
+    // Handle scroll events for animations
+    const handleScroll = () => {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            if (isElementInViewport(el) && !el.classList.contains('visible')) {
+                el.classList.add('visible');
+            }
+        });
+    };
+    
+    // Initial check and add scroll listener
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Function to animate counter
+    function animateCounter(counterId, start, end, duration) {
+        let counter = document.getElementById(counterId);
+        let range = end - start;
+        let current = start;
+        let increment = range / (duration / 50);
+
+        let interval = setInterval(function () {
+            current += increment;
+            counter.innerText = Math.ceil(current);
+
+            if (current >= end) {
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+
+    // Animation triggers
+    window.onload = function() {
+        animateCounter('counter1', 0, 1500, 5000); // Counter 1 will go from 0 to 1500 in 5 seconds
+        animateCounter('counter2', 0, 3000, 7000); // Counter 2
+        animateCounter('counter3', 0, 4500, 9000); // Counter 3
+        animateCounter('counter4', 0, 6000, 11000); // Counter 4
+    };
+</script>
+  
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            document.querySelector('.navbar-toggler-icon').classList.toggle('active');
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS (Animate On Scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html> 
