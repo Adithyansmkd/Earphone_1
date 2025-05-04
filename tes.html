@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow Animation with Video Player</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .flow-container {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background:url(images/helo.jpg);
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+        }
+        
+        .flow-paths {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+        
+        .path {
+            fill: none;
+            stroke-width: 40;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .path-1 {
+            stroke: #FFD54F;
+            animation: flow-anim-1 8s infinite;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+        }
+        
+        .path-2 {
+            stroke: #81D4FA;
+            animation: flow-anim-2 7s infinite;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation-delay: 0.5s;
+        }
+        
+        .path-3 {
+            stroke: #FFF9C4;
+            animation: flow-anim-3 9s infinite;
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            animation-delay: 1s;
+        }
+        
+        .path-4 {
+            stroke: #4DB6AC;
+            animation: flow-anim-4 10s infinite;
+            stroke-dasharray: 1100;
+            stroke-dashoffset: 1100;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes flow-anim-1 {
+            0%, 100% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes flow-anim-2 {
+            0%, 100% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes flow-anim-3 {
+            0%, 100% { stroke-dashoffset: 1200; }
+            50% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes flow-anim-4 {
+            0%, 100% { stroke-dashoffset: 1100; }
+            50% { stroke-dashoffset: 0; }
+        }
+        
+        .play-button-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .play-button {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background-color: #FF5252;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 0 30px rgba(255, 82, 82, 0.6);
+        }
+        
+        .play-button::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 82, 82, 0.5);
+            animation: ripple 1.5s linear infinite;
+        }
+        
+        .play-button::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 82, 82, 0.3);
+            animation: ripple 1.5s linear infinite 0.5s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background-color: #FF7676;
+        }
+        
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 0 15px 25px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 5px;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Video Player Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 80%;
+            max-width: 1200px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .video-player {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            display: block;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .close-icon {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .close-icon::before,
+        .close-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+        
+        .close-icon::before {
+            transform: rotate(45deg);
+        }
+        
+        .close-icon::after {
+            transform: rotate(-45deg);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .path {
+                stroke-width: 35;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-icon {
+                border-width: 12px 0 12px 20px;
+            }
+            
+            .path {
+                stroke-width: 30;
+            }
+            
+            .video-container {
+                width: 90%;
+                height: 85%;
+            }
+            
+            .video-player {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                aspect-ratio: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .flow-container {
+                height: 50vh;
+            }
+            
+            .path {
+                stroke-width: 20;
+            }
+            
+            .play-button {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .play-button::before {
+                top: -5px;
+                left: -5px;
+                right: -5px;
+                bottom: -5px;
+            }
+            
+            .play-button::after {
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+            }
+            
+            .play-icon {
+                border-width: 10px 0 10px 16px;
+            }
+            
+            .close-button {
+                top: 10px;
+                right: 10px;
+                width: 30px;
+                height: 30px;
+            }
+            
+            .close-icon {
+                width: 15px;
+                height: 15px;
+            }
+            
+            .video-container {
+                width: 90%;
+                height: 85%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .video-player {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                aspect-ratio: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flow-container">
+        <!-- SVG Flow Paths -->
+        <svg class="flow-paths" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Yellow path -->
+            <path class="path path-1" d="M0,120 L400,120 Q500,120 500,300 L500,300" />
+            <!-- Blue path -->
+            <path class="path path-2" d="M1000,240 L550,240 Q500,240 500,300 L500,300" />
+            <!-- Beige path -->
+            <path class="path path-3" d="M200,360 L450,360 Q500,360 500,300 L500,300" />
+            <!-- Teal path -->
+            <path class="path path-4" d="M1000,480 L600,480 Q500,480 500,300 L500,300" />
+        </svg>
+        
+        <!-- Play Button -->
+        <div class="play-button-wrapper">
+            <div class="play-button" id="playButton">
+                <div class="play-icon"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="close-button" id="closeButton">
+            <div class="close-icon"></div>
+        </div>
+        <div class="video-container">
+            <video class="video-player" id="videoPlayer" controls>
+                <source src="images/vvc.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    
+    <script>
+        // Get DOM elements
+        const playButton = document.getElementById('playButton');
+        const videoModal = document.getElementById('videoModal');
+        const closeButton = document.getElementById('closeButton');
+        const videoPlayer = document.getElementById('videoPlayer');
+        
+        // Open video modal when play button is clicked
+        playButton.addEventListener('click', function() {
+            videoModal.classList.add('active');
+            // Start playing the video
+            videoPlayer.play();
+        });
+        
+        // Close video modal when close button is clicked
+        closeButton.addEventListener('click', function() {
+            videoModal.classList.remove('active');
+            // Pause the video
+            videoPlayer.pause();
+        });
+        
+        // Close modal when clicking outside of video
+        videoModal.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                videoModal.classList.remove('active');
+                videoPlayer.pause();
+            }
+        });
+        
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && videoModal.classList.contains('active')) {
+                videoModal.classList.remove('active');
+                videoPlayer.pause();
+            }
+        });
+        
+        // Adjust SVG viewBox for better responsiveness on different devices
+        function adjustSvgViewBox() {
+            const flowPaths = document.querySelector('.flow-paths');
+            const container = document.querySelector('.flow-container');
+            
+            // Keep the center point consistent across all screen sizes
+            if (window.innerWidth <= 480) {
+                flowPaths.setAttribute('viewBox', '0 0 1000 600');
+                // Force update the SVG to ensure proper centering
+                flowPaths.style.width = '100%';
+                flowPaths.style.height = '100%';
+            } else {
+                flowPaths.setAttribute('viewBox', '0 0 1000 600');
+            }
+        }
+        
+      // Set video size based on orientation
+function adjustVideoSize() {
+    const videoPlayer = document.getElementById('videoPlayer');
+    const videoContainer = document.querySelector('.video-container');
+    
+    if (window.innerWidth <= 480) {
+        // For mobile phones
+        videoContainer.style.width = '90%';
+        videoContainer.style.height = '85%';
+        videoPlayer.style.objectFit = 'contain';
+        videoPlayer.style.width = '100%';
+        videoPlayer.style.height = '100%';
+    } else if (window.innerWidth <= 1024) {
+        // For tablets (iPad-like devices)
+        videoContainer.style.width = '75%';
+        videoContainer.style.height = '90%';
+        videoPlayer.style.objectFit = 'contain';
+        videoPlayer.style.width = '100%';
+        videoPlayer.style.height = '100%';
+    } else {
+        // For desktop
+        videoContainer.style.width = '80%';
+        videoContainer.style.height = 'auto';
+        videoPlayer.style.width = '100%';
+        videoPlayer.style.aspectRatio = '16/9';
+    }
+}
+        
+        // Run on load and resize
+        window.addEventListener('load', function() {
+            adjustSvgViewBox();
+            adjustVideoSize();
+        });
+        
+        window.addEventListener('resize', function() {
+            adjustSvgViewBox();
+            adjustVideoSize();
+        });
+    </script>
+</body>
+</html>
