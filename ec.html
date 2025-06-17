@@ -28,9 +28,10 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        .main-navbar.navbar-hidden {
-            transform: translateY(-100%);
-        }
+       .main-navbar.navbar-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
 
         .main-navbar .top-navbar {
             background: linear-gradient(135deg, #102542 0%, #102542 100%);
@@ -38,12 +39,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .main-navbar.hide-top .top-navbar {
-            max-height: 0;
-            padding: 0;
-            overflow: hidden;
-            opacity: 0;
-        }
+      
 
         .main-navbar .top-navbar .brand-name {
             color: #fff;
@@ -3188,35 +3184,28 @@ function debounce(func, wait) {
 
 
 
-
 <script>
-        let lastScrollTop = 0;
-        let scrollThreshold = 100;
-        const navbar = document.querySelector('.main-navbar');
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.main-navbar');
+    const halfViewportHeight = window.innerHeight * 0.5;
 
-        window.addEventListener('scroll', function () {
-            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener('scroll', function () {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (Math.abs(currentScrollTop - lastScrollTop) > scrollThreshold) {
+        // Scroll Down
+        if (currentScrollTop > lastScrollTop && currentScrollTop > halfViewportHeight) {
+            navbar.classList.add('navbar-hidden');
+        }
 
-                if (currentScrollTop > lastScrollTop && currentScrollTop > 200) {
-                    navbar.classList.add('hide-top');
-                } else {
-                    navbar.classList.remove('hide-top');
-                }
+        // Scroll Up
+        if (currentScrollTop < lastScrollTop) {
+            navbar.classList.remove('navbar-hidden');
+        }
 
-                lastScrollTop = currentScrollTop;
-            }
-        });
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // avoid negative values
+    });
+</script>
 
-        window.addEventListener('scroll', function () {
-            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (currentScrollTop === 0) {
-                navbar.classList.remove('hide-top');
-            }
-        });
-    </script>
 
 
 
