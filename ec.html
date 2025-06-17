@@ -1,0 +1,3225 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Professional Ecommerce Navbar</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+
+
+  *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        .main-navbar {
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .main-navbar.navbar-hidden {
+            transform: translateY(-100%);
+        }
+
+        .main-navbar .top-navbar {
+            background: linear-gradient(135deg, #102542 0%, #102542 100%);
+            padding: 14px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .main-navbar.hide-top .top-navbar {
+            max-height: 0;
+            padding: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .main-navbar .top-navbar .brand-name {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin: 0;
+            letter-spacing: -0.025em;
+        }
+
+        .main-navbar .top-navbar .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-navbar .top-navbar .nav-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .main-navbar .top-navbar .dropdown-menu {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            background: #fff;
+            padding: 8px 0;
+            margin-top: 8px;
+            min-width: 240px;
+            z-index: 1050;
+        }
+
+        .main-navbar .top-navbar .dropdown-menu .dropdown-item {
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .main-navbar .top-navbar .dropdown-menu .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .main-navbar .top-navbar .dropdown-menu .dropdown-item:hover {
+            background: #f8fafc;
+            color: #F87060;
+            padding-left: 24px;
+        }
+
+        .main-navbar .top-navbar .dropdown-menu .dropdown-item i {
+            width: 18px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .main-navbar .top-navbar .dropdown-menu .dropdown-item:hover i {
+            color: #F87060;
+        }
+
+        .main-navbar .navbar {
+            padding: 0;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .main-navbar .navbar .nav-item .nav-link {
+            padding: 16px 20px;
+            color: #374151;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .main-navbar .navbar .nav-item .nav-link:hover {
+            color: #F87060;
+            background: #f8fafc;
+        }
+
+        .main-navbar .navbar .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #F87060, #F87060);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .main-navbar .navbar .nav-item .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .main-navbar .navbar .dropdown-menu {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            background: #fff;
+            padding: 12px 0;
+            margin-top: 4px;
+            min-width: 280px;
+            z-index: 1050;
+        }
+
+        .main-navbar .navbar .dropdown-item {
+            padding: 12px 24px;
+            font-weight: 500;
+            color: #374151;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .main-navbar .navbar .dropdown-item:hover {
+            background: #edf2f7;
+            color: #163b6f;
+            padding-left: 28px;
+        }
+
+        .categories-dropdown .dropdown-menu {
+            min-width: 320px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .categories-dropdown .dropdown-item {
+            padding: 10px 24px;
+            font-size: 14px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .categories-dropdown .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .categories-dropdown .dropdown-item:hover {
+            background: #f8fafc;
+            color: red;
+            padding-left: 28px;
+        }
+
+        .form-control {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 8px 17px;
+            font-size: 14px;
+            background: #f2f2f2f4;
+            transition: all 0.2s ease;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            background: #fff;
+        }
+
+        .btn.bg-white {
+            border: 2px solid #fff;
+            border-left: none;
+            border-radius: 0 12px 12px 0;
+            padding: 4px 20px;
+            background: #F87060 !important;
+            color: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .btn.bg-white:hover {
+            background: #d84838 !important;
+            transform: translateY(-1px);
+        }
+
+        .navbar-toggler {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 8px 12px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .cart-count,
+        .wishlist-count {
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 6px;
+            min-width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        \  .dropdown-toggle::after {
+            margin-left: 8px;
+            vertical-align: middle;
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 0.3em solid transparent;
+            border-right: 0.3em solid transparent;
+            border-top: 0.3em solid;
+        }
+
+        .dropdown-toggle:empty::after {
+            margin-left: 0;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: #fff;
+                border-radius: 12px;
+                margin-top: 16px;
+                padding: 20px;
+                border: 1px solid #e5e7eb;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .categories-dropdown .dropdown-menu {
+                position: relative !important;
+                width: auto !important;
+                padding: 16px 0;
+                border-radius: 8px;
+                margin-top: 8px;
+                transform: none !important;
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-navbar .top-navbar .nav-link {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+
+            .main-navbar .top-navbar .brand-name {
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+           .hero-carousel {
+            height: 40vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-item {
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .carousel-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            color: white;
+            z-index: 2;
+        }
+
+        .carousel-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+            color: white;
+        }
+
+        /* Custom Navigation Buttons */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-size: 20px;
+            width: 20px;
+            height: 20px;
+            filter: invert(1);
+        }
+
+        /* Custom Animated Progress Indicators */
+        .carousel-indicators {
+            bottom: 20px;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators [data-bs-target]:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .carousel-indicators .active {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-indicators .active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: 2px;
+            animation: progressBar 5s linear;
+        }
+
+        @keyframes progressBar {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-carousel {
+                height: 40vh;
+                border-radius: 12px;
+            }
+
+            .carousel-item {
+                height: 40vh;
+            }
+
+            .carousel-content {
+                padding: 20px;
+            }
+
+            .carousel-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .carousel-content p {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+
+            .carousel-btn {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 45px;
+                height: 45px;
+            }
+
+            .carousel-control-prev {
+                left: 10px;
+            }
+
+            .carousel-control-next {
+                right: 10px;
+            }
+
+            .carousel-indicators [data-bs-target] {
+                width: 30px;
+                height: 3px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .carousel-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .carousel-content p {
+                font-size: 0.9rem;
+            }
+
+            .carousel-indicators [data-bs-target] {
+                width: 25px;
+            }
+        }
+
+        /* Desktop vs Mobile Images */
+        .desktop-image {
+            display: block;
+        }
+
+        .mobile-image {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-image {
+                display: none;
+            }
+
+            .mobile-image {
+                display: block;
+            }
+        }
+
+        .page-features {
+            margin: 20px 0;
+
+        }
+
+        .feature-sub {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .feature-sub img {
+
+            width: 40%;
+        }
+
+        .feature-sub h3 {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-sub h3 span {
+            font-size: 1.11rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 580px) {
+            .page-features {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .feature-sub {
+                flex: 0 0 50%;
+                max-width: 50%;
+
+            }
+
+            .feature-sub h3 {
+                font-size: 1rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+
+
+
+          .page-features {
+            margin: 20px 0;
+
+        }
+
+        .feature-sub {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .feature-sub img {
+
+            width: 40%;
+        }
+
+        .feature-sub h3 {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-sub h3 span {
+            font-size: 1.11rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 580px) {
+            .page-features {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .feature-sub {
+                flex: 0 0 50%;
+                max-width: 50%;
+
+            }
+
+            .feature-sub h3 {
+                font-size: 1rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+
+
+
+        .brands-section {
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 50px;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 15px;
+        }
+
+        .brand-card {
+            flex: 0 0 140px;
+            background: white;
+            border-radius: 8px;
+            padding: 50px 35px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            width: 140px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .brand-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .nav-btn:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            .carousel-wrapper {
+                padding: 0 45px;
+            }
+
+            .brand-card {
+                flex: 0 0 130px;
+                padding: 18px 12px;
+            }
+
+            .brand-logo {
+                width: 70px;
+                height: 45px;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .brands-section {
+                width: 95%;
+            }
+
+            .section-title {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            .carousel-wrapper {
+                padding: 0 40px;
+            }
+
+            .brand-card {
+                flex: 0 0 120px;
+                padding: 15px 10px;
+            }
+
+            .brand-logo {
+                width: 60px;
+                height: 40px;
+            }
+
+            .brand-name {
+                font-size: 12px;
+            }
+
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            .brands-section {
+                width: 98%;
+            }
+
+            .section-title {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+
+            .carousel-wrapper {
+                padding: 0 35px;
+            }
+
+            .brand-card {
+                flex: 0 0 100px;
+                padding: 20px 27px;
+            }
+
+            .brand-logo {
+                width: 70px;
+                height: 45px;
+            }
+
+            .brand-name {
+                font-size: 11px;
+            }
+
+            .nav-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .prev-btn {
+                left: 5px;
+            }
+
+            .next-btn {
+                right: 5px;
+            }
+        }
+
+
+
+
+
+        .products-section {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .products-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.5rem 0 1rem 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .products-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .products-scroll::-webkit-scrollbar-track {
+            background: rgba(224, 235, 246, 0.913);
+            border-radius: 3px;
+            margin: 0 1rem;
+        }
+
+        .products-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #eaeef3, #d4ddea);
+            border-radius: 3px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+        }
+
+        .products-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(90deg, #94a3b8, #64748b);
+        }
+
+        .products-row {
+            display: flex;
+            gap: 1.25rem;
+            width: max-content;
+            padding-bottom: 0.5rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            overflow: hidden;
+            position: relative;
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(79, 70, 229, 0.2);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, #f87060, #f87060);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        .stock-badge.low-stock {
+            background: rgba(245, 158, 11, 0.9);
+        }
+
+        .stock-badge.out-of-stock {
+            background: rgba(239, 68, 68, 0.9);
+        }
+
+        .product-info {
+            padding: 1.25rem;
+        }
+
+        .product-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .stock-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .stock-icon {
+            color: #059669;
+            font-size: 0.85rem;
+        }
+
+        .stock-text {
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .stock-text.low-stock {
+            color: #d97706;
+        }
+
+        .stock-text.out-of-stock {
+            color: #dc2626;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-price {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .real-price {
+            font-size: 1rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .discount-percent {
+            background: linear-gradient(135deg, #fef3c7, #fbbf24);
+            color: #92400e;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+             background: linear-gradient(135deg, #102542 0%, #102542 100%);
+            border: none;
+            color: white;
+            padding: 0.58rem 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .add-to-cart-btn:hover {
+            background: linear-gradient(135deg, #3730a3, #6d28d9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+            color: white;
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(0);
+        }
+
+        .add-to-cart-btn:disabled {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .add-to-cart-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-icon {
+            font-size: 1rem;
+        }
+
+        /* Auto-scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(79, 70, 229, 0.1);
+            color: #0f2842;
+            padding: 0.21rem 0.4rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator.visible {
+            opacity: 1;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .products-section {
+                padding: 1.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
+
+            .product-card {
+                width: 80vw;
+                max-width: 320px;
+            }
+
+            .product-image-container {
+                height: 180px;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+
+            .product-name {
+                font-size: 1rem;
+            }
+
+            .offer-price {
+                font-size: 1.25rem;
+            }
+
+            .add-to-cart-btn {
+                padding: 0.625rem 0.875rem;
+                font-size: 0.85rem;
+            }
+
+            .products-row {
+                gap: 1rem;
+            }
+
+            .products-scroll::-webkit-scrollbar {
+                height: 4px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-card {
+                width: 92vw;
+                max-width: 320px;
+            }
+
+            .product-image-container {
+                height: 160px;
+            }
+
+            .product-info {
+                padding: 0.875rem;
+            }
+
+            .products-row {
+                gap: 0.875rem;
+            }
+        }
+
+
+
+
+
+           .second-page-main {
+            width: 90%;
+            margin-top: 0%;
+            height: 54vh;
+        }
+
+        .second-page-main .tables {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+
+        .feature-div {
+            text-align: center;
+
+        }
+
+        .feature-div h1 {
+            color: #a5a1b9;
+            font-family: fantasy;
+        }
+
+        .second-page-main .divs1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20vh;
+
+
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+        .second-page-main .divs1-1 {
+            flex-basis: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .second-page-main .divs1-1 i {
+            font-size: 3.3rem;
+            color: #0f2842;
+            transition: all 0.3s ease;
+        }
+
+        .second-page-main .divs1-2 {
+            flex-basis: 70%;
+            display: grid;
+            place-items: center;
+        }
+
+        .second-page-main .divs1-2 h1 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .second-page-main .divs1-2 button {
+            position: relative;
+            padding: 6px 15px;
+            border-radius: 30px;
+            background: #f87060;
+            color: #fff;
+            border: 1px solid rgb(249, 249, 249);
+            font-size: 16px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.8s ease, background 0.8s ease, transform 0.8s ease;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .second-page-main .divs1-2 button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 100%;
+            background: rgb(36, 34, 34);
+            transition: width 0.8s ease, left 0.8s ease;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+
+        .second-page-main .divs1-2 button:hover::before {
+            width: 200%;
+            left: 50%;
+        }
+
+        .second-page-main .divs1-2 button:hover {
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .second-page-main .divs1-2 button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            border: 2px solid transparent;
+            z-index: -2;
+        }
+
+        .second-page-main .divs1:hover {
+            background: linear-gradient(to left, #0f2842, #163b6f);
+            color: white;
+            border-radius: 6px;
+        }
+
+        .second-page-main .divs1:hover i {
+            color: white;
+        }
+
+        .second-page-main .divs1:hover h1 {
+            color: white;
+        }
+
+        .second-page-main .divs1:hover button {
+            color: white;
+            border: 1px solid white;
+        }
+
+
+
+        .tables {
+            margin-top: 20px;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 576px) {
+            .second-page-main {
+                margin-top: 18%;
+                height: 98vh;
+                
+
+            }
+
+            .second-page-main .divs1 {
+                flex-direction: column;
+
+            }
+
+            .second-page-main .divs1-1 i {
+                font-size: 2rem;
+                margin: 0;
+            }
+
+            .second-page-main .divs1-2 h1 {
+                font-size: 1.1rem;
+                font-size: 1rem;
+
+            }
+
+            .second-page-main .divs1-2 {
+                margin-top: 5%;
+            }
+
+            .second-page-main .divs1-2 button {
+                padding: 4px 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 768px) {
+            .second-page-main .divs1-1 i {
+                font-size: 2.5rem;
+            }
+
+            .second-page-main .divs1-2 h1 {
+                font-size: 1.2rem;
+            }
+
+            .second-page-main .divs1-2 button {
+                padding: 5px 9px;
+                font-size: 1rem;
+            }
+        }
+
+
+
+
+
+
+
+ .product-section {
+            padding: 60px 0;
+
+        }
+        
+      .product-section  .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-align: left;
+            position: relative;
+        }
+        
+        
+        
+      .product-section     .product-card_1 {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(57, 57, 57, 0.08);
+            transition: all 0.3s ease;
+            height: 28vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-section   .product-card_1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-section .product-card_1   .product-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+        }
+        
+        .product-section .product-card_1  .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+       .product-section    .product-card_1:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+       .product-section    .click-more-tag {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            background: #f44336;
+            color: white;
+            padding: 3.5px 12px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+       .product-section    .product-content {
+            padding: 10px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+       .product-section    .product-name {
+            font-size: 1rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 600;
+            color: #5b5b5b;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+        
+        /* Bootstrap responsive adjustments */
+        @media (max-width: 575.98px) {
+           .product-section    .section-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+           .product-section    .product-image {
+                height: 140px;
+            }
+            
+            .product-section   .product-content {
+                padding: 15px;
+            }
+            
+           .product-section    .product-name {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+            
+          .product-section     .click-more-tag {
+                padding: 4px 12px;
+                font-size: 0.65rem;
+                top: 8px;
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+           .product-section    .product-image {
+                height: 160px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+           .product-section    .product-image {
+                height: 170px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+          .product-section     .product-image {
+                height: 180px;
+            }
+        }
+        
+        /* Custom spacing */
+         .product-section  .row > * {
+            margin-bottom: 25px;
+        }
+        
+        @media (max-width: 575.98px) {
+          .product-section     .row > * {
+                margin-bottom: 20px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            .main-footer {
+            background-color: #020215;
+            color: #ffffff;
+            padding: 50px 0 0 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-section {
+            margin-bottom: 40px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(135deg, #ff6b35, #f87060);
+            border-radius: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #f87060;
+            text-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #f87060;
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        .app-download {
+            margin-top: 20px;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .app-store-btn img {
+            height: 45px;
+            width: auto;
+            transition: filter 0.3s ease;
+        }
+
+        .app-store-btn:hover img {
+            filter: brightness(1.1);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #333333;
+            color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b35, #f87060);
+            transition: left 0.3s ease;
+            z-index: 1;
+        }
+
+        .social-icon:hover::before {
+            left: 0;
+        }
+
+        .social-icon i {
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            color: #f87060;
+            margin-right: 12px;
+            font-size: 16px;
+            width: 20px;
+        }
+
+        .contact-item span {
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            background: #333333;
+            border: 1px solid #555555;
+            color: #ffffff;
+            padding: 12px 15px;
+            border-radius: 25px;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #f87060;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+            background: #444444;
+        }
+
+        .newsletter-input::placeholder {
+            color: #999999;
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(135deg, #f87060, #f87060);
+            border: none;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, #f87060, #f87060);
+        }
+
+        .footer-bottom {
+            background: #020215;
+            padding: 25px 0;
+            margin-top: 30px;
+            border-top: 1px solid #333333;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            color: #999999;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .payment-methods {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .payment-icon {
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .payment-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .payment-icon img {
+            height: 20px;
+            width: auto;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ffffff5b, #ffffff6e);
+            color: #0000;
+            width: 50px;
+            box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.26);
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .main-footer {
+                padding: 30px 0 0 0;
+            }
+
+            .footer-section {
+                margin-bottom: 30px;
+            }
+
+            .footer-title {
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+
+            .footer-links a {
+                font-size: 13px;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            .app-store-btn img {
+                height: 40px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .payment-methods {
+                justify-content: center;
+            }
+
+            .newsletter-input,
+            .newsletter-btn {
+                font-size: 14px;
+            }
+        }
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<body style="font-family: 'Inter', sans-serif; background: #f8fafc;">
+
+
+
+    <div class="main-navbar sticky-top">
+        <div class="top-navbar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-2 d-none d-md-block">
+                        <h5 class="brand-name">ShopMart</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <form role="search">
+                            <div class="input-group">
+                                <input type="search" placeholder="Search for products, brands and more..."
+                                    class="form-control" />
+                                <button class="btn bg-white" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="nav justify-content-end align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Cart
+                                    <span class="cart-count">3</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa fa-heart"></i>
+                                    Wishlist
+                                    <span class="wishlist-count">8</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-bag"></i>My
+                                            Orders</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i>My Wishlist</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-credit-card"></i>Payment
+                                            Methods</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-map-marker"></i>Addresses</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog"></i>Account Settings</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-question-circle"></i>Help &
+                                            Support</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Sign Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-block d-md-none" href="#" style="color: #4f46e5; font-weight: 700;">
+                    ShopMart
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-home me-1"></i>Home</a>
+                        </li>
+                        <li class="nav-item dropdown categories-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-th-large me-1"></i>Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <h6 class="dropdown-header" style="color: #f87060; font-weight: 600;">Electronics
+                                    </h6>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Smartphones & Tablets</a></li>
+                                <li><a class="dropdown-item" href="#">Laptops & Computers</a></li>
+                                <li><a class="dropdown-item" href="#">Audio & Headphones</a></li>
+                                <li><a class="dropdown-item" href="#">Cameras & Photography</a></li>
+                                <li><a class="dropdown-item" href="#">Gaming & Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">Smart Home & IoT</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <h6 class="dropdown-header" style="color: #f87060; font-weight: 600;">Fashion</h6>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Men's Clothing</a></li>
+                                <li><a class="dropdown-item" href="#">Women's Clothing</a></li>
+                                <li><a class="dropdown-item" href="#">Kids & Baby</a></li>
+                                <li><a class="dropdown-item" href="#">Shoes & Footwear</a></li>
+                                <li><a class="dropdown-item" href="#">Bags & Luggage</a></li>
+                                <li><a class="dropdown-item" href="#">Jewelry & Watches</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <h6 class="dropdown-header" style="color: #f87060; font-weight: 600;">Home & Living
+                                    </h6>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Furniture & Decor</a></li>
+                                <li><a class="dropdown-item" href="#">Kitchen & Dining</a></li>
+                                <li><a class="dropdown-item" href="#">Bedding & Bath</a></li>
+                                <li><a class="dropdown-item" href="#">Home Appliances</a></li>
+                                <li><a class="dropdown-item" href="#">Garden & Outdoor</a></li>
+                                <li><a class="dropdown-item" href="#">Storage & Organization</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <h6 class="dropdown-header" style="color: #f87060; font-weight: 600;">Sports &
+                                        Health</h6>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Fitness Equipment</a></li>
+                                <li><a class="dropdown-item" href="#">Sports & Outdoors</a></li>
+                                <li><a class="dropdown-item" href="#">Health & Personal Care</a></li>
+                                <li><a class="dropdown-item" href="#">Beauty & Cosmetics</a></li>
+                                <li><a class="dropdown-item" href="#">Supplements & Nutrition</a></li>
+                                <li><a class="dropdown-item" href="#">Medical Supplies</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-star me-1"></i>Deals
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Today's Deals</a></li>
+                                <li><a class="dropdown-item" href="#">Flash Sales</a></li>
+                                <li><a class="dropdown-item" href="#">Weekly Offers</a></li>
+                                <li><a class="dropdown-item" href="#">Clearance Sale</a></li>
+                                <li><a class="dropdown-item" href="#">Bundle Deals</a></li>
+                                <li><a class="dropdown-item" href="#">Seasonal Sale</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-bolt me-1"></i>New Arrivals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-fire me-1"></i>Trending</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-tags me-1"></i>Brands
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Apple</a></li>
+                                <li><a class="dropdown-item" href="#">Samsung</a></li>
+                                <li><a class="dropdown-item" href="#">Nike</a></li>
+                                <li><a class="dropdown-item" href="#">Adidas</a></li>
+                                <li><a class="dropdown-item" href="#">Sony</a></li>
+                                <li><a class="dropdown-item" href="#">LG</a></li>
+                                <li><a class="dropdown-item" href="#">All Brands</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-headphones me-1"></i>Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel"
+                    data-bs-interval="5000">
+                    <!-- Indicators with Progress Animation -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+                    </div>
+
+                    <!-- Carousel Items -->
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <!-- Desktop Image -->
+                            <div class="desktop-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+                            <!-- Mobile Image -->
+                            <div class="mobile-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+
+                            <div class="carousel-content">
+                                <h2>Summer Sale 2024</h2>
+                                <p>Get up to 70% off on electronics, fashion, and home appliances. Limited time offer!
+                                </p>
+                                <a href="#" class="carousel-btn">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <!-- Desktop Image -->
+                            <div class="desktop-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=2126&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+                            <!-- Mobile Image -->
+                            <div class="mobile-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+
+                            <div class="carousel-content">
+                                <h2>New Arrivals</h2>
+                                <p>Discover the latest trends in fashion, technology, and lifestyle products.</p>
+                                <a href="#" class="carousel-btn">Explore</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <!-- Desktop Image -->
+                            <div class="desktop-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1559134584-48f1aeebdca5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+                            <!-- Mobile Image -->
+                            <div class="mobile-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+
+                            <div class="carousel-content">
+                                <h2>Smart Technology</h2>
+                                <p>Upgrade your lifestyle with cutting-edge gadgets and smart home solutions.</p>
+                                <a href="#" class="carousel-btn">Learn More</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="carousel-item">
+                            <!-- Desktop Image -->
+                            <div class="desktop-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+                            <!-- Mobile Image -->
+                            <div class="mobile-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+
+                            <div class="carousel-content">
+                                <h2>Fashion Forward</h2>
+                                <p>Step into the season with our exclusive collection of trendy outfits and accessories.
+                                </p>
+                                <a href="#" class="carousel-btn">Shop Fashion</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="carousel-item">
+                            <!-- Desktop Image -->
+                            <div class="desktop-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+                            <!-- Mobile Image -->
+                            <div class="mobile-image"
+                                style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 40vh; background-size: cover; background-position: center;">
+                            </div>
+
+                            <div class="carousel-content">
+                                <h2>Home & Living</h2>
+                                <p>Transform your space with our beautiful collection of furniture and home decor.</p>
+                                <a href="#" class="carousel-btn">Decorate Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="container mt-3">
+        <div class="row page-features">
+            <div class="col-md-3 feature-sub">
+                <img src="images/replace-logo.svg" alt="">
+                <h3><span>7 day </span>Replacement</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/free-delivery.svg" alt="">
+                <h3><span>Free </span>Delivery</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/year.svg" alt="">
+                <h3><span>1 year </span>Warranty</h3>
+            </div>
+            <div class="col-md-3 feature-sub">
+                <img src="images/gst.svg" alt="">
+                <h3><span>GST </span>Billing</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <section class="product-section">
+        <div class="container">
+            <h2 class="section-title">Categories</h2>
+            
+            <div class="row d-flex justify-content-center">
+                <!-- Phone -->
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="product-card_1">
+                        <div class="product-image">
+                            <img src="https://static.vecteezy.com/system/resources/previews/022/722/945/large_2x/samsung-galaxy-s23-ultra-transparent-image-free-png.png" alt="Phone">
+                            <div class="click-more-tag">Click for more</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Phone</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phone Case -->
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="product-card_1">
+                        <div class="product-image">
+                            <img src="https://images.samsung.com/is/image/samsung/p6pim/ie/2302/gallery/ie-galaxy-s23-ultra-rugged-gadget-case-ef-rs918-ef-rs918cbegww-534927783?$650_519_PNG$" alt="Phone Case">
+                            <div class="click-more-tag">Click for more</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Phone Case</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Charger -->
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="product-card_1">
+                        <div class="product-image">
+                            <img src="https://graficsea.com/wp-content/uploads/2024/05/1st-Copy-Samsung-Mobile-Charger-PNG-Image-.png" alt="Mobile Charger">
+                            <div class="click-more-tag">Click for more</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Mobile Charger</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phone Screen Guard -->
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="product-card_1">
+                        <div class="product-image">
+                            <img src="https://png.pngtree.com/png-vector/20240309/ourmid/pngtree-glass-screen-protector-png-image_11898926.png" alt="Phone Screen Guard">
+                            <div class="click-more-tag">Click for more</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Phone Screen Guard</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Power Banks -->
+                <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="product-card_1">
+                        <div class="product-image">
+                            <img src="https://png.pngtree.com/png-vector/20240611/ourmid/pngtree-black-power-bank-on-a-table-convenient-portable-phone-charger-png-image_12707735.png" alt="Power Banks">
+                            <div class="click-more-tag">Click for more</div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-name">Power Banks</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+       <div class="container mt-4">
+         <h2 class="section-title mt-5" >Features</h2>
+    </div>
+
+
+      <div class="container-fluid second-page-main">
+        <div class="row tables">
+            <div class="col-12 col-md-6 mb-3">
+                <div class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>Premium Audio Products</h1>
+                        <a href=""><button>Check Products</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div id="bck-set" class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>We are here to answer your Questions</h1>
+                        <a href=""><button>Send Request </button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-user-lock"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>Secure Shopping Experience</h1>
+                        <a href=""><button>Learn more</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div id="bck-set" class="divs1">
+                    <div class="divs1-1">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="divs1-2">
+                        <h1>User-Friendly Shopping Experience</h1>
+                        <a href=""><button>Reviews</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+     <div class="brands-section">
+        <h2 class="section-title mt-5">Shop by Brands</h2>
+
+        <div class="carousel-wrapper">
+            <button class="nav-btn prev-btn" onclick="prevSlide()">‹</button>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel">
+                    <div class="brand-card">
+                        <img src="https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png" alt="Apple"
+                            class="brand-logo">
+                        <div class="brand-name">Apple</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://www.freepnglogos.com/uploads/xiaomi-png/xiaomi-logo-logos-marcas-8.png"
+                            alt="Samsung" class="brand-logo">
+                        <div class="brand-name">Samsung</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://www.freepnglogos.com/uploads/samsung-smarttv-logo-11.png" alt="Xiaomi"
+                            class="brand-logo">
+                        <div class="brand-name">Xiaomi</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://th.bing.com/th/id/R.4aa108082e7d3cbd55add79f84612aaa?rik=I4dbPhSe%2fbHHSg&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png&ehk=ewmaCOvP0Ji4QViEJnxSdlrYUrTSTWhi8nZ9XdyCgAI%3d&risl=&pid=ImgRaw&r=0"
+                            alt="Google" class="brand-logo">
+                        <div class="brand-name">Google</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/09/Nokia-Logo.png" alt="OnePlus"
+                            class="brand-logo">
+                        <div class="brand-name">OnePlus</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://1000logos.net/wp-content/uploads/2022/11/OnePlus-Emblem.png" alt="Nokia"
+                            class="brand-logo">
+                        <div class="brand-name">Nokia</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://static.vecteezy.com/system/resources/previews/019/956/212/original/realme-transparent-realme-free-free-png.png"
+                            alt="Huawei" class="brand-logo">
+                        <div class="brand-name">Huawei</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://download.logo.wine/logo/Oppo/Oppo-Logo.wine.png" alt="Oppo"
+                            class="brand-logo">
+                        <div class="brand-name">Oppo</div>
+                    </div>
+
+                    <div class="brand-card">
+                        <img src="https://bootflare.com/wp-content/uploads/2023/02/Vivo-Logo.png" alt="Vivo"
+                            class="brand-logo">
+                        <div class="brand-name">Vivo</div>
+                    </div>
+
+                  
+                    
+                </div>
+            </div>
+
+            <button class="nav-btn next-btn" onclick="nextSlide()">›</button>
+        </div>
+    </div>
+
+
+
+  
+     <div class="products-section">
+        <div class="container-fluid" style="width: 90%; margin: 0 auto; position: relative;">
+            <div class="scroll-indicator" id="scrollIndicator">
+                <i class="fas fa-arrows-alt-h"></i>
+                Auto-scrolling...
+            </div>
+
+            <h2 class="section-title">Featured Products</h2>
+
+            <div class="products-scroll" id="productsContainer">
+                <div class="products-row">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop"
+                                alt="iPhone 15 Pro" class="product-image">
+                            <div class="offer-badge">25% OFF</div>
+                        
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">iPhone 15 Pro Max</h3>
+                            <p class="product-description">Latest flagship smartphone with titanium design, A17 Pro
+                                chip, and advanced camera system.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-box stock-icon"></i>
+                                <span class="stock-text">12 items in stock</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹89,999</span>
+                                <span class="real-price">₹1,19,999</span>
+                                <!-- <span class="discount-percent">25% OFF</span> -->
+                            </div>
+                            <button class="btn add-to-cart-btn">
+                                <i class="fas fa-shopping-cart btn-icon"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop"
+                                alt="Samsung Galaxy S24" class="product-image">
+                            <div class="offer-badge">30% OFF</div>
+                         
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Samsung Galaxy S24 Ultra</h3>
+                            <p class="product-description">Premium Android flagship with S Pen, 200MP camera, and
+                                AI-powered features.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-box stock-icon"></i>
+                                <span class="stock-text">8 items in stock</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹69,999</span>
+                                <span class="real-price">₹99,999</span>
+                                <!-- <span class="discount-percent">30% OFF</span> -->
+                            </div>
+                            <button class="btn add-to-cart-btn">
+                                <i class="fas fa-cart-plus btn-icon"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=300&fit=crop"
+                                alt="MacBook Pro" class="product-image">
+                            <div class="offer-badge">15% OFF</div>
+                         
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">MacBook Pro 14" M3</h3>
+                            <p class="product-description">Professional laptop with M3 chip, Liquid Retina XDR display,
+                                and all-day battery life.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-exclamation-triangle stock-icon" style="color: #d97706;"></i>
+                                <span class="stock-text low-stock">Only 3 items left</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹1,69,999</span>
+                                <span class="real-price">₹1,99,999</span>
+                                <!-- <span class="discount-percent">15% OFF</span> -->
+                            </div>
+                            <button class="btn add-to-cart-btn">
+                                <i class="fas fa-shopping-bag btn-icon"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=300&fit=crop"
+                                alt="Smart Watch" class="product-image">
+                            <div class="offer-badge">45% OFF</div>
+                   
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Apple Watch Series 9</h3>
+                            <p class="product-description">Advanced health monitoring, fitness tracking, and seamless
+                                iPhone integration.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-times-circle stock-icon" style="color: #dc2626;"></i>
+                                <span class="stock-text out-of-stock">Currently out of stock</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹21,999</span>
+                                <span class="real-price">₹39,999</span>
+                                <!-- <span class="discount-percent">45% OFF</span> -->
+                            </div>
+                            <button class="btn add-to-cart-btn" disabled>
+                                <i class="fas fa-bell btn-icon"></i>
+                                Notify Me
+                            </button>
+                        </div>
+                    </div>
+
+                      <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop"
+                                alt="Samsung Galaxy S24" class="product-image">
+                            <div class="offer-badge">30% OFF</div>
+                         
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Samsung Galaxy S24 Ultra</h3>
+                            <p class="product-description">Premium Android flagship with S Pen, 200MP camera, and
+                                AI-powered features.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-box stock-icon"></i>
+                                <span class="stock-text">8 items in stock</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹69,999</span>
+                                <span class="real-price">₹99,999</span>
+                                <!-- <span class="discount-percent">30% OFF</span> -->
+                            </div>
+                            <button class="btn add-to-cart-btn">
+                                <i class="fas fa-cart-plus btn-icon"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                      <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=300&fit=crop"
+                                alt="Samsung Galaxy S24" class="product-image">
+                            <div class="offer-badge">30% OFF</div>
+                         
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Samsung Galaxy S24 Ultra</h3>
+                            <p class="product-description">Premium Android flagship with S Pen, 200MP camera, and
+                                AI-powered features.</p>
+                            <div class="stock-info">
+                                <i class="fas fa-box stock-icon"></i>
+                                <span class="stock-text">8 items in stock</span>
+                            </div>
+                            <div class="price-container">
+                                <span class="offer-price">₹69,999</span>
+                                <span class="real-price">₹99,999</span>
+                                <span class="discount-percent">30% OFF</span>
+                            </div>
+                            <button class="btn add-to-cart-btn">
+                                <i class="fas fa-cart-plus btn-icon"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h4 class="footer-title">About</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Wholesale</a></li>
+                            <li><a href="#">Corporate Information</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Help Section -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Help</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Payments</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Cancellation & Returns</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Report Infringement</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Policy Section -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Policy</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">Terms Of Use</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">EPR Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Connect Section -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-section">
+                        <h4 class="footer-title">Connect</h4>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>1800-XXX-XXXX</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>support@yourstore.com</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+
+                        <!-- Newsletter -->
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email">
+                            <button class="newsletter-btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Download Section -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="app-download">
+                        <h5 class="footer-title">Download Our App</h5>
+                        <a href="#" class="app-store-btn">
+                            <img src="https://www.pngall.com/wp-content/uploads/10/Google-Play-PNG-Clipart.png" alt="Google Play">
+                        </a>
+                        <a href="#" class="app-store-btn">
+                            <img src="https://www.pngall.com/wp-content/uploads/15/App-Store-Logo-PNG-Free-Image.png" alt="App Store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2024 YourStore.com. All rights reserved.</p>
+                    <div class="payment-methods">
+                        <div class="payment-icon">
+                            <img src="https://www.freepnglogos.com/uploads/visa-hd-transparent-logo-6.6125175268389285" alt="Visa">
+                        </div>
+                        <div class="payment-icon">
+                            <img src="https://s3.amazonaws.com/freebiesupply/large/2x/mastercard-logo-png-transparent.png" alt="Mastercard">
+                        </div>
+                        <div class="payment-icon">
+                            <img src="https://pngimg.com/uploads/paypal/paypal_PNG9.png" alt="PayPal">
+                        </div>
+                        <div class="payment-icon">
+                            <img src="https://latestlogo.com/wp-content/uploads/2024/03/upi-logo.png" alt="UPI">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i style="color: #000;" class="fa-solid fa-chevron-up"></i>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+ <script>
+      // Footer functionality JavaScript
+// File: footer.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Get viewport height
+    const viewportHeight = window.innerHeight;
+    
+    // Back to top functionality - Show only after scrolling more than 100vh
+    window.addEventListener('scroll', function() {
+        const backToTop = document.getElementById('backToTop');
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        
+        // Show button only after scrolling more than 100vh (viewport height)
+        if (scrollPosition > viewportHeight) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll to top when back-to-top button is clicked
+    document.getElementById('backToTop').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Newsletter form submission
+    const newsletterBtn = document.querySelector('.newsletter-btn');
+    const newsletterInput = document.querySelector('.newsletter-input');
+    
+    if (newsletterBtn && newsletterInput) {
+        newsletterBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = newsletterInput.value.trim();
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && emailRegex.test(email)) {
+                // Success message
+                alert('Thank you for subscribing to our newsletter!');
+                newsletterInput.value = '';
+                
+                // Optional: Add visual feedback
+                newsletterBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                newsletterBtn.textContent = 'Subscribed!';
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    newsletterBtn.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
+                    newsletterBtn.textContent = 'Subscribe';
+                }, 2000);
+                
+            } else if (email && !emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                newsletterInput.focus();
+            } else {
+                alert('Please enter your email address.');
+                newsletterInput.focus();
+            }
+        });
+        
+        // Allow form submission on Enter key
+        newsletterInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                newsletterBtn.click();
+            }
+        });
+    }
+
+    // Social media link click tracking (optional)
+    const socialIcons = document.querySelectorAll('.social-icon');
+    socialIcons.forEach(icon => {
+        icon.addEventListener('click', function(e) {
+            e.preventDefault();
+            const platform = this.querySelector('i').classList[1].split('-')[1];
+            console.log(`Social media click: ${platform}`);
+            // You can add analytics tracking here
+        });
+    });
+
+    // Smooth scrolling for internal links (if any)
+    const footerLinks = document.querySelectorAll('.footer-links a[href^="#"]');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Handle window resize for viewport height recalculation
+    window.addEventListener('resize', function() {
+        // Update viewport height on resize (for mobile orientation changes)
+        const newViewportHeight = window.innerHeight;
+        // You can use newViewportHeight if needed for dynamic updates
+    });
+
+    // Optional: Add fade-in animation when footer comes into view
+    const footer = document.querySelector('.main-footer');
+    if (footer) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const footerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Set initial state
+        footer.style.opacity = '0';
+        footer.style.transform = 'translateY(30px)';
+        footer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+        footerObserver.observe(footer);
+    }
+});
+
+// Optional: Debounce function for scroll performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+    </script>
+
+
+     <script>
+        let autoScrollInterval;
+        let isAutoScrolling = true;
+        let userInteracted = false;
+
+        const container = document.getElementById('productsContainer');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+
+        // Calculate scroll amount based on screen size
+        function getScrollAmount() {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                return Math.min(window.innerWidth * 0.8, 320) + 16; // card width + gap
+            }
+            return 300; // desktop card width + gap
+        }
+
+        // Start automatic scrolling
+        function startAutoScroll() {
+            if (autoScrollInterval) return;
+
+            scrollIndicator.classList.add('visible');
+
+            autoScrollInterval = setInterval(() => {
+                if (!userInteracted) {
+                    const scrollAmount = getScrollAmount();
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+
+                    if (container.scrollLeft >= maxScroll) {
+                        // Reset to beginning with smooth transition
+                        container.scrollLeft = 0;
+                    } else {
+                        container.scrollLeft += scrollAmount;
+                    }
+                }
+            }, 3500); // Scroll every 3.5 seconds
+        }
+
+        // Stop automatic scrolling
+        function stopAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+            scrollIndicator.classList.remove('visible');
+        }
+
+        // Handle user interaction
+        function handleUserInteraction() {
+            userInteracted = true;
+            stopAutoScroll();
+
+            // Resume auto-scroll after 5 seconds of no interaction
+            setTimeout(() => {
+                if (userInteracted) {
+                    userInteracted = false;
+                    startAutoScroll();
+                }
+            }, 5000);
+        }
+
+        // Event listeners for user interaction
+        container.addEventListener('scroll', handleUserInteraction);
+        container.addEventListener('touchstart', handleUserInteraction);
+        container.addEventListener('mousedown', handleUserInteraction);
+        container.addEventListener('wheel', handleUserInteraction);
+
+        // Prevent auto-scroll during hover
+        container.addEventListener('mouseenter', () => {
+            userInteracted = true;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                if (userInteracted) {
+                    userInteracted = false;
+                    if (!autoScrollInterval) {
+                        startAutoScroll();
+                    }
+                }
+            }, 1000);
+        });
+
+        // Responsive card width adjustment
+        function adjustCardWidth() {
+            const cards = document.querySelectorAll('.product-card');
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                const cardWidth = Math.min(window.innerWidth * 0.8, 320);
+                cards.forEach(card => {
+                    card.style.width = cardWidth + 'px';
+                });
+            } else {
+                cards.forEach(card => {
+                    card.style.width = '280px';
+                });
+            }
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            adjustCardWidth();
+            // Start auto-scroll after 2 seconds
+            setTimeout(startAutoScroll, 2000);
+        });
+
+        window.addEventListener('resize', adjustCardWidth);
+
+        // Handle visibility change (pause when tab is not active)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoScroll();
+            } else if (!userInteracted) {
+                setTimeout(startAutoScroll, 1000);
+            }
+        });
+    </script>
+
+
+
+
+
+<script>
+    const track = document.getElementById('carousel');
+    const brandCards = document.querySelectorAll('.brand-card');
+    const cardWidth = brandCards[0].offsetWidth + 15; // Card width + gap
+    let currentIndex = 0;
+    const visibleCards = Math.floor(document.querySelector('.carousel-container').offsetWidth / cardWidth);
+    const totalCards = brandCards.length;
+
+    function updateCarousel() {
+        const offset = currentIndex * cardWidth;
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function nextSlide() {
+        if (currentIndex < totalCards - visibleCards) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to start
+        }
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalCards - visibleCards; // Loop to end
+        }
+        updateCarousel();
+    }
+
+    // Auto-scroll every 3 seconds
+    let autoScroll = setInterval(nextSlide, 3000);
+
+    // Pause auto-scroll on hover
+    const carouselWrapper = document.querySelector('.carousel-wrapper');
+    carouselWrapper.addEventListener('mouseenter', () => clearInterval(autoScroll));
+    carouselWrapper.addEventListener('mouseleave', () => {
+        autoScroll = setInterval(nextSlide, 3000);
+    });
+
+    // Recalculate visibleCards on window resize (responsive support)
+    window.addEventListener('resize', () => {
+        clearInterval(autoScroll);
+        location.reload(); // Simple way to re-calculate layout for now
+    });
+</script>
+
+
+
+
+
+
+    <script>
+        // Custom JavaScript for Enhanced Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.getElementById('heroCarousel');
+            const indicators = carousel.querySelectorAll('.carousel-indicators button');
+            let currentSlide = 0;
+
+            // Function to reset and start progress animation
+            function resetProgressAnimation() {
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                indicators[currentSlide].classList.add('active');
+            }
+
+            // Listen for slide events
+            carousel.addEventListener('slide.bs.carousel', function (e) {
+                currentSlide = e.to;
+                resetProgressAnimation();
+            });
+
+            // Handle manual indicator clicks
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function () {
+                    currentSlide = index;
+                    resetProgressAnimation();
+                });
+            });
+
+            // Pause carousel on hover
+            carousel.addEventListener('mouseenter', function () {
+                bootstrap.Carousel.getInstance(carousel).pause();
+            });
+
+            // Resume carousel when mouse leaves
+            carousel.addEventListener('mouseleave', function () {
+                bootstrap.Carousel.getInstance(carousel).cycle();
+            });
+
+            // Initialize progress animation for first slide
+            resetProgressAnimation();
+        });
+    </script>
+
+
+
+
+
+<script>
+        let lastScrollTop = 0;
+        let scrollThreshold = 100;
+        const navbar = document.querySelector('.main-navbar');
+
+        window.addEventListener('scroll', function () {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (Math.abs(currentScrollTop - lastScrollTop) > scrollThreshold) {
+
+                if (currentScrollTop > lastScrollTop && currentScrollTop > 200) {
+                    navbar.classList.add('hide-top');
+                } else {
+                    navbar.classList.remove('hide-top');
+                }
+
+                lastScrollTop = currentScrollTop;
+            }
+        });
+
+        window.addEventListener('scroll', function () {
+            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScrollTop === 0) {
+                navbar.classList.remove('hide-top');
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>
